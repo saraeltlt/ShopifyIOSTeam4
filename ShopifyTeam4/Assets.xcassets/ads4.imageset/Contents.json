@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "spring-sale-banner,summer-sale-banner-design-template-5f62591bfad2ec437307e88bc0cc6752_screen.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

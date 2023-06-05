@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdvertisementsCell" id="gTV-IL-0wX" customClass="AdvertisementsViewCell" customModule="ShopifyTeam4" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="615" height="474"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="615" height="474"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BbC-wq-lXh">
+                        <rect key="frame" x="0.0" y="59" width="615" height="381"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abJ-Jd-UvW">
+                                <rect key="frame" x="0.0" y="0.0" width="615" height="381"/>
+                                <color key="backgroundColor" name="green"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="green"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="abJ-Jd-UvW" secondAttribute="bottom" id="0ne-Nr-q2E"/>
+                            <constraint firstAttribute="trailing" secondItem="abJ-Jd-UvW" secondAttribute="trailing" id="AKS-DZ-lZY"/>
+                            <constraint firstItem="abJ-Jd-UvW" firstAttribute="top" secondItem="BbC-wq-lXh" secondAttribute="top" id="bAV-1D-AVT"/>
+                            <constraint firstItem="abJ-Jd-UvW" firstAttribute="leading" secondItem="BbC-wq-lXh" secondAttribute="leading" id="dr2-XH-jeE"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="BbC-wq-lXh" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="5Vn-g8-QCo"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="BbC-wq-lXh" secondAttribute="trailing" id="VUs-gI-zfr"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="BbC-wq-lXh" secondAttribute="bottom" id="tFq-Ky-5hV"/>
+                <constraint firstItem="BbC-wq-lXh" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="xsF-Ja-5Ps"/>
+            </constraints>
+            <size key="customSize" width="615" height="474"/>
+            <connections>
+                <outlet property="adsImage" destination="abJ-Jd-UvW" id="gSV-JO-gnx"/>
+                <outlet property="container" destination="BbC-wq-lXh" id="e7p-Fa-aNy"/>
+            </connections>
+            <point key="canvasLocation" x="332.06106870229007" y="138.02816901408451"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="green">
+            <color red="0.31499999761581421" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
