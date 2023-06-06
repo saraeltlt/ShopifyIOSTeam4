@@ -28,13 +28,23 @@ class CategoryViewController: UIViewController {
     }
     
     func setupButtons(){
-        let google = ActionButtonItem(title: "Beauty", image: UIImage(named: "test"))
-        google.action = { item in print("beauty") }
-        let twitter = ActionButtonItem(title: "Supermarket", image:  UIImage(named: "test"))
-        twitter.action = { item in print("Supermarket")  }
-        let facebook = ActionButtonItem(title: "Phones", image:  UIImage(named: "test"))
-        let linkedin = ActionButtonItem(title: "Gaming", image:  UIImage(named: "test"))
-        actionButton = ActionButton(attachedToView: self.view, items: [google, twitter, facebook, linkedin])
+        let beauty = ActionButtonItem(title: "Beauty", image: UIImage(named: "test"))
+        beauty.action = { [weak self] item in
+            self?.actionButton.toggleMenu()
+            print("beauty") }
+        let Supermarket = ActionButtonItem(title: "Supermarket", image:  UIImage(named: "test"))
+        Supermarket.action = { [weak self] item in
+            self?.actionButton.toggleMenu()
+            print("Supermarket")  }
+        let Phones = ActionButtonItem(title: "Phones", image:  UIImage(named: "test"))
+        Phones.action = { [weak self] item in
+            self?.actionButton.toggleMenu()
+            print("Phones")  }
+        let Gaming = ActionButtonItem(title: "Gaming", image:  UIImage(named: "test"))
+        Gaming.action = { [weak self] item in
+            self?.actionButton.toggleMenu()
+            print("Gaming")  }
+        actionButton = ActionButton(attachedToView: self.view, items: [beauty, Supermarket, Phones, Gaming])
         actionButton.setTitle("+", forState: UIControl.State())
         actionButton.backgroundColor = UIColor(named: "orange")!
         actionButton.action = { button in button.toggleMenu()}
