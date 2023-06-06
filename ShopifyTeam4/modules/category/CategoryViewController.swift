@@ -15,7 +15,7 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var categoryCollection: UICollectionView!
     var categoryArray:[Category]=[Category(title: "Men", image: UIImage(named: "test")!, isSelected: false),Category(title: "Women", image: UIImage(named: "test")!, isSelected: false),Category(title: "Kids", image: UIImage(named: "test")!, isSelected: false),Category(title: "Sale", image: UIImage(named: "test")!, isSelected: false)]
-    
+    var actionButton : ActionButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,21 @@ class CategoryViewController: UIViewController {
         self.container.layer.masksToBounds = true
         self.categoryCollection.register(UINib(nibName: K.CategoryViewCell, bundle: nil), forCellWithReuseIdentifier: K.CategoryViewCell)
         self.productsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
+       setupButtons()
         
+    }
+    
+    func setupButtons(){
+        let google = ActionButtonItem(title: "Beauty", image: UIImage(named: "test"))
+        google.action = { item in print("beauty") }
+        let twitter = ActionButtonItem(title: "Supermarket", image:  UIImage(named: "test"))
+        twitter.action = { item in print("Supermarket")  }
+        let facebook = ActionButtonItem(title: "Phones", image:  UIImage(named: "test"))
+        let linkedin = ActionButtonItem(title: "Gaming", image:  UIImage(named: "test"))
+        actionButton = ActionButton(attachedToView: self.view, items: [google, twitter, facebook, linkedin])
+        actionButton.setTitle("+", forState: UIControl.State())
+        actionButton.backgroundColor = UIColor(named: "orange")!
+        actionButton.action = { button in button.toggleMenu()}
     }
     
 
@@ -116,8 +130,14 @@ extension CategoryViewController:UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == categoryCollection {
+            self.changeSelectedCellBackground(index: indexPath.row)
+        }else {
 
-        self.changeSelectedCellBackground(index: indexPath.row)
+        }
+
+     
     }
     
     
