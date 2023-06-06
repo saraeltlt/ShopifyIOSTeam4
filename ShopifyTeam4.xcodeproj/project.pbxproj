@@ -43,6 +43,7 @@
 		A76790392A2EB49B002CEE8E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76790382A2EB49B002CEE8E /* Category.swift */; };
 		A77D01432A2D4DB1004632BE /* BrandViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77D01412A2D4DB1004632BE /* BrandViewCell.swift */; };
 		A77D01442A2D4DB1004632BE /* BrandViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A77D01422A2D4DB1004632BE /* BrandViewCell.xib */; };
+		A78043892A2F72CB00828390 /* BrandProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78043882A2F72CB00828390 /* BrandProductsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		A76790382A2EB49B002CEE8E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A77D01412A2D4DB1004632BE /* BrandViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewCell.swift; sourceTree = "<group>"; };
 		A77D01422A2D4DB1004632BE /* BrandViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandViewCell.xib; sourceTree = "<group>"; };
+		A78043882A2F72CB00828390 /* BrandProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductsViewController.swift; sourceTree = "<group>"; };
 		D3E4FD4D47ABDE5F104F3F09 /* Pods-ShopifyTeam4-ShopifyTeam4UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyTeam4-ShopifyTeam4UITests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyTeam4-ShopifyTeam4UITests/Pods-ShopifyTeam4-ShopifyTeam4UITests.release.xcconfig"; sourceTree = "<group>"; };
 		D82B044081D05DAE6894E45E /* Pods-ShopifyTeam4Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyTeam4Tests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyTeam4Tests/Pods-ShopifyTeam4Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F86F2E68F13DA48B2C1076F2 /* Pods_ShopifyTeam4_ShopifyTeam4UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyTeam4_ShopifyTeam4UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +238,7 @@
 				A71F910B2A2D193E0022102C /* AdvertisementsViewCell.xib */,
 				A77D01412A2D4DB1004632BE /* BrandViewCell.swift */,
 				A77D01422A2D4DB1004632BE /* BrandViewCell.xib */,
+				A78043882A2F72CB00828390 /* BrandProductsViewController.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				8F5C3AAA2A2E76D000B5D939 /* SignUpViewController.swift in Sources */,
 				A72831902A2BD04000A38B6A /* Observable.swift in Sources */,
 				A71F910C2A2D193E0022102C /* AdvertisementsViewCell.swift in Sources */,
+				A78043892A2F72CB00828390 /* BrandProductsViewController.swift in Sources */,
 				8F973BB12A2BC9D500B52879 /* SceneDelegate.swift in Sources */,
 				A72831922A2BD04400A38B6A /* Extensions.swift in Sources */,
 				8F5C3AAC2A2E771E00B5D939 /* LoginViewController.swift in Sources */,

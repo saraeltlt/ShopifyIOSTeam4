@@ -127,7 +127,15 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+      
+        
+            if collectionView == adsCollection {
+                print(indexPath.row)
+            }else {
+                let brandProducts = self.storyboard?.instantiateViewController(identifier: "brandProducts")
+                as! BrandProductsViewController
+                self.navigationController?.pushViewController(brandProducts, animated: true)
+            }
     }
     
 }
