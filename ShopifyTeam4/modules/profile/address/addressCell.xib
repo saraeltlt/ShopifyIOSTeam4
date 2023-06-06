@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="211" id="KGk-i7-Jjw" customClass="addressCell" customModule="ShopifyTeam4" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="571" height="211"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="571" height="211"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGF-VA-SZz">
+                        <rect key="frame" x="5" y="5" width="561" height="196"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-fc-MoW">
+                                <rect key="frame" x="0.0" y="0.0" width="561" height="196"/>
+                            </imageView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2B-kv-ICP">
+                                <rect key="frame" x="170.66666666666663" y="15" width="220" height="30"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="0.20003191208997309" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="BVe-xH-9df"/>
+                                    <constraint firstAttribute="height" constant="30" id="j8d-uU-WPe"/>
+                                </constraints>
+                                <color key="tintColor" red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="phone.bubble.left.fill" catalog="system" subtitle=" 01206425318" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61b-Ys-RXE">
+                                <rect key="frame" x="20" y="60" width="521" height="116"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" subtitle="Alecandria - Louran - Ahmed Aref" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F2B-kv-ICP" firstAttribute="centerX" secondItem="JOA-fc-MoW" secondAttribute="centerX" id="2Vi-dy-tEv"/>
+                            <constraint firstItem="61b-Ys-RXE" firstAttribute="top" secondItem="F2B-kv-ICP" secondAttribute="bottom" constant="15" id="63Q-Va-Gef"/>
+                            <constraint firstItem="61b-Ys-RXE" firstAttribute="leading" secondItem="oGF-VA-SZz" secondAttribute="leading" constant="20" id="7FR-RD-sNt"/>
+                            <constraint firstAttribute="bottom" secondItem="61b-Ys-RXE" secondAttribute="bottom" constant="20" id="9Jy-zc-uBv"/>
+                            <constraint firstItem="JOA-fc-MoW" firstAttribute="leading" secondItem="oGF-VA-SZz" secondAttribute="leading" id="AOK-lT-xgP"/>
+                            <constraint firstAttribute="bottom" secondItem="JOA-fc-MoW" secondAttribute="bottom" id="CVj-ML-eCq"/>
+                            <constraint firstItem="JOA-fc-MoW" firstAttribute="top" secondItem="oGF-VA-SZz" secondAttribute="top" id="LID-1E-cq0"/>
+                            <constraint firstAttribute="trailing" secondItem="JOA-fc-MoW" secondAttribute="trailing" id="YxF-hx-Lkb"/>
+                            <constraint firstItem="F2B-kv-ICP" firstAttribute="top" secondItem="oGF-VA-SZz" secondAttribute="top" constant="15" id="aae-ef-lvu"/>
+                            <constraint firstAttribute="trailing" secondItem="61b-Ys-RXE" secondAttribute="trailing" constant="20" id="abd-5Z-9pM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="oGF-VA-SZz" secondAttribute="trailing" constant="5" id="Ftx-g3-VsQ"/>
+                    <constraint firstItem="oGF-VA-SZz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Oqd-TQ-4Qr"/>
+                    <constraint firstItem="oGF-VA-SZz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="oh8-kB-z4i"/>
+                    <constraint firstAttribute="bottom" secondItem="oGF-VA-SZz" secondAttribute="bottom" constant="10" id="uSl-bf-YDT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="220.61068702290075" y="-235.56338028169014"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="map" width="2560" height="1744"/>
+        <image name="phone.bubble.left.fill" catalog="system" width="128" height="110"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

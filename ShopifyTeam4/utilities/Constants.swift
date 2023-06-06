@@ -11,4 +11,13 @@ struct K {
     static let cartImage = "cart"
     static let AdvertisementCellIdentifier = "AdvertisementsCell"
     static let brandCell = "brandCell"
+    static let ORDERS_CELL = "OrdersCell"
+    static let SETTINGS_CELL = "SettingsCell"
+    
+    //colors
+    static let orange = "orange"
+    static let lightOrange = "lightOrange"
+    static let paige = "paige"
+    static let green = "green"
+    static let lightGreen = "lightGreen"
 }
