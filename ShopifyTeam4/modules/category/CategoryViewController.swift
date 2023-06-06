@@ -19,7 +19,7 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.container.layer.cornerRadius = self.view.bounds.width * 0.03
+        self.container.layer.cornerRadius = self.view.bounds.width * 0.09
         self.container.layer.masksToBounds = true
         self.categoryCollection.register(UINib(nibName: K.CategoryViewCell, bundle: nil), forCellWithReuseIdentifier: K.CategoryViewCell)
         self.productsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
