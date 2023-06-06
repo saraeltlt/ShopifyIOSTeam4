@@ -74,6 +74,7 @@ extension CategoryViewController:UICollectionViewDelegate
             cell.innerContainer.layer.cornerRadius = self.productsCollection.bounds.width * 0.035
             cell.brandImage.image=UIImage(named: "test")
             cell.brandName.text="H&M"
+            cell.addToFavorite.isHidden = false
             return cell
             
         }

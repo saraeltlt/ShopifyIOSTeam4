@@ -14,6 +14,7 @@ class BrandViewCell: UICollectionViewCell {
         // Initialization code
     }
     
+    @IBOutlet weak var addToFavorite: UIButton!
     
     @IBOutlet weak var outerContainer: UIView!
     

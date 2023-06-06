@@ -29,10 +29,13 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TLH-VM-6Ln">
                                                 <rect key="frame" x="20" y="35" width="375" height="184"/>
-                                                <color key="backgroundColor" red="0.93755869560000005" green="1" blue="0.60502375819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Q-RZ-RRf">
-                                                <rect key="frame" x="364.33333333333331" y="1" width="50.666666666666686" height="34.333333333333336"/>
+                                                <rect key="frame" x="369.66666666666669" y="12" width="33.333333333333314" height="33.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="c8Q-RZ-RRf" secondAttribute="height" multiplier="1:1" id="zV9-OO-sUb"/>
+                                                </constraints>
                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
@@ -43,9 +46,9 @@
                                         <color key="backgroundColor" name="paige"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="TLH-VM-6Ln" secondAttribute="trailing" constant="20" id="3qA-Om-iLz"/>
-                                            <constraint firstItem="c8Q-RZ-RRf" firstAttribute="top" secondItem="Z6E-iV-gTZ" secondAttribute="top" constant="1" id="YQE-Gr-5NK"/>
+                                            <constraint firstItem="c8Q-RZ-RRf" firstAttribute="top" secondItem="Z6E-iV-gTZ" secondAttribute="top" constant="12" id="YQE-Gr-5NK"/>
                                             <constraint firstItem="TLH-VM-6Ln" firstAttribute="leading" secondItem="Z6E-iV-gTZ" secondAttribute="leading" constant="20" id="flM-Bk-hbI"/>
-                                            <constraint firstAttribute="trailing" secondItem="c8Q-RZ-RRf" secondAttribute="trailing" id="kSJ-la-vlQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="c8Q-RZ-RRf" secondAttribute="trailing" constant="12" id="kSJ-la-vlQ"/>
                                             <constraint firstItem="TLH-VM-6Ln" firstAttribute="top" secondItem="Z6E-iV-gTZ" secondAttribute="top" constant="35" id="rPw-hx-5Vd"/>
                                             <constraint firstAttribute="bottom" secondItem="TLH-VM-6Ln" secondAttribute="bottom" constant="20" id="vYg-ww-Nbi"/>
                                         </constraints>
@@ -61,6 +64,7 @@
                                 <constraints>
                                     <constraint firstItem="Z6E-iV-gTZ" firstAttribute="leading" secondItem="LRF-lO-tIl" secondAttribute="leading" constant="15" id="4Hp-0F-Ppk"/>
                                     <constraint firstAttribute="trailing" secondItem="Z6E-iV-gTZ" secondAttribute="trailing" constant="15" id="Dva-Yv-pdi"/>
+                                    <constraint firstItem="c8Q-RZ-RRf" firstAttribute="width" secondItem="LRF-lO-tIl" secondAttribute="width" multiplier="0.075" id="REg-nm-nCD"/>
                                     <constraint firstAttribute="bottom" secondItem="nl8-dT-reh" secondAttribute="bottom" constant="10" id="Rvz-0w-82B"/>
                                     <constraint firstAttribute="bottom" secondItem="Z6E-iV-gTZ" secondAttribute="bottom" constant="45" id="SKc-sS-SLY"/>
                                     <constraint firstItem="nl8-dT-reh" firstAttribute="width" secondItem="Z6E-iV-gTZ" secondAttribute="width" id="ayp-Vn-jJw"/>
@@ -88,6 +92,7 @@
             </constraints>
             <size key="customSize" width="445" height="408"/>
             <connections>
+                <outlet property="addToFavorite" destination="c8Q-RZ-RRf" id="LbG-H2-RTn"/>
                 <outlet property="brandImage" destination="TLH-VM-6Ln" id="5BG-3w-YaU"/>
                 <outlet property="brandName" destination="nl8-dT-reh" id="MJF-dF-kzp"/>
                 <outlet property="innerContainer" destination="Z6E-iV-gTZ" id="oWJ-oc-FPY"/>
