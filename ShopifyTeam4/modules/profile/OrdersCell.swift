@@ -21,9 +21,9 @@ class OrdersCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(){
-        dateLabel.text = "22 - 11 - 2022"
-        priceBtnText.setTitle("300 LE", for: .normal)
+    func configure(date:String,price:Int){
+        dateLabel.text = date
+        priceBtnText.setTitle("\(price)", for: .normal)
     }
 
     

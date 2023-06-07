@@ -905,17 +905,63 @@
                                     <segue destination="q13-k0-C5b" kind="show" id="l1o-Ou-H3X"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Payment Method:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1Y-bL-qhl">
+                                <rect key="frame" x="20" y="139" width="374" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Bgs-ku-99g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                <color key="textColor" name="orange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rU-uZ-Ibh">
+                                <rect key="frame" x="8" y="189" width="398" height="133"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14P-rJ-cPf">
+                                <rect key="frame" x="16" y="347" width="92" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="EVy-ST-jv4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="21"/>
+                                <color key="textColor" name="orange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter your coupon here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYc-w1-L9T">
+                                <rect key="frame" x="128" y="351" width="270" height="34"/>
+                                <color key="textColor" name="green"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-8u-Kzm">
+                                <rect key="frame" x="20" y="517" width="374" height="266"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dk7-fQ-fJo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Dk7-fQ-fJo" firstAttribute="trailing" secondItem="cb6-8u-Kzm" secondAttribute="trailing" constant="20" id="2T1-qz-twr"/>
+                            <constraint firstItem="c1Y-bL-qhl" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" constant="20" id="5ij-Pb-wSD"/>
+                            <constraint firstItem="Dk7-fQ-fJo" firstAttribute="trailing" secondItem="dYc-w1-L9T" secondAttribute="trailing" constant="16" id="BEO-0h-EEx"/>
                             <constraint firstItem="dzP-j9-aDs" firstAttribute="trailing" secondItem="Dk7-fQ-fJo" secondAttribute="trailing" id="BLD-Kr-JJU"/>
+                            <constraint firstItem="Dk7-fQ-fJo" firstAttribute="trailing" secondItem="c1Y-bL-qhl" secondAttribute="trailing" constant="20" id="Eu0-Nm-Lok"/>
+                            <constraint firstItem="5rU-uZ-Ibh" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" constant="8" id="IJg-UK-4iS"/>
                             <constraint firstItem="dzP-j9-aDs" firstAttribute="height" secondItem="hJP-AK-Vsi" secondAttribute="height" multiplier="0.13" id="KCy-c3-CTM"/>
+                            <constraint firstAttribute="trailing" secondItem="5rU-uZ-Ibh" secondAttribute="trailing" constant="8" id="KTl-r1-am8"/>
                             <constraint firstItem="dzP-j9-aDs" firstAttribute="top" secondItem="hJP-AK-Vsi" secondAttribute="top" id="PO9-fs-eSG"/>
+                            <constraint firstItem="5rU-uZ-Ibh" firstAttribute="top" secondItem="c1Y-bL-qhl" secondAttribute="bottom" constant="8" id="Vri-qD-ZKI"/>
                             <constraint firstItem="dzP-j9-aDs" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" id="WtV-KZ-ZHT"/>
+                            <constraint firstItem="14P-rJ-cPf" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" constant="16" id="XnR-rv-OfB"/>
+                            <constraint firstItem="5ui-wJ-viY" firstAttribute="top" secondItem="cb6-8u-Kzm" secondAttribute="bottom" constant="50" id="ZSg-oc-wxC"/>
+                            <constraint firstItem="14P-rJ-cPf" firstAttribute="top" secondItem="5rU-uZ-Ibh" secondAttribute="bottom" constant="25" id="bY5-iA-3fn"/>
                             <constraint firstItem="Dk7-fQ-fJo" firstAttribute="trailing" secondItem="5ui-wJ-viY" secondAttribute="trailing" constant="16" id="dkG-ee-bWZ"/>
                             <constraint firstItem="5ui-wJ-viY" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" constant="16" id="dqP-7I-wlZ"/>
+                            <constraint firstItem="dYc-w1-L9T" firstAttribute="centerY" secondItem="14P-rJ-cPf" secondAttribute="centerY" id="i1T-ZB-Jlf"/>
                             <constraint firstItem="5ui-wJ-viY" firstAttribute="bottom" secondItem="Dk7-fQ-fJo" secondAttribute="bottom" constant="-16" id="ipC-eo-xJX"/>
+                            <constraint firstItem="cb6-8u-Kzm" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" constant="20" id="nwC-cv-hFr"/>
+                            <constraint firstItem="cb6-8u-Kzm" firstAttribute="height" secondItem="hJP-AK-Vsi" secondAttribute="height" multiplier="0.3" id="p5g-d1-z5q"/>
+                            <constraint firstItem="dYc-w1-L9T" firstAttribute="leading" secondItem="14P-rJ-cPf" secondAttribute="trailing" constant="20" id="v9b-Nb-AiB"/>
+                            <constraint firstItem="c1Y-bL-qhl" firstAttribute="top" secondItem="dzP-j9-aDs" secondAttribute="bottom" constant="24" id="x3j-qW-wH1"/>
+                            <constraint firstItem="5rU-uZ-Ibh" firstAttribute="height" secondItem="hJP-AK-Vsi" secondAttribute="height" multiplier="0.15" id="yOh-25-z7W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nLw-QU-YqM">
@@ -924,7 +970,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33T-aK-MXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4128" y="521"/>
+            <point key="canvasLocation" x="4127.536231884058" y="520.98214285714289"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="jSa-Dx-YDY">
@@ -1083,6 +1129,7 @@ Your order has been successfully confirmed.</string>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="currency" width="128" height="128"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="payment" width="2000" height="2000"/>
         <image name="plus" width="128" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="green">

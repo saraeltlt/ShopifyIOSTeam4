@@ -15,6 +15,7 @@ class ShoppingCartCell: UITableViewCell {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     
+    @IBOutlet weak var itemCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,9 +26,9 @@ class ShoppingCartCell: UITableViewCell {
         
     }
     
-    func configure(){
-        productPrice.subtitleLabel?.text = "250 LE"
-        productNameLabel.text = "Bags"
+    func configure(name:String,price:Int,ImageUrl:String){
+        productPrice.subtitleLabel?.text = String(price)
+        productNameLabel.text = name
         productImage.image = UIImage(named: "test")
         
     
@@ -37,4 +38,16 @@ class ShoppingCartCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    @IBAction func addBtn(_ sender: UIButton) {
+      var itemCount = Int(itemCountLabel.text!)!
+        itemCount-=1
+        itemCountLabel.text = "\(itemCount)"
+        
+    }
+    
+    @IBAction func SubBtn(_ sender: UIButton) {
+        var itemCount = Int(itemCountLabel.text!)!
+        itemCount+=1
+          itemCountLabel.text = "\(itemCount)"
+    }
 }

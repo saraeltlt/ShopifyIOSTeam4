@@ -19,9 +19,9 @@ class addressCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    func configure(){
-        phoneNumber.subtitleLabel?.text = "012064253189"
-        addressDetails.subtitleLabel?.text = "Alexandrian - Smouha"
+    func configure(phoneNum:String, Address:String){
+        phoneNumber.subtitleLabel?.text = phoneNum
+        addressDetails.subtitleLabel?.text = Address
         
     }
     
