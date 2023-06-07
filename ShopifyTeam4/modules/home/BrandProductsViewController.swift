@@ -71,10 +71,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
         as! BrandViewCell
-        cell.outerContainer.layer.cornerRadius = self.productsCollection.bounds.width * 0.03
-        cell.innerContainer.layer.cornerRadius = self.productsCollection.bounds.width * 0.035
-        cell.brandImage.image=UIImage(named: "test")
-        cell.brandName.text="H&M"
+        cell.configureCell(title: "H&M", imageUrl: "test")
         cell.addToFavorite.isHidden = false
         return cell
     

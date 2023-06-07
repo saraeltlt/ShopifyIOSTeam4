@@ -95,10 +95,7 @@ extension CategoryViewController:UICollectionViewDelegate
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
             as! BrandViewCell
             cell.addToFavorite.isHidden = false
-            cell.outerContainer.layer.cornerRadius = self.productsCollection.bounds.width * 0.03
-            cell.innerContainer.layer.cornerRadius = self.productsCollection.bounds.width * 0.035
-            cell.brandImage.image=UIImage(named: "test")
-            cell.brandName.text="H&M"
+            cell.configureCell(title: "H&M", imageUrl: "test")
             cell.addToFavorite.tag=indexPath.row
             cell.addToFavorite.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell
@@ -109,8 +106,23 @@ extension CategoryViewController:UICollectionViewDelegate
     
     @objc func buttonTapped(_ sender: UIButton) {
         print("Button tapped in cell at  row \(sender.tag)")
+        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+         let initialSize = CGFloat(17)
+          let expandedSize = CGFloat(25)
+         UIView.animate(withDuration: 0.5, animations: {
+              let originalImage = sender.image(for: .normal)
+              let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
+              sender.setImage(expandedImage, for: .normal)
+              sender.layoutIfNeeded()
+          }) { _ in
+              UIView.animate(withDuration: 0.5, animations: {
+                  let originalImage = sender.image(for: .normal)
+                  let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
+                  sender.setImage(resizedImage, for: .normal)
+                  sender.layoutIfNeeded()
+              })
+          }
     }
-    
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

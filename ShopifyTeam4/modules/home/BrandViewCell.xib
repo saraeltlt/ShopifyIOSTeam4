@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,24 +30,11 @@
                                                 <rect key="frame" x="20" y="35" width="931" height="594"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Q-RZ-RRf">
-                                                <rect key="frame" x="884" y="12" width="75" height="75"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="c8Q-RZ-RRf" secondAttribute="height" multiplier="1:1" id="zV9-OO-sUb"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="systemRedColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17"/>
-                                                </buttonConfiguration>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="paige"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="TLH-VM-6Ln" secondAttribute="trailing" constant="20" id="3qA-Om-iLz"/>
-                                            <constraint firstItem="c8Q-RZ-RRf" firstAttribute="top" secondItem="Z6E-iV-gTZ" secondAttribute="top" constant="12" id="YQE-Gr-5NK"/>
                                             <constraint firstItem="TLH-VM-6Ln" firstAttribute="leading" secondItem="Z6E-iV-gTZ" secondAttribute="leading" constant="20" id="flM-Bk-hbI"/>
-                                            <constraint firstAttribute="trailing" secondItem="c8Q-RZ-RRf" secondAttribute="trailing" constant="12" id="kSJ-la-vlQ"/>
                                             <constraint firstItem="TLH-VM-6Ln" firstAttribute="top" secondItem="Z6E-iV-gTZ" secondAttribute="top" constant="35" id="rPw-hx-5Vd"/>
                                             <constraint firstAttribute="bottom" secondItem="TLH-VM-6Ln" secondAttribute="bottom" constant="20" id="vYg-ww-Nbi"/>
                                         </constraints>
@@ -64,7 +50,6 @@
                                 <constraints>
                                     <constraint firstItem="Z6E-iV-gTZ" firstAttribute="leading" secondItem="LRF-lO-tIl" secondAttribute="leading" constant="15" id="4Hp-0F-Ppk"/>
                                     <constraint firstAttribute="trailing" secondItem="Z6E-iV-gTZ" secondAttribute="trailing" constant="15" id="Dva-Yv-pdi"/>
-                                    <constraint firstItem="c8Q-RZ-RRf" firstAttribute="width" secondItem="LRF-lO-tIl" secondAttribute="width" multiplier="0.075" id="REg-nm-nCD"/>
                                     <constraint firstAttribute="bottom" secondItem="nl8-dT-reh" secondAttribute="bottom" constant="10" id="Rvz-0w-82B"/>
                                     <constraint firstAttribute="bottom" secondItem="Z6E-iV-gTZ" secondAttribute="bottom" constant="45" id="SKc-sS-SLY"/>
                                     <constraint firstItem="nl8-dT-reh" firstAttribute="width" secondItem="Z6E-iV-gTZ" secondAttribute="width" id="ayp-Vn-jJw"/>
@@ -72,12 +57,26 @@
                                     <constraint firstItem="nl8-dT-reh" firstAttribute="centerX" secondItem="LRF-lO-tIl" secondAttribute="centerX" id="kzt-TO-5Xw"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Q-RZ-RRf">
+                                <rect key="frame" x="901" y="20" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="c8Q-RZ-RRf" secondAttribute="height" multiplier="1:1" id="oyv-0v-O62"/>
+                                </constraints>
+                                <color key="tintColor" name="orange"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LRF-lO-tIl" secondAttribute="bottom" constant="20" id="6x7-og-pYo"/>
                             <constraint firstItem="Z6E-iV-gTZ" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="11" id="87P-mV-hUb"/>
+                            <constraint firstAttribute="trailing" secondItem="c8Q-RZ-RRf" secondAttribute="trailing" constant="25" id="FET-Ra-bPL"/>
                             <constraint firstItem="LRF-lO-tIl" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="40" id="KNz-Mw-iL9"/>
+                            <constraint firstItem="c8Q-RZ-RRf" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="20" id="lS4-Mx-XfP"/>
                             <constraint firstItem="LRF-lO-tIl" firstAttribute="leading" secondItem="gfq-It-38l" secondAttribute="leading" id="m2w-7A-xhj"/>
+                            <constraint firstItem="c8Q-RZ-RRf" firstAttribute="height" secondItem="gfq-It-38l" secondAttribute="height" multiplier="0.103448" id="qJb-4K-8l6"/>
                             <constraint firstAttribute="trailing" secondItem="LRF-lO-tIl" secondAttribute="trailing" id="zs7-7Q-Wyr"/>
                         </constraints>
                     </view>
@@ -107,11 +106,11 @@
         <namedColor name="green">
             <color red="0.31499999761581421" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="orange">
+            <color red="0.81400001049041748" green="0.46000000834465027" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="paige">
             <color red="0.92100000381469727" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
