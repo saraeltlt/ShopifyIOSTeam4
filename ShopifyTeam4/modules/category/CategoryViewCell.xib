@@ -65,6 +65,7 @@
             <connections>
                 <outlet property="categoryImage" destination="OLc-Bk-3m3" id="qmP-gG-Nbg"/>
                 <outlet property="categoryTitle" destination="eM7-rI-uVp" id="5xq-YQ-Ol3"/>
+                <outlet property="cellView" destination="fqg-ID-OY4" id="ZLf-cs-yZ3"/>
                 <outlet property="container" destination="U3e-2J-4Jj" id="lv9-UC-dQp"/>
             </connections>
             <point key="canvasLocation" x="287.78625954198475" y="73.591549295774655"/>

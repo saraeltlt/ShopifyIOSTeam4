@@ -80,10 +80,7 @@ extension CategoryViewController:UICollectionViewDelegate
         if collectionView == categoryCollection {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CategoryViewCell, for: indexPath)
             as! CategoryViewCell
-            cell.container.layer.cornerRadius = collectionView.bounds.height*0.17
-            cell.container.layer.masksToBounds = true
-            cell.categoryImage.image=categoryArray[indexPath.row].image
-            cell.categoryTitle.text=categoryArray[indexPath.row].title
+            cell.configureCell(title: categoryArray[indexPath.row].title, image: categoryArray[indexPath.row].image)
             if self.categoryArray[indexPath.row].isSelected{
                 cell.container.backgroundColor=UIColor(named: "lightOrange")
             } else {

@@ -44,6 +44,17 @@ class HomeViewController: UIViewController {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     @objc func moveToNextIndex(){
         if currentCellIndex < adsArray.count - 1 {
@@ -76,9 +87,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         if collectionView == adsCollection {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.AdvertisementCellIdentifier, for: indexPath)
             as! AdvertisementsViewCell
-            cell.layer.cornerRadius = collectionView.bounds.height * 0.15
-             cell.layer.masksToBounds = true
-            cell.adsImage.image=adsArray[indexPath.row]
+            cell.configureCell(image: adsArray[indexPath.row])
        
             return cell
         }else {

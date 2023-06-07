@@ -14,6 +14,27 @@ class CategoryViewCell: UICollectionViewCell {
         // Initialization code
     }
     
+    
+    
+    override func layoutSublayers(of layer: CALayer) {
+        self.container.layer.cornerRadius = cellView.bounds.height*0.17
+        self.container.layer.masksToBounds = true
+    }
+    
+    
+    func configureCell(title:String,image:UIImage){
+        categoryTitle.text=title
+        categoryImage.image=image
+      
+        
+    }
+    
+    
+    
+    @IBOutlet weak var cellView: UIView!
+    
+    
+    
     @IBOutlet weak var container: UIView!
     
     @IBOutlet weak var categoryImage: UIImageView!
