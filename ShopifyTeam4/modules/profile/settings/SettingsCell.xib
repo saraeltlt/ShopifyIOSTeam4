@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" rowHeight="98" id="KGk-i7-Jjw" customClass="SettingsCell" customModule="ShopifyTeam4" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="426" height="98"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="426" height="98"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqg-Oj-HB4">
+                        <rect key="frame" x="15" y="15" width="396" height="68"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fB5-Rf-ol5">
+                                <rect key="frame" x="349.33333333333331" y="16.666666666666671" width="31.666666666666686" height="35"/>
+                                <color key="tintColor" name="paige"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system">
+                                    <color key="baseForegroundColor" name="lightOrange"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="viewMoreBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uYA-oo-46t"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alexandria" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzs-hl-Y32">
+                                <rect key="frame" x="148.66666666666669" y="25.666666666666664" width="190.66666666666669" height="17"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                <color key="textColor" name="lightOrange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuU-u8-xg3">
+                                <rect key="frame" x="15.000000000000007" y="25" width="118.66666666666669" height="18"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                <color key="textColor" name="green"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHc-jA-yy3">
+                                <rect key="frame" x="332" y="18.666666666666664" width="51" height="31"/>
+                                <color key="onTintColor" name="orange"/>
+                                <color key="thumbTintColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                        <color key="value" name="orange"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                        <color key="value" name="orange"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" name="orange"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="switchMood:" destination="KGk-i7-Jjw" eventType="valueChanged" id="QGE-Qa-hEZ"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fB5-Rf-ol5" firstAttribute="centerY" secondItem="Nqg-Oj-HB4" secondAttribute="centerY" id="87i-eE-lcZ"/>
+                            <constraint firstItem="fuU-u8-xg3" firstAttribute="centerY" secondItem="Nqg-Oj-HB4" secondAttribute="centerY" id="Cf8-Tu-AQM"/>
+                            <constraint firstItem="Jzs-hl-Y32" firstAttribute="leading" secondItem="fuU-u8-xg3" secondAttribute="trailing" constant="15" id="CwZ-eo-1W2"/>
+                            <constraint firstItem="Jzs-hl-Y32" firstAttribute="centerY" secondItem="Nqg-Oj-HB4" secondAttribute="centerY" id="JRx-5Q-kPv"/>
+                            <constraint firstItem="XHc-jA-yy3" firstAttribute="centerY" secondItem="fuU-u8-xg3" secondAttribute="centerY" id="d26-gt-Fni"/>
+                            <constraint firstAttribute="trailing" secondItem="XHc-jA-yy3" secondAttribute="trailing" constant="15" id="e1F-0a-GIX"/>
+                            <constraint firstItem="fuU-u8-xg3" firstAttribute="leading" secondItem="Nqg-Oj-HB4" secondAttribute="leading" constant="15" id="lfp-hl-cIx"/>
+                            <constraint firstAttribute="trailing" secondItem="fB5-Rf-ol5" secondAttribute="trailing" constant="15" id="ryP-TN-Pg8"/>
+                            <constraint firstItem="fB5-Rf-ol5" firstAttribute="leading" secondItem="Jzs-hl-Y32" secondAttribute="trailing" constant="10" id="vKK-VA-OiU"/>
+                            <constraint firstItem="fuU-u8-xg3" firstAttribute="width" secondItem="Nqg-Oj-HB4" secondAttribute="width" multiplier="0.3" id="xcn-jC-ICf"/>
+                            <constraint firstItem="fB5-Rf-ol5" firstAttribute="width" secondItem="Nqg-Oj-HB4" secondAttribute="width" multiplier="0.08" id="zF2-UO-o16"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Nqg-Oj-HB4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="HFj-Wf-BQr"/>
+                    <constraint firstAttribute="bottom" secondItem="Nqg-Oj-HB4" secondAttribute="bottom" constant="15" id="Sdo-iF-aYq"/>
+                    <constraint firstAttribute="trailing" secondItem="Nqg-Oj-HB4" secondAttribute="trailing" constant="15" id="T2y-vX-Kjb"/>
+                    <constraint firstItem="Nqg-Oj-HB4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jqT-Ix-uRZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bgView" destination="Nqg-Oj-HB4" id="2c0-LX-UYz"/>
+                <outlet property="buttonView" destination="fB5-Rf-ol5" id="XM8-O0-8IZ"/>
+                <outlet property="detailLabel" destination="Jzs-hl-Y32" id="OZH-pr-bak"/>
+                <outlet property="switchView" destination="XHc-jA-yy3" id="sja-C2-La2"/>
+                <outlet property="titleLabel" destination="fuU-u8-xg3" id="XoI-Zt-tZB"/>
+            </connections>
+            <point key="canvasLocation" x="219.84732824427479" y="38.732394366197184"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrowshape.bounce.right.fill" catalog="system" width="128" height="86"/>
+        <namedColor name="green">
+            <color red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="lightOrange">
+            <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="paige">
+            <color red="0.92100000381469727" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
