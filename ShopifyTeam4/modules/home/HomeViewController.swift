@@ -44,6 +44,17 @@ class HomeViewController: UIViewController {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     @objc func moveToNextIndex(){
         if currentCellIndex < adsArray.count - 1 {
@@ -76,18 +87,14 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         if collectionView == adsCollection {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.AdvertisementCellIdentifier, for: indexPath)
             as! AdvertisementsViewCell
-            cell.layer.cornerRadius = collectionView.bounds.height * 0.15
-             cell.layer.masksToBounds = true
-            cell.adsImage.image=adsArray[indexPath.row]
+            cell.configureCell(image: adsArray[indexPath.row])
        
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
             as! BrandViewCell
-            cell.outerContainer.layer.cornerRadius = self.brandsCollection.bounds.width * 0.03
-            cell.innerContainer.layer.cornerRadius = self.brandsCollection.bounds.width * 0.035
-            cell.brandImage.image=UIImage(named: "test")
-            cell.brandName.text="H&M"
+           cell.configureCell(title: "H&M", imageUrl: "test")
+            cell.addToFavorite.isHidden = true
             return cell
         }
         
@@ -126,7 +133,15 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+      
+        
+            if collectionView == adsCollection {
+                print(indexPath.row)
+            }else {
+                let brandProducts = self.storyboard?.instantiateViewController(identifier: "brandProducts")
+                as! BrandProductsViewController
+                self.navigationController?.pushViewController(brandProducts, animated: true)
+            }
     }
     
 }
