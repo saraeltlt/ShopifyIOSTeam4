@@ -79,7 +79,7 @@
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0lb-Rs-x7N">
                                 <rect key="frame" x="0.0" y="447" width="393" height="292"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="paige"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aXI-NO-0T1">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -103,7 +103,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="0lb-Rs-x7N" firstAttribute="top" secondItem="9Zg-rl-TsD" secondAttribute="bottom" constant="20" id="1cu-82-MME"/>
                             <constraint firstItem="G2B-Ox-vSg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5hz-3Z-oVX"/>
@@ -198,7 +198,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wJ6-ot-Qag">
                                 <rect key="frame" x="0.0" y="209" width="393" height="560"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="paige"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NZ9-bf-tSG">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -222,7 +222,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nl3-6F-Vmp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="Nma-6A-amF" firstAttribute="leading" secondItem="nl3-6F-Vmp" secondAttribute="leading" id="4Sl-IP-XEM"/>
                             <constraint firstItem="s9k-o6-mmd" firstAttribute="height" secondItem="qlQ-bv-8uK" secondAttribute="height" multiplier="0.19" id="9C6-Zl-hzj"/>

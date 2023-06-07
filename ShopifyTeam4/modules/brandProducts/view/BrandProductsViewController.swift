@@ -8,20 +8,29 @@
 import UIKit
 
 class BrandProductsViewController: UIViewController {
+    
+    @IBOutlet weak var priceFilter: UILabel!
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var filterContainer: UIView!
+    @IBOutlet weak var filterContainerHeightConstrain: NSLayoutConstraint!
+    @IBOutlet weak var productsCollection: UICollectionView!
     var isFilterHidden = false
+    var viewModel:BrandProductsViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureProductsCollectionObservation()
+        viewModel?.getBrandProducts()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.050
         self.container.layer.masksToBounds = true
         self.productsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
-        
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
         priceFilter.text = "Price : \(Int(sender.value))"
         
     }
-    @IBOutlet weak var priceFilter: UILabel!
+   
     @IBAction func filter(_ sender: UIBarButtonItem) {
         if !isFilterHidden{
             self.filterContainerHeightConstrain.constant += -self.view.bounds.height*0.0551643
@@ -36,42 +45,41 @@ class BrandProductsViewController: UIViewController {
             print("maximize")
             isFilterHidden = false
         }
-        
-    
-    
     }
-    
-    @IBOutlet weak var container: UIView!
-    
-    
-    @IBOutlet weak var filterContainer: UIView!
-    
-    
-    
-    @IBOutlet weak var filterContainerHeightConstrain: NSLayoutConstraint!
-    
-    @IBOutlet weak var productsCollection: UICollectionView!
-    
-    
 }
+
 
 
 
 extension BrandProductsViewController:UICollectionViewDelegate
 ,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    func configureProductsCollectionObservation(){
+        viewModel?.products.bind({ status in
+            guard let status = status else {return}
+            if status {
+                DispatchQueue.main.async {
+                    self.productsCollection.reloadData()
+                }
+            }
+        })
+    }
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
        
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return viewModel?.getProductsCount() ?? 0
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
         as! BrandViewCell
-        cell.configureCell(title: "H&M", imageUrl: "test")
+        let productData = viewModel?.getProductData(index: indexPath.row)
+        cell.configureCell(title: productData?.title ?? "", imageUrl: productData?.image?.src ?? "")
         cell.addToFavorite.isHidden = false
         return cell
     
@@ -96,9 +104,6 @@ extension BrandProductsViewController:UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-       
-
-     
     }
     
     

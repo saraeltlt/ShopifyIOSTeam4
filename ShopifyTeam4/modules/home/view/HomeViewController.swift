@@ -8,23 +8,23 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var adsCollection: UICollectionView!
-   
     @IBOutlet weak var pageController: UIPageControl!
-    
     @IBOutlet weak var brandsCollection: UICollectionView!
-    
     @IBOutlet weak var container: UIView!
-    var adsArray:[UIImage]=[UIImage(named: "ads1")!,UIImage(named: "ads2")!,UIImage(named: "ads3")!,UIImage(named: "ads4")!,UIImage(named: "ads5")!]
     var timer:Timer?
     var currentCellIndex=0
+    var viewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBrandCollectionObservation()
+        viewModel.getBrandsData()
         self.adsCollection.register(UINib(nibName: "AdvertisementsViewCell", bundle: nil), forCellWithReuseIdentifier: K.AdvertisementCellIdentifier)
         self.brandsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
         timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
-        self.pageController.numberOfPages = adsArray.count
+        self.pageController.numberOfPages = viewModel.getadvertesmentsCount()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.15
         self.container.layer.masksToBounds = true
         if let tabBarController = self.tabBarController {
@@ -33,8 +33,6 @@ class HomeViewController: UIViewController {
                     let secondTabBarItem = tabItems[2]
                     secondTabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
                     secondTabBarItem.title = "Profile"
-                    
-   
                 }
             }
         }
@@ -45,19 +43,21 @@ class HomeViewController: UIViewController {
 
 
 
-
-
-
-
-
-
-
-
-
-
 extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    func configureBrandCollectionObservation(){
+        viewModel.brands.bind { status in
+            guard let status = status else {return}
+            if status {
+                DispatchQueue.main.async {
+                    self.brandsCollection.reloadData()
+                }
+            }
+        }
+    }
+    
     @objc func moveToNextIndex(){
-        if currentCellIndex < adsArray.count - 1 {
+        if currentCellIndex < viewModel.getadvertesmentsCount() - 1 {
             currentCellIndex += 1
         }else {
             currentCellIndex = 0
@@ -77,9 +77,9 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == adsCollection {
-            return adsArray.count
+            return viewModel.getadvertesmentsCount()
         }else {
-            return 10
+            return viewModel.getBrandsCount()
         }
     }
     
@@ -87,13 +87,14 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         if collectionView == adsCollection {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.AdvertisementCellIdentifier, for: indexPath)
             as! AdvertisementsViewCell
-            cell.configureCell(image: adsArray[indexPath.row])
+            cell.configureCell(image: viewModel.getadvertesmentsData(index: indexPath.row))
        
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
             as! BrandViewCell
-           cell.configureCell(title: "H&M", imageUrl: "test")
+            let brandData = viewModel.getBrandData(index: indexPath.row)
+            cell.configureCell(title: brandData.title ?? "", imageUrl: brandData.image?.src ?? "")
             cell.addToFavorite.isHidden = true
             return cell
         }
@@ -140,6 +141,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             }else {
                 let brandProducts = self.storyboard?.instantiateViewController(identifier: "brandProducts")
                 as! BrandProductsViewController
+                brandProducts.viewModel = viewModel.navigationConfigure(for: indexPath.row)
                 self.navigationController?.pushViewController(brandProducts, animated: true)
             }
     }
