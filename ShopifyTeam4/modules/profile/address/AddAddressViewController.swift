@@ -26,9 +26,7 @@ class AddAddressViewController: UIViewController {
         let city = cityText.text
         let country = countryText.text
         self.dismiss(animated: true, completion: nil)
-
-        
-        
+  
     }
     @IBAction func cancelBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

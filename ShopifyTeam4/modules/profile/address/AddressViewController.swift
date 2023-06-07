@@ -9,11 +9,27 @@ import UIKit
 
 class AddressViewController: UIViewController {
 
+    @IBOutlet weak var CheckoutBtn: UIButton!
+    var navigationFlag = true
     @IBOutlet weak var addressTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTable()
         setUpLeftButton()
+        custmizeNavigation()
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        CheckoutBtn.isHidden = navigationFlag
+    }
+    func custmizeNavigation(){
+        let customFont = UIFont(name: "Chalkduster", size: 20)!
+        let customColor = UIColor(named: K.paige)!
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: customFont,
+            NSAttributedString.Key.foregroundColor: customColor
+        ]
+        navigationItem.title = "Address"
     }
     
     func setUpTable(){
@@ -53,7 +69,7 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height*0.2
+        return tableView.frame.size.height*0.27
      }
 
     

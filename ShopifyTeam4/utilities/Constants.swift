@@ -14,6 +14,7 @@ struct K {
     static let ORDERS_CELL = "OrdersCell"
     static let SETTINGS_CELL = "SettingsCell"
     static let ADDRESS_CELL = "addressCell"
+    static let CART_CELL = "ShoppingCartCell"
     
     //colors
     static let orange = "orange"

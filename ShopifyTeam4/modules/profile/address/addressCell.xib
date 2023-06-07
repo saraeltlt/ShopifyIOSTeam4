@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +36,7 @@
                                     <constraint firstAttribute="width" constant="220" id="BVe-xH-9df"/>
                                     <constraint firstAttribute="height" constant="30" id="j8d-uU-WPe"/>
                                 </constraints>
-                                <color key="tintColor" red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="phone.bubble.left.fill" catalog="system" subtitle=" 01206425318" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
@@ -43,22 +44,22 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61b-Ys-RXE">
-                                <rect key="frame" x="20" y="60" width="511" height="116"/>
+                                <rect key="frame" x="20" y="53" width="511" height="128"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="Alecandria - Louran - Ahmed Aref" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="F2B-kv-ICP" firstAttribute="centerX" secondItem="JOA-fc-MoW" secondAttribute="centerX" id="2Vi-dy-tEv"/>
-                            <constraint firstItem="61b-Ys-RXE" firstAttribute="top" secondItem="F2B-kv-ICP" secondAttribute="bottom" constant="15" id="63Q-Va-Gef"/>
+                            <constraint firstItem="61b-Ys-RXE" firstAttribute="top" secondItem="F2B-kv-ICP" secondAttribute="bottom" constant="8" id="63Q-Va-Gef"/>
                             <constraint firstItem="61b-Ys-RXE" firstAttribute="leading" secondItem="oGF-VA-SZz" secondAttribute="leading" constant="20" id="7FR-RD-sNt"/>
-                            <constraint firstAttribute="bottom" secondItem="61b-Ys-RXE" secondAttribute="bottom" constant="20" id="9Jy-zc-uBv"/>
+                            <constraint firstAttribute="bottom" secondItem="61b-Ys-RXE" secondAttribute="bottom" constant="15" id="9Jy-zc-uBv"/>
                             <constraint firstItem="JOA-fc-MoW" firstAttribute="leading" secondItem="oGF-VA-SZz" secondAttribute="leading" constant="-5" id="AOK-lT-xgP"/>
                             <constraint firstAttribute="bottom" secondItem="JOA-fc-MoW" secondAttribute="bottom" constant="-5" id="CVj-ML-eCq"/>
                             <constraint firstItem="JOA-fc-MoW" firstAttribute="top" secondItem="oGF-VA-SZz" secondAttribute="top" constant="-5" id="LID-1E-cq0"/>
@@ -96,6 +97,9 @@
     <resources>
         <image name="map" width="2560" height="1744"/>
         <image name="phone.bubble.left.fill" catalog="system" width="128" height="110"/>
+        <namedColor name="orange">
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
