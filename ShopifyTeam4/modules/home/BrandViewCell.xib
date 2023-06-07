@@ -95,6 +95,7 @@
                 <outlet property="addToFavorite" destination="c8Q-RZ-RRf" id="LbG-H2-RTn"/>
                 <outlet property="brandImage" destination="TLH-VM-6Ln" id="5BG-3w-YaU"/>
                 <outlet property="brandName" destination="nl8-dT-reh" id="MJF-dF-kzp"/>
+                <outlet property="cellFrame" destination="gfq-It-38l" id="xqL-hg-gP5"/>
                 <outlet property="innerContainer" destination="Z6E-iV-gTZ" id="oWJ-oc-FPY"/>
                 <outlet property="outerContainer" destination="LRF-lO-tIl" id="wDG-zQ-4jx"/>
             </connections>

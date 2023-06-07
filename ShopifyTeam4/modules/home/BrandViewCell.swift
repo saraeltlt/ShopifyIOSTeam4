@@ -11,8 +11,17 @@ class BrandViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    
     }
+    
+    override func layoutSublayers(of layer: CALayer) {
+        outerContainer.layer.cornerRadius = cellFrame.bounds.width * 0.05
+        innerContainer.layer.cornerRadius = cellFrame.bounds.width*0.09
+    }
+    
+    @IBOutlet weak var cellFrame: UIView!
+    
+    
     
     @IBOutlet weak var addToFavorite: UIButton!
     
@@ -26,5 +35,20 @@ class BrandViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var brandName: UILabel!
+    
+    
+    
+    
+    
+    func setUpCell(title:String,imageUrl:String){
+        brandName.text=title
+        brandImage.image=UIImage(named: imageUrl)
+      
+        
+    }
+    
+    
+    
+    
     
 }

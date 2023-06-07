@@ -84,10 +84,11 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
             as! BrandViewCell
-            cell.outerContainer.layer.cornerRadius = self.brandsCollection.bounds.width * 0.03
+       /*     cell.outerContainer.layer.cornerRadius = self.brandsCollection.bounds.width * 0.03
             cell.innerContainer.layer.cornerRadius = self.brandsCollection.bounds.width * 0.035
             cell.brandImage.image=UIImage(named: "test")
-            cell.brandName.text="H&M"
+            cell.brandName.text="H&M"  */
+           cell.setUpCell(title: "H&M", imageUrl: "test")
             cell.addToFavorite.isHidden = true
             return cell
         }
