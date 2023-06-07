@@ -7,12 +7,13 @@
 
 import Foundation
 struct K {
-    
+    //cells id
     static let cartImage = "cart"
     static let AdvertisementCellIdentifier = "AdvertisementsCell"
     static let brandCell = "brandCell"
     static let ORDERS_CELL = "OrdersCell"
     static let SETTINGS_CELL = "SettingsCell"
+    static let ADDRESS_CELL = "addressCell"
     
     //colors
     static let orange = "orange"
