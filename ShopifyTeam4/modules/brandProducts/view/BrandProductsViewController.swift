@@ -14,7 +14,7 @@ class BrandProductsViewController: UIViewController {
     @IBOutlet weak var filterContainer: UIView!
     @IBOutlet weak var filterContainerHeightConstrain: NSLayoutConstraint!
     @IBOutlet weak var productsCollection: UICollectionView!
-    var isFilterHidden = false
+    var isFilterHidden = true
     var viewModel:BrandProductsViewModel?
     
     override func viewDidLoad() {
@@ -23,6 +23,9 @@ class BrandProductsViewController: UIViewController {
         viewModel?.getBrandProducts()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.050
         self.container.layer.masksToBounds = true
+        self.filterContainerHeightConstrain.constant += -self.view.bounds.height*0.0551643
+        self.view.layoutIfNeeded()
+        self.filterContainer.isHidden = true
         self.productsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
     }
     
@@ -32,18 +35,16 @@ class BrandProductsViewController: UIViewController {
     }
    
     @IBAction func filter(_ sender: UIBarButtonItem) {
-        if !isFilterHidden{
-            self.filterContainerHeightConstrain.constant += -self.view.bounds.height*0.0551643
-            self.view.layoutIfNeeded()
-            self.filterContainer.isHidden = true
-            print("minimize")
-            isFilterHidden = true
-        } else {
+        if isFilterHidden{
             self.filterContainerHeightConstrain.constant += self.view.bounds.height*0.0551643
             self.view.layoutIfNeeded()
             self.filterContainer.isHidden = false
-            print("maximize")
             isFilterHidden = false
+        } else {
+            self.filterContainerHeightConstrain.constant += -self.view.bounds.height*0.0551643
+            self.view.layoutIfNeeded()
+            self.filterContainer.isHidden = true
+            isFilterHidden = true
         }
     }
 }
