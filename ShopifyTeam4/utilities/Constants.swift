@@ -25,6 +25,10 @@ struct K {
     
     //images
     static let CART_IMAGE = "cart"
+    static let MEN = "men"
+    static let WOMEN = "women"
+    static let KIDS = "kids"
+    static let SALE = "sale"
 
 
 }
