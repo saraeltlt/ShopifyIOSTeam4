@@ -21,8 +21,13 @@ struct Brand: Codable{
     let id: Int?
     let title: String?
     let image: Image?
+    let variants : [Variant]?
 }
 
 struct Image: Codable {
     let src: String?
+}
+
+struct Variant: Codable {
+    let price : String?
 }

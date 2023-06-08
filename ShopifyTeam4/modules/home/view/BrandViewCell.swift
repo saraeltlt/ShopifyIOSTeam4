@@ -36,13 +36,14 @@ class BrandViewCell: UICollectionViewCell {
     @IBOutlet weak var brandName: UILabel!
     
     
+    @IBOutlet weak var price: UILabel!
     
     
     
-    func configureCell(title:String,imageUrl:String){
+    func configureCell(title:String,imageUrl:String,price:String=""){
         brandName.text=title
         brandImage.sd_setImage(with: URL(string: imageUrl), placeholderImage:UIImage(named: "test"))
-      
+        self.price.text = price
         
     }
     
