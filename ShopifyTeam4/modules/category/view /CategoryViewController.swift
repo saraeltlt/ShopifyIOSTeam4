@@ -16,6 +16,8 @@ class CategoryViewController: UIViewController {
     var viewModel = CategoryViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureProductsCollectionObservation()
+        viewModel.getAllProducts()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.09
         self.container.layer.masksToBounds = true
         self.categoryCollection.register(UINib(nibName: K.CATEGORY_CELL, bundle: nil), forCellWithReuseIdentifier: K.CATEGORY_CELL)
@@ -56,6 +58,20 @@ class CategoryViewController: UIViewController {
 extension CategoryViewController:UICollectionViewDelegate
 ,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
+    func configureProductsCollectionObservation(){
+        viewModel.products.bind({ status in
+            guard let status = status else {return}
+            if status {
+                DispatchQueue.main.async {
+                    self.productsCollection.reloadData()
+                }
+            }
+        })
+    }
+    
+    
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == categoryCollection {
             return 1
@@ -68,7 +84,7 @@ extension CategoryViewController:UICollectionViewDelegate
         if collectionView == categoryCollection {
             return viewModel.getCategoriesCount()
         }else {
-            return 20
+            return viewModel.getProductsCount()
         }
         
     }
@@ -90,7 +106,8 @@ extension CategoryViewController:UICollectionViewDelegate
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
             as! BrandViewCell
             cell.addToFavorite.isHidden = false
-            cell.configureCell(title: "H&M", imageUrl: "test")
+            let product = viewModel.getProductData(index: indexPath.row)
+            cell.configureCell(title: product.title ?? "", imageUrl: product.image?.src ?? "")
             cell.addToFavorite.tag=indexPath.row
             cell.addToFavorite.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell
