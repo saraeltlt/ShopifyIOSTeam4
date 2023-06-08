@@ -9,20 +9,21 @@ import UIKit
 
 class PaymentViewController: UIViewController {
 
+    @IBOutlet weak var onlineBtn: UIButton!
+    @IBOutlet weak var cashBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        custmizeNavigation()
-    }
-    func custmizeNavigation(){
-        let customFont = UIFont(name: "Chalkduster", size: 20)!
-        let customColor = UIColor(named: K.paige)!
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.font: customFont,
-            NSAttributedString.Key.foregroundColor: customColor
-        ]
-        navigationItem.title = "Payment"
     }
 
 
+    @IBAction func payCash(_ sender: UIButton) {
+        onlineBtn.setImage(UIImage(systemName: "circle"), for: .normal)
+        cashBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        
+    }
+    
+    @IBAction func payOnline(_ sender: UIButton) {
+        onlineBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        cashBtn.setImage(UIImage(systemName: "circle"), for: .normal)
+    }
 }

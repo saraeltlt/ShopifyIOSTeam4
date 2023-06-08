@@ -40,13 +40,44 @@
                                     <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 </buttonConfiguration>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exZ-F3-4st">
+                                <rect key="frame" x="133.66666666666666" y="162" width="10.333333333333343" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" name="lightGreen"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EV-rq-KUK">
+                                <rect key="frame" x="73.666666666666671" y="157.66666666666663" width="50" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system">
+                                    <color key="baseForegroundColor" name="green"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="SubBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sQH-Qv-r6w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Uc-6w-NK9">
+                                <rect key="frame" x="154" y="157.66666666666663" width="50" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
+                                    <color key="baseForegroundColor" name="green"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="w9h-G1-RIU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
+                            <constraint firstItem="0Uc-6w-NK9" firstAttribute="centerY" secondItem="exZ-F3-4st" secondAttribute="centerY" id="AjU-0h-pEB"/>
                             <constraint firstAttribute="trailing" secondItem="EZI-HE-UGD" secondAttribute="trailing" constant="10" id="Bcp-Dm-bRs"/>
+                            <constraint firstAttribute="bottom" secondItem="exZ-F3-4st" secondAttribute="bottom" constant="5" id="CxW-85-XGp"/>
+                            <constraint firstItem="0Uc-6w-NK9" firstAttribute="leading" secondItem="exZ-F3-4st" secondAttribute="trailing" constant="10" id="JCw-5m-KCD"/>
                             <constraint firstItem="Ora-An-BiD" firstAttribute="top" secondItem="EZI-HE-UGD" secondAttribute="bottom" constant="8" id="OrU-VQ-Hck"/>
+                            <constraint firstItem="exZ-F3-4st" firstAttribute="leading" secondItem="6EV-rq-KUK" secondAttribute="trailing" constant="10" id="R5D-wP-650"/>
                             <constraint firstItem="Ora-An-BiD" firstAttribute="centerX" secondItem="EZI-HE-UGD" secondAttribute="centerX" id="Tfd-e4-aVl"/>
                             <constraint firstItem="Ora-An-BiD" firstAttribute="width" secondItem="EZI-HE-UGD" secondAttribute="width" multiplier="0.7" id="eoo-8v-ETl"/>
+                            <constraint firstItem="6EV-rq-KUK" firstAttribute="centerY" secondItem="exZ-F3-4st" secondAttribute="centerY" id="ntj-En-OVX"/>
                             <constraint firstItem="EZI-HE-UGD" firstAttribute="top" secondItem="2Zy-hC-B4u" secondAttribute="top" id="tOM-Yu-yE8"/>
                             <constraint firstAttribute="bottom" secondItem="Ora-An-BiD" secondAttribute="bottom" constant="16" id="tve-aT-qdq"/>
                         </constraints>
@@ -72,6 +103,7 @@
                     <constraint firstItem="2Zy-hC-B4u" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="8jJ-Vv-H89"/>
                     <constraint firstItem="ryb-d9-86d" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.25" id="D1L-l1-lg1"/>
                     <constraint firstItem="ryb-d9-86d" firstAttribute="height" secondItem="2Zy-hC-B4u" secondAttribute="height" multiplier="1.2" id="Hix-Hs-Lw9"/>
+                    <constraint firstItem="exZ-F3-4st" firstAttribute="centerX" secondItem="CgN-Ny-Ked" secondAttribute="centerX" id="IEz-kM-t7l"/>
                     <constraint firstAttribute="trailing" secondItem="2Zy-hC-B4u" secondAttribute="trailing" constant="15" id="O6b-nx-TYn"/>
                     <constraint firstItem="ryb-d9-86d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="kSp-Zj-GkU"/>
                     <constraint firstItem="2Zy-hC-B4u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qCo-ij-7Wu"/>
@@ -82,6 +114,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imageBG" destination="ryb-d9-86d" id="SHY-XV-1mV"/>
+                <outlet property="itemCountLabel" destination="exZ-F3-4st" id="wD0-5y-x71"/>
                 <outlet property="productBG" destination="2Zy-hC-B4u" id="5kG-HI-O0i"/>
                 <outlet property="productImage" destination="CgN-Ny-Ked" id="hl8-cM-K4C"/>
                 <outlet property="productNameLabel" destination="EZI-HE-UGD" id="ReN-xx-RZR"/>
@@ -91,8 +124,13 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="minus.circle" catalog="system" width="128" height="123"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="green">
             <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="lightGreen">
+            <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
             <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

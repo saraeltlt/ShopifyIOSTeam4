@@ -41,16 +41,16 @@ class ProfileViewController: UIViewController {
     
     
     
-    // MARK: - Latest events
+    // MARK: - Favourite product Section
     
     func favSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.5),
+                widthDimension: .fractionalWidth(0.45),
                 heightDimension: .fractionalHeight(1)
             )
         )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 5, trailing: 16)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
         
 
         let group = NSCollectionLayoutGroup.horizontal(
@@ -60,7 +60,7 @@ class ProfileViewController: UIViewController {
             ),
             subitems: [item]
         )
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
         
         let section = NSCollectionLayoutSection(group: group)
         return section
@@ -75,7 +75,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ORDERS_CELL, for: indexPath) as! OrdersCell
-       cell.configure()
+       cell.configure(date: "22/11/2023", price:300)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

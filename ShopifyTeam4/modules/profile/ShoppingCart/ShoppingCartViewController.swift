@@ -56,7 +56,7 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CART_CELL , for: indexPath) as! ShoppingCartCell
-        cell.configure()
+        cell.configure(name: "Bag", price: 300, ImageUrl: "")
         return cell
     }
     

@@ -64,7 +64,7 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ADDRESS_CELL, for: indexPath) as! addressCell
-        cell.configure()
+        cell.configure(phoneNum: "01206425318", Address: "Alexandria - louran")
         return cell
     }
     
