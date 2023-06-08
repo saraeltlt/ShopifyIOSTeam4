@@ -41,13 +41,13 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exZ-F3-4st">
-                                <rect key="frame" x="133.66666666666666" y="152" width="10.333333333333343" height="26.333333333333343"/>
+                                <rect key="frame" x="133.66666666666666" y="162" width="10.333333333333343" height="26.333333333333343"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" name="lightGreen"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EV-rq-KUK">
-                                <rect key="frame" x="63.666666666666671" y="147.66666666666663" width="50" height="35"/>
+                                <rect key="frame" x="73.666666666666671" y="157.66666666666663" width="50" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system">
                                     <color key="baseForegroundColor" name="green"/>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Uc-6w-NK9">
-                                <rect key="frame" x="164" y="147.66666666666663" width="50" height="35"/>
+                                <rect key="frame" x="154" y="157.66666666666663" width="50" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system">
                                     <color key="baseForegroundColor" name="green"/>
@@ -71,10 +71,10 @@
                         <constraints>
                             <constraint firstItem="0Uc-6w-NK9" firstAttribute="centerY" secondItem="exZ-F3-4st" secondAttribute="centerY" id="AjU-0h-pEB"/>
                             <constraint firstAttribute="trailing" secondItem="EZI-HE-UGD" secondAttribute="trailing" constant="10" id="Bcp-Dm-bRs"/>
-                            <constraint firstAttribute="bottom" secondItem="exZ-F3-4st" secondAttribute="bottom" constant="15" id="CxW-85-XGp"/>
-                            <constraint firstItem="0Uc-6w-NK9" firstAttribute="leading" secondItem="exZ-F3-4st" secondAttribute="trailing" constant="20" id="JCw-5m-KCD"/>
+                            <constraint firstAttribute="bottom" secondItem="exZ-F3-4st" secondAttribute="bottom" constant="5" id="CxW-85-XGp"/>
+                            <constraint firstItem="0Uc-6w-NK9" firstAttribute="leading" secondItem="exZ-F3-4st" secondAttribute="trailing" constant="10" id="JCw-5m-KCD"/>
                             <constraint firstItem="Ora-An-BiD" firstAttribute="top" secondItem="EZI-HE-UGD" secondAttribute="bottom" constant="8" id="OrU-VQ-Hck"/>
-                            <constraint firstItem="exZ-F3-4st" firstAttribute="leading" secondItem="6EV-rq-KUK" secondAttribute="trailing" constant="20" id="R5D-wP-650"/>
+                            <constraint firstItem="exZ-F3-4st" firstAttribute="leading" secondItem="6EV-rq-KUK" secondAttribute="trailing" constant="10" id="R5D-wP-650"/>
                             <constraint firstItem="Ora-An-BiD" firstAttribute="centerX" secondItem="EZI-HE-UGD" secondAttribute="centerX" id="Tfd-e4-aVl"/>
                             <constraint firstItem="Ora-An-BiD" firstAttribute="width" secondItem="EZI-HE-UGD" secondAttribute="width" multiplier="0.7" id="eoo-8v-ETl"/>
                             <constraint firstItem="6EV-rq-KUK" firstAttribute="centerY" secondItem="exZ-F3-4st" secondAttribute="centerY" id="ntj-En-OVX"/>

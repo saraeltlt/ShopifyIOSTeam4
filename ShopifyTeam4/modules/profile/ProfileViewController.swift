@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController {
     
     
     
-    // MARK: - Latest events
+    // MARK: - Favourite product Section
     
     func favSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController {
                 heightDimension: .fractionalHeight(1)
             )
         )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 5, trailing: 16)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
         
 
         let group = NSCollectionLayoutGroup.horizontal(
@@ -60,7 +60,7 @@ class ProfileViewController: UIViewController {
             ),
             subitems: [item]
         )
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
         
         let section = NSCollectionLayoutSection(group: group)
         return section
