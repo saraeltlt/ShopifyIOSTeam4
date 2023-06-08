@@ -11,6 +11,8 @@ import UIKit
 class CategoryViewModel{
     var products:Observable<Bool>=Observable(false)
     var categoryProductsArray  = [Brand]()
+    var filteredProductsArray = [Brand] ()
+    var isFiltering = false
     var categoryArray:[Category]=[Category(title: "Men", image: UIImage(named: K.MEN)!, isSelected: false, categoryId: 448684196125),Category(title: "Women", image: UIImage(named: K.WOMEN)!, isSelected: false, categoryId: 448684261661),Category(title: "Kids", image: UIImage(named: K.KIDS)!, isSelected: false, categoryId: 448684294429),Category(title: "Sale", image: UIImage(named: K.SALE)!, isSelected: false, categoryId: 448684327197)]
     
     func getCategoryProducts(categoryId:Int){
@@ -58,14 +60,26 @@ class CategoryViewModel{
     
     
     func getProductsCount()->Int{
-        return categoryProductsArray.count
+        if !isFiltering{
+            return categoryProductsArray.count
+        } else {
+            return filteredProductsArray.count
+        }
     }
     
     func getProductData(index:Int)->Brand{
-        return categoryProductsArray[index]
+        if !isFiltering{
+            return categoryProductsArray[index]
+        } else {
+            return filteredProductsArray[index]
+        }
     }
     
-    
+    func filterProductsArray(productType:String){
+        filteredProductsArray = categoryProductsArray.filter({
+            $0.product_type == productType
+        })
+    }
     
     
     

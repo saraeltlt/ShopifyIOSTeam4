@@ -22,6 +22,7 @@ struct Brand: Codable{
     let title: String?
     let image: Image?
     let variants : [Variant]?
+    let product_type : String?
 }
 
 struct Image: Codable {

@@ -33,23 +33,31 @@ class CategoryViewController: UIViewController {
 
     
     func setupButtons(){
-        let beauty = ActionButtonItem(title: "Beauty", image: UIImage(named: "test"))
-        beauty.action = { [weak self] item in
+        let t_shirts = ActionButtonItem(title: "T-SHIRTS", image: UIImage(named: "test"))
+        t_shirts.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("beauty") }
-        let Supermarket = ActionButtonItem(title: "Supermarket", image:  UIImage(named: "test"))
-        Supermarket.action = { [weak self] item in
+            print("SHIRTS")
+            self?.viewModel.filterProductsArray(productType: "T-SHIRTS")
+            self?.viewModel.isFiltering = true
+            self?.productsCollection.reloadData()
+        }
+        let shoes = ActionButtonItem(title: "SHOES", image:  UIImage(named: "test"))
+        shoes.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("Supermarket")  }
-        let Phones = ActionButtonItem(title: "Phones", image:  UIImage(named: "test"))
-        Phones.action = { [weak self] item in
+            print("SHOES")
+            self?.viewModel.filterProductsArray(productType: "SHOES")
+            self?.viewModel.isFiltering = true
+            self?.productsCollection.reloadData()
+        }
+        let accessories = ActionButtonItem(title: "ACCESSORIES", image:  UIImage(named: "test"))
+        accessories.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("Phones")  }
-        let Gaming = ActionButtonItem(title: "Gaming", image:  UIImage(named: "test"))
-        Gaming.action = { [weak self] item in
-            self?.actionButton.toggleMenu()
-            print("Gaming")  }
-        actionButton = ActionButton(attachedToView: self.view, items: [beauty, Supermarket, Phones, Gaming])
+            print("ACCESSORIES")
+            self?.viewModel.filterProductsArray(productType: "ACCESSORIES")
+            self?.viewModel.isFiltering = true
+            self?.productsCollection.reloadData()
+        }
+        actionButton = ActionButton(attachedToView: self.view, items: [t_shirts, shoes, accessories])
         actionButton.setTitle("+", forState: UIControl.State())
         actionButton.backgroundColor = UIColor(named: "orange")!
         actionButton.action = { button in button.toggleMenu()}
@@ -190,6 +198,7 @@ extension CategoryViewController:UICollectionViewDelegate
     
     func changeSelectedCellBackground(index:Int){
         viewModel.changeCategoriesIsSelectedStatus(index: index)
+        viewModel.isFiltering = false
         self.categoryCollection.reloadData()
         
     }
