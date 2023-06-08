@@ -1043,7 +1043,7 @@
                                 <color key="backgroundColor" name="green"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbt-g8-Ri5">
-                                <rect key="frame" x="20" y="66" width="374" height="805"/>
+                                <rect key="frame" x="20" y="0.0" width="374" height="871"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Total" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-Y2-MiW">
                                         <rect key="frame" x="15" y="127" width="102" height="25.5"/>
@@ -1055,7 +1055,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndG-zE-CHP">
-                                        <rect key="frame" x="15" y="752" width="344" height="37"/>
+                                        <rect key="frame" x="15" y="818" width="344" height="37"/>
                                         <color key="tintColor" name="orange"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" subtitle="Place Order" cornerStyle="capsule">
@@ -1099,7 +1099,7 @@
                                         <color key="textColor" name="green"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 USD" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xki-di-YOa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 USD" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xki-di-YOa">
                                         <rect key="frame" x="135" y="296" width="224" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="NbM-jk-eZX"/>
@@ -1200,8 +1200,8 @@
                             <constraint firstItem="lbt-g8-Ri5" firstAttribute="leading" secondItem="A6v-SR-vTz" secondAttribute="leading" constant="20" id="E47-5N-LHK"/>
                             <constraint firstItem="SfC-Jz-6wB" firstAttribute="height" secondItem="fpR-IM-rbK" secondAttribute="height" multiplier="0.25" id="Nlo-p9-nVr"/>
                             <constraint firstItem="A6v-SR-vTz" firstAttribute="bottom" secondItem="lbt-g8-Ri5" secondAttribute="bottom" constant="15" id="a1f-G8-KTB"/>
-                            <constraint firstItem="SfC-Jz-6wB" firstAttribute="top" secondItem="A6v-SR-vTz" secondAttribute="top" id="odh-Vr-Fgi"/>
-                            <constraint firstItem="lbt-g8-Ri5" firstAttribute="top" secondItem="A6v-SR-vTz" secondAttribute="top" constant="66" id="owU-hM-q2r"/>
+                            <constraint firstItem="SfC-Jz-6wB" firstAttribute="top" secondItem="fpR-IM-rbK" secondAttribute="top" id="odh-Vr-Fgi"/>
+                            <constraint firstItem="lbt-g8-Ri5" firstAttribute="top" secondItem="A6v-SR-vTz" secondAttribute="top" id="owU-hM-q2r"/>
                             <constraint firstItem="SfC-Jz-6wB" firstAttribute="leading" secondItem="A6v-SR-vTz" secondAttribute="leading" id="vzB-AB-nxI"/>
                         </constraints>
                     </view>

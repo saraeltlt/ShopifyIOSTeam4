@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
     func favSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.5),
+                widthDimension: .fractionalWidth(0.45),
                 heightDimension: .fractionalHeight(1)
             )
         )
