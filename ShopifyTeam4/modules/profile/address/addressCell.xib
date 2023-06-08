@@ -74,6 +74,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="paige"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="oGF-VA-SZz" secondAttribute="trailing" constant="10" id="Ftx-g3-VsQ"/>
                     <constraint firstItem="oGF-VA-SZz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Oqd-TQ-4Qr"/>
@@ -87,6 +88,7 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="paige"/>
             <connections>
                 <outlet property="addressDetails" destination="61b-Ys-RXE" id="v9V-Ag-Au1"/>
                 <outlet property="phoneNumber" destination="F2B-kv-ICP" id="TDt-dR-oRy"/>
@@ -99,6 +101,9 @@
         <image name="phone.bubble.left.fill" catalog="system" width="128" height="110"/>
         <namedColor name="orange">
             <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="paige">
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

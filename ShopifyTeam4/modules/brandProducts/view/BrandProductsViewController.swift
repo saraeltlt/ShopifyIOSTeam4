@@ -26,7 +26,7 @@ class BrandProductsViewController: UIViewController {
         self.filterContainerHeightConstrain.constant += -self.view.bounds.height*0.0551643
         self.view.layoutIfNeeded()
         self.filterContainer.isHidden = true
-        self.productsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
+        self.productsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
@@ -77,7 +77,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
         as! BrandViewCell
         let productData = viewModel?.getProductData(index: indexPath.row)
         cell.configureCell(title: productData?.title ?? "", imageUrl: productData?.image?.src ?? "")

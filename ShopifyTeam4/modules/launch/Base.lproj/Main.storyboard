@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,7 +27,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="OWj-95-byR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5wK-ew-o1t"/>
                             <constraint firstItem="OWj-95-byR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-70" id="6g1-If-nXg"/>
@@ -129,7 +128,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ddH-Rm-Ve6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="M5E-Vi-Mlz" firstAttribute="top" secondItem="ddH-Rm-Ve6" secondAttribute="top" constant="15" id="3Iv-nx-BS5"/>
                             <constraint firstItem="jv4-6K-4hw" firstAttribute="top" secondItem="Ark-uL-EQl" secondAttribute="bottom" constant="10" id="7DT-mw-Ts8"/>
@@ -157,12 +156,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart" width="60" height="60"/>
+        <image name="cart" width="341.33334350585938" height="341.33334350585938"/>
         <namedColor name="orange">
-            <color red="0.81400001049041748" green="0.46000000834465027" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="paige">
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

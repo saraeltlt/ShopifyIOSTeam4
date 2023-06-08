@@ -21,8 +21,8 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.09
         self.container.layer.masksToBounds = true
-        self.categoryCollection.register(UINib(nibName: K.CategoryViewCell, bundle: nil), forCellWithReuseIdentifier: K.CategoryViewCell)
-        self.productsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
+        self.categoryCollection.register(UINib(nibName: K.CATEGORY_CELL, bundle: nil), forCellWithReuseIdentifier: K.CATEGORY_CELL)
+        self.productsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
        setupButtons()
         
     }
@@ -78,18 +78,18 @@ extension CategoryViewController:UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == categoryCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CategoryViewCell, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CATEGORY_CELL, for: indexPath)
             as! CategoryViewCell
             cell.configureCell(title: categoryArray[indexPath.row].title, image: categoryArray[indexPath.row].image)
             if self.categoryArray[indexPath.row].isSelected{
-                cell.container.backgroundColor=UIColor(named: "lightOrange")
+                cell.container.backgroundColor=UIColor(named: K.PAIGE)
             } else {
                 cell.container.backgroundColor = .clear
             }
             return cell
             
         }else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
             as! BrandViewCell
             cell.addToFavorite.isHidden = false
             cell.configureCell(title: "H&M", imageUrl: "test")

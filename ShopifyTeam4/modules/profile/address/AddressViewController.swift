@@ -24,7 +24,7 @@ class AddressViewController: UIViewController {
     }
     func custmizeNavigation(){
         let customFont = UIFont(name: "Chalkduster", size: 20)!
-        let customColor = UIColor(named: K.paige)!
+        let customColor = UIColor(named: K.PAIGE)!
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.font: customFont,
             NSAttributedString.Key.foregroundColor: customColor
@@ -45,7 +45,7 @@ class AddressViewController: UIViewController {
             target: self,
             action: #selector(addButtonTapped)
         )
-        rightBtn.tintColor = UIColor(named: K.lightOrange)
+        rightBtn.tintColor = UIColor(named: K.LIGHT_ORANGE)
         navigationItem.rightBarButtonItem = rightBtn
     }
     @objc func addButtonTapped() {

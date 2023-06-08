@@ -298,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				8F6B21522A2CE418001A869D /* loading.json */,
+				A70C16522A2F337A00DD68F1 /* ActionButton.swift */,
+				A70C16542A2F338600DD68F1 /* ActionButtonItem.swift */,
 				A72831912A2BD04400A38B6A /* Extensions.swift */,
 				A728318F2A2BD04000A38B6A /* Observable.swift */,
 				A728318D2A2BD03800A38B6A /* Constants.swift */,
@@ -388,8 +390,6 @@
 				A76790342A2EAD0F002CEE8E /* CategoryViewCell.swift */,
 				A76790352A2EAD0F002CEE8E /* CategoryViewCell.xib */,
 				A76790382A2EB49B002CEE8E /* Category.swift */,
-				A70C16522A2F337A00DD68F1 /* ActionButton.swift */,
-				A70C16542A2F338600DD68F1 /* ActionButtonItem.swift */,
 			);
 			path = category;
 			sourceTree = "<group>";
