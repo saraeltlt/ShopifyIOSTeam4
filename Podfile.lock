@@ -29,7 +29,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - IQKeyboardManagerSwift
     - lottie-ios
@@ -53,6 +53,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
 
-PODFILE CHECKSUM: 3bbf9b9061b9d351a300578adc420b57a7978daa
+PODFILE CHECKSUM: d1dc7b98eda3ec9e89e736f7a03a970607c7ce27
 
 COCOAPODS: 1.12.1
