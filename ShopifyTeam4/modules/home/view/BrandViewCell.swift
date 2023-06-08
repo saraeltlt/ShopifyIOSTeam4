@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class BrandViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
@@ -41,7 +41,7 @@ class BrandViewCell: UICollectionViewCell {
     
     func configureCell(title:String,imageUrl:String){
         brandName.text=title
-        brandImage.image=UIImage(named: imageUrl)
+        brandImage.sd_setImage(with: URL(string: imageUrl), placeholderImage:UIImage(named: "test"))
       
         
     }
