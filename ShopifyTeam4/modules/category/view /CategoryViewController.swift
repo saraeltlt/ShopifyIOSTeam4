@@ -10,13 +10,10 @@ import UIKit
 class CategoryViewController: UIViewController {
 
     @IBOutlet weak var container: UIView!
-    
     @IBOutlet weak var productsCollection: UICollectionView!
-    
     @IBOutlet weak var categoryCollection: UICollectionView!
-    var categoryArray:[Category]=[Category(title: "Men", image: UIImage(named: "test")!, isSelected: false),Category(title: "Women", image: UIImage(named: "test")!, isSelected: false),Category(title: "Kids", image: UIImage(named: "test")!, isSelected: false),Category(title: "Sale", image: UIImage(named: "test")!, isSelected: false)]
     var actionButton : ActionButton!
-    
+    var viewModel = CategoryViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.09
@@ -69,7 +66,7 @@ extension CategoryViewController:UICollectionViewDelegate
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == categoryCollection {
-            return categoryArray.count
+            return viewModel.getCategoriesCount()
         }else {
             return 20
         }
@@ -80,8 +77,9 @@ extension CategoryViewController:UICollectionViewDelegate
         if collectionView == categoryCollection {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CATEGORY_CELL, for: indexPath)
             as! CategoryViewCell
-            cell.configureCell(title: categoryArray[indexPath.row].title, image: categoryArray[indexPath.row].image)
-            if self.categoryArray[indexPath.row].isSelected{
+            let categoryData = viewModel.getCategoryData(index: indexPath.row)
+            cell.configureCell(title: categoryData.title, image: categoryData.image)
+            if categoryData.isSelected{
                 cell.container.backgroundColor=UIColor(named: K.PAIGE)
             } else {
                 cell.container.backgroundColor = .clear
@@ -160,7 +158,7 @@ extension CategoryViewController:UICollectionViewDelegate
         if collectionView == categoryCollection {
             self.changeSelectedCellBackground(index: indexPath.row)
         }else {
-
+                  // navigate to product details screen 
         }
 
      
@@ -168,12 +166,7 @@ extension CategoryViewController:UICollectionViewDelegate
     
     
     func changeSelectedCellBackground(index:Int){
-        self.categoryArray.forEach({ item in
-            item.isSelected = false
-        })
-        
-        self.categoryArray[index].isSelected = true
-        
+        viewModel.changeCategoriesIsSelectedStatus(index: index)
         self.categoryCollection.reloadData()
         
     }
