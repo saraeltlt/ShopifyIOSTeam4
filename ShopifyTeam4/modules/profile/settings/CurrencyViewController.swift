@@ -14,11 +14,14 @@ class CurrencyViewController: UIViewController {
     }
     
 
-
     @IBAction func USDBtn(_ sender: UIButton) {
+        UserDefaults.selectedCurrency = "USD"
+        K.CURRENCY = "USD"
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func EGYBtn(_ sender: UIButton) {
+        UserDefaults.selectedCurrency = "EGP"
+        K.CURRENCY = "EGP"
         self.dismiss(animated: true, completion: nil)
     }
 }

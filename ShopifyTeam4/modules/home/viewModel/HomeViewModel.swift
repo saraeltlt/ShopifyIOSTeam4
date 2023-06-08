@@ -31,6 +31,7 @@ class HomeViewModel{
         return brandsArray.count
     }
     
+    
     func getadvertesmentsCount()->Int{
         return advertesmentsArray.count
     }

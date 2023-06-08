@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-   setupTable()
+       setupTable()
 
     }
     func setupTable(){

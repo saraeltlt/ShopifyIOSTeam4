@@ -43,7 +43,18 @@ class BrandViewCell: UICollectionViewCell {
     func configureCell(title:String,imageUrl:String,price:String=""){
         brandName.text=title
         brandImage.sd_setImage(with: URL(string: imageUrl), placeholderImage:UIImage(named: "test"))
-        self.price.text = price
+        if (price == ""){
+            self.price.text = ""
+        }
+        else if (K.CURRENCY == "USD"){
+            self.price.text = "\(price) USD"
+            
+        } else {
+            NetworkManager.shared.getCurrency(amount: Float (price) ?? 0.0, completionHandler: { [weak self] result in
+               self?.price.text = result
+            })
+            
+        }
         
     }
     

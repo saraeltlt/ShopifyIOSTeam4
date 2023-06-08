@@ -16,7 +16,6 @@ class BrandProductsViewController: UIViewController {
     @IBOutlet weak var productsCollection: UICollectionView!
     var isFilterHidden = true
     var viewModel:BrandProductsViewModel?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProductsCollectionObservation()
@@ -27,6 +26,12 @@ class BrandProductsViewController: UIViewController {
         self.view.layoutIfNeeded()
         self.filterContainer.isHidden = true
         self.productsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        productsCollection.reloadData()
+
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
@@ -80,7 +85,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
         as! BrandViewCell
         let productData = viewModel?.getProductData(index: indexPath.row)
-        cell.configureCell(title: productData?.title ?? "", imageUrl: productData?.image?.src ?? "")
+        cell.configureCell(title: productData?.title ?? "", imageUrl: productData?.image?.src ?? "", price: productData?.variants?[0].price ?? "")
         cell.addToFavorite.isHidden = false
         return cell
     

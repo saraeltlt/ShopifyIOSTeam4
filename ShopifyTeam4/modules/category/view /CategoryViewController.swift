@@ -25,6 +25,12 @@ class CategoryViewController: UIViewController {
        setupButtons()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        productsCollection.reloadData()
+        
+    }
+
     
     func setupButtons(){
         let beauty = ActionButtonItem(title: "Beauty", image: UIImage(named: "test"))
@@ -107,7 +113,7 @@ extension CategoryViewController:UICollectionViewDelegate
             as! BrandViewCell
             cell.addToFavorite.isHidden = false
             let product = viewModel.getProductData(index: indexPath.row)
-            cell.configureCell(title: product.title ?? "", imageUrl: product.image?.src ?? "")
+            cell.configureCell(title: product.title ?? "", imageUrl: product.image?.src ?? "", price: product.variants?[0].price ?? "" )
             cell.addToFavorite.tag=indexPath.row
             cell.addToFavorite.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell

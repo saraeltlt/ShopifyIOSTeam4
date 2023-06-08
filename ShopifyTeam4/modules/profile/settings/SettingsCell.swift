@@ -34,7 +34,7 @@ class SettingsCell: UITableViewCell {
         case 0:
             detailLabel.text="Alexandria"
         case 1:
-            detailLabel.text="EG"
+            detailLabel.text=K.CURRENCY
         case 2:
             detailLabel.text=""
         case 3:
