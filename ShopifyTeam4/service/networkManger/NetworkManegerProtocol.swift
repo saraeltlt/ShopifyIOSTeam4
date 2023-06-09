@@ -9,5 +9,5 @@ import Foundation
 
 protocol NetworkManegerProtocol{
     func getApiData<T: Decodable>(url: String, completionHandler: @escaping (Result<T, Error>) -> Void)
-    func getCurrency(amount: Float, completionHandler: @escaping (String) -> Void)
+    func getCurrency(completionHandler: @escaping (Double) -> Void)
 }

@@ -50,9 +50,8 @@ class BrandViewCell: UICollectionViewCell {
             self.price.text = "\(price) USD"
             
         } else {
-            NetworkManager.shared.getCurrency(amount: Float (price) ?? 0.0, completionHandler: { [weak self] result in
-               self?.price.text = result
-            })
+               self.price.text = "\(Double(price)! * K.EXCHANGE_RATE) EGP"
+       
             
         }
         

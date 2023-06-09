@@ -42,7 +42,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             K.CURRENCY = "USD"
         }
-        print (K.CURRENCY)
+        NetworkManager.shared.getCurrency(completionHandler: {result in
+            K.EXCHANGE_RATE = result
+        })
 
     }
 
