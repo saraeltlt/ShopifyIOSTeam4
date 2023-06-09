@@ -6,8 +6,10 @@
 //
 
 import Foundation
-class Fuser {
-    let objectId: String
+import Firebase
+
+class FUser {
+    var objectId: String
     var fullname: String
     var email: String
     var fullNumber: String
@@ -19,7 +21,7 @@ class Fuser {
         objectId = _objectId
         email = _email
         fullname = _fullname
-        fullNumber = _fullname
+        fullNumber = _fullNumber
         country = _country
         city = _city
         street = _street
@@ -64,15 +66,15 @@ class Fuser {
         }
     }
     //MARK: Returning current user funcs
-//    class func currentId() -> String {
-//        return Auth.auth().currentUser!.uid
-//    }
-//    class func currentUser () -> FUser? {
-//        if Auth.auth().currentUser != nil {
-//            if let dictionary = UserDefaults.standard.object(forKey: kCURRENTUSER) {
-//                return FUser.init(_dictionary: dictionary as! NSDictionary)
-//                }
-//            }
-//            return nil
-//        }
+    class func currentId() -> String {
+        return Auth.auth().currentUser!.uid
+    }
+    class func currentUser () -> FUser? {
+        if Auth.auth().currentUser != nil {
+            if let dictionary = UserDefaults.standard.object(forKey: kCURRENTUSER) {
+                return FUser.init(_dictionary: dictionary as! NSDictionary)
+                }
+            }
+            return nil
+        }
 }

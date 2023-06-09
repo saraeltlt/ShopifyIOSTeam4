@@ -38,12 +38,20 @@ class LaunchViewController: UIViewController {
         UIView.animate(withDuration: 1.5,animations: {  self.launchLabel.alpha=1}){
             completion in
             if completion {
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
-                viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                self.present(viewController, animated: false, completion: nil)
+                if UserDefaults.standard.object(forKey: kCURRENTUSER) != nil{
+                    let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+                    let home = storyboard.instantiateViewController(identifier: "tab") as! UITabBarController
+                    print("in the condition")
+                    home.modalPresentationStyle = .fullScreen
+                    home.modalTransitionStyle = .crossDissolve
+                    self.present(home, animated: true)
+                }else{
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
+                    viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                    viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                    self.present(viewController, animated: false, completion: nil)
+                }
             }
         }
     }

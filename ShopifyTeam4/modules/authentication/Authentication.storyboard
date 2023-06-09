@@ -85,7 +85,7 @@
                                             <constraint firstAttribute="height" constant="35" id="fG8-rW-SPn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfN-UI-5XM">
                                         <rect key="frame" x="24" y="144" width="345" height="2"/>
@@ -105,6 +105,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="SIGN IN" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signInAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bny-cD-uGl"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dont have an account ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPd-79-EXa">
                                         <rect key="frame" x="40" y="249" width="179" height="21"/>
@@ -118,7 +121,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
                                         <connections>
-                                            <action selector="goToSignUpAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NOb-ub-h1c"/>
+                                            <action selector="goToSignUpAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NaJ-7u-pfu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -165,7 +168,9 @@
                     </view>
                     <connections>
                         <outlet property="backButtonOutlet" destination="igG-Oy-soU" id="OSa-xS-EAx"/>
+                        <outlet property="emailTextField" destination="N9P-GG-4h8" id="Prb-2h-0c6"/>
                         <outlet property="greenView" destination="9oo-yO-5CG" id="yxB-T5-Csv"/>
+                        <outlet property="passwordTextField" destination="LgG-Uk-fdH" id="iMe-mG-wn9"/>
                         <outlet property="whiteView" destination="xJG-7z-ytU" id="m62-xs-cWy"/>
                     </connections>
                 </viewController>
@@ -228,7 +233,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Szx-sI-Ohg">
                                                         <rect key="frame" x="24" y="53.999999999999993" width="345" height="25.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRm-Pe-Q5k">
                                                         <rect key="frame" x="24" y="81.666666666666657" width="345" height="2"/>
@@ -240,7 +245,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FBv-Qz-qSQ">
                                                         <rect key="frame" x="24" y="117.66666666666667" width="345" height="25.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3PY-rT-in4">
                                                         <rect key="frame" x="24" y="145.33333333333334" width="345" height="2"/>
@@ -250,43 +255,43 @@
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EdN-U4-oOY">
-                                                        <rect key="frame" x="24" y="181.33333333333334" width="345" height="25.666666666666657"/>
+                                                        <rect key="frame" x="24" y="181.33333333333334" width="345" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcC-ds-ZhX">
-                                                        <rect key="frame" x="24" y="208.99999999999997" width="345" height="2"/>
+                                                        <rect key="frame" x="24" y="207.33333333333334" width="345" height="2"/>
                                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="4lW-Lm-40o"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm your password .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CnN-Cz-6Wc">
-                                                        <rect key="frame" x="24" y="244.99999999999997" width="345" height="25.666666666666657"/>
+                                                        <rect key="frame" x="24" y="243.33333333333334" width="345" height="24.000000000000028"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oso-oP-3HA">
-                                                        <rect key="frame" x="24" y="272.66666666666663" width="345" height="2"/>
+                                                        <rect key="frame" x="24" y="269.33333333333337" width="345" height="2"/>
                                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="OWI-bE-SBg"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your full number .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWS-d9-5UA">
-                                                        <rect key="frame" x="24" y="308.66666666666663" width="345" height="25.666666666666686"/>
+                                                        <rect key="frame" x="24" y="305.33333333333337" width="345" height="25.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad" textContentType="tel"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" textContentType="tel"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vqq-tP-ehs">
-                                                        <rect key="frame" x="24" y="336.33333333333337" width="345" height="2"/>
+                                                        <rect key="frame" x="24" y="333" width="345" height="2"/>
                                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="a8a-N8-Ket"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The address informations " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLP-c5-Va6">
-                                                        <rect key="frame" x="12" y="362.33333333333337" width="258.66666666666669" height="26.333333333333314"/>
+                                                        <rect key="frame" x="12" y="359" width="258.66666666666669" height="26.333333333333314"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
@@ -294,43 +299,43 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your country .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTs-es-dmV">
-                                                        <rect key="frame" x="24" y="412.66666666666663" width="345" height="25.666666666666686"/>
+                                                        <rect key="frame" x="24" y="409.33333333333326" width="345" height="25.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="country-name"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzM-Ay-SUq">
-                                                        <rect key="frame" x="24" y="440.33333333333326" width="345" height="2"/>
+                                                        <rect key="frame" x="24" y="437" width="345" height="2"/>
                                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="ZXi-gd-32u"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your city .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-cH-AlS">
-                                                        <rect key="frame" x="24" y="476.33333333333326" width="345" height="25.666666666666686"/>
+                                                        <rect key="frame" x="24" y="473" width="345" height="25.666666666666686"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="address-level2"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXq-94-qpo">
-                                                        <rect key="frame" x="24" y="504" width="345" height="2"/>
+                                                        <rect key="frame" x="24" y="500.66666666666663" width="345" height="2"/>
                                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="2UH-wY-5M2"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your street .." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-GN-3lO">
-                                                        <rect key="frame" x="24" y="540" width="345" height="25.666666666666629"/>
+                                                        <rect key="frame" x="24" y="536.66666666666663" width="345" height="25.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" spellCheckingType="no"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnU-9J-8AP">
-                                                        <rect key="frame" x="24" y="567.66666666666663" width="345" height="2"/>
+                                                        <rect key="frame" x="24" y="564.33333333333326" width="345" height="2"/>
                                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="6ql-1k-zcO"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBb-lA-pJc">
-                                                        <rect key="frame" x="24" y="603.66666666666663" width="345" height="45"/>
+                                                        <rect key="frame" x="24" y="600.33333333333326" width="345" height="45"/>
                                                         <color key="backgroundColor" name="orange"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="BLC-7O-HzU"/>
@@ -340,18 +345,24 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="SIGN UP" cornerStyle="capsule">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="signUpAction:" destination="6aA-zo-y1f" eventType="touchUpInside" id="ffS-QS-1wT"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already registered ..?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCL-lj-4Xq">
-                                                        <rect key="frame" x="40" y="672.66666666666663" width="162" height="21"/>
+                                                        <rect key="frame" x="40" y="669.33333333333326" width="162" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWQ-vO-0ot">
-                                                        <rect key="frame" x="210" y="665.66666666666663" width="76" height="35"/>
+                                                        <rect key="frame" x="210" y="662.33333333333326" width="76" height="35"/>
                                                         <color key="tintColor" name="orange"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
+                                                        <connections>
+                                                            <action selector="goToSignInScreen:" destination="6aA-zo-y1f" eventType="touchUpInside" id="Ar8-Gi-2mR"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -457,8 +468,16 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButtonOutlet" destination="eyb-nF-IgP" id="HfA-2R-B4l"/>
+                        <outlet property="cityTextField" destination="hs2-cH-AlS" id="s5l-El-eSD"/>
+                        <outlet property="confirmPasswordTextField" destination="CnN-Cz-6Wc" id="ie6-ve-qL0"/>
+                        <outlet property="countryTextField" destination="lTs-es-dmV" id="ghj-Yb-eGg"/>
+                        <outlet property="emailTextField" destination="FBv-Qz-qSQ" id="cxR-WB-KfQ"/>
                         <outlet property="greenView" destination="xQq-Ae-HTN" id="RRP-Vi-O4X"/>
+                        <outlet property="nameTextField" destination="Szx-sI-Ohg" id="QQB-fP-IYf"/>
+                        <outlet property="passwordTextField" destination="EdN-U4-oOY" id="20r-Lf-gII"/>
+                        <outlet property="phoneNumberTextField" destination="lWS-d9-5UA" id="JiP-19-e1M"/>
                         <outlet property="scrollableWhiteView" destination="asf-ck-g8M" id="MYZ-tY-BId"/>
+                        <outlet property="streetTextField" destination="Fw7-GN-3lO" id="q6F-7B-si1"/>
                         <outlet property="whiteView" destination="dHP-zc-0yz" id="Dlv-RV-Qhw"/>
                     </connections>
                 </viewController>
