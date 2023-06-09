@@ -36,7 +36,4 @@ struct K {
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
 
-    static let CategoryViewCell =  "CategoryViewCell"
-
-
 }
