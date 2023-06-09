@@ -14,7 +14,7 @@ class AddressViewController: UIViewController {
     @IBOutlet weak var addressTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpTable()
+        addressTableView.register(UINib(nibName: K.ADDRESS_CELL, bundle: nil), forCellReuseIdentifier: K.ADDRESS_CELL)
         setUpLeftButton()
         custmizeNavigation()
 
@@ -31,13 +31,7 @@ class AddressViewController: UIViewController {
         ]
         navigationItem.title = "Address"
     }
-    
-    func setUpTable(){
-        addressTableView.delegate=self
-        addressTableView.dataSource=self
-        addressTableView.register(UINib(nibName: K.ADDRESS_CELL, bundle: nil), forCellReuseIdentifier: K.ADDRESS_CELL)
-        
-    }
+
     func setUpLeftButton(){
        let rightBtn = UIBarButtonItem(
             image: UIImage(systemName: "plus"),

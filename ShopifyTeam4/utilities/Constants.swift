@@ -9,7 +9,8 @@ import Foundation
 struct K {
     
     static var CURRENCY: String = "USD"
-    static var DEFAULT_ADDRESS: String = "USD"
+    static var DEFAULT_ADDRESS: String = ""
+    static let APPERANCE_MODE_KEY = "AppearanceMode"
     //cells id
     static let ADS_CELL = "AdvertisementsViewCell"
     static let BRANDS_CELL = "BrandViewCell"
@@ -35,5 +36,6 @@ struct K {
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
+   
 
 }

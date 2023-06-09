@@ -7,7 +7,12 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+protocol UpdateData{
+    func reloadTable()
+}
+
+class SettingsViewController: UIViewController, UpdateData {
+
 
     @IBOutlet weak var settingsTable: UITableView!
   
@@ -18,11 +23,13 @@ class SettingsViewController: UIViewController {
 
     }
     func setupTable(){
-        settingsTable.delegate=self
-        settingsTable.dataSource=self
         settingsTable.register(UINib(nibName: K.SETTINGS_CELL, bundle: nil), forCellReuseIdentifier: K.SETTINGS_CELL)
         settingsTable.rowHeight = view.bounds.height*0.1
     }
+    func reloadTable() {
+        settingsTable.reloadData()
+    }
+    
     
 
 

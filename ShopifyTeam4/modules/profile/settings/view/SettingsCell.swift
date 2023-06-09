@@ -16,9 +16,23 @@ class SettingsCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     var settingsElemnts = ["Address", "Currency", "Contact us", "About us", "Apperance"]
+    var isDarkMode: Bool {
+        get {
+            (UIApplication.shared.delegate as! AppDelegate).overrideApplicationThemeStyle()
+            return UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: K.APPERANCE_MODE_KEY)
+            (UIApplication.shared.delegate as! AppDelegate).overrideApplicationThemeStyle()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.layer.cornerRadius = bgView.bounds.width*0.05
+        switchView.isOn = self.isDarkMode
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,7 +57,7 @@ class SettingsCell: UITableViewCell {
         default:
             switchView.isHidden=false
             buttonView.isHidden=true
-            detailLabel.text=""
+            detailLabel.text=self.isDarkMode ? "Dark   ." : "Light   ."
             
         }
         
@@ -52,5 +66,7 @@ class SettingsCell: UITableViewCell {
     @IBAction func viewMoreBtn(_ sender: UIButton) {
     }
     @IBAction func switchMood(_ sender: UISwitch) {
+        self.isDarkMode = sender.isOn
+        detailLabel.text=self.isDarkMode ? "Dark   ." : "Light   ."
     }
 }

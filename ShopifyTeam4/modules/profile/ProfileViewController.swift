@@ -14,10 +14,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ordersTableView.delegate=self
-        ordersTableView.dataSource=self
-        favCollection.delegate=self
-        favCollection.dataSource=self
         let layout = UICollectionViewCompositionalLayout { _, _ in
             return self.favSection()
         }
@@ -46,7 +42,7 @@ class ProfileViewController: UIViewController {
     func favSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.45),
+                widthDimension: .fractionalWidth(0.5),
                 heightDimension: .fractionalHeight(1)
             )
         )
@@ -60,7 +56,7 @@ class ProfileViewController: UIViewController {
             ),
             subitems: [item]
         )
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 5, trailing: 12)
         
         let section = NSCollectionLayoutSection(group: group)
         return section
