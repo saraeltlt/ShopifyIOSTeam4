@@ -9,7 +9,7 @@ import UIKit
 
 //MARK: - change mood
 extension AppDelegate {
-   /* func overrideApplicationThemeStyle() {
+   func overrideApplicationThemeStyle() {
         if #available(iOS 13.0, *) {
             let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
             let appearanceMode: UIUserInterfaceStyle = isDarkMode ? .dark : .light
@@ -18,7 +18,7 @@ extension AppDelegate {
             let isDarkMode = UserDefaults.standard.bool(forKey: K.APPERANCE_MODE_KEY)
             UIApplication.shared.statusBarStyle = isDarkMode ? .lightContent : .default
         }
-    }*/
+    }
 }
 //MARK: - settings user defaults
 extension UserDefaults {

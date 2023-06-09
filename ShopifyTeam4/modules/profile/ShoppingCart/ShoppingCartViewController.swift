@@ -19,8 +19,6 @@ class ShoppingCartViewController: UIViewController {
     
     
     func setupTable(){
-        cartTableView.dataSource=self
-        cartTableView.delegate=self
         cartTableView.register(UINib(nibName: K.CART_CELL, bundle: nil), forCellReuseIdentifier: K.CART_CELL)
         cartTableView.rowHeight = view.bounds.height*0.2
         

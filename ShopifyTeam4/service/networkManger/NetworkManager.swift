@@ -33,7 +33,7 @@ class NetworkManager : NetworkManegerProtocol{
         }
     }
     
-    func getCurrency(amount: Float, completionHandler: @escaping (String) -> Void) {
+    func getCurrency(completionHandler: @escaping (Double) -> Void) {
         let apiURL = "https://openexchangerates.org/api/latest.json"
         let apiKey = K.CUREENCY_API_KEY
         let baseCurrency = "USD"
@@ -46,16 +46,13 @@ class NetworkManager : NetworkManegerProtocol{
         ]
         
         AF.request(apiURL, parameters: parameters).responseJSON { response in
-            var result = "0 EGP" // Default result
-            
+            var result = 0.0 // Default result
             switch response.result {
             case .success(let value):
                 if let json = value as? [String: Any],
                    let rates = json["rates"] as? [String: Double],
                    let exchangeRate = rates[targetCurrency] {
-                    let convertedAmount = Double(amount) * exchangeRate
-                    let convertedAmountFormated = String(format: "%.2f", convertedAmount)
-                    result = "\(convertedAmountFormated) \(targetCurrency)"
+                    result = exchangeRate
                 }
             case .failure(let error):
                 print("Failed to retrieve currency data: \(error)")

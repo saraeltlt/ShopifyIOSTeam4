@@ -21,17 +21,6 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqg-Oj-HB4">
                         <rect key="frame" x="15" y="15" width="396" height="68"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fB5-Rf-ol5">
-                                <rect key="frame" x="349.33333333333331" y="16.666666666666671" width="31.666666666666686" height="35"/>
-                                <color key="tintColor" name="paige"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system">
-                                    <color key="baseForegroundColor" name="lightOrange"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="viewMoreBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uYA-oo-46t"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alexandria" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzs-hl-Y32">
                                 <rect key="frame" x="148.66666666666669" y="25.666666666666664" width="190.66666666666669" height="17"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
@@ -66,6 +55,17 @@
                                     <action selector="switchMood:" destination="KGk-i7-Jjw" eventType="valueChanged" id="QGE-Qa-hEZ"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fB5-Rf-ol5">
+                                <rect key="frame" x="349.33333333333331" y="16.666666666666671" width="31.666666666666686" height="35"/>
+                                <color key="tintColor" name="paige"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system">
+                                    <color key="baseForegroundColor" name="lightOrange"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="viewMoreBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uYA-oo-46t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -105,16 +105,16 @@
     <resources>
         <image name="arrowshape.bounce.right.fill" catalog="system" width="128" height="86"/>
         <namedColor name="green">
-            <color red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
             <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92100000381469727" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
