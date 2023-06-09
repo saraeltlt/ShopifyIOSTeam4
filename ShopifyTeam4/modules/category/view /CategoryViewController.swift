@@ -10,41 +10,54 @@ import UIKit
 class CategoryViewController: UIViewController {
 
     @IBOutlet weak var container: UIView!
-    
     @IBOutlet weak var productsCollection: UICollectionView!
-    
     @IBOutlet weak var categoryCollection: UICollectionView!
-    var categoryArray:[Category]=[Category(title: "Men", image: UIImage(named: "test")!, isSelected: false),Category(title: "Women", image: UIImage(named: "test")!, isSelected: false),Category(title: "Kids", image: UIImage(named: "test")!, isSelected: false),Category(title: "Sale", image: UIImage(named: "test")!, isSelected: false)]
     var actionButton : ActionButton!
-    
+    var viewModel = CategoryViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureProductsCollectionObservation()
+        viewModel.getAllProducts()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.09
         self.container.layer.masksToBounds = true
-        self.categoryCollection.register(UINib(nibName: K.CategoryViewCell, bundle: nil), forCellWithReuseIdentifier: K.CategoryViewCell)
-        self.productsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
+        self.categoryCollection.register(UINib(nibName: K.CATEGORY_CELL, bundle: nil), forCellWithReuseIdentifier: K.CATEGORY_CELL)
+        self.productsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
        setupButtons()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        productsCollection.reloadData()
+        
+    }
+
     
     func setupButtons(){
-        let beauty = ActionButtonItem(title: "Beauty", image: UIImage(named: "test"))
-        beauty.action = { [weak self] item in
+        let t_shirts = ActionButtonItem(title: "T-SHIRTS", image: UIImage(named: "test"))
+        t_shirts.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("beauty") }
-        let Supermarket = ActionButtonItem(title: "Supermarket", image:  UIImage(named: "test"))
-        Supermarket.action = { [weak self] item in
+            print("SHIRTS")
+            self?.viewModel.filterProductsArray(productType: "T-SHIRTS")
+            self?.viewModel.isFiltering = true
+            self?.productsCollection.reloadData()
+        }
+        let shoes = ActionButtonItem(title: "SHOES", image:  UIImage(named: "test"))
+        shoes.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("Supermarket")  }
-        let Phones = ActionButtonItem(title: "Phones", image:  UIImage(named: "test"))
-        Phones.action = { [weak self] item in
+            print("SHOES")
+            self?.viewModel.filterProductsArray(productType: "SHOES")
+            self?.viewModel.isFiltering = true
+            self?.productsCollection.reloadData()
+        }
+        let accessories = ActionButtonItem(title: "ACCESSORIES", image:  UIImage(named: "test"))
+        accessories.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("Phones")  }
-        let Gaming = ActionButtonItem(title: "Gaming", image:  UIImage(named: "test"))
-        Gaming.action = { [weak self] item in
-            self?.actionButton.toggleMenu()
-            print("Gaming")  }
-        actionButton = ActionButton(attachedToView: self.view, items: [beauty, Supermarket, Phones, Gaming])
+            print("ACCESSORIES")
+            self?.viewModel.filterProductsArray(productType: "ACCESSORIES")
+            self?.viewModel.isFiltering = true
+            self?.productsCollection.reloadData()
+        }
+        actionButton = ActionButton(attachedToView: self.view, items: [t_shirts, shoes, accessories])
         actionButton.setTitle("+", forState: UIControl.State())
         actionButton.backgroundColor = UIColor(named: "orange")!
         actionButton.action = { button in button.toggleMenu()}
@@ -59,6 +72,20 @@ class CategoryViewController: UIViewController {
 extension CategoryViewController:UICollectionViewDelegate
 ,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
+    func configureProductsCollectionObservation(){
+        viewModel.products.bind({ status in
+            guard let status = status else {return}
+            if status {
+                DispatchQueue.main.async {
+                    self.productsCollection.reloadData()
+                }
+            }
+        })
+    }
+    
+    
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == categoryCollection {
             return 1
@@ -69,30 +96,32 @@ extension CategoryViewController:UICollectionViewDelegate
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == categoryCollection {
-            return categoryArray.count
+            return viewModel.getCategoriesCount()
         }else {
-            return 20
+            return viewModel.getProductsCount()
         }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == categoryCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CategoryViewCell, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CATEGORY_CELL, for: indexPath)
             as! CategoryViewCell
-            cell.configureCell(title: categoryArray[indexPath.row].title, image: categoryArray[indexPath.row].image)
-            if self.categoryArray[indexPath.row].isSelected{
-                cell.container.backgroundColor=UIColor(named: "lightOrange")
+            let categoryData = viewModel.getCategoryData(index: indexPath.row)
+            cell.configureCell(title: categoryData.title, image: categoryData.image)
+            if categoryData.isSelected{
+                cell.container.backgroundColor=UIColor(named: K.PAIGE)
             } else {
                 cell.container.backgroundColor = .clear
             }
             return cell
             
         }else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
             as! BrandViewCell
             cell.addToFavorite.isHidden = false
-            cell.configureCell(title: "H&M", imageUrl: "test")
+            let product = viewModel.getProductData(index: indexPath.row)
+            cell.configureCell(title: product.title ?? "", imageUrl: product.image?.src ?? "", price: product.variants?[0].price ?? "" )
             cell.addToFavorite.tag=indexPath.row
             cell.addToFavorite.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell
@@ -160,7 +189,7 @@ extension CategoryViewController:UICollectionViewDelegate
         if collectionView == categoryCollection {
             self.changeSelectedCellBackground(index: indexPath.row)
         }else {
-
+                  // navigate to product details screen 
         }
 
      
@@ -168,12 +197,8 @@ extension CategoryViewController:UICollectionViewDelegate
     
     
     func changeSelectedCellBackground(index:Int){
-        self.categoryArray.forEach({ item in
-            item.isSelected = false
-        })
-        
-        self.categoryArray[index].isSelected = true
-        
+        viewModel.changeCategoriesIsSelectedStatus(index: index)
+        viewModel.isFiltering = false
         self.categoryCollection.reloadData()
         
     }

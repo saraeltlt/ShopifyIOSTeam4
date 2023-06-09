@@ -20,7 +20,31 @@ extension AppDelegate {
         }
     }*/
 }
+//MARK: - settings user defaults
+extension UserDefaults {
+    private static let currencyKey = "SelectedCurrency"
 
+    static var selectedCurrency: String? {
+        get {
+            return UserDefaults.standard.string(forKey: currencyKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: currencyKey)
+        }
+    }
+    
+    
+    private static let addressKey = "DefaultAddress"
+
+    static var DefaultAddress: String? {
+        get {
+            return UserDefaults.standard.string(forKey: addressKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: addressKey)
+        }
+    }
+}
 //MARK: - gradient Background
 extension UIView {
     func addGradient(with layer: CAGradientLayer, gradientFrame: CGRect? = nil, colorSet: [UIColor],

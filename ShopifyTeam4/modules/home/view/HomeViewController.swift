@@ -21,8 +21,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureBrandCollectionObservation()
         viewModel.getBrandsData()
-        self.adsCollection.register(UINib(nibName: "AdvertisementsViewCell", bundle: nil), forCellWithReuseIdentifier: K.AdvertisementCellIdentifier)
-        self.brandsCollection.register(UINib(nibName: "BrandViewCell", bundle: nil), forCellWithReuseIdentifier: K.brandCell)
+        self.adsCollection.register(UINib(nibName: K.ADS_CELL, bundle: nil), forCellWithReuseIdentifier: K.ADS_CELL)
+        self.brandsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
         timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
         self.pageController.numberOfPages = viewModel.getadvertesmentsCount()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.15
@@ -49,6 +49,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         viewModel.brands.bind { status in
             guard let status = status else {return}
             if status {
+                print (status)
                 DispatchQueue.main.async {
                     self.brandsCollection.reloadData()
                 }
@@ -85,13 +86,13 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == adsCollection {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.AdvertisementCellIdentifier, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.ADS_CELL, for: indexPath)
             as! AdvertisementsViewCell
             cell.configureCell(image: viewModel.getadvertesmentsData(index: indexPath.row))
        
             return cell
         }else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.brandCell, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
             as! BrandViewCell
             let brandData = viewModel.getBrandData(index: indexPath.row)
             cell.configureCell(title: brandData.title ?? "", imageUrl: brandData.image?.src ?? "")

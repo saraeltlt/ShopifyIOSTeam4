@@ -70,6 +70,7 @@
 		A7AA7F112A30F15B007DFB2E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA7F102A30F15B007DFB2E /* NetworkManager.swift */; };
 		A7AA7F132A30F17F007DFB2E /* NetworkManegerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA7F122A30F17F007DFB2E /* NetworkManegerProtocol.swift */; };
 		A7AA7F152A30F732007DFB2E /* BrandProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA7F142A30F732007DFB2E /* BrandProductsModel.swift */; };
+		A7B961A92A32048700940F98 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B961A82A32048700940F98 /* CategoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		A7AA7F102A30F15B007DFB2E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A7AA7F122A30F17F007DFB2E /* NetworkManegerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManegerProtocol.swift; sourceTree = "<group>"; };
 		A7AA7F142A30F732007DFB2E /* BrandProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandProductsModel.swift; sourceTree = "<group>"; };
+		A7B961A82A32048700940F98 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		D3E4FD4D47ABDE5F104F3F09 /* Pods-ShopifyTeam4-ShopifyTeam4UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyTeam4-ShopifyTeam4UITests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyTeam4-ShopifyTeam4UITests/Pods-ShopifyTeam4-ShopifyTeam4UITests.release.xcconfig"; sourceTree = "<group>"; };
 		D82B044081D05DAE6894E45E /* Pods-ShopifyTeam4Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyTeam4Tests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyTeam4Tests/Pods-ShopifyTeam4Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F86F2E68F13DA48B2C1076F2 /* Pods_ShopifyTeam4_ShopifyTeam4UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyTeam4_ShopifyTeam4UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -319,6 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				8F6B21522A2CE418001A869D /* loading.json */,
+				A70C16522A2F337A00DD68F1 /* ActionButton.swift */,
+				A70C16542A2F338600DD68F1 /* ActionButtonItem.swift */,
 				A72831912A2BD04400A38B6A /* Extensions.swift */,
 				A728318F2A2BD04000A38B6A /* Observable.swift */,
 				A728318D2A2BD03800A38B6A /* Constants.swift */,
@@ -408,12 +412,9 @@
 		A76790332A2EAB4A002CEE8E /* category */ = {
 			isa = PBXGroup;
 			children = (
-				A76790312A2EAA77002CEE8E /* CategoryViewController.swift */,
-				A76790342A2EAD0F002CEE8E /* CategoryViewCell.swift */,
-				A76790352A2EAD0F002CEE8E /* CategoryViewCell.xib */,
-				A76790382A2EB49B002CEE8E /* Category.swift */,
-				A70C16522A2F337A00DD68F1 /* ActionButton.swift */,
-				A70C16542A2F338600DD68F1 /* ActionButtonItem.swift */,
+				A7B961A72A32043300940F98 /* model */,
+				A7B961A62A3203F900940F98 /* viewModel */,
+				A7B961A52A3203F400940F98 /* view  */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -489,6 +490,32 @@
 				A7AA7F122A30F17F007DFB2E /* NetworkManegerProtocol.swift */,
 			);
 			path = networkManger;
+			sourceTree = "<group>";
+		};
+		A7B961A52A3203F400940F98 /* view  */ = {
+			isa = PBXGroup;
+			children = (
+				A76790312A2EAA77002CEE8E /* CategoryViewController.swift */,
+				A76790352A2EAD0F002CEE8E /* CategoryViewCell.xib */,
+				A76790342A2EAD0F002CEE8E /* CategoryViewCell.swift */,
+			);
+			path = "view ";
+			sourceTree = "<group>";
+		};
+		A7B961A62A3203F900940F98 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7B961A82A32048700940F98 /* CategoryViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		A7B961A72A32043300940F98 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A76790382A2EB49B002CEE8E /* Category.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		CF44892CC74B6E2300C4EFB6 /* Pods */ = {
@@ -765,6 +792,7 @@
 				8F6BA4C42A2F13B40095E747 /* ProfileViewController.swift in Sources */,
 				26BE802E2A3287300054F656 /* AuthenticationService.swift in Sources */,
 				A76790322A2EAA77002CEE8E /* CategoryViewController.swift in Sources */,
+				A7B961A92A32048700940F98 /* CategoryViewModel.swift in Sources */,
 				A7AA7F112A30F15B007DFB2E /* NetworkManager.swift in Sources */,
 				8F973BAF2A2BC9D500B52879 /* AppDelegate.swift in Sources */,
 				A76790362A2EAD0F002CEE8E /* CategoryViewCell.swift in Sources */,

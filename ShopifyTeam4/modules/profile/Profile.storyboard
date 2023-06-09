@@ -70,6 +70,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WiW-6g-H9J">
                                 <rect key="frame" x="10" y="432" width="394" height="430"/>
+                                <color key="backgroundColor" name="paige"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Lt-AQ-xV0">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -80,11 +81,12 @@
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="t6u-iK-1kt">
                                 <rect key="frame" x="10" y="199.5" width="394" height="179"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="paige"/>
+                                <color key="sectionIndexBackgroundColor" name="paige"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WiW-6g-H9J" secondAttribute="trailing" constant="10" id="4Mk-PO-Hhy"/>
                             <constraint firstItem="R4L-A9-tSe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="4fI-gT-4ad"/>
@@ -113,13 +115,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="jwU-GD-Azh"/>
                         <rightBarButtonItems>
                             <barButtonItem image="gearshape.fill" catalog="system" id="Djx-9K-fth">
-                                <color key="tintColor" name="lightOrange"/>
+                                <color key="tintColor" name="orange"/>
                                 <connections>
                                     <segue destination="nUx-hr-uIJ" kind="show" id="bga-gR-GD6"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="cart.fill" catalog="system" id="b9P-k4-FMk">
-                                <color key="tintColor" name="lightOrange"/>
+                                <color key="tintColor" name="orange"/>
                                 <connections>
                                     <segue destination="9Zt-bY-1mi" kind="show" id="pAS-nw-xrl"/>
                                 </connections>
@@ -345,7 +347,8 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wzA-Bq-5m1">
                                 <rect key="frame" x="0.0" y="116.5" width="414" height="676.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="paige"/>
+                                <color key="sectionIndexBackgroundColor" name="paige"/>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0E-Yp-Q8v">
                                 <rect key="frame" x="16" y="809" width="382" height="37"/>
@@ -363,7 +366,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tSP-WX-EN7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="trailing" secondItem="tSP-WX-EN7" secondAttribute="trailing" id="3zv-Ml-WsA"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="5QG-km-beo"/>
@@ -831,7 +834,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KNy-D5-lcV">
                                 <rect key="frame" x="0.0" y="116.5" width="414" height="676.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="paige"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jr-cY-7E7">
                                 <rect key="frame" x="16" y="809" width="382" height="37"/>
@@ -849,7 +852,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aoJ-TC-I75"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="FPX-x2-ZUh"/>
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="top" secondItem="KNy-D5-lcV" secondAttribute="bottom" constant="16" id="SP7-1R-s1F"/>
@@ -1335,19 +1338,19 @@ Your order has been successfully confirmed.</string>
         <image name="plus" width="128" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="green">
-            <color red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightGreen">
-            <color red="0.51764705882352935" green="0.74509803921568629" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
             <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

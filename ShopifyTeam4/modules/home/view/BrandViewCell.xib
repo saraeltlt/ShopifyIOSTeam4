@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="brandCell" id="gTV-IL-0wX" customClass="BrandViewCell" customModule="ShopifyTeam4" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BrandViewCell" id="gTV-IL-0wX" customClass="BrandViewCell" customModule="ShopifyTeam4" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="1001" height="818"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -22,26 +22,36 @@
                         <rect key="frame" x="0.0" y="59" width="1001" height="725"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRF-lO-tIl">
-                                <rect key="frame" x="0.0" y="40" width="1001" height="665"/>
+                                <rect key="frame" x="0.0" y="40" width="1001" height="685"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6E-iV-gTZ">
-                                        <rect key="frame" x="15" y="-29" width="971" height="649"/>
+                                        <rect key="frame" x="15" y="-29" width="971" height="659"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TLH-VM-6Ln">
-                                                <rect key="frame" x="20" y="35" width="931" height="594"/>
+                                                <rect key="frame" x="20" y="35" width="931" height="604"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeT-Al-SfI">
+                                                <rect key="frame" x="0.0" y="616" width="971" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" name="orange"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="BeT-Al-SfI" firstAttribute="leading" secondItem="Z6E-iV-gTZ" secondAttribute="leading" id="34I-vN-Ajk"/>
                                             <constraint firstAttribute="trailing" secondItem="TLH-VM-6Ln" secondAttribute="trailing" constant="20" id="3qA-Om-iLz"/>
+                                            <constraint firstAttribute="bottom" secondItem="BeT-Al-SfI" secondAttribute="bottom" constant="10" id="G9T-WK-Vqk"/>
+                                            <constraint firstItem="BeT-Al-SfI" firstAttribute="height" secondItem="Z6E-iV-gTZ" secondAttribute="height" multiplier="0.05" id="Lhy-nY-PfT"/>
+                                            <constraint firstAttribute="trailing" secondItem="BeT-Al-SfI" secondAttribute="trailing" id="bRF-lJ-cfX"/>
                                             <constraint firstItem="TLH-VM-6Ln" firstAttribute="leading" secondItem="Z6E-iV-gTZ" secondAttribute="leading" constant="20" id="flM-Bk-hbI"/>
                                             <constraint firstItem="TLH-VM-6Ln" firstAttribute="top" secondItem="Z6E-iV-gTZ" secondAttribute="top" constant="35" id="rPw-hx-5Vd"/>
                                             <constraint firstAttribute="bottom" secondItem="TLH-VM-6Ln" secondAttribute="bottom" constant="20" id="vYg-ww-Nbi"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zara" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl8-dT-reh">
-                                        <rect key="frame" x="15" y="628" width="971" height="27"/>
+                                        <rect key="frame" x="15" y="638" width="971" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -51,8 +61,8 @@
                                 <constraints>
                                     <constraint firstItem="Z6E-iV-gTZ" firstAttribute="leading" secondItem="LRF-lO-tIl" secondAttribute="leading" constant="15" id="4Hp-0F-Ppk"/>
                                     <constraint firstAttribute="trailing" secondItem="Z6E-iV-gTZ" secondAttribute="trailing" constant="15" id="Dva-Yv-pdi"/>
-                                    <constraint firstAttribute="bottom" secondItem="nl8-dT-reh" secondAttribute="bottom" constant="10" id="Rvz-0w-82B"/>
-                                    <constraint firstAttribute="bottom" secondItem="Z6E-iV-gTZ" secondAttribute="bottom" constant="45" id="SKc-sS-SLY"/>
+                                    <constraint firstAttribute="bottom" secondItem="nl8-dT-reh" secondAttribute="bottom" constant="5" id="Rvz-0w-82B"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z6E-iV-gTZ" secondAttribute="bottom" constant="55" id="SKc-sS-SLY"/>
                                     <constraint firstItem="nl8-dT-reh" firstAttribute="width" secondItem="Z6E-iV-gTZ" secondAttribute="width" id="ayp-Vn-jJw"/>
                                     <constraint firstItem="nl8-dT-reh" firstAttribute="top" secondItem="Z6E-iV-gTZ" secondAttribute="bottom" constant="8" symbolic="YES" id="cVD-4a-8OT"/>
                                     <constraint firstItem="nl8-dT-reh" firstAttribute="centerX" secondItem="LRF-lO-tIl" secondAttribute="centerX" id="kzt-TO-5Xw"/>
@@ -71,7 +81,7 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="LRF-lO-tIl" secondAttribute="bottom" constant="20" id="6x7-og-pYo"/>
+                            <constraint firstAttribute="bottom" secondItem="LRF-lO-tIl" secondAttribute="bottom" id="6x7-og-pYo"/>
                             <constraint firstItem="Z6E-iV-gTZ" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="11" id="87P-mV-hUb"/>
                             <constraint firstAttribute="trailing" secondItem="c8Q-RZ-RRf" secondAttribute="trailing" constant="25" id="FET-Ra-bPL"/>
                             <constraint firstItem="LRF-lO-tIl" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="40" id="KNz-Mw-iL9"/>
@@ -98,6 +108,7 @@
                 <outlet property="cellFrame" destination="gfq-It-38l" id="xqL-hg-gP5"/>
                 <outlet property="innerContainer" destination="Z6E-iV-gTZ" id="oWJ-oc-FPY"/>
                 <outlet property="outerContainer" destination="LRF-lO-tIl" id="wDG-zQ-4jx"/>
+                <outlet property="price" destination="BeT-Al-SfI" id="xp0-xp-Qrt"/>
             </connections>
             <point key="canvasLocation" x="-20.610687022900763" y="183.80281690140845"/>
         </collectionViewCell>
@@ -105,10 +116,10 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
         <namedColor name="green">
-            <color red="0.31499999761581421" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81400001049041748" green="0.46000000834465027" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

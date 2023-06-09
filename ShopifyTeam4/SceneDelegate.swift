@@ -37,8 +37,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        if let selectedCurrency = UserDefaults.selectedCurrency {
+            K.CURRENCY = selectedCurrency
+        } else {
+            K.CURRENCY = "USD"
+        }
+        print (K.CURRENCY)
+
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
