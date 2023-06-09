@@ -6,8 +6,12 @@
 //
 
 import UIKit
-
+import ProgressHUD
 class LoginViewController: UIViewController {
+    var signInViewModel:SignInViewModel!
+    var networkIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var greenView: UIView!{
         didSet{
             greenView.layer.cornerRadius = self.greenView.bounds.width * 0.15
@@ -23,12 +27,23 @@ class LoginViewController: UIViewController {
             backButtonOutlet.layer.cornerRadius = self.backButtonOutlet.bounds.width * 0.5
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        networkIndicator = UIActivityIndicatorView(style: .large)
+        networkIndicator.color = UIColor.green
+        networkIndicator.center = view.center
+        view.addSubview(networkIndicator)
+        signInViewModel = SignInViewModel()
+        signInViewModel.failClosure = { (erreorMeg) in
+            ProgressHUD.showError(erreorMeg)
+        }
+        signInViewModel.successClosur = { [weak self] in
+            guard let self = self else {return}
+            self.setScreenDefaultForm()
+            self.navigateToHomeScreen()
+        }
     }
+    
     @IBAction func backBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
@@ -39,5 +54,25 @@ class LoginViewController: UIViewController {
         signup.modalTransitionStyle = .crossDissolve
         present(signup, animated: true)
     }
+    @IBAction func signInAction(_ sender: UIButton) {
+        guard !( emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty )
+        else {
+            ProgressHUD.showError("Fill all required information")
+            return }
+        networkIndicator.startAnimating()
+        signInViewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
+    }
     
+    func navigateToHomeScreen(){
+        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+        let home = storyboard.instantiateViewController(identifier: "tab") as! UITabBarController
+        home.modalPresentationStyle = .fullScreen
+        home.modalTransitionStyle = .crossDissolve
+        present(home, animated: true)
+    }
+    func setScreenDefaultForm(){
+        networkIndicator.stopAnimating()
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
 }

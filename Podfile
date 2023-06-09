@@ -14,7 +14,11 @@ target 'ShopifyTeam4' do
     pod 'ReachabilitySwift'
     pod 'RealmSwift'
     pod 'IQKeyboardManagerSwift'
-
+    pod 'Firebase'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Database'
+    pod 'ProgressHUD'
+    
   target 'ShopifyTeam4Tests' do
     inherit! :search_paths
     # Pods for testing
