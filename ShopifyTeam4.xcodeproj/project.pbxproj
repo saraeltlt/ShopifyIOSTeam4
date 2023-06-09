@@ -195,13 +195,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		26BE802B2A3286B10054F656 /* view_model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view_model;
-			sourceTree = "<group>";
-		};
 		26BE802C2A3286F00054F656 /* authentication_service */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,7 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				26BE802C2A3286F00054F656 /* authentication_service */,
-				26BE802B2A3286B10054F656 /* view_model */,
 				A728319A2A2BD2B300A38B6A /* Authentication.storyboard */,
 				8F5C3AA92A2E76D000B5D939 /* SignUpViewController.swift */,
 				8F5C3AAB2A2E771E00B5D939 /* LoginViewController.swift */,
