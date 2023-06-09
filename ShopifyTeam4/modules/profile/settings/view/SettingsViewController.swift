@@ -60,7 +60,8 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource{
             let viewController = storyboard.instantiateViewController(identifier: "AddressViewController")
             self.navigationController?.pushViewController(viewController, animated: true)
         case 1:
-            let viewController = storyboard.instantiateViewController(identifier: "CurrencyViewController")
+            let viewController = storyboard.instantiateViewController(identifier: "CurrencyViewController") as! CurrencyViewController
+            viewController.delegate = self
             viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             self.present(viewController, animated: false, completion: nil)

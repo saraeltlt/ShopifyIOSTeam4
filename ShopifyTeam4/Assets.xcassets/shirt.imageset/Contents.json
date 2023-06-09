@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "cart (1)-1024 2.png",
+      "filename" : "tshirt.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "tshirt-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "tshirt-3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

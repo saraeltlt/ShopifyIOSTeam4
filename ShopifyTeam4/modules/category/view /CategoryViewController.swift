@@ -33,7 +33,7 @@ class CategoryViewController: UIViewController {
 
     
     func setupButtons(){
-        let t_shirts = ActionButtonItem(title: "T-SHIRTS", image: UIImage(named: "test"))
+        let t_shirts = ActionButtonItem(title: "T-SHIRTS", image: UIImage(named: K.TSHIRT))
         t_shirts.action = { [weak self] item in
             self?.actionButton.toggleMenu()
             print("SHIRTS")
@@ -41,7 +41,7 @@ class CategoryViewController: UIViewController {
             self?.viewModel.isFiltering = true
             self?.productsCollection.reloadData()
         }
-        let shoes = ActionButtonItem(title: "SHOES", image:  UIImage(named: "test"))
+        let shoes = ActionButtonItem(title: "SHOES", image:  UIImage(named: K.SHOES))
         shoes.action = { [weak self] item in
             self?.actionButton.toggleMenu()
             print("SHOES")
@@ -49,7 +49,7 @@ class CategoryViewController: UIViewController {
             self?.viewModel.isFiltering = true
             self?.productsCollection.reloadData()
         }
-        let accessories = ActionButtonItem(title: "ACCESSORIES", image:  UIImage(named: "test"))
+        let accessories = ActionButtonItem(title: "ACCESSORIES", image:  UIImage(named: K.ACCESSORISE))
         accessories.action = { [weak self] item in
             self?.actionButton.toggleMenu()
             print("ACCESSORIES")

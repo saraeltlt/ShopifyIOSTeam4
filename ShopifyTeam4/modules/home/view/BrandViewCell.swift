@@ -50,7 +50,8 @@ class BrandViewCell: UICollectionViewCell {
             self.price.text = "\(price) USD"
             
         } else {
-               self.price.text = "\(Double(price)! * K.EXCHANGE_RATE) EGP"
+             var result = Int(Double(price)! * K.EXCHANGE_RATE)
+               self.price.text = "\(result) EGP"
        
             
         }

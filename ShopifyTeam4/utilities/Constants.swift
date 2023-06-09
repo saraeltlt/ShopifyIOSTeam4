@@ -34,6 +34,9 @@ struct K {
     static let WOMEN = "women"
     static let KIDS = "kids"
     static let SALE = "sale"
+    static let ACCESSORISE = "accessorise"
+    static let TSHIRT = "shirt"
+    static let SHOES = "shoes"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
