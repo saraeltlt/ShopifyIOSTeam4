@@ -15,6 +15,7 @@ class  AuthenticationService{
          UserDefaults.standard.set(userDictionary, forKey: kCURRENTUSER)
          print("saved \n")
          UserDefaults.standard.synchronize()
+         print(UserDefaults.standard.object(forKey: kCURRENTUSER))
      }
 func userDictionaryFrom(user: FUser) -> NSDictionary {
     print("userDictionaryFrom \n")
