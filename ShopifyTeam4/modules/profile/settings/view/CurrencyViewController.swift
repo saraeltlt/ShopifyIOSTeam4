@@ -8,6 +8,7 @@
 import UIKit
 
 class CurrencyViewController: UIViewController {
+    var delegate: UpdateData!
     var btnHandler : (() -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +18,14 @@ class CurrencyViewController: UIViewController {
     @IBAction func USDBtn(_ sender: UIButton) {
         UserDefaults.selectedCurrency = "USD"
         K.CURRENCY = "USD"
+        delegate.reloadTable()
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func EGYBtn(_ sender: UIButton) {
         UserDefaults.selectedCurrency = "EGP"
         K.CURRENCY = "EGP"
+        delegate.reloadTable()
         self.dismiss(animated: true, completion: nil)
+        
     }
 }
