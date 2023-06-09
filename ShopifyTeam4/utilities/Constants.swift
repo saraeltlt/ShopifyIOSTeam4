@@ -24,6 +24,6 @@ struct K {
     static let green = "green"
     static let lightGreen = "lightGreen"
 
-     static let CategoryViewCell =  "CategoryViewCell"
+    static let CategoryViewCell =  "CategoryViewCell"
 
 }
