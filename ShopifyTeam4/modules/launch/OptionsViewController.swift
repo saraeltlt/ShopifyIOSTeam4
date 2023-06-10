@@ -10,11 +10,19 @@ import UIKit
 class OptionsViewController: UIViewController {
 
     @IBAction func goToHomeBtn(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
-        let home = storyboard.instantiateViewController(identifier: "tab") as! UITabBarController
-        home.modalPresentationStyle = .fullScreen
-        home.modalTransitionStyle = .crossDissolve
-        present(home, animated: true)
+        /*
+         let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+         let home = storyboard.instantiateViewController(identifier: "tab") as! UITabBarController
+         home.modalPresentationStyle = .fullScreen
+         home.modalTransitionStyle = .crossDissolve
+         present(home, animated: true)
+         */
+        
+       let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
+       let viewController = storyboard.instantiateViewController(identifier: "ProductDetailsViewController") as ProductDetailsViewController
+       viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+       viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+       self.present(viewController, animated: false, completion: nil)
     }
 
     @IBAction func goToSignupBtn(_ sender: Any) {

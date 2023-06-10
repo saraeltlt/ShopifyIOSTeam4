@@ -46,7 +46,7 @@ class LaunchViewController: UIViewController {
                     home.modalTransitionStyle = .crossDissolve
                     self.present(home, animated: true)
                 }else{
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                  let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
                     viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
                     viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
@@ -54,9 +54,7 @@ class LaunchViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    
+    }  
 }
 
 
