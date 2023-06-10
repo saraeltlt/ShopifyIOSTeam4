@@ -9,7 +9,9 @@ import UIKit
 
 class addressCell: UITableViewCell {
     
+    @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var phoneNumber: UIButton!
+    @IBOutlet weak var defaultBtn: UIButton!
     @IBOutlet weak var addressDetails: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()

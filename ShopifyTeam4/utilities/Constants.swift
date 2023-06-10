@@ -7,9 +7,8 @@
 
 import Foundation
 struct K {
-    
     static var CURRENCY: String = "USD"
-    static var DEFAULT_ADDRESS: String = ""
+    static var DEFAULT_ADDRESS: String = "Alex"
     static let APPERANCE_MODE_KEY = "AppearanceMode"
     static var EXCHANGE_RATE = 30.94
     //cells id
@@ -43,4 +42,39 @@ struct K {
     static let MARCHANT_ID = "merchant.com.pushpendra.pay"
    
 
+}
+struct URLs{
+    
+    static let shared = URLs()
+    private init(){}
+
+    let baseURL = "https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/"
+    
+    func allProductsURL() -> String{
+        return baseURL + "products.json"
+    }
+    
+    func categoryProductsURL(id : Int) -> String{
+        return baseURL + "products.json?collection_id=\(id)"
+    }
+    
+    
+    func customersURl()->String {
+        return baseURL + "customers.json"
+    }
+  
+    func addAddress(id: Int) -> String {
+        return  baseURL + "customers/\(id).json"
+    }
+    func getAllAddress(id: Int) -> String {
+        return baseURL 
+    }
+    
+    func setDefaultAddress(customerID: Int, addressID: Int) -> String{
+        return baseURL + "customers/\(customerID)/addresses/\(addressID)/default.json"
+    }
+    func deleteOrEditAddress (customerID: Int, addressID: Int) -> String{
+        return baseURL + "customers/\(customerID)/addresses/\(addressID).json"
+    }
+    
 }

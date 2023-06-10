@@ -15,6 +15,7 @@ class AddressViewController: UIViewController, AddAddress {
     @IBOutlet weak var CheckoutBtn: UIButton!
     var navigationFlag = true
     @IBOutlet weak var addressTableView: UITableView!
+    let viewModel = AddressViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         addressTableView.register(UINib(nibName: K.ADDRESS_CELL, bundle: nil), forCellReuseIdentifier: K.ADDRESS_CELL)
@@ -69,12 +70,30 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ADDRESS_CELL, for: indexPath) as! addressCell
         cell.configure(phoneNum: "01206425318", Address: "Alexandria - louran")
+       /* if address.isDefault{
+            cell.defaultBtn.isHidden=false
+            cell.defaultView.isHidden=false
+        } else {
+            cell.defaultBtn.isHidden=true
+            cell.defaultView.isHidden=true
+        }*/
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        changeSelectedCellBackground(index: indexPath.row)
+       
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.size.height*0.27
      }
+    
+    func changeSelectedCellBackground(index:Int){
+       // viewModel.changeCategoriesIsSelectedStatus(index: index)
+        addressTableView.reloadData()
+        
+    }
 
     
     
