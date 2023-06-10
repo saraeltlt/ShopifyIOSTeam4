@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		11660AB5046B4793DFEC8B0D /* Pods_ShopifyTeam4_ShopifyTeam4UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86F2E68F13DA48B2C1076F2 /* Pods_ShopifyTeam4_ShopifyTeam4UITests.framework */; };
+		268F04DD2A34CF8A002122B7 /* ProductImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268F04DC2A34CF8A002122B7 /* ProductImageCollectionViewCell.swift */; };
+		26925E1C2A33D3BA000941FD /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26925E1B2A33D3BA000941FD /* ProductDetailsViewController.swift */; };
 		26BE80282A327D880054F656 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BE80272A327D880054F656 /* FirebaseUser.swift */; };
 		26BE802A2A327EC70054F656 /* ConstantKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BE80292A327EC70054F656 /* ConstantKeys.swift */; };
 		26BE802E2A3287300054F656 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BE802D2A3287300054F656 /* AuthenticationService.swift */; };
@@ -98,6 +100,8 @@
 
 /* Begin PBXFileReference section */
 		0D0D1D2082A5D35F9790F773 /* Pods-ShopifyTeam4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyTeam4.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyTeam4/Pods-ShopifyTeam4.debug.xcconfig"; sourceTree = "<group>"; };
+		268F04DC2A34CF8A002122B7 /* ProductImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		26925E1B2A33D3BA000941FD /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		26BE80272A327D880054F656 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		26BE80292A327EC70054F656 /* ConstantKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantKeys.swift; sourceTree = "<group>"; };
 		26BE802D2A3287300054F656 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
@@ -207,6 +211,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
+		26925E1D2A33D42D000941FD /* view */ = {
+			isa = PBXGroup;
+			children = (
+				26925E1E2A33D44B000941FD /* custom_cells */,
+				A728319D2A2BD71300A38B6A /* ProductDetails.storyboard */,
+				26925E1B2A33D3BA000941FD /* ProductDetailsViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		26925E1E2A33D44B000941FD /* custom_cells */ = {
+			isa = PBXGroup;
+			children = (
+				268F04DC2A34CF8A002122B7 /* ProductImageCollectionViewCell.swift */,
+			);
+			path = custom_cells;
+			sourceTree = "<group>";
+		};
 		26BE802B2A3286B10054F656 /* view_model */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,7 +483,7 @@
 		A728319C2A2BD6D600A38B6A /* productDetails */ = {
 			isa = PBXGroup;
 			children = (
-				A728319D2A2BD71300A38B6A /* ProductDetails.storyboard */,
+				26925E1D2A33D42D000941FD /* view */,
 			);
 			path = productDetails;
 			sourceTree = "<group>";
@@ -868,6 +891,7 @@
 				8F6BA4C42A2F13B40095E747 /* ProfileViewController.swift in Sources */,
 				26BE802E2A3287300054F656 /* AuthenticationService.swift in Sources */,
 				A76790322A2EAA77002CEE8E /* CategoryViewController.swift in Sources */,
+				268F04DD2A34CF8A002122B7 /* ProductImageCollectionViewCell.swift in Sources */,
 				A7B961A92A32048700940F98 /* CategoryViewModel.swift in Sources */,
 				A7AA7F112A30F15B007DFB2E /* NetworkManager.swift in Sources */,
 				8F973BAF2A2BC9D500B52879 /* AppDelegate.swift in Sources */,
@@ -884,6 +908,7 @@
 				A70C16532A2F337A00DD68F1 /* ActionButton.swift in Sources */,
 				A76790392A2EB49B002CEE8E /* Category.swift in Sources */,
 				26FCB8822A336B92004C8383 /* SignUpViewModel.swift in Sources */,
+				26925E1C2A33D3BA000941FD /* ProductDetailsViewController.swift in Sources */,
 				8F973BB92A2BC9D500B52879 /* ShopifyTeam4.xcdatamodeld in Sources */,
 				8F574FB62A3153C800BA979D /* DoneViewController.swift in Sources */,
 				8F6077862A2F41EF00570DC7 /* SettingsViewController.swift in Sources */,
