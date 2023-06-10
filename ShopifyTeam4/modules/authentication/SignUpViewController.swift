@@ -45,6 +45,7 @@ class SignUpViewController: UIViewController {
         networkIndicator.color = UIColor.green
         networkIndicator.center = view.center
         view.addSubview(networkIndicator)
+        toggleDisplayingThePasswordText()
         signUpViewModel = SignUpViewModel()
         signUpViewModel.failClosure = { (erreorMeg) in
             ProgressHUD.showError(erreorMeg)
@@ -54,6 +55,14 @@ class SignUpViewController: UIViewController {
             self.setScreenDefaultForm()
             self.navigateToSignInScreen()
         }
+    }
+    @IBAction func togglePasswordVisibility(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
+        sender.isSelected = !passwordTextField.isSecureTextEntry
+    }
+    @IBAction func toggleConfirmPasswordVisibility(_ sender: UIButton) {
+        confirmPasswordTextField.isSecureTextEntry.toggle()
+        sender.isSelected = !confirmPasswordTextField.isSecureTextEntry
     }
     @IBAction func backBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
@@ -101,5 +110,27 @@ class SignUpViewController: UIViewController {
         countryTextField.text = ""
         cityTextField.text = ""
         streetTextField.text  = ""
+    }
+    func toggleDisplayingThePasswordText(){
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.rightViewMode = .always
+        confirmPasswordTextField.isSecureTextEntry = true
+        confirmPasswordTextField.rightViewMode = .always
+        
+        let toggleButton = UIButton(type: .custom)
+        toggleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        toggleButton.setImage(UIImage(systemName: "eye"), for: .selected)
+        toggleButton.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
+        toggleButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        toggleButton.tintColor = UIColor(named: K.ORANGE)
+        passwordTextField.rightView = toggleButton
+        
+        let toggleButton2 = UIButton(type: .custom)
+        toggleButton2.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        toggleButton2.setImage(UIImage(systemName: "eye"), for: .selected)
+        toggleButton2.addTarget(self, action: #selector(toggleConfirmPasswordVisibility(_:)), for: .touchUpInside)
+        toggleButton2.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        toggleButton2.tintColor = UIColor(named: K.ORANGE)
+        confirmPasswordTextField.rightView = toggleButton2
     }
 }

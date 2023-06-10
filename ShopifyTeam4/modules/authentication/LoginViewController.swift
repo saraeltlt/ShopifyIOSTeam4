@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
         networkIndicator.color = UIColor.green
         networkIndicator.center = view.center
         view.addSubview(networkIndicator)
+        toggleDisplayingThePasswordText()
         signInViewModel = SignInViewModel()
         signInViewModel.failClosure = { (erreorMeg) in
             ProgressHUD.showError(erreorMeg)
@@ -53,6 +54,10 @@ class LoginViewController: UIViewController {
         signup.modalPresentationStyle = .fullScreen
         signup.modalTransitionStyle = .crossDissolve
         present(signup, animated: true)
+    }
+    @IBAction func togglePasswordVisibility(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
+        sender.isSelected = !passwordTextField.isSecureTextEntry
     }
     @IBAction func signInAction(_ sender: UIButton) {
         guard !( emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty )
@@ -83,5 +88,17 @@ class LoginViewController: UIViewController {
         networkIndicator.stopAnimating()
         emailTextField.text = ""
         passwordTextField.text = ""
+    }
+    func toggleDisplayingThePasswordText(){
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.rightViewMode = .always
+
+        let toggleButton = UIButton(type: .custom)
+        toggleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        toggleButton.setImage(UIImage(systemName: "eye"), for: .selected)
+        toggleButton.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
+        toggleButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        toggleButton.tintColor = UIColor(named: K.ORANGE)
+        passwordTextField.rightView = toggleButton
     }
 }
