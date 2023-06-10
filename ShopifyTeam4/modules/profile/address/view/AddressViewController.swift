@@ -6,8 +6,11 @@
 //
 
 import UIKit
+protocol AddAddress{
+    func addAdress(address:String , phoneNumber: String)
+}
 
-class AddressViewController: UIViewController {
+class AddressViewController: UIViewController, AddAddress {
 
     @IBOutlet weak var CheckoutBtn: UIButton!
     var navigationFlag = true
@@ -45,13 +48,20 @@ class AddressViewController: UIViewController {
     @objc func addButtonTapped() {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "AddAddressViewController") as AddAddressViewController
+        viewController.delegate = self
         viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(viewController, animated: false, completion: nil)
     }
+    
+    func addAdress(address: String, phoneNumber: String) {
+       // viewModel.addressArray = address
+        addressTableView.reloadData()
+    }
 
 }
 extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }

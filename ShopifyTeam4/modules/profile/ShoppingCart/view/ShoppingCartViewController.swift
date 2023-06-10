@@ -15,6 +15,7 @@ class ShoppingCartViewController: UIViewController {
         super.viewDidLoad()
         setupTable()
         custmizeNavigation()
+        
     }
     
     
