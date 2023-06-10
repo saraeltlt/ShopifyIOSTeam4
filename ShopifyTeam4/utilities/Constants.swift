@@ -7,9 +7,8 @@
 
 import Foundation
 struct K {
-    
     static var CURRENCY: String = "USD"
-    static var DEFAULT_ADDRESS: String = ""
+    static var DEFAULT_ADDRESS: String = "Alex"
     static let APPERANCE_MODE_KEY = "AppearanceMode"
     static var EXCHANGE_RATE = 30.94
     //cells id
@@ -41,6 +40,6 @@ struct K {
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
     static let MARCHANT_ID = "merchant.com.pushpendra.pay"
-   
-
+    
 }
+

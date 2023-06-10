@@ -46,7 +46,7 @@ class SettingsCell: UITableViewCell {
         switchView.isHidden=true
         switch index{
         case 0:
-            detailLabel.text="Alexandria"
+            detailLabel.text=K.DEFAULT_ADDRESS
             buttonView.isHidden=false
         case 1:
             detailLabel.text=K.CURRENCY
