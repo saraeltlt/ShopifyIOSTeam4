@@ -36,4 +36,10 @@ class BrandProductsViewModel{
     }
     
     
+    func configNavigation(index:Int)->ProductDetailsViewModel{
+        return ProductDetailsViewModel(productId: brandProductsArray[index].id ?? 0)
+    }
+    
+    
+    
 }

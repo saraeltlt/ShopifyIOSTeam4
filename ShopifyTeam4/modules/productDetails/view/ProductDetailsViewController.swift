@@ -8,6 +8,7 @@
 import UIKit
 
 class ProductDetailsViewController: UIViewController {
+    var viewModel : ProductDetailsViewModel!
     @IBOutlet weak var whiteView: UIView!{
         didSet{
             whiteView.layer.cornerRadius = whiteView.bounds.width * 0.15

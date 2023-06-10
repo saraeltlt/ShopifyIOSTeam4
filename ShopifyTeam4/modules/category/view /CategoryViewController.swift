@@ -189,7 +189,12 @@ extension CategoryViewController:UICollectionViewDelegate
         if collectionView == categoryCollection {
             self.changeSelectedCellBackground(index: indexPath.row)
         }else {
-                  // navigate to product details screen 
+            let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
+            let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+            detailsVC.viewModel = viewModel.configNavigation(index: indexPath.row)
+            detailsVC.modalPresentationStyle = .fullScreen
+            detailsVC.modalTransitionStyle = .crossDissolve
+            present(detailsVC, animated: true)
         }
 
      

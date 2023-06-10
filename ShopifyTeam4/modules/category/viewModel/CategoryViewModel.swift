@@ -82,6 +82,12 @@ class CategoryViewModel{
     }
     
     
+    func configNavigation(index:Int)->ProductDetailsViewModel{
+        let productId = self.getProductData(index: index).id ?? 0
+        return ProductDetailsViewModel(productId: productId)
+    }
+    
+    
     
     
     func changeCategoriesIsSelectedStatus(index:Int){
