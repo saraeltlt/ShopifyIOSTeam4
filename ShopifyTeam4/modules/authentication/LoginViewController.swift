@@ -30,9 +30,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         networkIndicator = UIActivityIndicatorView(style: .large)
-        networkIndicator.color = UIColor.green
+        networkIndicator.color = UIColor(named: K.GREEN)
         networkIndicator.center = view.center
         view.addSubview(networkIndicator)
+        toggleDisplayingThePasswordText()
         signInViewModel = SignInViewModel()
         signInViewModel.failClosure = { (erreorMeg) in
             ProgressHUD.showError(erreorMeg)
@@ -54,13 +55,26 @@ class LoginViewController: UIViewController {
         signup.modalTransitionStyle = .crossDissolve
         present(signup, animated: true)
     }
+    @IBAction func togglePasswordVisibility(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
+        sender.isSelected = !passwordTextField.isSecureTextEntry
+    }
     @IBAction func signInAction(_ sender: UIButton) {
         guard !( emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty )
         else {
             ProgressHUD.showError("Fill all required information")
             return }
+        if !isValidEmail(emailTextField.text!){
+            ProgressHUD.showError("Not valid email ..")
+            return
+        }
         networkIndicator.startAnimating()
         signInViewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
+    }
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
     }
     
     func navigateToHomeScreen(){
@@ -74,5 +88,17 @@ class LoginViewController: UIViewController {
         networkIndicator.stopAnimating()
         emailTextField.text = ""
         passwordTextField.text = ""
+    }
+    func toggleDisplayingThePasswordText(){
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.rightViewMode = .always
+
+        let toggleButton = UIButton(type: .custom)
+        toggleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        toggleButton.setImage(UIImage(systemName: "eye"), for: .selected)
+        toggleButton.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
+        toggleButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        toggleButton.tintColor = UIColor(named: K.ORANGE)
+        passwordTextField.rightView = toggleButton
     }
 }
