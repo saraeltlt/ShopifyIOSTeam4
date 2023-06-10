@@ -41,7 +41,9 @@ class ProductDetailsViewController: UIViewController {
         super.viewDidLoad()
         playTimer()
     }
-
+    @IBAction func backButtonAction(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension ProductDetailsViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
