@@ -351,6 +351,28 @@
 			name = viewmodel;
 			sourceTree = "<group>";
 		};
+		8FABEC872A3469DB0067C138 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A72831A42A2BD85700A38B6A /* Profile.storyboard */,
+				8F6BA4C32A2F13B40095E747 /* ProfileViewController.swift */,
+				8F6077812A2F168200570DC7 /* OrdersCell.xib */,
+				8F6077802A2F168200570DC7 /* OrdersCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8FABEC882A346A000067C138 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				8F6077842A2F3DEA00570DC7 /* settings */,
+				8F22AC2B2A2F80C700016D1F /* address */,
+				8FBED2742A30BC8F008065E2 /* Payment */,
+				8FAAF5A12A3066AE00BF399A /* ShoppingCart */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
 		8FBEC3A22A332D2D00CAF450 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,14 +474,8 @@
 		A72831A32A2BD84400A38B6A /* profile */ = {
 			isa = PBXGroup;
 			children = (
-				8FAAF5A12A3066AE00BF399A /* ShoppingCart */,
-				8FBED2742A30BC8F008065E2 /* Payment */,
-				8F22AC2B2A2F80C700016D1F /* address */,
-				8F6077842A2F3DEA00570DC7 /* settings */,
-				A72831A42A2BD85700A38B6A /* Profile.storyboard */,
-				8F6BA4C32A2F13B40095E747 /* ProfileViewController.swift */,
-				8F6077812A2F168200570DC7 /* OrdersCell.xib */,
-				8F6077802A2F168200570DC7 /* OrdersCell.swift */,
+				8FABEC872A3469DB0067C138 /* view */,
+				8FABEC882A346A000067C138 /* modules */,
 			);
 			path = profile;
 			sourceTree = "<group>";
