@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         networkIndicator = UIActivityIndicatorView(style: .large)
-        networkIndicator.color = UIColor.green
+        networkIndicator.color = UIColor(named: K.GREEN)
         networkIndicator.center = view.center
         view.addSubview(networkIndicator)
         toggleDisplayingThePasswordText()
