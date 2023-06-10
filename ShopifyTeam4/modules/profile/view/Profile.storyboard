@@ -358,7 +358,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wzA-Bq-5m1">
-                                <rect key="frame" x="0.0" y="116.5" width="414" height="676.5"/>
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="638.5"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <color key="sectionIndexBackgroundColor" name="paige"/>
                                 <connections>
@@ -380,16 +380,29 @@
                                     <segue destination="2MQ-GL-cbP" kind="show" id="Xu8-6U-igq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6H-WR-kfk">
+                                <rect key="frame" x="0.0" y="755" width="414" height="46"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="orange"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" subtitle="SubTotal: 370 USD" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tSP-WX-EN7"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
+                            <constraint firstItem="tSP-WX-EN7" firstAttribute="trailing" secondItem="Q6H-WR-kfk" secondAttribute="trailing" id="0al-VS-TqB"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="trailing" secondItem="tSP-WX-EN7" secondAttribute="trailing" id="3zv-Ml-WsA"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="5QG-km-beo"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="AIb-V3-cmY"/>
-                            <constraint firstItem="D0E-Yp-Q8v" firstAttribute="top" secondItem="wzA-Bq-5m1" secondAttribute="bottom" constant="16" id="CdW-MN-7u8"/>
+                            <constraint firstItem="Q6H-WR-kfk" firstAttribute="top" secondItem="wzA-Bq-5m1" secondAttribute="bottom" id="LHb-le-tYo"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="top" secondItem="leh-V0-Mtd" secondAttribute="top" id="Qip-F5-4NJ"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="top" secondItem="4TU-Gf-xqm" secondAttribute="bottom" id="R0o-fQ-fuM"/>
+                            <constraint firstItem="D0E-Yp-Q8v" firstAttribute="top" secondItem="Q6H-WR-kfk" secondAttribute="bottom" constant="8" id="aZ3-xe-KFb"/>
+                            <constraint firstItem="Q6H-WR-kfk" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="f0H-CD-HMP"/>
                             <constraint firstItem="tSP-WX-EN7" firstAttribute="trailing" secondItem="D0E-Yp-Q8v" secondAttribute="trailing" constant="16" id="pDa-NQ-8gA"/>
                             <constraint firstItem="D0E-Yp-Q8v" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" constant="16" id="qXx-O1-kEy"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="height" secondItem="leh-V0-Mtd" secondAttribute="height" multiplier="0.13" id="s01-gx-HeM"/>
@@ -404,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5V6-IJ-dMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3112" y="521"/>
+            <point key="canvasLocation" x="3111.594202898551" y="520.98214285714289"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Eie-Ac-ld3">
@@ -994,7 +1007,7 @@
                                             <action selector="payCash:" destination="2MQ-GL-cbP" eventType="touchUpInside" id="eQ7-15-YhU"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay In Cash" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-xF-3Ye">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash On Delivery" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-xF-3Ye">
                                         <rect key="frame" x="66.5" y="28" width="332.5" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                         <color key="textColor" name="orange"/>
@@ -1159,13 +1172,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGr-0p-pmJ">
-                                        <rect key="frame" x="15" y="398" width="344" height="52"/>
+                                        <rect key="frame" x="15" y="398" width="344" height="49.5"/>
                                         <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" name="orange"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" subtitle="Total: 370 USD" cornerStyle="capsule">
                                             <backgroundConfiguration key="background"/>
-                                            <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                            <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
                                         </buttonConfiguration>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 USD" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjn-O6-N3d">
