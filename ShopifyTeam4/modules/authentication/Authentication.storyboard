@@ -70,7 +70,7 @@
                                             <constraint firstAttribute="height" constant="35" id="qnA-4v-fvF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ia1-uD-sg8">
                                         <rect key="frame" x="24" y="71" width="345" height="2"/>
@@ -85,7 +85,7 @@
                                             <constraint firstAttribute="height" constant="35" id="fG8-rW-SPn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfN-UI-5XM">
                                         <rect key="frame" x="24" y="144" width="345" height="2"/>

@@ -66,14 +66,23 @@ class SignUpViewController: UIViewController {
         else {
             ProgressHUD.showError("Fill all required information")
             return }
-        networkIndicator.startAnimating()
+        if !isValidEmail(emailTextField.text!){
+            ProgressHUD.showError("Not valid email ..")
+            return
+        }
         let password = passwordTextField.text!
         if  password != confirmPasswordTextField.text{
             ProgressHUD.showError("the two passwords you entered is not the same ..!")
             return
         }
+        networkIndicator.startAnimating()
         let user = FUser(_objectId: "", _email: emailTextField.text!, _fullname: nameTextField.text!, _fullNumber: phoneNumberTextField.text!, _country: countryTextField.text!, _city: cityTextField.text!, _street: streetTextField.text!)
         signUpViewModel.createNewUserWith(user: user, password: password)
+    }
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
     }
     func navigateToSignInScreen(){
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
