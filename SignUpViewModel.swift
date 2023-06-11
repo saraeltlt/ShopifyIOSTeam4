@@ -27,13 +27,17 @@ class SignUpViewModel{
     func registerNewCustomer(){
         NetworkManager.addNewCustomer(url: URLs.shared.customersURl(), Newcustomer: CustomerModel.getCustomer(user: verfiedUser!)) { customer in
             guard let customer = customer else {return}
-            print(customer.customer?.id)
             UserDefaults.selectedUserID = customer.customer?.id ?? 0
             K.USER_ID = customer.customer?.id ?? 0
+            self.addAddress()
             
         }
+    }
+    func addAddress(){
         var newAddress = Address(address1: verfiedUser?.street ,city: verfiedUser?.city ,country: verfiedUser?.country, phone: verfiedUser?.fullNumber, isDefault: true)
+        print (newAddress)
         NetworkManager.shared.addNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), newAddress: newAddress) {(result: Result<Int,Error>) in
+            print ("here")
             switch result{
             case .success(let data):
                 print("Default addres set succefually with: ")

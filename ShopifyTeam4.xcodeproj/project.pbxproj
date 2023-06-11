@@ -566,8 +566,8 @@
 		A72831A32A2BD84400A38B6A /* profile */ = {
 			isa = PBXGroup;
 			children = (
-				8FABEC872A3469DB0067C138 /* view */,
 				8FABEC882A346A000067C138 /* modules */,
+				8FABEC872A3469DB0067C138 /* view */,
 			);
 			path = profile;
 			sourceTree = "<group>";

@@ -32,12 +32,8 @@ class AddressViewController: UIViewController, AddAddress {
             guard let status = status else {return}
             if status {
                 DispatchQueue.main.async {
-                    print("hena 1")
                     self.addressTableView.reloadData()
                 }
-            }
-            else{
-                print("hena 1 ??")
             }
         }
     }
@@ -130,19 +126,25 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
-            self?.confirmAlert {
-                self?.viewModel.deleteAddress(at:indexPath.row)
-                self?.addressTableView.reloadData()
-                completionHandler(true)
+        if (indexPath.section==1){
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+                self?.confirmAlert {
+                    self?.viewModel.deleteAddress(at:indexPath.row)
+                    self?.addressTableView.reloadData()
+                    completionHandler(true)
+                }
+                
             }
-        
+            
+            deleteAction.backgroundColor = UIColor(named: K.ORANGE)
+            
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            return configuration
         }
-        
-        deleteAction.backgroundColor = UIColor(named: K.ORANGE)
-        
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-        return configuration
+        else{
+            view.makeToast("Can't delete default address", duration: 2 ,title: "Warning" ,image: UIImage(named: K.WARNINNG_IMAGE))
+            return nil
+        }
     }
     
     
