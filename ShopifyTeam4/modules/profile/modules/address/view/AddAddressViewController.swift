@@ -22,7 +22,7 @@ class AddAddressViewController: UIViewController {
     
     @IBAction func addAddressBtn(_ sender: Any) {
         if isAnyTextFieldEmpty() {
-           print("empty")
+            self.view.makeToast("Complete the empty fields", duration: 2 ,title: "Empty fields" ,image: UIImage(named: K.WARNINNG_IMAGE))
         } else {
             let phone = phoneText.text
             let sreet = streetText.text
