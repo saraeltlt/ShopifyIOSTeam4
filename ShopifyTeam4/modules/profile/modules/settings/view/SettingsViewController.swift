@@ -11,9 +11,20 @@ protocol UpdateData{
     func reloadTable()
 }
 
+
+
 class SettingsViewController: UIViewController, UpdateData {
 
-
+    @IBAction func logOut(_ sender: UIButton) {
+        UserDefaults.standard.set(nil, forKey: kCURRENTUSER)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
+          viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+          viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+          self.present(viewController, animated: false, completion: nil)
+    }
+    
+    
     @IBOutlet weak var settingsTable: UITableView!
   
     override func viewDidLoad() {

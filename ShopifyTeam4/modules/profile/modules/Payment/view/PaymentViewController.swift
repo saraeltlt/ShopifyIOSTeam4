@@ -18,6 +18,13 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    
+    
+    @IBAction func sumbitOrderPayment(_ sender: UIButton) {
+        // call realme here 
+    }
+    
+    
 
     @IBAction func payCash(_ sender: UIButton) {
         onlineBtn.setImage(UIImage(systemName: "circle"), for: .normal)

@@ -49,7 +49,6 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         viewModel.brands.bind { status in
             guard let status = status else {return}
             if status {
-                print (status)
                 DispatchQueue.main.async {
                     self.brandsCollection.reloadData()
                 }
