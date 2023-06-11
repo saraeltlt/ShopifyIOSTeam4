@@ -20,6 +20,8 @@
 		26FCB8842A336BB4004C8383 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCB8832A336BB4004C8383 /* SignInViewModel.swift */; };
 		3E0094D34499A21ECC3D9582 /* Pods_ShopifyTeam4Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C98C6B8DB1F339AD74308A4 /* Pods_ShopifyTeam4Tests.framework */; };
 		65F21DE5BB89EBF8218212A7 /* Pods_ShopifyTeam4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2A974D0623176D1816B1C3 /* Pods_ShopifyTeam4.framework */; };
+		8F1539AC2A35CD9700D77550 /* ToastViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1539AB2A35CD9600D77550 /* ToastViewExtension.swift */; };
+		8F1539B02A35E0E300D77550 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1539AF2A35E0E300D77550 /* PaymentViewModel.swift */; };
 		8F22AC2A2A2F7B6E00016D1F /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC292A2F7B6D00016D1F /* CurrencyViewController.swift */; };
 		8F22AC2D2A2F816700016D1F /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC2C2A2F816700016D1F /* AddressViewController.swift */; };
 		8F22AC2F2A2F817900016D1F /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC2E2A2F817900016D1F /* AddAddressViewController.swift */; };
@@ -117,6 +119,8 @@
 		6F2A974D0623176D1816B1C3 /* Pods_ShopifyTeam4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyTeam4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8687C8E10B9B5C60DFD86184 /* Pods-ShopifyTeam4-ShopifyTeam4UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyTeam4-ShopifyTeam4UITests.debug.xcconfig"; path = "Target Support Files/Pods-ShopifyTeam4-ShopifyTeam4UITests/Pods-ShopifyTeam4-ShopifyTeam4UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C98C6B8DB1F339AD74308A4 /* Pods_ShopifyTeam4Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyTeam4Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1539AB2A35CD9600D77550 /* ToastViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewExtension.swift; sourceTree = "<group>"; };
+		8F1539AF2A35E0E300D77550 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		8F22AC292A2F7B6D00016D1F /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		8F22AC2C2A2F816700016D1F /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		8F22AC2E2A2F817900016D1F /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +262,24 @@
 				8C98C6B8DB1F339AD74308A4 /* Pods_ShopifyTeam4Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F1539AD2A35E0C500D77550 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8F574FB52A3153C800BA979D /* DoneViewController.swift */,
+				8FBED2752A30BCA1008065E2 /* PaymentViewController.swift */,
+				8FAAF5AA2A30673400BF399A /* CheckoutViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8F1539AE2A35E0D000D77550 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				8F1539AF2A35E0E300D77550 /* PaymentViewModel.swift */,
+			);
+			path = viewmodel;
 			sourceTree = "<group>";
 		};
 		8F22AC2B2A2F80C700016D1F /* address */ = {
@@ -415,9 +437,8 @@
 		8FBED2742A30BC8F008065E2 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				8FAAF5AA2A30673400BF399A /* CheckoutViewController.swift */,
-				8FBED2752A30BCA1008065E2 /* PaymentViewController.swift */,
-				8F574FB52A3153C800BA979D /* DoneViewController.swift */,
+				8F1539AE2A35E0D000D77550 /* viewmodel */,
+				8F1539AD2A35E0C500D77550 /* view */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -429,6 +450,7 @@
 				A70C16522A2F337A00DD68F1 /* ActionButton.swift */,
 				A70C16542A2F338600DD68F1 /* ActionButtonItem.swift */,
 				A72831912A2BD04400A38B6A /* Extensions.swift */,
+				8F1539AB2A35CD9600D77550 /* ToastViewExtension.swift */,
 				A728318F2A2BD04000A38B6A /* Observable.swift */,
 				A728318D2A2BD03800A38B6A /* Constants.swift */,
 				26BE80292A327EC70054F656 /* ConstantKeys.swift */,
@@ -915,6 +937,7 @@
 				8FC8A48F2A34D7B100A81816 /* URLs.swift in Sources */,
 				A77D01432A2D4DB1004632BE /* BrandViewCell.swift in Sources */,
 				A7AA7F152A30F732007DFB2E /* BrandProductsModel.swift in Sources */,
+				8F1539B02A35E0E300D77550 /* PaymentViewModel.swift in Sources */,
 				A70C16552A2F338600DD68F1 /* ActionButtonItem.swift in Sources */,
 				267BD2BA2A35295E0023D6D0 /* FavoriteViewController.swift in Sources */,
 				8FABEC862A34694E0067C138 /* ShoppingCartViewModel.swift in Sources */,
@@ -928,6 +951,7 @@
 				8F6077862A2F41EF00570DC7 /* SettingsViewController.swift in Sources */,
 				8F5C3AAA2A2E76D000B5D939 /* SignUpViewController.swift in Sources */,
 				8F22AC2D2A2F816700016D1F /* AddressViewController.swift in Sources */,
+				8F1539AC2A35CD9700D77550 /* ToastViewExtension.swift in Sources */,
 				26BE802A2A327EC70054F656 /* ConstantKeys.swift in Sources */,
 				8F22AC2F2A2F817900016D1F /* AddAddressViewController.swift in Sources */,
 				A72831902A2BD04000A38B6A /* Observable.swift in Sources */,

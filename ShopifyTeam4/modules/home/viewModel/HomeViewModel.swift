@@ -10,7 +10,7 @@ import UIKit
 class HomeViewModel{
     var brands:Observable<Bool>=Observable(false)
     var brandsArray  = [Brand]()
-    var advertesmentsArray:[UIImage]=[UIImage(named: "ads1")!,UIImage(named: "ads2")!,UIImage(named: "ads3")!,UIImage(named: "ads4")!,UIImage(named: "ads5")!]
+    var advertesmentsArray:[UIImage]=[UIImage(named: "ads3")!,UIImage(named: "ads2")!,UIImage(named: "ads1")!]
     
     
     func getBrandsData(){

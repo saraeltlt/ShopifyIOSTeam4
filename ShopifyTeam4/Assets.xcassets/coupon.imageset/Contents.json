@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "spring-sale-banner,summer-sale-banner-design-template-5f62591bfad2ec437307e88bc0cc6752_screen.jpg",
+      "filename" : "coupon-4.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "coupon-5.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "coupon-6.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1135,12 +1135,12 @@
                                         <color key="textColor" name="green"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 USD" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xki-di-YOa">
-                                        <rect key="frame" x="135" y="296" width="224" height="42"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xki-di-YOa">
+                                        <rect key="frame" x="130" y="296" width="243" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="NbM-jk-eZX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                         <color key="textColor" name="lightGreen"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1167,7 +1167,7 @@
                                             <constraint firstAttribute="width" constant="110" id="052-zp-RZl"/>
                                             <constraint firstAttribute="height" constant="42" id="3u7-U3-ldA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="19"/>
                                         <color key="textColor" name="orange"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1208,7 +1208,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ndG-zE-CHP" secondAttribute="trailing" constant="15" id="dfu-7e-iBl"/>
                                     <constraint firstItem="1au-I8-ECt" firstAttribute="leading" secondItem="lbt-g8-Ri5" secondAttribute="leading" constant="15" id="ext-Cx-qPH"/>
                                     <constraint firstItem="lrb-Nn-cJl" firstAttribute="top" secondItem="WX3-Y2-MiW" secondAttribute="bottom" constant="42" id="fj6-B4-rol"/>
-                                    <constraint firstItem="xki-di-YOa" firstAttribute="leading" secondItem="1au-I8-ECt" secondAttribute="trailing" constant="10" id="fkP-yk-EaS"/>
+                                    <constraint firstItem="xki-di-YOa" firstAttribute="leading" secondItem="1au-I8-ECt" secondAttribute="trailing" constant="5" id="fkP-yk-EaS"/>
                                     <constraint firstAttribute="trailing" secondItem="RfM-CZ-A1k" secondAttribute="trailing" constant="15" id="hUE-fj-kqS"/>
                                     <constraint firstItem="ndG-zE-CHP" firstAttribute="leading" secondItem="lbt-g8-Ri5" secondAttribute="leading" constant="15" id="ikP-Ji-IbU"/>
                                     <constraint firstItem="RfM-CZ-A1k" firstAttribute="centerY" secondItem="8Mu-x3-pqC" secondAttribute="centerY" id="jLM-6A-kVp"/>
@@ -1218,7 +1218,7 @@
                                     <constraint firstItem="uKf-yp-w7S" firstAttribute="leading" secondItem="WX3-Y2-MiW" secondAttribute="trailing" constant="15" id="qiB-Hd-FL6"/>
                                     <constraint firstItem="vjn-O6-N3d" firstAttribute="leading" secondItem="lrb-Nn-cJl" secondAttribute="trailing" constant="15" id="wwc-sY-RxI"/>
                                     <constraint firstItem="WX3-Y2-MiW" firstAttribute="top" secondItem="f5M-fr-eDj" secondAttribute="bottom" constant="60" id="yFC-Ca-EIh"/>
-                                    <constraint firstAttribute="trailing" secondItem="xki-di-YOa" secondAttribute="trailing" constant="15" id="ySO-E3-JNK"/>
+                                    <constraint firstAttribute="trailing" secondItem="xki-di-YOa" secondAttribute="trailing" constant="1" id="ySO-E3-JNK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds " value="YES"/>
@@ -1248,7 +1248,7 @@
                         <outlet property="couponTextField" destination="8Mu-x3-pqC" id="ZnB-cl-bbw"/>
                         <outlet property="discountLabel" destination="xki-di-YOa" id="wPK-G9-0Ta"/>
                         <outlet property="shippinhFeesLabel" destination="vjn-O6-N3d" id="eBB-Yf-eDh"/>
-                        <outlet property="subTotalLabel" destination="lbt-g8-Ri5" id="iWR-jG-92S"/>
+                        <outlet property="subTotalLabel" destination="uKf-yp-w7S" id="KwB-Bx-aIW"/>
                         <outlet property="totalLabel" destination="wGr-0p-pmJ" id="O9B-iF-eHZ"/>
                     </connections>
                 </viewController>
@@ -1380,10 +1380,10 @@ Your order has been successfully confirmed.</string>
             <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

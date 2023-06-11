@@ -11,6 +11,11 @@ struct K {
     static var DEFAULT_ADDRESS: String = "Alex"
     static let APPERANCE_MODE_KEY = "AppearanceMode"
     static var EXCHANGE_RATE = 30.94
+    enum COUPONS: String {
+        case save15 = "Save15%"
+        case save50 = "Save50%"
+        case saveLimited80 = "SaveLimited80%"
+    }
     //cells id
     static let ADS_CELL = "AdvertisementsViewCell"
     static let BRANDS_CELL = "BrandViewCell"
@@ -36,6 +41,7 @@ struct K {
     static let ACCESSORISE = "accessorise"
     static let TSHIRT = "shirt"
     static let SHOES = "shoes"
+    static let COUPON_IMAGE = "coupon"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
