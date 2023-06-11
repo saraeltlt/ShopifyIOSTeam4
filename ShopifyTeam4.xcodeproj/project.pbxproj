@@ -267,9 +267,9 @@
 		8F1539AD2A35E0C500D77550 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				8F574FB52A3153C800BA979D /* DoneViewController.swift */,
 				8FBED2752A30BCA1008065E2 /* PaymentViewController.swift */,
 				8FAAF5AA2A30673400BF399A /* CheckoutViewController.swift */,
+				8F574FB52A3153C800BA979D /* DoneViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";

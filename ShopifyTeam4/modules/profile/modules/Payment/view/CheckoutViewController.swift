@@ -16,7 +16,7 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var couponTextField: UITextField!
     var subTotal = 0.0
     var discount = 0.0
-    var shippingFees = 2.0
+    var shippingFees = 2
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,14 +24,14 @@ class CheckoutViewController: UIViewController {
         super.viewWillAppear(true)
         if K.CURRENCY == "EGP"{
             subTotalLabel.text = "\(subTotal) EGP"
-            shippingFees = 2*K.EXCHANGE_RATE
+            shippingFees = 65
             shippinhFeesLabel.text = "\(shippingFees) EGP"
-            totalLabel.subtitleLabel?.text = "Total: \(subTotal+shippingFees)EGP"
+            totalLabel.subtitleLabel?.text = "Total: \(subTotal+Double(shippingFees))EGP"
            
         }else{
             subTotalLabel.text = "\(subTotal) USD"
             shippinhFeesLabel.text = "\(shippingFees) USD"
-            totalLabel.subtitleLabel?.text = "Total: \(subTotal+shippingFees)USD"
+            totalLabel.subtitleLabel?.text = "Total: \(subTotal+Double(shippingFees))USD"
         }
     }
     
@@ -57,9 +57,9 @@ class CheckoutViewController: UIViewController {
         }
         
         if K.CURRENCY == "EGP"{
-            totalLabel.subtitleLabel?.text = "Total: \(subTotal+shippingFees-discount)EGP"
+            totalLabel.subtitleLabel?.text = "Total: \(subTotal+Double(shippingFees)-discount)EGP"
         }else{
-            totalLabel.subtitleLabel?.text = "Total: \(subTotal+shippingFees-discount)USD"
+            totalLabel.subtitleLabel?.text = "Total: \(subTotal+Double(shippingFees)-discount)USD"
         }
         
         

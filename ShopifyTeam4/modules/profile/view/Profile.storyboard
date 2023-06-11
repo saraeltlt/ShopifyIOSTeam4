@@ -358,7 +358,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wzA-Bq-5m1">
-                                <rect key="frame" x="0.0" y="116.5" width="414" height="638.5"/>
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="692.5"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <color key="sectionIndexBackgroundColor" name="paige"/>
                                 <connections>
@@ -377,32 +377,19 @@
                                     <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="2MQ-GL-cbP" kind="show" id="Xu8-6U-igq"/>
+                                    <segue destination="q13-k0-C5b" kind="show" id="Cpc-QH-gRy"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6H-WR-kfk">
-                                <rect key="frame" x="0.0" y="755" width="414" height="46"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" name="orange"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" subtitle="SubTotal: 370 USD" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background"/>
-                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tSP-WX-EN7"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
-                            <constraint firstItem="tSP-WX-EN7" firstAttribute="trailing" secondItem="Q6H-WR-kfk" secondAttribute="trailing" id="0al-VS-TqB"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="trailing" secondItem="tSP-WX-EN7" secondAttribute="trailing" id="3zv-Ml-WsA"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="5QG-km-beo"/>
+                            <constraint firstItem="D0E-Yp-Q8v" firstAttribute="top" secondItem="wzA-Bq-5m1" secondAttribute="bottom" id="ACO-gR-Lmu"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="AIb-V3-cmY"/>
-                            <constraint firstItem="Q6H-WR-kfk" firstAttribute="top" secondItem="wzA-Bq-5m1" secondAttribute="bottom" id="LHb-le-tYo"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="top" secondItem="leh-V0-Mtd" secondAttribute="top" id="Qip-F5-4NJ"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="top" secondItem="4TU-Gf-xqm" secondAttribute="bottom" id="R0o-fQ-fuM"/>
-                            <constraint firstItem="D0E-Yp-Q8v" firstAttribute="top" secondItem="Q6H-WR-kfk" secondAttribute="bottom" constant="8" id="aZ3-xe-KFb"/>
-                            <constraint firstItem="Q6H-WR-kfk" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="f0H-CD-HMP"/>
                             <constraint firstItem="tSP-WX-EN7" firstAttribute="trailing" secondItem="D0E-Yp-Q8v" secondAttribute="trailing" constant="16" id="pDa-NQ-8gA"/>
                             <constraint firstItem="D0E-Yp-Q8v" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" constant="16" id="qXx-O1-kEy"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="height" secondItem="leh-V0-Mtd" secondAttribute="height" multiplier="0.13" id="s01-gx-HeM"/>
@@ -862,7 +849,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KNy-D5-lcV">
-                                <rect key="frame" x="0.0" y="116.5" width="414" height="676.5"/>
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="638.5"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9Zt-bY-1mi" id="nXa-B4-BlQ"/>
@@ -883,12 +870,24 @@
                                     <action selector="goToCheckout:" destination="9Zt-bY-1mi" eventType="touchUpInside" id="fHf-vO-leJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-4s-T5w">
+                                <rect key="frame" x="0.0" y="755" width="414" height="46"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="orange"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" subtitle="SubTotal: 370 USD" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aoJ-TC-I75"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
+                            <constraint firstItem="bSd-4s-T5w" firstAttribute="top" secondItem="KNy-D5-lcV" secondAttribute="bottom" id="Dqd-23-aBt"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="FPX-x2-ZUh"/>
-                            <constraint firstItem="6jr-cY-7E7" firstAttribute="top" secondItem="KNy-D5-lcV" secondAttribute="bottom" constant="16" id="SP7-1R-s1F"/>
+                            <constraint firstItem="6jr-cY-7E7" firstAttribute="top" secondItem="bSd-4s-T5w" secondAttribute="bottom" constant="8" symbolic="YES" id="QiD-xE-MvI"/>
+                            <constraint firstItem="bSd-4s-T5w" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" id="SPI-LM-sgc"/>
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="bottom" secondItem="aoJ-TC-I75" secondAttribute="bottom" constant="-16" id="TrC-ln-Dzt"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="height" secondItem="ssq-60-dxd" secondAttribute="height" multiplier="0.13" id="XDv-CF-mdb"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" id="b9q-mo-UT6"/>
@@ -898,6 +897,7 @@
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" constant="16" id="jkf-gz-5S7"/>
                             <constraint firstItem="aoJ-TC-I75" firstAttribute="trailing" secondItem="6jr-cY-7E7" secondAttribute="trailing" constant="16" id="ou6-PR-v5C"/>
                             <constraint firstItem="KNy-D5-lcV" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="tkG-Y9-U0W"/>
+                            <constraint firstItem="bSd-4s-T5w" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="w5b-1R-9Va"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dzD-LC-cm6">
@@ -909,7 +909,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMn-uh-xeL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2090" y="521"/>
+            <point key="canvasLocation" x="2089.8550724637685" y="520.98214285714289"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="8TG-sF-vgP">
@@ -932,14 +932,14 @@
                                 <rect key="frame" x="16" y="833" width="382" height="37"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" subtitle="Continue to checkout" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="filled" subtitle="Place Order" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" name="orange"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="q13-k0-C5b" kind="show" id="l1o-Ou-H3X"/>
+                                    <segue destination="TyW-z3-c0e" kind="show" id="LYw-EP-C8x"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Payment Method:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1Y-bL-qhl">
@@ -1064,7 +1064,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33T-aK-MXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4127.536231884058" y="520.98214285714289"/>
+            <point key="canvasLocation" x="5154" y="532"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="jSa-Dx-YDY">
@@ -1094,7 +1094,7 @@
                                         <rect key="frame" x="15" y="818" width="344" height="37"/>
                                         <color key="tintColor" name="orange"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" subtitle="Place Order" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" subtitle="Choose Your Payment" cornerStyle="capsule">
                                             <backgroundConfiguration key="background">
                                                 <color key="backgroundColor" name="orange"/>
                                             </backgroundConfiguration>
@@ -1102,7 +1102,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="placeOrderBtn:" destination="q13-k0-C5b" eventType="touchUpInside" id="VM0-Wi-NyE"/>
-                                            <segue destination="TyW-z3-c0e" kind="show" id="fEP-da-IOu"/>
+                                            <segue destination="2MQ-GL-cbP" kind="show" id="y2M-Xg-ltM"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Coupon" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Mu-x3-pqC">
@@ -1254,7 +1254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3Y-fu-cHW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5069.5652173913049" y="520.98214285714289"/>
+            <point key="canvasLocation" x="4223" y="521"/>
         </scene>
         <!--Done View Controller-->
         <scene sceneID="tAa-lo-EAQ">

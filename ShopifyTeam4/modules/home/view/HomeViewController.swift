@@ -146,10 +146,9 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                   
                     promoCode=K.COUPONS.save50.rawValue
                 default:
-                    
                     promoCode=K.COUPONS.saveLimited80.rawValue
                 }
-                self.view.makeToast("you've redeemed this coupon", duration: 3 ,title: promoCode ,image: UIImage(named: K.COUPON_IMAGE))
+                self.view.makeToast("you've redeemed this coupon", duration: 2 ,title: promoCode ,image: UIImage(named: K.COUPON_IMAGE))
             }else {
                 let brandProducts = self.storyboard?.instantiateViewController(identifier: "brandProducts")
                 as! BrandProductsViewController
