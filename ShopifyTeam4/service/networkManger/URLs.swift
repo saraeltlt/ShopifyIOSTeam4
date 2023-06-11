@@ -39,6 +39,10 @@ struct URLs{
         return baseURL
     }
     
+    func searchForCustomer(email:String)->String{
+        return baseURL + "customers/search.json?query=email:\(email)"
+    }
+    
     func setDefaultAddress(customerID: Int, addressID: Int) -> String{
         return baseURL + "customers/\(customerID)/addresses/\(addressID)/default.json"
     }

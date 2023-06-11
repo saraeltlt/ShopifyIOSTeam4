@@ -19,6 +19,17 @@ struct Customer:Codable {
 
 struct CustomerModel : Codable {
     var customer:Customer?
+    
+   static func getCustomer(user:FUser)->CustomerModel{
+       let customer = Customer(id: Int(user.objectId),first_name: user.fullname,email: user.email,phone: user.fullNumber)
+        return CustomerModel(customer: customer)
+    }
+    
+    
+}
+
+struct SearchCustomerModel : Codable {
+    var customers:[Customer]?
 }
 
 struct Address: Codable {

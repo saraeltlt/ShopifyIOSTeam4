@@ -47,5 +47,9 @@ struct K {
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
     static let MARCHANT_ID = "merchant.com.pushpendra.pay"
     
+    
+    //user id
+    static var USER_ID = 0
+    
 }
 
