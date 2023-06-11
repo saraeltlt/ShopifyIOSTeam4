@@ -32,6 +32,16 @@ class SignUpViewModel{
             K.USER_ID = customer.customer?.id ?? 0
             
         }
+        var newAddress = Address(address1: verfiedUser?.street ,city: verfiedUser?.city ,country: verfiedUser?.country, phone: verfiedUser?.fullNumber, isDefault: true)
+        NetworkManager.shared.addNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), newAddress: newAddress) {(result: Result<Int,Error>) in
+            switch result{
+            case .success(let data):
+                print("Default addres set succefually with: ")
+                print (data)
+            case .failure(let error):
+                print (error)
+            }
+        }
     }
     
     

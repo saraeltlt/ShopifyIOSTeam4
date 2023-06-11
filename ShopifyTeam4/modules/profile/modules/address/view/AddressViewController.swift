@@ -116,8 +116,11 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.section==1){
-            viewModel.setDefaultAddress(index: indexPath.row)
-            addressTableView.reloadData()
+            confirmAlert(title: "Default", subTitle: "are you sure you want to set as default address?", imageName: K.ADDRESS_IMAGE , confirmBtn: "yes, set as default") {
+                self.viewModel.setDefaultAddress(index: indexPath.row)
+                self.addressTableView.reloadData()
+            }
+
         }
     }
     
@@ -128,7 +131,7 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
-            self?.confirmDeleteAlert {
+            self?.confirmAlert {
                 self?.viewModel.deleteAddress(at:indexPath.row)
                 self?.addressTableView.reloadData()
                 completionHandler(true)
