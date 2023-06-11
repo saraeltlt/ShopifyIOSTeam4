@@ -37,6 +37,13 @@
                                                 <color key="textColor" name="orange"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ey3-fe-iRW">
+                                                <rect key="frame" x="14.999999999999998" y="16.000000000000004" width="18.333333333333329" height="36.333333333333343"/>
+                                                <color key="tintColor" name="orange"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="orange"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -83,8 +90,11 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="LRF-lO-tIl" secondAttribute="bottom" id="6x7-og-pYo"/>
                             <constraint firstItem="Z6E-iV-gTZ" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="11" id="87P-mV-hUb"/>
+                            <constraint firstItem="Ey3-fe-iRW" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="27" id="8Ra-dW-Fjv"/>
                             <constraint firstAttribute="trailing" secondItem="c8Q-RZ-RRf" secondAttribute="trailing" constant="25" id="FET-Ra-bPL"/>
                             <constraint firstItem="LRF-lO-tIl" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="40" id="KNz-Mw-iL9"/>
+                            <constraint firstItem="Ey3-fe-iRW" firstAttribute="leading" secondItem="gfq-It-38l" secondAttribute="leading" constant="30" id="epc-bp-N3v"/>
+                            <constraint firstItem="Ey3-fe-iRW" firstAttribute="height" secondItem="gfq-It-38l" secondAttribute="height" multiplier="0.05" id="hUd-Pg-eZt"/>
                             <constraint firstItem="c8Q-RZ-RRf" firstAttribute="top" secondItem="gfq-It-38l" secondAttribute="top" constant="20" id="lS4-Mx-XfP"/>
                             <constraint firstItem="LRF-lO-tIl" firstAttribute="leading" secondItem="gfq-It-38l" secondAttribute="leading" id="m2w-7A-xhj"/>
                             <constraint firstItem="c8Q-RZ-RRf" firstAttribute="height" secondItem="gfq-It-38l" secondAttribute="height" multiplier="0.103448" id="qJb-4K-8l6"/>
