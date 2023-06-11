@@ -22,7 +22,7 @@ struct URLs{
         return baseURL + "products/\(productId).json"
         
     }
-    
+
     func categoryProductsURL(id : Int) -> String{
         return baseURL + "products.json?collection_id=\(id)"
     }
