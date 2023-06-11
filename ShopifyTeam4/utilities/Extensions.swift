@@ -98,16 +98,16 @@ extension UIViewController {
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(myAlert, animated: true, completion: nil)
-    }
+    }*/
     
     func confirmDeleteAlert(handler: (() -> Void)?) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
         
-        myAlert.titles="Delete Favorite"
-        myAlert.subTitle="Are you sure you want to delete this team from favorites?"
-        myAlert.imageName=K.DELETE_ALERT_IMAGE
+        myAlert.titles="Delete"
+        myAlert.subTitle="Are you sure you want to delete this Item?"
+        myAlert.imageName=K.WARNINNG_IMAGE
         myAlert.okBtn="Yes, Delete"
         myAlert.okBtnHandler=handler
         myAlert.cancelBtn="Cancel"
@@ -115,7 +115,7 @@ extension UIViewController {
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(myAlert, animated: true, completion: nil)
-    }*/
+    }
     
 
     
