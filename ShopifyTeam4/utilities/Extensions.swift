@@ -34,6 +34,23 @@ extension UserDefaults {
     }
     
     
+    private static let userID = "SelectedUserID"
+
+    static var selectedUserID: Int? {
+        get {
+            return UserDefaults.standard.integer(forKey: userID)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: userID)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
     private static let addressKey = "DefaultAddress"
 
     static var DefaultAddress: String? {

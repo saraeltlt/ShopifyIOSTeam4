@@ -22,8 +22,7 @@ struct URLs{
         return baseURL + "products/\(productId).json"
         
     }
-    
-    
+
     func categoryProductsURL(id : Int) -> String{
         return baseURL + "products.json?collection_id=\(id)"
     }
@@ -38,6 +37,10 @@ struct URLs{
     }
     func getAllAddress(id: Int) -> String {
         return baseURL
+    }
+    
+    func searchForCustomer(email:String)->String{
+        return baseURL + "customers/search.json?query=email:\(email)"
     }
     
     func setDefaultAddress(customerID: Int, addressID: Int) -> String{

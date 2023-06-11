@@ -196,6 +196,9 @@
                                             </backgroundConfiguration>
                                             <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="logOut:" destination="nUx-hr-uIJ" eventType="touchUpInside" id="IqO-4B-Roj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="paige"/>
@@ -939,6 +942,7 @@
                                     <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="sumbitOrderPayment:" destination="2MQ-GL-cbP" eventType="touchUpInside" id="gMH-lX-hWg"/>
                                     <segue destination="TyW-z3-c0e" kind="show" id="LYw-EP-C8x"/>
                                 </connections>
                             </button>
@@ -1380,10 +1384,10 @@ Your order has been successfully confirmed.</string>
             <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
