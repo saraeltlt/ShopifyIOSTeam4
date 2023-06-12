@@ -42,6 +42,9 @@ struct K {
     static let TSHIRT = "shirt"
     static let SHOES = "shoes"
     static let COUPON_IMAGE = "coupon"
+    static let WARNINNG_IMAGE = "warning"
+    static let SUCCESS_IMAGE = "success"
+    static let ADDRESS_IMAGE = "address"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"

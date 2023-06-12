@@ -21,9 +21,9 @@ class addressCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    func configure(phoneNum:String, Address:String){
-        phoneNumber.subtitleLabel?.text = phoneNum
-        addressDetails.subtitleLabel?.text = Address
+    func configure(address:Address){
+        phoneNumber.subtitleLabel?.text = address.phone
+        addressDetails.subtitleLabel?.text = "\(address.address1 ?? "") - \(address.city ?? "") - \(address.country ?? "") "
         
     }
     
