@@ -119,7 +119,7 @@
                             <constraint firstItem="WiW-6g-H9J" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" constant="8" symbolic="YES" id="uej-1M-b0P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="4qg-dK-hcy">
+                    <navigationItem key="navigationItem" id="4qg-dK-hcy">
                         <barButtonItem key="backBarButtonItem" title=" " id="jwU-GD-Azh"/>
                         <rightBarButtonItems>
                             <barButtonItem image="gearshape.fill" catalog="system" id="Djx-9K-fth">
@@ -834,7 +834,7 @@
             </objects>
             <point key="canvasLocation" x="5864" y="-325"/>
         </scene>
-        <!--Shopping Cart View Controller-->
+        <!-- -->
         <scene sceneID="rnO-WO-q5k">
             <objects>
                 <viewController storyboardIdentifier="ShoppingCartViewController" id="9Zt-bY-1mi" customClass="ShoppingCartViewController" customModule="ShopifyTeam4" customModuleProvider="target" sceneMemberID="viewController">
@@ -903,7 +903,7 @@
                             <constraint firstItem="bSd-4s-T5w" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="w5b-1R-9Va"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dzD-LC-cm6">
+                    <navigationItem key="navigationItem" title=" " id="dzD-LC-cm6">
                         <barButtonItem key="backBarButtonItem" title=" " id="fmH-24-Rs6"/>
                     </navigationItem>
                     <connections>

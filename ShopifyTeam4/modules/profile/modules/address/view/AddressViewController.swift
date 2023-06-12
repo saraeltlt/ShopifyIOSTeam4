@@ -22,7 +22,7 @@ class AddressViewController: UIViewController, AddAddress {
         super.viewDidLoad()
         addressTableView.register(UINib(nibName: K.ADDRESS_CELL, bundle: nil), forCellReuseIdentifier: K.ADDRESS_CELL)
         setUpLeftButton()
-        custmizeNavigation()
+       custmizeNavigation()
 
     }
     override func viewWillAppear(_ animated: Bool) {

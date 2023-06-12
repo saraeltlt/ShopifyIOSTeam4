@@ -31,14 +31,14 @@ class ProfileViewController: UIViewController {
     
     @IBAction func moreOrdersBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Orders", bundle: nil)
-        let ordersVC = storyboard.instantiateViewController(withIdentifier: "orders") as! OrdersViewController
+        let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as! OrdersViewController
         self.navigationController?.pushViewController(ordersVC, animated: true)
     }
     
     @IBAction func moreFavBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
         let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .fullScreen
+        favoriteVC.modalPresentationStyle = .popover
         favoriteVC.modalTransitionStyle = .crossDissolve
         present(favoriteVC, animated: true)
     }

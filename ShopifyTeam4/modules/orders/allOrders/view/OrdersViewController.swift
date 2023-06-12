@@ -15,8 +15,19 @@ class OrdersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ordersTable.register(UINib(nibName: K.ORDERS_CELL, bundle: nil), forCellReuseIdentifier: K.ORDERS_CELL)
+        custmizeNavigation()
+        
     }
-}
+    
+    func custmizeNavigation(){
+        let customFont = UIFont(name: "Chalkduster", size: 20)!
+        let customColor = UIColor(named: K.PAIGE)!
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: customFont,
+            NSAttributedString.Key.foregroundColor: customColor
+        ]
+        navigationItem.title = "Orders"
+    }}
 
 
 // MARK: - Orders Table
