@@ -21,7 +21,8 @@ class PaymentViewController: UIViewController {
     
     
     @IBAction func sumbitOrderPayment(_ sender: UIButton) {
-        // call realme here 
+        print("post order here")
+        viewModel.postOrder()
     }
     
     

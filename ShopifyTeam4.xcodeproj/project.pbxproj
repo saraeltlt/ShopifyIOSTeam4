@@ -43,6 +43,9 @@
 		8F6BA4C42A2F13B40095E747 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6BA4C32A2F13B40095E747 /* ProfileViewController.swift */; };
 		8F8067532A36339F0047EA8F /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8067522A36339F0047EA8F /* AddressManager.swift */; };
 		8F8067552A3642670047EA8F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8067542A3642670047EA8F /* CustomAlertViewController.swift */; };
+		8F8902292A37768F00744306 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8902282A37768F00744306 /* OrderManager.swift */; };
+		8F89022B2A3776D300744306 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89022A2A3776D300744306 /* Number.swift */; };
+		8F8902322A37831800744306 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8902312A37831800744306 /* ProfileViewModel.swift */; };
 		8F973BAF2A2BC9D500B52879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F973BAE2A2BC9D500B52879 /* AppDelegate.swift */; };
 		8F973BB12A2BC9D500B52879 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F973BB02A2BC9D500B52879 /* SceneDelegate.swift */; };
 		8F973BB32A2BC9D500B52879 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F973BB22A2BC9D500B52879 /* HomeViewController.swift */; };
@@ -153,6 +156,9 @@
 		8F6BA4C32A2F13B40095E747 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8F8067522A36339F0047EA8F /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
 		8F8067542A3642670047EA8F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		8F8902282A37768F00744306 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
+		8F89022A2A3776D300744306 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		8F8902312A37831800744306 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8F973BAB2A2BC9D500B52879 /* ShopifyTeam4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopifyTeam4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F973BAE2A2BC9D500B52879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F973BB02A2BC9D500B52879 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,6 +326,14 @@
 				8FBEC3A22A332D2D00CAF450 /* view */,
 			);
 			path = settings;
+			sourceTree = "<group>";
+		};
+		8F8902302A3782EA00744306 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8F8902312A37831800744306 /* ProfileViewModel.swift */,
+			);
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 		8F973BA22A2BC9D500B52879 = {
@@ -501,6 +515,7 @@
 				A728318F2A2BD04000A38B6A /* Observable.swift */,
 				A728318D2A2BD03800A38B6A /* Constants.swift */,
 				26BE80292A327EC70054F656 /* ConstantKeys.swift */,
+				8F89022A2A3776D300744306 /* Number.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -576,6 +591,7 @@
 			isa = PBXGroup;
 			children = (
 				8FABEC882A346A000067C138 /* modules */,
+				8F8902302A3782EA00744306 /* viewModel */,
 				8FABEC872A3469DB0067C138 /* view */,
 			);
 			path = profile;
@@ -725,6 +741,7 @@
 				A7AA7F122A30F17F007DFB2E /* NetworkManegerProtocol.swift */,
 				A73D4E022A35EDFE0081E384 /* CustomerManager.swift */,
 				8F8067522A36339F0047EA8F /* AddressManager.swift */,
+				8F8902282A37768F00744306 /* OrderManager.swift */,
 			);
 			path = networkManger;
 			sourceTree = "<group>";
@@ -1030,15 +1047,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F8902292A37768F00744306 /* OrderManager.swift in Sources */,
 				A728318E2A2BD03800A38B6A /* Constants.swift in Sources */,
 				A73D4E102A3623FF0081E384 /* OrdersViewController.swift in Sources */,
 				8F973BB32A2BC9D500B52879 /* HomeViewController.swift in Sources */,
 				8FAAF5A62A3066EA00BF399A /* ShoppingCartCell.swift in Sources */,
-
 				A73D4E162A362C480081E384 /* OrderDetailsViewController.swift in Sources */,
-
 				8F1539B22A3617D300D77550 /* AddressModel.swift in Sources */,
-
 				8F973BAF2A2BC9D500B52879 /* AppDelegate.swift in Sources */,
 				26FCB8842A336BB4004C8383 /* SignInViewModel.swift in Sources */,
 				A73D4E072A3612EA0081E384 /* OrderModel.swift in Sources */,
@@ -1058,9 +1073,11 @@
 				A73D4E122A3624120081E384 /* OrdersViewModel.swift in Sources */,
 				26BE80282A327D880054F656 /* FirebaseUser.swift in Sources */,
 				A7954A502A3123B800E20EAA /* BrandProductsViewModel.swift in Sources */,
+				8F89022B2A3776D300744306 /* Number.swift in Sources */,
 				A7AA7F132A30F17F007DFB2E /* NetworkManegerProtocol.swift in Sources */,
 				8FC8A48F2A34D7B100A81816 /* URLs.swift in Sources */,
 				A77D01432A2D4DB1004632BE /* BrandViewCell.swift in Sources */,
+				8F8902322A37831800744306 /* ProfileViewModel.swift in Sources */,
 				8F8067532A36339F0047EA8F /* AddressManager.swift in Sources */,
 				A7AA7F152A30F732007DFB2E /* BrandProductsModel.swift in Sources */,
 				8F1539B02A35E0E300D77550 /* PaymentViewModel.swift in Sources */,

@@ -11,12 +11,12 @@ import RealmSwift
 class OrdersViewController: UIViewController {
     
     @IBOutlet weak var ordersTable: UITableView!
-    
+    var viewModel:OrdersViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         ordersTable.register(UINib(nibName: K.ORDERS_CELL, bundle: nil), forCellReuseIdentifier: K.ORDERS_CELL)
         custmizeNavigation()
-        
+        viewModel?.getUserOrders()
     }
     
     func custmizeNavigation(){

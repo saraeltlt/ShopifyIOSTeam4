@@ -53,6 +53,16 @@ struct URLs{
         return baseURL + "customers/\(customerID)/addresses/\(addressID).json"
     }
     
+    // orders
+    
+    func postOrder()->String{
+        return baseURL + "orders.json"
+    }
+    
+    func getOrders(customerId:Int)->String{
+        return baseURL + "customers/\(customerId)/orders.json"
+    }
+    
  
     
 

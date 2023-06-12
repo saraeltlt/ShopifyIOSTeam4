@@ -12,7 +12,7 @@ struct OrderProduct : Codable{
     var variant_id : Int?
     var quantity:Int?
     var name:String?
-    var price:Float?
+    var price:Number?
     var title:String?
 }
 
@@ -26,5 +26,14 @@ struct Order : Codable{
 
 }
 struct OrderModel : Codable{
+    var order : Order
+}
+
+
+struct GetOrderModel : Codable{
+    var orders : [Order]
+}
+
+struct PostOrderModel : Codable{
     var order : Order
 }
