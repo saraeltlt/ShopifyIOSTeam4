@@ -33,6 +33,35 @@ class NetworkManager : NetworkManegerProtocol{
         }
     }
     
+    func editApiData<T>(method: String, url: String, completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = URL(string: url) else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method
+        urlRequest.httpShouldHandleCookies = false
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                  var result = httpResponse.statusCode
+                // should return 200 if success
+                 let response = (result,String(data:data!,encoding: .utf8)) as! T
+                    completion(.success(response))
+                return
+            }
+            
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])))
+        }.resume()
+    }
+    
     func getCurrency(completionHandler: @escaping (Double) -> Void) {
         let apiURL = "https://openexchangerates.org/api/latest.json"
         let apiKey = K.CUREENCY_API_KEY

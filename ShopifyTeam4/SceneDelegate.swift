@@ -46,6 +46,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let roundedResult = result.rounded()
                K.EXCHANGE_RATE = roundedResult
         })
+        
+        
+        if let userID = UserDefaults.selectedUserID {
+            K.USER_ID = userID
+        } else {
+            K.USER_ID = 0
+        }
 
     }
 

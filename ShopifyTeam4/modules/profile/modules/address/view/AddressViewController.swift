@@ -7,24 +7,35 @@
 
 import UIKit
 protocol AddAddress{
-    func addAdress(address:String , phoneNumber: String)
+    func addAdress(address:Address)
 }
 
 class AddressViewController: UIViewController, AddAddress {
 
+    
+
     @IBOutlet weak var CheckoutBtn: UIButton!
     var navigationFlag = true
     @IBOutlet weak var addressTableView: UITableView!
-    let viewModel = AddressViewModel()
+    var viewModel = AddressViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         addressTableView.register(UINib(nibName: K.ADDRESS_CELL, bundle: nil), forCellReuseIdentifier: K.ADDRESS_CELL)
         setUpLeftButton()
-        custmizeNavigation()
+       custmizeNavigation()
 
     }
     override func viewWillAppear(_ animated: Bool) {
         CheckoutBtn.isHidden = navigationFlag
+        viewModel.getAllAddress()
+        viewModel.gellAllAddressesObservable.bind { status in
+            guard let status = status else {return}
+            if status {
+                DispatchQueue.main.async {
+                    self.addressTableView.reloadData()
+                }
+            }
+        }
     }
     func custmizeNavigation(){
         let customFont = UIFont(name: "Chalkduster", size: 20)!
@@ -54,46 +65,89 @@ class AddressViewController: UIViewController, AddAddress {
         viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(viewController, animated: false, completion: nil)
     }
-    
-    func addAdress(address: String, phoneNumber: String) {
-       // viewModel.addressArray = address
-        addressTableView.reloadData()
+    func addAdress(address: Address) {
+        self.view.makeToast("Address Was added succefully", duration: 2 ,title: "Success" ,image: UIImage(named: K.SUCCESS_IMAGE))
+        viewModel.getAllAddress()
+        viewModel.gellAllAddressesObservable.bind { status in
+            guard let status = status else {return}
+            if status {
+                DispatchQueue.main.async {
+                    self.addressTableView.reloadData()
+                }
+            }
+        }
+
     }
 
 }
 extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section==0){
+            if viewModel.getDefaultAddress()==nil{
+                return 0
+            }
+            return 1
+        }else{
+            return viewModel.addressArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ADDRESS_CELL, for: indexPath) as! addressCell
-        cell.configure(phoneNum: "01206425318", Address: "Alexandria - louran")
-       /* if address.isDefault{
+        if (indexPath.section==0){
             cell.defaultBtn.isHidden=false
             cell.defaultView.isHidden=false
-        } else {
+            cell.configure(address: viewModel.getDefaultAddress()!)
+        }else{
             cell.defaultBtn.isHidden=true
             cell.defaultView.isHidden=true
-        }*/
+            cell.configure(address: viewModel.addressArray[indexPath.row])
+        }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        changeSelectedCellBackground(index: indexPath.row)
-       
-        
+        if (indexPath.section==1){
+            confirmAlert(title: "Default", subTitle: "are you sure you want to set as default address?", imageName: K.ADDRESS_IMAGE , confirmBtn: "yes, set as default") {
+                self.viewModel.setDefaultAddress(index: indexPath.row)
+                self.addressTableView.reloadData()
+            }
+
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.size.height*0.27
      }
     
-    func changeSelectedCellBackground(index:Int){
-       // viewModel.changeCategoriesIsSelectedStatus(index: index)
-        addressTableView.reloadData()
-        
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if (indexPath.section==1){
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+                self?.confirmAlert {
+                    self?.viewModel.deleteAddress(at:indexPath.row)
+                    self?.addressTableView.reloadData()
+                    completionHandler(true)
+                }
+                
+            }
+            
+            deleteAction.backgroundColor = UIColor(named: K.ORANGE)
+            
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            return configuration
+        }
+        else{
+            view.makeToast("Can't delete default address", duration: 2 ,title: "Warning" ,image: UIImage(named: K.WARNINNG_IMAGE))
+            return nil
+        }
     }
+    
+    
 
     
     

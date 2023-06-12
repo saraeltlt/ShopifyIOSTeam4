@@ -36,7 +36,6 @@ class CategoryViewController: UIViewController {
         let t_shirts = ActionButtonItem(title: "T-SHIRTS", image: UIImage(named: K.TSHIRT))
         t_shirts.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("SHIRTS")
             self?.viewModel.filterProductsArray(productType: "T-SHIRTS")
             self?.viewModel.isFiltering = true
             self?.productsCollection.reloadData()
@@ -44,7 +43,6 @@ class CategoryViewController: UIViewController {
         let shoes = ActionButtonItem(title: "SHOES", image:  UIImage(named: K.SHOES))
         shoes.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("SHOES")
             self?.viewModel.filterProductsArray(productType: "SHOES")
             self?.viewModel.isFiltering = true
             self?.productsCollection.reloadData()
@@ -52,7 +50,6 @@ class CategoryViewController: UIViewController {
         let accessories = ActionButtonItem(title: "ACCESSORIES", image:  UIImage(named: K.ACCESSORISE))
         accessories.action = { [weak self] item in
             self?.actionButton.toggleMenu()
-            print("ACCESSORIES")
             self?.viewModel.filterProductsArray(productType: "ACCESSORIES")
             self?.viewModel.isFiltering = true
             self?.productsCollection.reloadData()

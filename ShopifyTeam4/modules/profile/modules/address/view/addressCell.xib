@@ -56,9 +56,9 @@
                                 </constraints>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="phone.bubble.left.fill" catalog="system" subtitle=" 01206425318" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="plain" image="phone.bubble.left.fill" catalog="system" subtitle=" -" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61b-Ys-RXE">
@@ -66,7 +66,7 @@
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" subtitle="Alecandria - Louran - Ahmed Aref" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="plain" subtitle="-" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
                                     <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 </buttonConfiguration>
@@ -126,10 +126,10 @@
         <image name="map" width="2560" height="1744"/>
         <image name="phone.bubble.left.fill" catalog="system" width="128" height="110"/>
         <namedColor name="orange">
-            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

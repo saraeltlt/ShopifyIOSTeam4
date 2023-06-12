@@ -18,6 +18,14 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    
+    
+    @IBAction func sumbitOrderPayment(_ sender: UIButton) {
+        print("post order here")
+        viewModel.postOrder()
+    }
+    
+    
 
     @IBAction func payCash(_ sender: UIButton) {
         onlineBtn.setImage(UIImage(systemName: "circle"), for: .normal)

@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var favCollection: UICollectionView!
     @IBOutlet weak var ordersTableView: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
+    var viewModel = ProfileViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewCompositionalLayout { _, _ in
@@ -30,12 +31,16 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func moreOrdersBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Orders", bundle: nil)
+        let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as! OrdersViewController
+        ordersVC.viewModel = viewModel.configureNavigationToAllOrders()
+        self.navigationController?.pushViewController(ordersVC, animated: true)
     }
     
     @IBAction func moreFavBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
         let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .fullScreen
+        favoriteVC.modalPresentationStyle = .popover
         favoriteVC.modalTransitionStyle = .crossDissolve
         present(favoriteVC, animated: true)
     }
