@@ -30,6 +30,9 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func moreOrdersBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Orders", bundle: nil)
+        let ordersVC = storyboard.instantiateViewController(withIdentifier: "orders") as! OrdersViewController
+        self.navigationController?.pushViewController(ordersVC, animated: true)
     }
     
     @IBAction func moreFavBtn(_ sender: Any) {

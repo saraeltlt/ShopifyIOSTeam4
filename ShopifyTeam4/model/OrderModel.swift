@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct OrderProduct : Codable{
     var variant_id : Int?
