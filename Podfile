@@ -18,7 +18,6 @@ target 'ShopifyTeam4' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'ProgressHUD'
-    
   target 'ShopifyTeam4Tests' do
     inherit! :search_paths
     # Pods for testing

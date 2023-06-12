@@ -15,7 +15,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var countryTextField: UITextField!
+    @IBOutlet weak var countryTextField: DropDown!{
+        didSet{
+            self.countryTextField.optionArray = ["Egypt","France","Egypt","France","Egypt","France","Egypt","France"]
+            self.countryTextField.selectedRowColor = UIColor(named: K.LIGHT_ORANGE)!
+        }
+    }
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var streetTextField: UITextField!
     @IBOutlet weak var greenView: UIView!{
