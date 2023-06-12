@@ -55,7 +55,7 @@ func saveCurrentUser(uId: String,complitionHandler : @escaping(_ sucess:Bool) ->
      }
     func userSignInActionWith(email:String , password: String,complitionHandler : @escaping(_ errorMessage:String?) -> ()){
         print("userSignInActionWith \n")
-        Auth.auth().signIn(withEmail: email, password: email) { (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil{
                 complitionHandler(error?.localizedDescription)
                 return

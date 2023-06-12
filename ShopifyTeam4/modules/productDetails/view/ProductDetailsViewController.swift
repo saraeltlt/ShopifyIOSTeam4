@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
+import ProgressHUD
 class ProductDetailsViewController: UIViewController {
     var viewModel : ProductDetailsViewModel!
+    var networkIndicator: UIActivityIndicatorView!
     @IBOutlet weak var whiteView: UIView!{
         didSet{
             whiteView.layer.cornerRadius = whiteView.bounds.width * 0.15
@@ -36,24 +37,52 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var productImagesCollectionView: UICollectionView!
     var timer:Timer?
     var currentIndex = 0
-    var imagesArrayName = ["1","2","3"]
+    var imagesArray:[String] = []
+    var productId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        playTimer()
+        viewModel = ProductDetailsViewModel(productId: productId)
+        networkIndicator = UIActivityIndicatorView(style: .large)
+        networkIndicator.color = UIColor(named: K.GREEN)
+        networkIndicator.center = view.center
+        view.addSubview(networkIndicator)
+        viewModel.getProductDetails()
+        networkIndicator.startAnimating()
+        viewModel.successClosure = { [weak self] (productDetails) in
+            guard let self = self else {return}
+            self.imagesArray = productDetails.imagesArray
+            self.productNameLabel.text = productDetails.name
+            self.productPriceLabel.text = productDetails.price
+            self.productDescribtionTextView.text = productDetails.description
+            productImagesCollectionView.reloadData()
+            playTimer()
+            networkIndicator.stopAnimating()
+        }
+        viewModel.failClosure = { [weak self] (errorMsg) in
+            guard let self = self else {return}
+            networkIndicator.stopAnimating()
+            ProgressHUD.showError(errorMsg)
+        }
     }
     @IBAction func backButtonAction(_ sender: UIButton) {
         self.dismiss(animated: true)
+    }
+    @IBAction func navigateToReviewScreen(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
+        let reviewVC = storyboard.instantiateViewController(withIdentifier: "ReviewsViewController") as! ReviewsViewController
+        reviewVC.modalTransitionStyle = .coverVertical
+        present(reviewVC, animated: true)
     }
 }
 
 extension ProductDetailsViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagesArrayName.count
+        return imagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductImageCollectionViewCell", for: indexPath) as! ProductImageCollectionViewCell
-        cell.imageView.image = UIImage(named: imagesArrayName[indexPath.row])
+        cell.imageView.sd_setImage(with: URL(string: imagesArray[indexPath.row]), placeholderImage:UIImage(named: "test"))
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -68,7 +97,7 @@ extension ProductDetailsViewController:UICollectionViewDelegate,UICollectionView
 }
 extension ProductDetailsViewController{
     @objc func getCurrentIndex(){
-        if currentIndex != imagesArrayName.count-1 {
+        if currentIndex != imagesArray.count-1 {
             currentIndex += 1
         }else{
             currentIndex = 0
