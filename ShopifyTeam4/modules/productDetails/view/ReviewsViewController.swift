@@ -8,18 +8,17 @@
 import UIKit
 
 class ReviewsViewController: UIViewController {
-    @IBOutlet weak var backButtonOutlet: UIButton!{
+    @IBOutlet weak var scrollableContentView: UIView!{
         didSet{
-            backButtonOutlet.layer.cornerRadius = backButtonOutlet.bounds.width * 0.5
+            scrollableContentView.layer.cornerRadius = scrollableContentView.bounds.width * 0.15
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func bacckButtonAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
-    }
+
     
 }
