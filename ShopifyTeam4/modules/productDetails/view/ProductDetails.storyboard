@@ -126,34 +126,34 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 $ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-YA-2xd">
-                                                                        <rect key="frame" x="24" y="86" width="345" height="36"/>
-                                                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="30"/>
+                                                                        <rect key="frame" x="24" y="86" width="345" height="34.666666666666657"/>
+                                                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="30"/>
                                                                         <color key="textColor" name="orange"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctg-vF-W5E">
-                                                                        <rect key="frame" x="24" y="146" width="345" height="28.666666666666657"/>
+                                                                        <rect key="frame" x="24" y="144.66666666666663" width="345" height="28.666666666666657"/>
                                                                         <color key="backgroundColor" red="0.97105204395607636" green="0.48283133979907467" blue="0.3452536155826661" alpha="0.173067054" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                         <color key="textColor" systemColor="placeholderTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="description placeholder" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Nd-QV-ddj">
-                                                                        <rect key="frame" x="24" y="176.66666666666663" width="345" height="42.333333333333343"/>
+                                                                        <rect key="frame" x="24" y="175.33333333333337" width="345" height="44.333333333333343"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="textColor" name="orange"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     </textView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWd-8J-TNr">
-                                                                        <rect key="frame" x="24" y="242.99999999999997" width="345" height="28.666666666666657"/>
+                                                                        <rect key="frame" x="24" y="243.6666666666666" width="345" height="28.666666666666657"/>
                                                                         <color key="backgroundColor" red="0.86922675370000002" green="0.43381467460000001" blue="0.30710834259999997" alpha="0.173067054" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                         <color key="textColor" systemColor="placeholderTextColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekR-BA-dTW">
-                                                                        <rect key="frame" x="24" y="275.66666666666663" width="345" height="112.66666666666669"/>
+                                                                        <rect key="frame" x="24" y="276.33333333333337" width="345" height="112.66666666666669"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Youssef Mohamed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSM-6M-XeE">
                                                                                 <rect key="frame" x="4" y="4" width="162.66666666666666" height="24"/>
@@ -227,7 +227,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHO-Tf-bEa">
-                                                                        <rect key="frame" x="236" y="390.33333333333337" width="113" height="50"/>
+                                                                        <rect key="frame" x="236" y="391" width="113" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="62n-YL-oyI"/>
                                                                         </constraints>
