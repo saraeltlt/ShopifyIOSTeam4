@@ -28,7 +28,15 @@ class SignInViewModel{
             case .success(let data):
                 UserDefaults.selectedUserID = data.customers?[0].id ?? 0
                 K.USER_ID = data.customers?[0].id ?? 0
-                print(K.USER_ID)
+                K.FAV_ID = Int(data.customers?[0].note ?? "") ?? 0
+                K.CART_ID = Int(data.customers?[0].tags ?? "") ?? 0
+                print ("here ", K.FAV_ID, K.CART_ID)
+                if (K.FAV_ID  != 0){
+                    self.getFav()
+                }
+                if (K.CART_ID  != 0){
+                    self.getCart()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
                 
@@ -38,7 +46,28 @@ class SignInViewModel{
     }
     
     
-    
+    func getFav(){
+        NetworkManager.shared.getApiData(url:URLs.shared.getDaftOrder(draftOrderId:   K.FAV_ID)) { [weak self] (result:Result<DraftOrderModel,Error>) in
+            switch result{
+            case .success(let mode):
+                print ("ya mosahel omr fav", mode.draft_order?.line_items) //add to realm
+            case .failure(let error):
+                print (error.localizedDescription)
+            }
+        }
+        
+    }
+    func getCart(){
+        NetworkManager.shared.getApiData(url:URLs.shared.getDaftOrder(draftOrderId:   K.CART_ID)) { [weak self] (result:Result<DraftOrderModel,Error>) in
+            switch result{
+            case .success(let mode):
+                print ("ya mosahel omr cart", mode.draft_order?.line_items) //add to realm
+            case .failure(let error):
+                print (error.localizedDescription)
+            }
+        }
+        
+    }
     
     
 }
