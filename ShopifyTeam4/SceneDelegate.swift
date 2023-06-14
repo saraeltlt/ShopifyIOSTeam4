@@ -53,6 +53,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             K.USER_ID = 0
         }
+        
+        if let favID = UserDefaults.selectedUserID {
+            K.FAV_ID = favID
+        } else {
+            K.FAV_ID = 0
+        }
+        
+        if let cartID = UserDefaults.selectedUserID {
+            K.CART_ID = cartID
+        } else {
+            K.CART_ID = 0
+        }
 
     }
 

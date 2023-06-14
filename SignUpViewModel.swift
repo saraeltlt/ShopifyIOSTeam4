@@ -25,7 +25,8 @@ class SignUpViewModel{
     }
     
     func registerNewCustomer(){
-        NetworkManager.addNewCustomer(method:"POST", url: URLs.shared.customersURl(), Newcustomer: CustomerModel.getCustomer(user: verfiedUser!)) { customer in
+        let customer = CustomerModel.getCustomer(user: verfiedUser!)
+        NetworkManager.addNewCustomer(method:"POST", url: URLs.shared.customersURl(), Newcustomer: customer) { customer in
             guard let customer = customer else {return}
             UserDefaults.selectedUserID = customer.customer?.id ?? 0
             K.USER_ID = customer.customer?.id ?? 0

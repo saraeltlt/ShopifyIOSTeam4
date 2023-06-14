@@ -62,7 +62,14 @@ struct URLs{
     func getOrders(customerId:Int)->String{
         return baseURL + "customers/\(customerId)/orders.json"
     }
+    func postDraftOrder() -> String{
+        return baseURL + "draft_orders.json"
+    }
     
+    func putDraftOrder(draftOrderId : Int) -> String{
+        return baseURL + "draft_orders/\(draftOrderId).json"
+        
+    }
  
     
 

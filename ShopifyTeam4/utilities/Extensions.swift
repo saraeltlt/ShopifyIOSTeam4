@@ -45,6 +45,27 @@ extension UserDefaults {
         }
     }
     
+    private static let favID = "favID"
+
+    static var selectedFavID: Int? {
+        get {
+            return UserDefaults.standard.integer(forKey: favID)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: favID)
+        }
+    }
+    
+    private static let cartID = "cartID"
+
+    static var selectedCartID: Int? {
+        get {
+            return UserDefaults.standard.integer(forKey: cartID)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: cartID)
+        }
+    }
     
     
     

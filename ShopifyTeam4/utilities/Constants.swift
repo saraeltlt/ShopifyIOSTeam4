@@ -53,6 +53,8 @@ struct K {
     
     //user id
     static var USER_ID = 0
+    static var FAV_ID = 0
+    static var CART_ID = 0
     
 }
 

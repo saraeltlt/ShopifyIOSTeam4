@@ -15,13 +15,18 @@ struct Customer:Codable {
     var note:String?
     var phone:String?
     var addresses : [Address]?
+    var tags:String?
 }
 
 struct CustomerModel : Codable {
     var customer:Customer?
     
-   static func getCustomer(user:FUser)->CustomerModel{
-       let customer = Customer(id: Int(user.objectId),first_name: user.fullname,email: user.email,phone: user.fullNumber)
+    static func getCustomer(user:FUser)->CustomerModel{
+        let customer = Customer(id: Int(user.objectId),first_name: user.fullname,email: user.email, phone: user.fullNumber)
+        return CustomerModel(customer: customer)
+    }
+    static func getCustomer(user:FUser, favID: Int, cartID:Int)->CustomerModel{
+        let customer = Customer(id: Int(user.objectId),first_name: user.fullname,email: user.email,note: String(favID), phone: user.fullNumber , tags: String(cartID))
         return CustomerModel(customer: customer)
     }
     
