@@ -53,7 +53,7 @@ class PaymentViewModel{
         // Create an OrderModel object
         let orderModel = PostOrderModel(order: order)
         
-        
+        //delete shpping cart realm
         NetworkManager.createOrder(order: orderModel) { data, response, error in
             print("addeds successfully to sarver")
             print(data)
