@@ -178,7 +178,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="20000" translatesAutoresizingMaskIntoConstraints="NO" id="Ehc-be-qEr">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Ehc-be-qEr">
                                         <rect key="frame" x="97.333333333333343" y="8.3333333333333428" width="287.66666666666663" height="31"/>
                                         <color key="minimumTrackTintColor" name="green"/>
                                         <connections>
@@ -255,6 +255,7 @@
                         <outlet property="filterContainer" destination="Nma-6A-amF" id="g3X-sq-ui7"/>
                         <outlet property="filterContainerHeightConstrain" destination="UdC-ZJ-GH5" id="Clg-gy-zBG"/>
                         <outlet property="priceFilter" destination="wTc-49-rON" id="kbh-yA-7Hw"/>
+                        <outlet property="priceSliderFilter" destination="Ehc-be-qEr" id="Ngj-xE-aY9"/>
                         <outlet property="productsCollection" destination="wJ6-ot-Qag" id="vq0-Fb-d23"/>
                     </connections>
                 </viewController>

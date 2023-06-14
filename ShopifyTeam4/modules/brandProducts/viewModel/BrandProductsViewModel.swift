@@ -11,6 +11,9 @@ class BrandProductsViewModel{
     var brandId:Int
     var products:Observable<Bool>=Observable(false)
     var brandProductsArray  = [Product]()
+    var filteredProductArray = [Product]()
+    var isFiltering = false
+    
     init(brandId: Int) {
         self.brandId = brandId
     }
@@ -28,12 +31,38 @@ class BrandProductsViewModel{
     }
     
     func getProductsCount()->Int{
-        return brandProductsArray.count
+        if isFiltering {
+            return filteredProductArray.count
+        }else {
+            return brandProductsArray.count
+        }
+    
     }
     
     func getProductData(index:Int)->Product{
-        return brandProductsArray[index]
+        if isFiltering {
+            return filteredProductArray[index]
+        }else {
+            return brandProductsArray[index]
+        }
+    
     }
+    
+    func filterProducts(price:Float){
+        if price != 0.0 {
+            isFiltering = true
+            if K.CURRENCY == "USD" {
+                filteredProductArray = brandProductsArray.filter{Float($0.variants![0].price!)! <= price}
+            }else {
+                filteredProductArray = brandProductsArray.filter{Float($0.variants![0].price!)!*Float(K.EXCHANGE_RATE) <= price}
+            }
+       
+        } else {
+            isFiltering = false
+        }
+      
+    }
+    
     
     
     func configNavigation(index:Int)->ProductDetailsViewModel{

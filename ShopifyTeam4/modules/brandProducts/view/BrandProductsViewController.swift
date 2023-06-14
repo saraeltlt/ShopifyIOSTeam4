@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class BrandProductsViewController: UIViewController {
-    
+    var disposBag = DisposeBag()
+    @IBOutlet weak var priceSliderFilter: UISlider!
     @IBOutlet weak var priceFilter: UILabel!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var filterContainer: UIView!
@@ -31,12 +34,30 @@ class BrandProductsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         productsCollection.reloadData()
+        if K.CURRENCY == "EGP" {
+            self.priceSliderFilter.maximumValue = 10000
+        } else {
+            self.priceSliderFilter.maximumValue = 300
+        }
+        setUpPriceFilterObservation()
+              
+    
 
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
         priceFilter.text = "Price : \(Int(sender.value))"
         
+    }
+    
+    func setUpPriceFilterObservation(){
+        priceSliderFilter.rx.controlEvent(.valueChanged).debounce(.seconds(2), scheduler: MainScheduler.instance).subscribe{
+            print(self.priceSliderFilter.value)
+            var filterPrice = self.priceSliderFilter.value
+            self.viewModel?.filterProducts(price: filterPrice)
+            self.productsCollection.reloadData()
+        }onCompleted: { print("completed")
+        }.disposed(by: disposBag)
     }
    
     @IBAction func filter(_ sender: UIBarButtonItem) {
