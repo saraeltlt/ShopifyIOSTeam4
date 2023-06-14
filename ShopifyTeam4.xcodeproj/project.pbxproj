@@ -257,6 +257,7 @@
 				26925E1E2A33D44B000941FD /* custom_cells */,
 				A728319D2A2BD71300A38B6A /* ProductDetails.storyboard */,
 				26925E1B2A33D3BA000941FD /* ProductDetailsViewController.swift */,
+				26BFAFC62A37236100775806 /* ReviewsViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -579,7 +580,6 @@
 			children = (
 				A7B7AF922A35293000197411 /* viewModel */,
 				26925E1D2A33D42D000941FD /* view */,
-				26BFAFC62A37236100775806 /* ReviewsViewController.swift */,
 			);
 			path = productDetails;
 			sourceTree = "<group>";

@@ -55,6 +55,7 @@ class ProductDetailsViewController: UIViewController {
             self.productPriceLabel.text = productDetails.price
             self.productDescribtionTextView.text = productDetails.description
             productImagesCollectionView.reloadData()
+            self.pageController.numberOfPages = imagesArray.count
             playTimer()
             networkIndicator.stopAnimating()
         }
