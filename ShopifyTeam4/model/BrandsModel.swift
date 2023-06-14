@@ -33,12 +33,18 @@ struct ProductDetailsModel:Codable{
 // viewObject productDetails
 struct ProductDetails{
     let name: String
-    let price: String
+    var price: String
     let description : String
     var imagesArray : [String]
     init(brand:Brand){
         name = brand.title ?? "no name"
         price = brand.variants?.first?.price ?? "no price"
+        if (K.CURRENCY == "USD"){
+            price = "\(price) USD"
+        } else {
+            let result = Int(Double(price)! * K.EXCHANGE_RATE)
+            price = "\(result) EGP"
+        }
         description = brand.body_html ?? "no description"
         imagesArray = []
         for image in brand.images ?? [] {
