@@ -188,7 +188,8 @@ extension CategoryViewController:UICollectionViewDelegate
         }else {
             let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
             let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-            detailsVC.viewModel = viewModel.configNavigation(index: indexPath.row)
+            //detailsVC.viewModel = viewModel.configNavigation(index: indexPath.row)
+            detailsVC.productId = viewModel.getProductData(index: indexPath.row).id ?? 0 
             detailsVC.modalPresentationStyle = .fullScreen
             detailsVC.modalTransitionStyle = .crossDissolve
             present(detailsVC, animated: true)
