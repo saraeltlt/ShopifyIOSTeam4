@@ -8,10 +8,10 @@
 import Foundation
 
 extension NetworkManager {
-    static func addNewCustomer(url:String,Newcustomer: CustomerModel,complication:@escaping (CustomerModel?) -> Void) {
+    static func addNewCustomer(method: String,url:String,Newcustomer: CustomerModel,complication:@escaping (CustomerModel?) -> Void) {
         let url = URL(string: url)
         var urlRequest = URLRequest(url: url!)
-        urlRequest.httpMethod = "POST"
+        urlRequest.httpMethod = method
         urlRequest.httpShouldHandleCookies = false
         do {
             
