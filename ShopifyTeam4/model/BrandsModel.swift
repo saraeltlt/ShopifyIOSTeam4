@@ -7,17 +7,21 @@
 
 import Foundation
 
-//smart_collections
 
 
-struct BrandsModel: Codable {
+
+class BrandsModel: Codable {
     let smartCollections: [Brand]?
     
     enum CodingKeys: String, CodingKey {
         case smartCollections = "smart_collections"
     }
+    
+    init(smartCollections: [Brand]?) {
+           self.smartCollections = smartCollections
+       }
 }
-struct Brand: Codable{
+class Brand: Codable{
     let id: Int?
     let title: String?
     let image: Image?
@@ -25,13 +29,26 @@ struct Brand: Codable{
     let variants : [Variant]?
     let product_type : String?
     let body_html : String?
+    
+    init(id: Int?, title: String?, image: Image?, images: [Image]?, variants: [Variant]?, product_type: String?, body_html: String?) {
+           self.id = id
+           self.title = title
+           self.image = image
+           self.images = images
+           self.variants = variants
+           self.product_type = product_type
+           self.body_html = body_html
+       }
 }
 
-struct ProductDetailsModel:Codable{
+class ProductDetailsModel:Codable{
     var product:Brand?
+    init(product: Brand?) {
+           self.product = product
+       }
 }
 // viewObject productDetails
-struct ProductDetails{
+class ProductDetails{
     let name: String
     var price: String
     let description : String
@@ -52,10 +69,16 @@ struct ProductDetails{
         }
     }
 }
-struct Image: Codable{
+class Image: Codable{
     let src: String?
+    init(src: String?) {
+           self.src = src
+       }
 }
 
-struct Variant: Codable {
+class Variant: Codable {
     let price : String?
+    init(price: String?) {
+            self.price = price
+        }
 }

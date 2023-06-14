@@ -6,18 +6,31 @@
 //
 
 import Foundation
-struct DraftOrderProduct : Codable{
+class DraftOrderProduct : Codable{
     var quantity:Int?
     var price:Number?
     var title:String?
+    init(quantity: Int?, price: Number?, title: String?) {
+           self.quantity = quantity
+           self.price = price
+           self.title = title
+       }
 }
 
-struct DraftOrder : Codable{
+class DraftOrder : Codable{
     var id:Int?
     var customer:Customer?
     var line_items:[DraftOrderProduct]?
+    init(id: Int?, customer: Customer?, line_items: [DraftOrderProduct]?) {
+           self.id = id
+           self.customer = customer
+           self.line_items = line_items
+       }
     
 }
-struct DraftOrderModel : Codable{
+class DraftOrderModel : Codable{
     var draft_order : DraftOrder?
+    init(draft_order: DraftOrder?) {
+           self.draft_order = draft_order
+       }
 }

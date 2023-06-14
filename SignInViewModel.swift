@@ -28,8 +28,8 @@ class SignInViewModel{
             case .success(let data):
                 UserDefaults.selectedUserID = data.customers?[0].id ?? 0
                 K.USER_ID = data.customers?[0].id ?? 0
-                K.FAV_ID = Int(data.customers?[0].note ?? "") ?? 0
-                K.CART_ID = Int(data.customers?[0].tags ?? "") ?? 0
+                K.FAV_ID = Int(data.customers?[0].favId ?? "") ?? 0
+                K.CART_ID = Int(data.customers?[0].cartId ?? "") ?? 0
                 print ("here ", K.FAV_ID, K.CART_ID)
                 if (K.FAV_ID  != 0){
                     self.getFav()

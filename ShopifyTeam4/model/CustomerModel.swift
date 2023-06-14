@@ -7,18 +7,38 @@
 
 import Foundation
 
-struct Customer:Codable {
+class Customer:Codable {
     var id:Int?
-    var first_name:String?
-    var last_name:String?
+    var firstName:String?
+    var lastName:String?
     var email:String?
-    var note:String?
+    var favId:String?
     var phone:String?
     var addresses : [Address]?
-    var tags:String?
+    var cartId:String?
+    init(id: Int? = nil, first_name: String? = nil, last_name: String? = nil, email: String? = nil, note: String? = nil, phone: String? = nil, addresses: [Address]? = nil, tags: String? = nil) {
+           self.id = id
+           self.firstName = first_name
+           self.lastName = last_name
+           self.email = email
+           self.favId = note
+           self.phone = phone
+           self.addresses = addresses
+           self.cartId = tags
+       }
+    enum CodingKeys: String, CodingKey {
+        case id
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case email
+        case favId = "note"
+        case phone
+        case addresses
+        case cartId = "tags"
+    }
 }
 
-struct CustomerModel : Codable {
+class CustomerModel : Codable {
     var customer:Customer?
     
     static func getCustomer(user:FUser)->CustomerModel{
@@ -29,10 +49,13 @@ struct CustomerModel : Codable {
         let customer = Customer(id: Int(user.objectId),first_name: user.fullname,email: user.email,note: String(favID), phone: user.fullNumber , tags: String(cartID))
         return CustomerModel(customer: customer)
     }
+    init(customer: Customer?) {
+         self.customer = customer
+     }
     
     
 }
 
-struct SearchCustomerModel : Codable {
+class SearchCustomerModel : Codable {
     var customers:[Customer]?
 }
