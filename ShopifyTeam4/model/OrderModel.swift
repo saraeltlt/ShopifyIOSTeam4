@@ -14,13 +14,23 @@ class OrderProduct : Codable{
     var name:String?
     var price:Number?
     var title:String?
-    init(variant_id: Int?, quantity: Int?, name: String?, price: Number?, title: String?) {
+    var imagSrc:String?
+    init(variant_id: Int?, quantity: Int?, name: String?, price: Number?, title: String?, imagSrc:String? = nil) {
           self.variant_id = variant_id
           self.quantity = quantity
           self.name = name
           self.price = price
           self.title = title
+          self.imagSrc = imagSrc
       }
+    enum CodingKeys: String, CodingKey {
+           case variant_id
+           case quantity
+           case name
+           case price
+           case title
+           case imagSrc = "sku"
+       }
 }
 
 class Order : Codable{

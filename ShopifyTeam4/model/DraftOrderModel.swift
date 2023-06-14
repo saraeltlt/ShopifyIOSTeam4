@@ -10,11 +10,21 @@ class DraftOrderProduct : Codable{
     var quantity:Int?
     var price:Number?
     var title:String?
-    init(quantity: Int?, price: Number?, title: String?) {
-           self.quantity = quantity
-           self.price = price
-           self.title = title
-       }
+    var imagSrc:String?
+    enum CodingKeys: String, CodingKey {
+        case quantity
+        case price
+        case title
+        case imagSrc = "sku"
+    }
+    
+    init(quantity: Int?, price: Number?, title: String?, imagSrc: String? = nil) {
+        self.quantity = quantity
+        self.price = price
+        self.title = title
+        self.imagSrc = imagSrc
+    }
+    
 }
 
 class DraftOrder : Codable{

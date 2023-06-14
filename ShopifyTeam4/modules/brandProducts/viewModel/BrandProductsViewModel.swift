@@ -10,7 +10,7 @@ import Foundation
 class BrandProductsViewModel{
     var brandId:Int
     var products:Observable<Bool>=Observable(false)
-    var brandProductsArray  = [Brand]()
+    var brandProductsArray  = [Product]()
     init(brandId: Int) {
         self.brandId = brandId
     }
@@ -31,7 +31,7 @@ class BrandProductsViewModel{
         return brandProductsArray.count
     }
     
-    func getProductData(index:Int)->Brand{
+    func getProductData(index:Int)->Product{
         return brandProductsArray[index]
     }
     

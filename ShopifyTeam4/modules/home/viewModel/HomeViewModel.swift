@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class HomeViewModel{
     var brands:Observable<Bool>=Observable(false)
-    var brandsArray  = [Brand]()
+    var brandsArray  = [Product]()
     var advertesmentsArray:[UIImage]=[UIImage(named: "ads3")!,UIImage(named: "ads2")!,UIImage(named: "ads1")!]
     
     
@@ -36,7 +36,7 @@ class HomeViewModel{
         return advertesmentsArray.count
     }
     
-    func getBrandData(index:Int)->Brand{
+    func getBrandData(index:Int)->Product{
         return brandsArray[index]
     }
     

@@ -8,7 +8,7 @@
 import Foundation
 
 class BrandProductsModel:Codable{
-    let brandProducts: [Brand]?
+    let brandProducts: [Product]?
     
     enum CodingKeys: String, CodingKey {
         case brandProducts = "products"

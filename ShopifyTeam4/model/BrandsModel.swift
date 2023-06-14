@@ -11,17 +11,17 @@ import Foundation
 
 
 class BrandsModel: Codable {
-    let smartCollections: [Brand]?
+    let smartCollections: [Product]?
     
     enum CodingKeys: String, CodingKey {
         case smartCollections = "smart_collections"
     }
     
-    init(smartCollections: [Brand]?) {
+    init(smartCollections: [Product]?) {
            self.smartCollections = smartCollections
        }
 }
-class Brand: Codable{
+class Product: Codable{
     let id: Int?
     let title: String?
     let image: Image?
@@ -42,8 +42,8 @@ class Brand: Codable{
 }
 
 class ProductDetailsModel:Codable{
-    var product:Brand?
-    init(product: Brand?) {
+    var product:Product?
+    init(product: Product?) {
            self.product = product
        }
 }
@@ -53,7 +53,7 @@ class ProductDetails{
     var price: String
     let description : String
     var imagesArray : [String]
-    init(brand:Brand){
+    init(brand:Product){
         name = brand.title ?? "no name"
         price = brand.variants?.first?.price ?? "no price"
         if (K.CURRENCY == "USD"){
