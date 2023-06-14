@@ -17,12 +17,12 @@ class SettingsViewController: UIViewController, UpdateData {
     var viewModel = SettingsViewModel()
 
     @IBAction func logOut(_ sender: UIButton) {
-        viewModel.saveUserData()
+      viewModel.saveUserData()
         
         UserDefaults.standard.set(nil, forKey: kCURRENTUSER)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
           let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
-          viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        viewController.modalPresentationStyle = .fullScreen
           viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
           self.present(viewController, animated: false, completion: nil)
     }
