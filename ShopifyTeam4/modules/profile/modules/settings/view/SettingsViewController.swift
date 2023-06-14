@@ -14,8 +14,11 @@ protocol UpdateData{
 
 
 class SettingsViewController: UIViewController, UpdateData {
+    var viewModel = SettingsViewModel()
 
     @IBAction func logOut(_ sender: UIButton) {
+        viewModel.saveUserData()
+        
         UserDefaults.standard.set(nil, forKey: kCURRENTUSER)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
           let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController

@@ -33,6 +33,9 @@ struct URLs{
     func customersURl()->String {
         return baseURL + "customers.json"
     }
+    func updateCustomers(id:Int)->String {
+        return baseURL + "customers/\(id).json"
+    }
     func searchForCustomer(email:String)->String{
         return baseURL + "customers/search.json?query=email:\(email)"
     }
