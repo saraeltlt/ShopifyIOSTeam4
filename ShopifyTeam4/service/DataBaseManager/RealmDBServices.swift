@@ -133,6 +133,24 @@ class RealmDBServices{
                 }
             }
         }
-    
+    func getIDsOfAllFavoriteItems(complitionHandler : @escaping(_ errorMessage:String?,_ idsOfFavoriteItems:[Int]?) -> ()){
+        initRealmFile { errorMessage in
+            if let errorMessage = errorMessage{
+                complitionHandler(errorMessage,nil)
+            }else{
+                let results = self.realmFileReference?.objects(ProductFavorite.self)
+                var idsArray:[Int] = []
+                if let results = results {
+                    if results.count > 0{
+                        for i in 0...results.count - 1{
+                            idsArray.append(results[i].id)
+                        }
+                    }
+                }
+                print("number of ids favorite items is : \(idsArray.count)")
+                complitionHandler(nil,idsArray)
+            }
+        }
+    }
 }
 

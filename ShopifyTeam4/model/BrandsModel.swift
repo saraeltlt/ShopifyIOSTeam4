@@ -56,12 +56,6 @@ class ProductDetails{
     init(brand:Product){
         name = brand.title ?? "no name"
         price = brand.variants?.first?.price ?? "no price"
-        if (K.CURRENCY == "USD"){
-            price = "\(price) USD"
-        } else {
-            let result = Int(Double(price)! * K.EXCHANGE_RATE)
-            price = "\(result) EGP"
-        }
         description = brand.body_html ?? "no description"
         imagesArray = []
         for image in brand.images ?? [] {

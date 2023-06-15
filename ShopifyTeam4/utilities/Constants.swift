@@ -56,5 +56,8 @@ struct K {
     static var FAV_ID = 0
     static var CART_ID = 0
     
+    //stored favorite products array
+    static var idsOfFavoriteProducts:[Int] = []
+    
 }
 
