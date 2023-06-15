@@ -397,7 +397,7 @@
                         <outlet property="backButton" destination="YxK-Rp-kvj" id="pbG-Jr-DqR"/>
                         <outlet property="pageController" destination="GNK-GV-yZS" id="bGq-Pr-pDv"/>
                         <outlet property="paigeView" destination="V5B-G9-gFb" id="zBd-Ym-b62"/>
-                        <outlet property="productDescribtionTextView" destination="4Nd-QV-ddj" id="lFG-oq-otR"/>
+                        <outlet property="productDescriptionTextView" destination="4Nd-QV-ddj" id="lFG-oq-otR"/>
                         <outlet property="productImagesCollectionView" destination="4Jy-3P-jJZ" id="YHZ-ge-Qu7"/>
                         <outlet property="productNameLabel" destination="kd1-pq-0MA" id="wnD-Tr-dty"/>
                         <outlet property="productPriceLabel" destination="vuV-YA-2xd" id="US7-fO-dLR"/>
