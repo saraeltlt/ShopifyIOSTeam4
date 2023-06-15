@@ -20,12 +20,17 @@ class ShoppingCartViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.calcSubTotalObservable.bind { status in
+        viewModel.getProductsObservable.bind { status in
             guard let status = status else {return}
             if status {
+                self.cartTableView.reloadData()
                 self.subTotalText.subtitleLabel?.text = "SubTotal= \(self.viewModel.subTotal) \(K.CURRENCY)"
             }
+            else{
+                // loading
+            }
         }
+        viewModel.getCartItems()
      
     }
     
@@ -61,12 +66,13 @@ class ShoppingCartViewController: UIViewController {
 
 extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return viewModel.cartProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CART_CELL , for: indexPath) as! ShoppingCartCell
-        cell.configure(name: "Bag", price: 300, ImageUrl: "")
+        let product = viewModel.getProduct(index: indexPath.row)
+        cell.configure(name: product.name, price: product.price, ImageUrl: product.image, itemCount: product.ItemCount)
         return cell
     }
     

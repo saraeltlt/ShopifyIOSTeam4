@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(K.USER_ID)
         configureBrandCollectionObservation()
         viewModel.initIdsOfFavoriteItemsArray()
         viewModel.getBrandsData()

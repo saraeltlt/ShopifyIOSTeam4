@@ -23,6 +23,10 @@ class ProfileViewController: UIViewController {
 
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        configureOrdersObservation()
+        viewModel.getAllOrders()
+    }
     
     private func setupCells() {
         ordersTableView.register(UINib(nibName: K.ORDERS_CELL, bundle: nil), forCellReuseIdentifier: K.ORDERS_CELL)
@@ -73,15 +77,28 @@ class ProfileViewController: UIViewController {
     }
 }
 
-
+ // MARK: - Orders section 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
+    func configureOrdersObservation(){
+        viewModel.orders.bind { status in
+            guard let status = status else {return}
+            if status {
+                DispatchQueue.main.async {
+                    self.ordersTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.getordersCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ORDERS_CELL, for: indexPath) as! OrdersCell
-       cell.configure(date: "22/11/2023", price:300)
+        let order = viewModel.getOrderData(index: indexPath.row)
+        cell.configure(date: order.created_at ?? "", price: order.current_total_price ?? "")
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

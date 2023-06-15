@@ -9,13 +9,56 @@ import Foundation
 class SettingsViewModel{
     
     
+    func getAllShopingCartItems()->[DraftOrderProduct]{
+        var cartProducts = [DraftOrderProduct]()
+        let realmServices = RealmDBServices.instance
+        realmServices.getAllProducts(ofType: ProductCart.self) { [weak self]error, results in
+            if let error = error {
+                print("Error : \(error)")
+            } else {
+                if let results = results {
+                    if results.count > 0{
+                        for i in 0...results.count - 1{
+                            cartProducts.append(
+                                DraftOrderProduct(quantity: results[i].ItemCount, price: .string(results[i].price), title: "\(results[i].name)?\(results[i].id)", imagSrc: results[i].image)
+                            
+                            )
+                        }
+                    }
+                }
+            }
+           
+        }
+        return cartProducts
+    }
+    
+    
+    
+    func getAllfavItems()->[DraftOrderProduct]{
+        var favProducts = [DraftOrderProduct]()
+        let realmServices = RealmDBServices.instance
+        realmServices.getAllProducts(ofType: ProductFavorite.self) { [weak self]error, results in
+            if let error = error {
+                print("Error : \(error)")
+            } else {
+                if let results = results {
+                    if results.count > 0{
+                        for i in 0...results.count - 1{
+                            favProducts.append(
+                                DraftOrderProduct(quantity: 1, price: .string(results[i].price), title: "\(results[i].name)?\(results[i].id)", imagSrc: results[i].image)
+                            
+                            )
+                        }
+                    }
+                }
+            }
+           
+        }
+        return favProducts
+    }
+    
     func saveUserData(){
-        
-        //remove this and get realm data
-        // let orderProduct = DraftOrderProduct( quantity: 4, price:  .string("332232"), title: "Fav product")
-        //  let order = DraftOrder(id: nil, customer: nil, line_items: [orderProduct] )
-        let orderProducts = [DraftOrderProduct]()
-        let order = DraftOrder(id: nil, customer: nil, line_items: orderProducts)
+        let order = DraftOrder(id: nil, customer: nil, line_items:getAllfavItems())
         
         //.......
         if !(order.line_items!.isEmpty){
@@ -43,11 +86,7 @@ class SettingsViewModel{
     
     
     func getCartID(){
-        //  let orderProducts = DraftOrderProduct( quantity: 4, price:  .string("332232"), title: "Cart product")
-        let orderProducts = [DraftOrderProduct]()
-        let order = DraftOrder(id: nil, customer: nil, line_items: orderProducts)
-    
-        //.......
+        let order = DraftOrder(id: nil, customer: nil, line_items:getAllShopingCartItems())
         if !(order.line_items!.isEmpty){
             let draftOrder = DraftOrderModel(draft_order: order)
             NetworkManager.shared.addDraftOrder(method: "POST", url: URLs.shared.postDraftOrder(), order: draftOrder) { (result: Result<DraftOrderModel, Error> ) in
@@ -78,7 +117,17 @@ class SettingsViewModel{
         let customer = CustomerModel(customer: Customer(id: K.USER_ID, note: String(K.FAV_ID), tags: String(K.CART_ID)))
         NetworkManager.addNewCustomer(method:"PUT", url: URLs.shared.updateCustomers(id: K.USER_ID), Newcustomer: customer) { customer in
             guard let customer = customer else {return}
+            
             print ("customer ------------------------")
+            let realmServices = RealmDBServices.instance
+            realmServices.deleteAllProducts(ofType: ProductCart.self) { errorMessage in
+                print("cart-> ", errorMessage)
+            }
+            realmServices.deleteAllProducts(ofType: ProductFavorite.self) { errorMessage in
+                print("fav-> ", errorMessage)
+            }
         }
     }
+    
+
 }

@@ -48,25 +48,73 @@ class SignInViewModel{
     
     func getFav(){
         NetworkManager.shared.getApiData(url:URLs.shared.getDaftOrder(draftOrderId:   K.FAV_ID)) { [weak self] (result:Result<DraftOrderModel,Error>) in
+            let realmServices = RealmDBServices.instance
             switch result{
             case .success(let mode):
-                print ("ya mosahel omr fav", mode.draft_order?.line_items) //add to realm
+                for item in (mode.draft_order?.line_items!)!{
+                    let (title, id) = self!.extractSubstring(from: item.title!, delimiter: "?")
+                    let product = ProductFavorite(id:Int(id!)!, name: title!, image: item.imagSrc!, price: (item.price?.stringValue())!)
+                        realmServices.addProduct(product: product) { error in
+                    if let error = error {
+                        print("Error adding product: \(error)")
+                    } else {
+                        print("Product added successfully with id \(id)")
+                        
+                    }
+                }
+            }
             case .failure(let error):
                 print (error.localizedDescription)
             }
         }
         
     }
+    
+    
+    
+    
+    
+    
     func getCart(){
+        let realmServices = RealmDBServices.instance
         NetworkManager.shared.getApiData(url:URLs.shared.getDaftOrder(draftOrderId:   K.CART_ID)) { [weak self] (result:Result<DraftOrderModel,Error>) in
             switch result{
             case .success(let mode):
-                print ("ya mosahel omr cart", mode.draft_order?.line_items) //add to realm
+                for item in (mode.draft_order?.line_items!)!{
+                    let (title, id) = self!.extractSubstring(from: item.title!, delimiter: "?")
+                    let product = ProductCart(id:Int(id!)!, name: title!, image: item.imagSrc!, price: (item.price?.stringValue())!, ItemCount: item.quantity!)
+                        realmServices.addProduct(product: product) { error in
+                    if let error = error {
+                        print("Error adding product: \(error)")
+                    } else {
+                        print("Product added successfully with id \(id)")
+                        
+                    }
+                }
+            }
             case .failure(let error):
                 print (error.localizedDescription)
             }
         }
         
+    }
+    
+    
+    
+    func extractSubstring(from inputString: String, delimiter: Character) -> (String?, String?) {
+        let components = inputString.split(separator: delimiter)
+        guard let firstComponent = components.first else {
+            return (nil, nil)
+        }
+        
+        let substringBefore = String(firstComponent)
+        
+        if components.count > 1 {
+            let substringAfter = String(components[1])
+            return (substringBefore, substringAfter)
+        } else {
+            return (substringBefore, nil)
+        }
     }
     
     

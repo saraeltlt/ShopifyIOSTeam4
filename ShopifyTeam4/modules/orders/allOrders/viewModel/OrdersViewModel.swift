@@ -7,16 +7,24 @@
 
 import Foundation
 class OrdersViewModel{
-    func getUserOrders(){
-        let url = URLs.shared.getOrders(customerId: 7010272051485)
-        NetworkManager.shared.getApiData(url: url) { [weak self] (result:Result<GetOrderModel,Error>) in
-            switch result{
-            case .success(let mode):
-                print (mode.orders.count)
-            case .failure(let error):
-                print (error.localizedDescription)
-            }
-        }
-        
+    var orders:[Order]?
+    init(orders: [Order]? = nil) {
+        self.orders = orders
     }
+  
+    func getordersCount()->Int{
+        return orders?.count ?? 0
+    }
+    func getOrderData(index:Int)->Order{
+        return (orders?[index])!
+    }
+    
+    func configureNavigationToOrderDetails(index:Int)->OrderDetailsViewModel{
+        let order = orders?[index]
+        return OrderDetailsViewModel(order: order)
+    }
+    
+    
+    
+    
 }

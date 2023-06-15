@@ -117,6 +117,7 @@
                 <outlet property="brandName" destination="nl8-dT-reh" id="MJF-dF-kzp"/>
                 <outlet property="cellFrame" destination="gfq-It-38l" id="xqL-hg-gP5"/>
                 <outlet property="innerContainer" destination="Z6E-iV-gTZ" id="oWJ-oc-FPY"/>
+                <outlet property="numberOfItems" destination="Ey3-fe-iRW" id="h9J-mv-Pkq"/>
                 <outlet property="outerContainer" destination="LRF-lO-tIl" id="wDG-zQ-4jx"/>
                 <outlet property="price" destination="BeT-Al-SfI" id="xp0-xp-Qrt"/>
             </connections>

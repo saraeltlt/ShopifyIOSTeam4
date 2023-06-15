@@ -13,7 +13,14 @@ protocol AddAddress{
 class AddressViewController: UIViewController, AddAddress {
 
     
-
+    @IBAction func continueCheckout(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let viewController = storyboard.instantiateViewController(identifier: "CheckoutViewController") as! CheckoutViewController
+        viewController.viewModel  = viewModel.configNavigation()
+            self.navigationController?.pushViewController(viewController, animated: true)
+        
+    }
+    
     @IBOutlet weak var CheckoutBtn: UIButton!
     @IBOutlet weak var addressTableView: UITableView!
     var viewModel : AddressViewModel!

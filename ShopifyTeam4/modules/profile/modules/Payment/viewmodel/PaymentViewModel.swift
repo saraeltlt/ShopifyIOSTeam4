@@ -8,11 +8,14 @@
 import Foundation
 import PassKit
 class PaymentViewModel{
-    var subTotal = 0.0
-    var discount = 0.0
-    var shippingFees = 2.0 //USD
     var total = 0.0
-      var paymentRequest : PKPaymentRequest = {
+    var defaultAddreaa: Address
+    
+    init (defaultAddreaa: Address, total:Double ){
+        self.defaultAddreaa = defaultAddreaa
+        self.total = total
+    }
+    func getPaymentRequest() -> PKPaymentRequest {
       let request = PKPaymentRequest()
         request.merchantIdentifier = K.MARCHANT_ID
         request.supportedNetworks = [.quicPay, .masterCard, .visa]
@@ -26,40 +29,74 @@ class PaymentViewModel{
          request.countryCode = "US"
          request.currencyCode = "USD"
        }
-          request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shopify", amount: NSDecimalNumber(value: 100 ))]
+          request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shopify", amount: NSDecimalNumber(value: total ))]
         return request
-    }()
+    }
     
     
     func postOrder(){
-        // Create an Address object
-        let address = Address(id: 1, address1: "123 Main St", city: "New York", country: "USA", phone: "555-1234", isDefault: true)
-        
-        // Create an array of addresses
-        let addresses = [address]
-        
-        // Create a Customer object
-        let customer = Customer(id: 7010272051485, first_name: "John", last_name: "Doe", email: "sarsor@gmail.com", note: "Some note", phone: "+201206425318", addresses: addresses)
-        
-        // Create an OrderProduct object
-        let orderProduct = OrderProduct(variant_id: 66, quantity: 4, name: "SARSOR PRODUCT", price: .double(99), title: "SARSOR PRODUCT")
-        
-        // Create an array of OrderProduct objects
-        let lineItems = [orderProduct]
-        
-        // Create an Order object
-        
-        let order = Order(id: 53, customer: customer, line_items: lineItems, created_at: "2023-04-10", financial_status: "paid", current_total_price: "$19.98")
-        // Create an OrderModel object
+        let addresses = [defaultAddreaa]
+        let customer = Customer(id: K.USER_ID,addresses: addresses)
+        let lineItems = OrderProduct.configOrderProducts(productsData: getAllShopingCartItems())
+        if K.CURRENCY == "EGP" {
+           total = total / K.EXCHANGE_RATE
+        }
+        let order = Order(id: 53, customer: customer, line_items: lineItems, created_at: "2023-04-10", financial_status: "paid", current_total_price: "\(total)")
         let orderModel = PostOrderModel(order: order)
-        
-        //delete shpping cart realm
         NetworkManager.createOrder(order: orderModel) { data, response, error in
-            print("addeds successfully to sarver")
+            print("addeds successfully to sarver order")
             print(data)
             print(response)
+            self.removeShoppingCartItems()
         }
     }
+    
+    func removeShoppingCartItems()->String{
+        let realmServices = RealmDBServices.instance
+        var returnMsg:String = ""
+        realmServices.deleteAllProducts(ofType: ProductCart.self) { error in
+            if let error = error {
+                returnMsg="Error removing all items: \(error)"
+                print("error remove all card product")
+            } else {
+                returnMsg="All products removed from card successfully"
+                print(" remove cart items successfully")
+                
+            }
+        }
+      
+        return returnMsg
+    }
+    
+    func getAllShopingCartItems()->[ProductCart]{
+        var cartProducts = [ProductCart]()
+        let realmServices = RealmDBServices.instance
+        realmServices.getAllProducts(ofType: ProductCart.self) { [weak self]error, results in
+            if let error = error {
+                print("Error : \(error)")
+            } else {
+                if let results = results {
+                    if results.count > 0{
+                        for i in 0...results.count - 1{
+                            cartProducts.append(
+                                ProductCart(id: results[i].id,
+                                            name:results[i].name,
+                                            image:results[i].image,
+                                            price: results[i].price,
+                                            ItemCount: results[i].ItemCount)
+                            )
+                        }
+                        
+                    }
+                    
+                }
+            }
+           
+        }
+        return cartProducts
+    }
+    
+    
     
     
     

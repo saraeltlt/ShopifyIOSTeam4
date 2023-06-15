@@ -26,12 +26,16 @@ class ShoppingCartCell: UITableViewCell {
         
     }
     
-    func configure(name:String,price:Int,ImageUrl:String){
-        productPrice.subtitleLabel?.text = String(price)
+    func configure(name:String,price:String,ImageUrl:String, itemCount:Int ){
+        if (K.CURRENCY == "EGP"){
+            let priceConvert = Double(price)! * K.EXCHANGE_RATE
+            productPrice.subtitleLabel?.text = String(priceConvert) + " EGP"
+        }else{
+            productPrice.subtitleLabel?.text = price + " USD"
+        }
         productNameLabel.text = name
-        productImage.image = UIImage(named: "test")
-        
-    
+        productImage.sd_setImage(with:URL(string:  ImageUrl), placeholderImage: UIImage(named: "test"), context: nil)
+        itemCountLabel.text = String(itemCount)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

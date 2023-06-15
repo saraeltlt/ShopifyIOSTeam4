@@ -31,6 +31,14 @@ class OrderProduct : Codable{
            case title
            case imagSrc = "sku"
        }
+    
+    static func configOrderProducts(productsData : [ProductCart]) -> [OrderProduct] {
+        var orderProducts = [OrderProduct]()
+        for product in productsData {
+            orderProducts.append(OrderProduct(variant_id: product.id, quantity: product.ItemCount, name: product.name, price: .string(product.price), title: product.name , imagSrc: product.image))
+        }
+        return orderProducts
+    }
 }
 
 class Order : Codable{
@@ -50,12 +58,7 @@ class Order : Codable{
       }
 
 }
-class OrderModel : Codable{
-    var order : Order
-    init(order: Order) {
-           self.order = order
-       }
-}
+
 
 
 class GetOrderModel : Codable{
