@@ -6,6 +6,8 @@
 //
 import Foundation
 import RealmSwift
+
+
 class RealmDBServices{
     static let instance = RealmDBServices()
     private var realmFileReference:Realm?
@@ -18,83 +20,84 @@ class RealmDBServices{
             complitionHandler(error.localizedDescription)
         }
     }
-    func addProduct(product:ProductFavorite,complitionHandler : @escaping(_ errorMessage:String?) -> ()){
+    
+    func addProduct<T: Object>(product: T, completionHandler: @escaping (_ errorMessage: String?) -> ()) {
         initRealmFile { errorMessage in
-            if let errorMessage = errorMessage{
-                complitionHandler(errorMessage)
-            }else{
-                do{
-                    try self.realmFileReference!.write {
+            if let errorMessage = errorMessage {
+                completionHandler(errorMessage)
+            } else {
+                do {
+                    try self.realmFileReference?.write {
                         self.realmFileReference?.add(product)
-                        complitionHandler(nil)
+                        completionHandler(nil)
                     }
-                }catch {
-                    complitionHandler(error.localizedDescription)
+                } catch {
+                    completionHandler(error.localizedDescription)
                 }
             }
         }
     }
-    func getAllFavoriteItems(complitionHandler : @escaping(_ errorMessage:String?,_ favoriteProducts:[ProductFavorite]?) -> ()){
+    
+    
+    func getAllProducts<T: Object>(ofType type: T.Type,completionHandler: @escaping (_ errorMessage: String?, _ products: Results<T>?) -> ()) {
         initRealmFile { errorMessage in
-            if let errorMessage = errorMessage{
-                complitionHandler(errorMessage,nil)
-            }else{
-                let results = self.realmFileReference?.objects(ProductFavorite.self)
-                var products:[ProductFavorite] = []
+            if let errorMessage = errorMessage {
+                completionHandler(errorMessage, nil)
+            } else {
+                let results = self.realmFileReference?.objects(type)
                 if let results = results {
-                    if results.count > 0{
-                        for i in 0...results.count - 1{
-                            products.append(
-                                ProductFavorite(id: results[i].id,
-                                                name:results[i].name,
-                                                image:results[i].image)
-                            )
-                        }
-                    }
+                    completionHandler(nil, results)
                 }
-                complitionHandler(nil,products)
+                
             }
         }
     }
-    func deleteAllFavorite(complitionHandler : @escaping(_ errorMessage:String?) -> ()){
+    
+    
+    
+    
+    
+    
+    func deleteAllProducts<T: Object>(ofType type: T.Type, completionHandler: @escaping (_ errorMessage: String?) -> ()) {
         initRealmFile { errorMessage in
-            if let errorMessage = errorMessage{
-                complitionHandler(errorMessage)
-            }else{
-                let results = self.realmFileReference?.objects(ProductFavorite.self)
-                if let results = results{
-                    do{
-                        try self.realmFileReference!.write {
+            if let errorMessage = errorMessage {
+                completionHandler(errorMessage)
+            } else {
+                let results = self.realmFileReference?.objects(type)
+                if let results = results {
+                    do {
+                        try self.realmFileReference?.write {
                             self.realmFileReference?.delete(results)
-                            complitionHandler(nil)
+                            completionHandler(nil)
                         }
-                    }catch {
-                        complitionHandler(error.localizedDescription)
+                    } catch {
+                        completionHandler(error.localizedDescription)
                     }
                 }
-             complitionHandler(nil)
+                completionHandler(nil)
             }
         }
     }
-    func deleteItemById(id:Int,complitionHandler : @escaping(_ errorMessage:String?) -> ()){
-            initRealmFile { errorMessage in
-                if let errorMessage = errorMessage{
-                    complitionHandler(errorMessage)
-                }else{
-                    let results = self.realmFileReference?.objects(ProductFavorite.self)
-                    if let results = results{
-                        do{
-                            let item = results.filter("id = \(id)")
-                            try self.realmFileReference!.write {
-                                self.realmFileReference?.delete(item)
-                            }
-                            complitionHandler(nil)
-                        }catch {
-                        complitionHandler(error.localizedDescription)
-                            }
+    func deleteProductById<T: Object>(ofType type: T.Type, id: Int, completionHandler: @escaping (_ errorMessage: String?) -> ()) {
+        initRealmFile { errorMessage in
+            if let errorMessage = errorMessage {
+                completionHandler(errorMessage)
+            } else {
+                let results = self.realmFileReference?.objects(type)
+                if let results = results {
+                    do {
+                        let item = results.filter("id = \(id)")
+                        try self.realmFileReference?.write {
+                            self.realmFileReference?.delete(item)
                         }
-                    complitionHandler(nil)
+                        completionHandler(nil)
+                    } catch {
+                        completionHandler(error.localizedDescription)
+                    }
                 }
+                completionHandler(nil)
             }
         }
+    }
 }
+
