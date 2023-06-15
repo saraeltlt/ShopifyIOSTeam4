@@ -32,7 +32,7 @@ class ProductDetailsViewController: UIViewController {
     }
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
-    @IBOutlet weak var productDescribtionTextView: UITextView!
+    @IBOutlet weak var productDescriptionTextView: UITextView!
     @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var productImagesCollectionView: UICollectionView!
     var timer:Timer?
@@ -53,7 +53,7 @@ class ProductDetailsViewController: UIViewController {
             self.imagesArray = productDetails.imagesArray
             self.productNameLabel.text = productDetails.name
             self.productPriceLabel.text = productDetails.price
-            self.productDescribtionTextView.text = productDetails.description
+            self.productDescriptionTextView.text = productDetails.description
             productImagesCollectionView.reloadData()
             self.pageController.numberOfPages = imagesArray.count
             playTimer()

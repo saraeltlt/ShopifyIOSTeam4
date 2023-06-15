@@ -17,6 +17,8 @@
 		26BE802E2A3287300054F656 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BE802D2A3287300054F656 /* AuthenticationService.swift */; };
 		26BFAFC72A37236100775806 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BFAFC62A37236100775806 /* ReviewsViewController.swift */; };
 		26C09AC22A31F7D200A9113F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C09AC12A31F7D100A9113F /* Assets.xcassets */; };
+		26E974A82A3AF611008DFDD1 /* ProductFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E974A72A3AF611008DFDD1 /* ProductFavorite.swift */; };
+		26F9ED942A3AB4E000C3D5D3 /* RealmDBServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9ED932A3AB4DF00C3D5D3 /* RealmDBServices.swift */; };
 		26FCB8802A334046004C8383 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26FCB87F2A334046004C8383 /* GoogleService-Info.plist */; };
 		26FCB8822A336B92004C8383 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCB8812A336B92004C8383 /* SignUpViewModel.swift */; };
 		26FCB8842A336BB4004C8383 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCB8832A336BB4004C8383 /* SignInViewModel.swift */; };
@@ -131,6 +133,8 @@
 		26BE802D2A3287300054F656 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		26BFAFC62A37236100775806 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		26C09AC12A31F7D100A9113F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26E974A72A3AF611008DFDD1 /* ProductFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavorite.swift; sourceTree = "<group>"; };
+		26F9ED932A3AB4DF00C3D5D3 /* RealmDBServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBServices.swift; sourceTree = "<group>"; };
 		26FCB87F2A334046004C8383 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26FCB8812A336B92004C8383 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
 		26FCB8832A336BB4004C8383 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -289,6 +293,15 @@
 				26BE802D2A3287300054F656 /* AuthenticationService.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		26F9ED922A3AB4A200C3D5D3 /* DdataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				26F9ED932A3AB4DF00C3D5D3 /* RealmDBServices.swift */,
+				26E974A72A3AF611008DFDD1 /* ProductFavorite.swift */,
+			);
+			path = DdataBaseManager;
 			sourceTree = "<group>";
 		};
 		78A12B899BA0D393A3D8E86D /* Frameworks */ = {
@@ -748,6 +761,7 @@
 		A7AA7F0E2A30F12C007DFB2E /* service */ = {
 			isa = PBXGroup;
 			children = (
+				26F9ED922A3AB4A200C3D5D3 /* DdataBaseManager */,
 				A7AA7F0F2A30F133007DFB2E /* networkManger */,
 			);
 			path = service;
@@ -1108,7 +1122,9 @@
 				8F6B21982A2CF6A8001A869D /* OptionsViewController.swift in Sources */,
 				A70C16532A2F337A00DD68F1 /* ActionButton.swift in Sources */,
 				A76790392A2EB49B002CEE8E /* Category.swift in Sources */,
+				26E974A82A3AF611008DFDD1 /* ProductFavorite.swift in Sources */,
 				26FCB8822A336B92004C8383 /* SignUpViewModel.swift in Sources */,
+				26F9ED942A3AB4E000C3D5D3 /* RealmDBServices.swift in Sources */,
 				26925E1C2A33D3BA000941FD /* ProductDetailsViewController.swift in Sources */,
 				8F973BB92A2BC9D500B52879 /* ShopifyTeam4.xcdatamodeld in Sources */,
 				8F574FB62A3153C800BA979D /* DoneViewController.swift in Sources */,
