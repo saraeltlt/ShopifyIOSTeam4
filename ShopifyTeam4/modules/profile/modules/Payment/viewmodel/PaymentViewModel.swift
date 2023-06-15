@@ -36,7 +36,7 @@ class PaymentViewModel{
     
     func postOrder(){
         let addresses = [defaultAddreaa]
-        let customer = Customer(id: K.USER_ID)
+        let customer = Customer(id: K.USER_ID,addresses: addresses)
         let lineItems = OrderProduct.configOrderProducts(productsData: getAllShopingCartItems())
         if K.CURRENCY == "EGP" {
            total = total / K.EXCHANGE_RATE

@@ -58,12 +58,7 @@ class Order : Codable{
       }
 
 }
-class OrderModel : Codable{
-    var order : Order
-    init(order: Order) {
-           self.order = order
-       }
-}
+
 
 
 class GetOrderModel : Codable{
