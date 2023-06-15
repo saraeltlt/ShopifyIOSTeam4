@@ -22,8 +22,7 @@ class BrandViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var cellFrame: UIView!
-    @IBOutlet weak var addToFavorite: UIButton!
-    
+    @IBOutlet weak var addToFavorite: FavoriteButton!
     @IBOutlet weak var outerContainer: UIView!
     
     
@@ -57,9 +56,5 @@ class BrandViewCell: UICollectionViewCell {
         }
         
     }
-    
-    
-    
-    
-    
+
 }
