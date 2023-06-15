@@ -8,14 +8,25 @@
 import UIKit
 
 class ShoppingCartViewController: UIViewController {
-
+    @IBOutlet weak var subTotalText: UIButton!
+    
     @IBOutlet weak var cartTableView: UITableView!
+    var viewModel = ShoppingCartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
         custmizeNavigation()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.calcSubTotalObservable.bind { status in
+            guard let status = status else {return}
+            if status {
+                self.subTotalText.subtitleLabel?.text = "SubTotal= \(self.viewModel.subTotal) \(K.CURRENCY)"
+            }
+        }
+     
     }
     
     
