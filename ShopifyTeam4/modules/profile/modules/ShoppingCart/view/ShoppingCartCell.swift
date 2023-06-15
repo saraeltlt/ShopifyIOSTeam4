@@ -26,12 +26,11 @@ class ShoppingCartCell: UITableViewCell {
         
     }
     
-    func configure(name:String,price:Int,ImageUrl:String){
+    func configure(name:String,price:String,ImageUrl:String, itemCount:Int ){
         productPrice.subtitleLabel?.text = String(price)
         productNameLabel.text = name
-        productImage.image = UIImage(named: "test")
-        
-    
+        productImage.sd_setImage(with:URL(string:  ImageUrl), placeholderImage: UIImage(named: "test"), context: nil)
+        itemCountLabel.text = String(itemCount)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

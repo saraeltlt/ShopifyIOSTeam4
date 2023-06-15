@@ -7,19 +7,48 @@
 
 import Foundation
 class ShoppingCartViewModel{
-    var calcSubTotalObservable:Observable<Bool>=Observable(false)
+    var getProductsObservable:Observable<Bool>=Observable(false)
     var subTotal: Double = 0.0
-    var cartArray  = [Product]() //change type
+    var cartProducts:[ProductCart] = []
     
     
-    func calculateSubTotal(){
-        //loop on all realm array product and sum prices
-        subTotal+=1
-        calcSubTotalObservable.value=true
-    }
     
     func configNavigation() -> AddressViewModel{
         return AddressViewModel(navigationFlag: false, subTotal: subTotal)
+    }
+    
+    func getCartItems(){
+
+        let realmServices = RealmDBServices.instance
+        realmServices.getAllProducts(ofType: ProductCart.self) { [weak self]error, results in
+            if let error = error {
+                print("Error : \(error)")
+            } else {
+                self?.cartProducts.removeAll()
+                if let results = results {
+                    if results.count > 0{
+                        for i in 0...results.count - 1{
+                            self?.cartProducts.append(
+                                ProductCart(id: results[i].id,
+                                            name:results[i].name,
+                                            image:results[i].image,
+                                            price: results[i].price,
+                                            ItemCount: results[i].ItemCount)
+                            )
+                            self?.subTotal = self!.subTotal+Double(results[i].price)!
+                        }
+                        self?.getProductsObservable.value=true
+                        
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
+    func getProduct(index: Int) -> ProductCart{
+        return cartProducts[index]
     }
     
     

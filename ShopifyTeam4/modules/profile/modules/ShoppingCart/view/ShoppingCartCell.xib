@@ -34,7 +34,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" subtitle="300 LE" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="filled" subtitle=" " cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" name="orange"/>
                                     </backgroundConfiguration>
