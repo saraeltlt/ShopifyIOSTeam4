@@ -11,7 +11,13 @@ class AddressViewModel {
     var defaultAddress : Address?
     var gellAllAddressesObservable:Observable<Bool>=Observable(false)
     var deleteObservable:Observable<Bool>=Observable(false)
+    var navigationFlag = true
+    var subTotal: Double = 0.0
     
+    init (navigationFlag: Bool = true, subTotal: Double = 0.0){
+        self.navigationFlag=navigationFlag
+        self.subTotal=subTotal
+    }
     func getAllAddress(){
         let url = URLs.shared.getAllAddress(id: K.USER_ID)
         NetworkManager.shared.getApiData(url: url) { [weak self] (result: Result<CustomerAddress, Error>) in

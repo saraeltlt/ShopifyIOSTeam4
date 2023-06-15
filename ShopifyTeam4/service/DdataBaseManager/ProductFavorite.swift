@@ -19,4 +19,7 @@ class ProductFavorite:Object{
         self.image = image
         self.price = price
     }
+    override class func primaryKey() -> String? {
+          return "id"
+      }
 }

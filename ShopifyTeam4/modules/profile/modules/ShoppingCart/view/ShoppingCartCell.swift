@@ -40,14 +40,14 @@ class ShoppingCartCell: UITableViewCell {
     
     @IBAction func addBtn(_ sender: UIButton) {
       var itemCount = Int(itemCountLabel.text!)!
-        itemCount-=1
+        itemCount+=1
         itemCountLabel.text = "\(itemCount)"
         
     }
     
     @IBAction func SubBtn(_ sender: UIButton) {
         var itemCount = Int(itemCountLabel.text!)!
-        itemCount+=1
+        itemCount-=1
           itemCountLabel.text = "\(itemCount)"
     }
 }

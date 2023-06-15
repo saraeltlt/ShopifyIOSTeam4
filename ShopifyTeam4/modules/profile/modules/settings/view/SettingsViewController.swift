@@ -71,7 +71,8 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource{
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         switch indexPath.row{
         case 0:
-            let viewController = storyboard.instantiateViewController(identifier: "AddressViewController")
+            let viewController = storyboard.instantiateViewController(identifier: "AddressViewController") as! AddressViewController
+            viewController.viewModel = AddressViewModel()
             self.navigationController?.pushViewController(viewController, animated: true)
         case 1:
             let viewController = storyboard.instantiateViewController(identifier: "CurrencyViewController") as! CurrencyViewController

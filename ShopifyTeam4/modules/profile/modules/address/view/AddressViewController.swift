@@ -15,9 +15,8 @@ class AddressViewController: UIViewController, AddAddress {
     
 
     @IBOutlet weak var CheckoutBtn: UIButton!
-    var navigationFlag = true
     @IBOutlet weak var addressTableView: UITableView!
-    var viewModel = AddressViewModel()
+    var viewModel : AddressViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         addressTableView.register(UINib(nibName: K.ADDRESS_CELL, bundle: nil), forCellReuseIdentifier: K.ADDRESS_CELL)
@@ -26,7 +25,7 @@ class AddressViewController: UIViewController, AddAddress {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        CheckoutBtn.isHidden = navigationFlag
+        CheckoutBtn.isHidden = viewModel.navigationFlag
         viewModel.getAllAddress()
         viewModel.gellAllAddressesObservable.bind { status in
             guard let status = status else {return}

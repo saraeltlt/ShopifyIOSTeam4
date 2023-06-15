@@ -18,6 +18,10 @@ class ShoppingCartViewModel{
         calcSubTotalObservable.value=true
     }
     
+    func configNavigation() -> AddressViewModel{
+        return AddressViewModel(navigationFlag: false, subTotal: subTotal)
+    }
+    
     
     
 }

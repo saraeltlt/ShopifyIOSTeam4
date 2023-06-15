@@ -48,7 +48,7 @@ class ShoppingCartViewController: UIViewController {
     @IBAction func goToCheckout(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
             let viewController = storyboard.instantiateViewController(identifier: "AddressViewController") as! AddressViewController
-        viewController.navigationFlag = false
+          viewController.viewModel = viewModel.configNavigation()
             self.navigationController?.pushViewController(viewController, animated: true)
         
         

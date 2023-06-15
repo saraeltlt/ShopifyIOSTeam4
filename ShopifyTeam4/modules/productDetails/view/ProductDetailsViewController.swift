@@ -65,6 +65,10 @@ class ProductDetailsViewController: UIViewController {
             ProgressHUD.showError(errorMsg)
         }
     }
+    @IBAction func addToCart(_ sender: UIButton) {
+        let msg = viewModel.AddToCart()
+        self.view.makeToast(msg, duration: 2 ,title: "Adding to cart" ,image: UIImage(named: K.SUCCESS_IMAGE))
+    }
     @IBAction func backButtonAction(_ sender: UIButton) {
         self.dismiss(animated: true)
     }

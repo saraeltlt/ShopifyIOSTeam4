@@ -27,9 +27,19 @@ class RealmDBServices{
                 completionHandler(errorMessage)
             } else {
                 do {
-                    try self.realmFileReference?.write {
-                        self.realmFileReference?.add(product)
-                        completionHandler(nil)
+                    guard let primaryKeyValue = product.value(forKey: "id") as? Int else {
+                        completionHandler("Product primary key not found")
+                        return
+                    }
+                    
+                    if self.realmFileReference?.object(ofType: T.self, forPrimaryKey: primaryKeyValue) != nil {
+                        let errorMessage = "Product already exists"
+                        completionHandler(errorMessage)
+                    } else {
+                        try self.realmFileReference?.write {
+                            self.realmFileReference?.add(product)
+                            completionHandler(nil)
+                        }
                     }
                 } catch {
                     completionHandler(error.localizedDescription)
@@ -99,5 +109,30 @@ class RealmDBServices{
             }
         }
     }
+    
+
+    
+    func updateProductCart(id: Int, count:Int, completionHandler: @escaping (_ error: String?) -> ()) {
+            initRealmFile { errorMessage in
+                if let errorMessage = errorMessage {
+                    completionHandler(errorMessage)
+                } else {
+                    let results = self.realmFileReference?.objects(ProductCart.self).filter("id = \(id)")
+                    if let product = results?.first {
+                        do {
+                            try self.realmFileReference?.write {
+                                product.ItemCount = count
+                                completionHandler(nil)
+                            }
+                        } catch {
+                            completionHandler(error.localizedDescription)
+                        }
+                    } else {
+                        completionHandler(nil)
+                    }
+                }
+            }
+        }
+    
 }
 

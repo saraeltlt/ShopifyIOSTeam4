@@ -353,6 +353,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Add to card">
                                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addToCart:" destination="VJ9-43-Rip" eventType="touchUpInside" id="MPn-NM-0Pt"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="green"/>
