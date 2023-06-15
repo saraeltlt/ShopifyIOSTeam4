@@ -20,7 +20,6 @@ class ShoppingCartViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.getCartItems()
         viewModel.getProductsObservable.bind { status in
             guard let status = status else {return}
             if status {
@@ -31,6 +30,7 @@ class ShoppingCartViewController: UIViewController {
                 // loading
             }
         }
+        viewModel.getCartItems()
      
     }
     

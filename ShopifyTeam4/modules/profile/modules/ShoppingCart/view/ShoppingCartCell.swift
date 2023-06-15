@@ -27,7 +27,12 @@ class ShoppingCartCell: UITableViewCell {
     }
     
     func configure(name:String,price:String,ImageUrl:String, itemCount:Int ){
-        productPrice.subtitleLabel?.text = String(price)
+        if (K.CURRENCY == "EGP"){
+            let priceConvert = Double(price)! * K.EXCHANGE_RATE
+            productPrice.subtitleLabel?.text = String(priceConvert) + " EGP"
+        }else{
+            productPrice.subtitleLabel?.text = price + " USD"
+        }
         productNameLabel.text = name
         productImage.sd_setImage(with:URL(string:  ImageUrl), placeholderImage: UIImage(named: "test"), context: nil)
         itemCountLabel.text = String(itemCount)

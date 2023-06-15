@@ -35,7 +35,11 @@ class ShoppingCartViewModel{
                                             price: results[i].price,
                                             ItemCount: results[i].ItemCount)
                             )
-                            self?.subTotal = self!.subTotal+Double(results[i].price)!
+                            if (K.CURRENCY == "EGP"){
+                                self?.subTotal = self!.subTotal + ( Double(results[i].price)! * K.EXCHANGE_RATE)
+                            }else{
+                                self?.subTotal = self!.subTotal+Double(results[i].price)!
+                            }
                         }
                         self?.getProductsObservable.value=true
                         

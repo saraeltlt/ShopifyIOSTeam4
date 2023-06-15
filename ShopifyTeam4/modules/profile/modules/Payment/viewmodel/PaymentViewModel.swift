@@ -8,11 +8,14 @@
 import Foundation
 import PassKit
 class PaymentViewModel{
-    var subTotal = 0.0
-    var discount = 0.0
-    var shippingFees = 2.0 //USD
     var total = 0.0
-      var paymentRequest : PKPaymentRequest = {
+    var defaultAddreaa: Address
+    
+    init (defaultAddreaa: Address, total:Double ){
+        self.defaultAddreaa = defaultAddreaa
+        self.total = total
+    }
+    func getPaymentRequest() -> PKPaymentRequest {
       let request = PKPaymentRequest()
         request.merchantIdentifier = K.MARCHANT_ID
         request.supportedNetworks = [.quicPay, .masterCard, .visa]
@@ -26,9 +29,9 @@ class PaymentViewModel{
          request.countryCode = "US"
          request.currencyCode = "USD"
        }
-          request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shopify", amount: NSDecimalNumber(value: 100 ))]
+          request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shopify", amount: NSDecimalNumber(value: total ))]
         return request
-    }()
+    }
     
     
     func postOrder(){

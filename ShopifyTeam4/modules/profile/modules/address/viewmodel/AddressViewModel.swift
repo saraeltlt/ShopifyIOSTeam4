@@ -8,7 +8,7 @@
 import Foundation
 class AddressViewModel {
     var addressArray  = [Address]()
-    var defaultAddress : Address?
+    var defaultAddress = Address()
     var gellAllAddressesObservable:Observable<Bool>=Observable(false)
     var deleteObservable:Observable<Bool>=Observable(false)
     var navigationFlag = true
@@ -17,6 +17,9 @@ class AddressViewModel {
     init (navigationFlag: Bool = true, subTotal: Double = 0.0){
         self.navigationFlag=navigationFlag
         self.subTotal=subTotal
+    }
+    func configNavigation() -> CheckoutViewModel{
+        return CheckoutViewModel(defaultAddress: defaultAddress, subTotal: subTotal)
     }
     func getAllAddress(){
         let url = URLs.shared.getAllAddress(id: K.USER_ID)

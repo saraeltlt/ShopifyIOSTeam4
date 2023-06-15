@@ -12,7 +12,7 @@ class PaymentViewController: UIViewController {
 
     @IBOutlet weak var onlineBtn: UIButton!
     @IBOutlet weak var cashBtn: UIButton!
-    var viewModel = PaymentViewModel()
+    var viewModel : PaymentViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class PaymentViewController: UIViewController {
     @IBAction func payOnline(_ sender: UIButton) {
         onlineBtn.setImage(UIImage(systemName: "circle.fill"), for: .normal)
         cashBtn.setImage(UIImage(systemName: "circle"), for: .normal)
-        let controller = PKPaymentAuthorizationViewController(paymentRequest: viewModel.paymentRequest)
+        let controller = PKPaymentAuthorizationViewController(paymentRequest: viewModel.getPaymentRequest())
         if controller != nil {
             controller!.delegate = self
             present(controller!,  animated: true ,completion: nil)

@@ -380,7 +380,7 @@
                                     <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="q13-k0-C5b" kind="show" id="Cpc-QH-gRy"/>
+                                    <action selector="continueCheckout:" destination="ADq-9E-6ep" eventType="touchUpInside" id="Utx-6b-q7Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -878,7 +878,7 @@
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" subtitle="SubTotal: 370 USD" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="plain" subtitle="-" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
                                     <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                 </buttonConfiguration>
@@ -920,11 +920,11 @@
             <objects>
                 <viewController storyboardIdentifier="PaymentViewController" id="2MQ-GL-cbP" customClass="PaymentViewController" customModule="ShopifyTeam4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hJP-AK-Vsi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzP-j9-aDs">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="116.5"/>
                                 <color key="backgroundColor" name="green"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -933,7 +933,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ui-wJ-viY">
-                                <rect key="frame" x="16" y="833" width="382" height="37"/>
+                                <rect key="frame" x="16" y="809" width="382" height="37"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" subtitle="Place Order" cornerStyle="capsule">
@@ -948,7 +948,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Payment Method:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1Y-bL-qhl">
-                                <rect key="frame" x="20" y="140" width="374" height="42"/>
+                                <rect key="frame" x="20" y="141.5" width="374" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="Bgs-ku-99g"/>
                                 </constraints>
@@ -957,17 +957,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-8u-Kzm">
-                                <rect key="frame" x="0.0" y="542" width="414" height="266"/>
+                                <rect key="frame" x="0.0" y="515" width="414" height="269"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nG-hL-Ef2">
-                                <rect key="frame" x="0.0" y="313.5" width="414" height="83.5"/>
+                                <rect key="frame" x="0.0" y="315.5" width="414" height="84.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Contact" translatesAutoresizingMaskIntoConstraints="NO" id="qzA-GI-5Za">
                                         <rect key="frame" x="0.0" y="3694.5" width="2000" height="2000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUh-C0-QdG">
-                                        <rect key="frame" x="15" y="0.0" width="41.5" height="83.5"/>
+                                        <rect key="frame" x="15" y="0.0" width="41.5" height="84.5"/>
                                         <color key="tintColor" name="orange"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
@@ -980,7 +980,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Pay" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR2-3G-cbU">
-                                        <rect key="frame" x="66.5" y="29" width="332.5" height="25.5"/>
+                                        <rect key="frame" x="66.5" y="29.5" width="332.5" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                         <color key="textColor" name="orange"/>
                                         <nil key="highlightedColor"/>
@@ -997,10 +997,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSe-aM-Que">
-                                <rect key="frame" x="0.0" y="207" width="414" height="81.5"/>
+                                <rect key="frame" x="0.0" y="208.5" width="414" height="82"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4H-QR-0WF">
-                                        <rect key="frame" x="15" y="0.0" width="41.5" height="81.5"/>
+                                        <rect key="frame" x="15" y="0.0" width="41.5" height="82"/>
                                         <color key="tintColor" name="orange"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
@@ -1013,7 +1013,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash On Delivery" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-xF-3Ye">
-                                        <rect key="frame" x="66.5" y="28" width="332.5" height="25.5"/>
+                                        <rect key="frame" x="66.5" y="28.5" width="332.5" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
                                         <color key="textColor" name="orange"/>
                                         <nil key="highlightedColor"/>
@@ -1076,15 +1076,15 @@
             <objects>
                 <viewController storyboardIdentifier="CheckoutViewController" id="q13-k0-C5b" customClass="CheckoutViewController" customModule="ShopifyTeam4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fpR-IM-rbK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfC-Jz-6wB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="221.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                 <color key="backgroundColor" name="green"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbt-g8-Ri5">
-                                <rect key="frame" x="20" y="0.0" width="374" height="871"/>
+                                <rect key="frame" x="20" y="48" width="374" height="799"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Total" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-Y2-MiW">
                                         <rect key="frame" x="15" y="127" width="102" height="25.5"/>
@@ -1096,7 +1096,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndG-zE-CHP">
-                                        <rect key="frame" x="15" y="818" width="344" height="37"/>
+                                        <rect key="frame" x="15" y="746" width="344" height="37"/>
                                         <color key="tintColor" name="orange"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" subtitle="Choose Your Payment" cornerStyle="capsule">
@@ -1106,8 +1106,7 @@
                                             <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="placeOrderBtn:" destination="q13-k0-C5b" eventType="touchUpInside" id="VM0-Wi-NyE"/>
-                                            <segue destination="2MQ-GL-cbP" kind="show" id="y2M-Xg-ltM"/>
+                                            <action selector="goToPayment:" destination="q13-k0-C5b" eventType="touchUpInside" id="VM0-Wi-NyE"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" Coupon" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Mu-x3-pqC">
