@@ -27,12 +27,14 @@ class CheckoutViewController: UIViewController {
             subTotalLabel.text = "\(viewModel.subTotal) EGP"
             shippingFees = 65
             shippinhFeesLabel.text = "\(shippingFees) EGP"
-            totalLabel.subtitleLabel?.text = "Total: \(viewModel.subTotal+Double(shippingFees))EGP"
+            total = viewModel.subTotal+Double(shippingFees)
+            totalLabel.subtitleLabel?.text = "Total: \(total)EGP"
            
         }else{
             subTotalLabel.text = "\(viewModel.subTotal) USD"
             shippinhFeesLabel.text = "\(shippingFees) USD"
-            totalLabel.subtitleLabel?.text = "Total: \(viewModel.subTotal+Double(shippingFees))USD"
+            total = viewModel.subTotal+Double(shippingFees)
+            totalLabel.subtitleLabel?.text = "Total: \(total)USD"
         }
     }
     
