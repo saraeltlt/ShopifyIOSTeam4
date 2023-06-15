@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBrandCollectionObservation()
+        viewModel.initIdsOfFavoriteItemsArray()
         viewModel.getBrandsData()
         self.adsCollection.register(UINib(nibName: K.ADS_CELL, bundle: nil), forCellWithReuseIdentifier: K.ADS_CELL)
         self.brandsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)

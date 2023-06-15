@@ -11,7 +11,7 @@ class HomeViewModel{
     var brands:Observable<Bool>=Observable(false)
     var brandsArray  = [Product]()
     var advertesmentsArray:[UIImage]=[UIImage(named: "ads3")!,UIImage(named: "ads2")!,UIImage(named: "ads1")!]
-    
+    let realmDBServiceInstance = RealmDBServices.instance
     
     func getBrandsData(){
         let url = "https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/smart_collections.json"
@@ -47,5 +47,10 @@ class HomeViewModel{
     func navigationConfigure(for rowIndex:Int)->BrandProductsViewModel{
         return BrandProductsViewModel(brandId: brandsArray[rowIndex].id ?? 0)
     }
-    
+    func initIdsOfFavoriteItemsArray(){
+        realmDBServiceInstance.getIDsOfAllFavoriteItems { errorMessage, idsOfFavoriteItems in
+            guard let errorMessage = errorMessage else {return}
+            K.idsOfFavoriteProducts = idsOfFavoriteItems ?? []
+        }
+    }
 }
