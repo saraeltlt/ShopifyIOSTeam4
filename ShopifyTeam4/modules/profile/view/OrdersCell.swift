@@ -21,9 +21,20 @@ class OrdersCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(date:String,price:Int){
-        dateLabel.text = date
-        priceBtnText.setTitle("\(price)", for: .normal)
+    func configure(date:String,price:String){
+        var price = Double(price)
+        let year = date.cutStringIntoComponents()?.year
+        let month = date.cutStringIntoComponents()?.month
+        let day = date.cutStringIntoComponents()?.day
+        let time = date.cutStringIntoComponents()?.time
+        dateLabel.text = "\(year!)/\(month!)/\(day!)"
+        if K.CURRENCY == "EGP" {
+            price = (price ?? 0.0) * K.EXCHANGE_RATE
+            priceBtnText.setTitle("\(price!) L.E", for: .normal)
+        }else {
+            priceBtnText.setTitle("\(price!) USD", for: .normal)
+        }
+   
     }
 
     

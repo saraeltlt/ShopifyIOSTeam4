@@ -140,3 +140,27 @@ extension UIViewController {
 
     
 }
+
+//MARK: - Custom String date
+extension String {
+    func cutStringIntoComponents() -> (date: String ,year: String, month: String, day: String, time: String)? {
+        let components = self.components(separatedBy: "T")
+        if components.count >= 2 {
+            let dateString = components[0] // "2023-06-15"
+            let timeString = components[1] // "14:23:54-04:00"
+            let dateComponents = dateString.components(separatedBy: "-")
+            if dateComponents.count == 3 {
+                let year = dateComponents[0]
+                let month = dateComponents[1]
+                let day = dateComponents[2]
+                let timeComponents = timeString.components(separatedBy: "-")
+                let time = timeComponents[0]
+                return (dateString,year, month, day, time)
+            }
+        }
+        
+        return nil // Invalid string format
+    }
+
+}
+

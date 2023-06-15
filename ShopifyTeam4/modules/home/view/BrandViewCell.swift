@@ -20,6 +20,7 @@ class BrandViewCell: UICollectionViewCell {
     }
     
     
+    @IBOutlet weak var numberOfItems: UILabel!
     
     @IBOutlet weak var cellFrame: UIView!
     @IBOutlet weak var addToFavorite: UIButton!
@@ -40,7 +41,8 @@ class BrandViewCell: UICollectionViewCell {
     
     
     
-    func configureCell(title:String,imageUrl:String,price:String=""){
+    func configureCell(title:String,imageUrl:String,price:String="",numberOfItems:String=""){
+        self.numberOfItems.text = numberOfItems
         brandName.text=title
         brandImage.sd_setImage(with: URL(string: imageUrl), placeholderImage:UIImage(named: "test"))
         if (price == ""){
