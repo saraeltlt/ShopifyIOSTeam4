@@ -39,6 +39,7 @@ class ProductDetailsViewController: UIViewController {
     var currentIndex = 0
     var imagesArray:[String] = []
     var productId = 0
+    var price = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = ProductDetailsViewModel(productId: productId)
@@ -52,7 +53,14 @@ class ProductDetailsViewController: UIViewController {
             guard let self = self else {return}
             self.imagesArray = productDetails.imagesArray
             self.productNameLabel.text = productDetails.name
-            self.productPriceLabel.text = productDetails.price
+            price = productDetails.price
+            if (K.CURRENCY == "USD"){
+                price = "\(price) USD"
+            } else {
+                let result = Int(Double(price)! * K.EXCHANGE_RATE)
+                price = "\(result) EGP"
+            }
+            self.productPriceLabel.text = price
             self.productDescriptionTextView.text = productDetails.description
             productImagesCollectionView.reloadData()
             self.pageController.numberOfPages = imagesArray.count

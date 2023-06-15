@@ -297,14 +297,14 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		26F9ED922A3AB4A200C3D5D3 /* DdataBaseManager */ = {
+		26F9ED922A3AB4A200C3D5D3 /* DataBaseManager */ = {
 			isa = PBXGroup;
 			children = (
 				26F9ED932A3AB4DF00C3D5D3 /* RealmDBServices.swift */,
 				26E974A72A3AF611008DFDD1 /* ProductFavorite.swift */,
 				8F0A6C4A2A3B3EA200ED19B8 /* ProductCart.swift */,
 			);
-			path = DdataBaseManager;
+			path = DataBaseManager;
 			sourceTree = "<group>";
 		};
 		78A12B899BA0D393A3D8E86D /* Frameworks */ = {
@@ -764,7 +764,7 @@
 		A7AA7F0E2A30F12C007DFB2E /* service */ = {
 			isa = PBXGroup;
 			children = (
-				26F9ED922A3AB4A200C3D5D3 /* DdataBaseManager */,
+				26F9ED922A3AB4A200C3D5D3 /* DataBaseManager */,
 				A7AA7F0F2A30F133007DFB2E /* networkManger */,
 			);
 			path = service;
