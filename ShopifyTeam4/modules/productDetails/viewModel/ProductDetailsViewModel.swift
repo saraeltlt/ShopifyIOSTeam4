@@ -21,7 +21,6 @@ class ProductDetailsViewModel{
         endPoint = urlClassInstance.getProductDetails(productId: productId)
     }
     func getProductDetails(){
-        print("here inside mrthof")
         networkManagerInstance.getApiData(url: endPoint) { [weak self] (result: Result<ProductDetailsModel, Error>) in
             guard let self = self else {return}
             switch result {
@@ -47,6 +46,32 @@ class ProductDetailsViewModel{
             } else {
                 returnMsg="Product added successfully"
                 
+            }
+        }
+        return returnMsg
+    }
+    func addToFavorite() -> String{
+        let realmServices = RealmDBServices.instance
+        var returnMsg:String = ""
+        let product = ProductFavorite(id: productId, name: productDetails?.name ?? "", image: productDetails?.imagesArray[0] ?? "", price: productDetails?.price ?? "0")
+        realmServices.addProduct(product: product) { error in
+            if let error = error {
+                returnMsg="Error adding product: \(error)"
+            } else {
+                returnMsg="Product added successfully"
+            }
+        }
+        return returnMsg
+    }
+    func removeFromFavorite() -> String{
+        let realmServices = RealmDBServices.instance
+        var returnMsg:String = ""
+        let product = ProductFavorite(id: productId, name: productDetails?.name ?? "", image: productDetails?.imagesArray[0] ?? "", price: productDetails?.price ?? "0")
+        realmServices.deleteProductById(ofType: ProductFavorite.self, id: productId) { errorMessage in
+            if let error = errorMessage {
+                returnMsg="Error when removing product: \(error)"
+            } else {
+                returnMsg="Product removed successfully"
             }
         }
         return returnMsg

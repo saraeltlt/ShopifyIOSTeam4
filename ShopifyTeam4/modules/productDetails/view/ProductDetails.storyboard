@@ -341,6 +341,9 @@
                                             <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToFavoriteButtoAction:" destination="VJ9-43-Rip" eventType="touchUpInside" id="af7-Xu-TgF"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycH-RZ-jbd">
                                         <rect key="frame" x="110.33333333333334" y="0.0" width="316.66666666666663" height="114"/>
@@ -397,6 +400,7 @@
                     </view>
                     <connections>
                         <outlet property="addToCardBtnBackgroundView" destination="ycH-RZ-jbd" id="4Au-j8-JyO"/>
+                        <outlet property="addToFavoriteButtonOutlet" destination="BkT-NX-4or" id="itP-Eb-12d"/>
                         <outlet property="backButton" destination="YxK-Rp-kvj" id="pbG-Jr-DqR"/>
                         <outlet property="pageController" destination="GNK-GV-yZS" id="bGq-Pr-pDv"/>
                         <outlet property="paigeView" destination="V5B-G9-gFb" id="zBd-Ym-b62"/>

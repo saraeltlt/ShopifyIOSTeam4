@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ProgressHUD
 
 class BrandProductsViewController: UIViewController {
     var disposBag = DisposeBag()
@@ -19,6 +20,7 @@ class BrandProductsViewController: UIViewController {
     @IBOutlet weak var productsCollection: UICollectionView!
     var isFilterHidden = true
     var viewModel:BrandProductsViewModel?
+    var currentItemFavoriteModel:ProductFavorite!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProductsCollectionObservation()
@@ -108,9 +110,60 @@ extension BrandProductsViewController:UICollectionViewDelegate
         let productData = viewModel?.getProductData(index: indexPath.row)
         cell.configureCell(title: productData?.title ?? "", imageUrl: productData?.image?.src ?? "", price: productData?.variants?[0].price ?? "")
         cell.addToFavorite.isHidden = false
+        if K.idsOfFavoriteProducts.contains((productData?.id)!){
+            cell.addToFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.addToFavorite.isFavoriteItem = true
+        }else{
+            cell.addToFavorite.setImage(UIImage(systemName: "heart"), for: .normal)
+            cell.addToFavorite.isFavoriteItem = false
+        }
+        cell.addToFavorite.cellIndex = indexPath.row
+        cell.addToFavorite.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         return cell
-    
-        
+    }
+    @objc func buttonTapped(_ sender: FavoriteButton) {
+        var currentProduct = viewModel!.getProductData(index: sender.cellIndex)
+        currentItemFavoriteModel = ProductFavorite(id: currentProduct.id!, name: currentProduct.title!, image: (currentProduct.images?.first?.src)!, price: (currentProduct.variants?.first?.price)!)
+        if sender.isFavoriteItem{
+            confirmAlert { [weak self] in
+                guard let self = self else {return}
+                let msg = viewModel!.removeFromFavorite(productId: currentItemFavoriteModel.id)
+                if msg == "Product removed successfully"{
+                    self.view.makeToast(msg, duration: 2 ,title: "removing to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                    sender.setImage(UIImage(systemName: "heart"), for: .normal)
+                    sender.isFavoriteItem = false
+                    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
+                    K.idsOfFavoriteProducts.remove(at: itemIndex)
+                }else{
+                    ProgressHUD.showError(msg)
+                }
+            }
+        }else{
+            let msg = viewModel!.addToFavorite(product: currentItemFavoriteModel)
+            if msg == "Product added successfully"{
+                self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                sender.isFavoriteItem = true
+                K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
+            }else{
+                ProgressHUD.showError(msg)
+            }
+        }
+         let initialSize = CGFloat(17)
+          let expandedSize = CGFloat(25)
+         UIView.animate(withDuration: 0.5, animations: {
+              let originalImage = sender.image(for: .normal)
+              let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
+              sender.setImage(expandedImage, for: .normal)
+              sender.layoutIfNeeded()
+          }) { _ in
+              UIView.animate(withDuration: 0.5, animations: {
+                  let originalImage = sender.image(for: .normal)
+                  let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
+                  sender.setImage(resizedImage, for: .normal)
+                  sender.layoutIfNeeded()
+              })
+          }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
      

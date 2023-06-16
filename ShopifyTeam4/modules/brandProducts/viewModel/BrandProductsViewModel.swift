@@ -68,7 +68,30 @@ class BrandProductsViewModel{
     func configNavigation(index:Int)->ProductDetailsViewModel{
         return ProductDetailsViewModel(productId: brandProductsArray[index].id ?? 0)
     }
-    
+    func addToFavorite(product:ProductFavorite) -> String{
+        let realmServices = RealmDBServices.instance
+        var returnMsg:String = ""
+        realmServices.addProduct(product: product) { error in
+            if let error = error {
+                returnMsg="Error adding product: \(error)"
+            } else {
+                returnMsg="Product added successfully"
+            }
+        }
+        return returnMsg
+    }
+    func removeFromFavorite(productId:Int) -> String{
+        let realmServices = RealmDBServices.instance
+        var returnMsg:String = ""
+        realmServices.deleteProductById(ofType: ProductFavorite.self, id: productId) { errorMessage in
+            if let error = errorMessage {
+                returnMsg="Error when removing product: \(error)"
+            } else {
+                returnMsg="Product removed successfully"
+            }
+        }
+        return returnMsg
+    }
     
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class CategoryViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var categoryCollection: UICollectionView!
     var actionButton : ActionButton!
     var viewModel = CategoryViewModel()
+    var currentItemFavoriteModel:ProductFavorite!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProductsCollectionObservation()
@@ -119,17 +121,49 @@ extension CategoryViewController:UICollectionViewDelegate
             cell.addToFavorite.isHidden = false
             let product = viewModel.getProductData(index: indexPath.row)
             cell.configureCell(title: product.title ?? "", imageUrl: product.image?.src ?? "", price: product.variants?[0].price ?? "" )
-            cell.addToFavorite.tag=indexPath.row
-            cell.addToFavorite.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            if K.idsOfFavoriteProducts.contains(product.id!){
+                cell.addToFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                cell.addToFavorite.isFavoriteItem = true
+            }else{
+                cell.addToFavorite.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.addToFavorite.isFavoriteItem = false
+            }
+            cell.addToFavorite.cellIndex = indexPath.row
+            cell.addToFavorite.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             return cell
             
         }
         
     }
     
-    @objc func buttonTapped(_ sender: UIButton) {
-        print("Button tapped in cell at  row \(sender.tag)")
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    @objc func buttonTapped(_ sender: FavoriteButton) {
+        var currentProduct = viewModel.getProductData(index: sender.cellIndex)
+        currentItemFavoriteModel = ProductFavorite(id: currentProduct.id!, name: currentProduct.title!, image: (currentProduct.images?.first?.src)!, price: (currentProduct.variants?.first?.price)!)
+        if sender.isFavoriteItem{
+            confirmAlert { [weak self] in
+                guard let self = self else {return}
+                let msg = viewModel.removeFromFavorite(productId: currentItemFavoriteModel.id)
+                if msg == "Product removed successfully"{
+                    self.view.makeToast(msg, duration: 2 ,title: "removing to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                    sender.setImage(UIImage(systemName: "heart"), for: .normal)
+                    sender.isFavoriteItem = false
+                    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
+                    K.idsOfFavoriteProducts.remove(at: itemIndex)
+                }else{
+                    ProgressHUD.showError(msg)
+                }
+            }
+        }else{
+            let msg = viewModel.addToFavorite(product: currentItemFavoriteModel)
+            if msg == "Product added successfully"{
+                self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                sender.isFavoriteItem = true
+                K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
+            }else{
+                ProgressHUD.showError(msg)
+            }
+        }
          let initialSize = CGFloat(17)
           let expandedSize = CGFloat(25)
          UIView.animate(withDuration: 0.5, animations: {

@@ -49,8 +49,11 @@ class HomeViewModel{
     }
     func initIdsOfFavoriteItemsArray(){
         realmDBServiceInstance.getIDsOfAllFavoriteItems { errorMessage, idsOfFavoriteItems in
-            guard let errorMessage = errorMessage else {return}
-            K.idsOfFavoriteProducts = idsOfFavoriteItems ?? []
+            if let errorMessage = errorMessage{
+                print(errorMessage)
+            }else{
+                K.idsOfFavoriteProducts = idsOfFavoriteItems ?? []
+            }
         }
     }
 }
