@@ -365,6 +365,9 @@
                         <rightBarButtonItems>
                             <barButtonItem image="heart.fill" catalog="system" id="kod-dR-YoO">
                                 <color key="tintColor" name="lightOrange"/>
+                                <connections>
+                                    <action selector="navigateToFavoriteScreen:" destination="u9c-gX-ozb" id="1W6-U2-WCo"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="cart.fill" catalog="system" id="Gsb-My-MTa">
                                 <color key="tintColor" name="lightOrange"/>

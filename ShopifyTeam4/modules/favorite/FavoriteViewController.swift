@@ -26,6 +26,7 @@ class FavoriteViewController: UIViewController {
         super.viewWillAppear(animated)
         allFavoriteViewModel.favoriteProducts = []
         allFavoriteViewModel.getAllSotredFavoriteItems()
+        favoriteCollectionView.reloadData()
     }
     @IBAction func backButtonAction(_ sender: UIButton) {
         self.dismiss(animated: true)
