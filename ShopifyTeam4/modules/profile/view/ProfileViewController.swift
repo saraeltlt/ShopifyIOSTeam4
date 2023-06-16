@@ -16,24 +16,44 @@ class ProfileViewController: UIViewController {
     var viewModel = ProfileViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout = UICollectionViewCompositionalLayout { _, _ in
-            return self.favSection()
+        if (K.GUEST_MOOD){
+            guestView()
         }
-        favCollection.setCollectionViewLayout(layout, animated: true)
-        setupCells()
-        viewModel.successClosure = {
-            self.favCollection.reloadData()
+        else{
+            let layout = UICollectionViewCompositionalLayout { _, _ in
+                return self.favSection()
+            }
+            favCollection.setCollectionViewLayout(layout, animated: true)
+            setupCells()
+            viewModel.successClosure = {
+                self.favCollection.reloadData()
+            }
         }
 
     }
-    override func viewWillAppear(_ animated: Bool) {
-        configureOrdersObservation()
-        viewModel.favoriteProducts = []
-        viewModel.getAllOrders()
-        viewModel.getAllSotredFavoriteItems()
-        favCollection.reloadData()
+    override func viewWillLayoutSubviews() {
+        if (K.GUEST_MOOD){
+            guestView()
+        }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if (K.GUEST_MOOD){
+            guestView()
+        }else{
+            configureOrdersObservation()
+            viewModel.favoriteProducts = []
+            viewModel.getAllOrders()
+            viewModel.getAllSotredFavoriteItems()
+            favCollection.reloadData()
+        }
+    }
+    func guestView(){
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+              let viewController = storyboard.instantiateViewController(identifier: "GuestViewController") as GuestViewController
+            self.navigationController?.pushViewController(viewController, animated: false)
+            self.navigationController?.navigationBar.isHidden=true
+        
+    }
     private func setupCells() {
         ordersTableView.register(UINib(nibName: K.ORDERS_CELL, bundle: nil), forCellReuseIdentifier: K.ORDERS_CELL)
         favCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)

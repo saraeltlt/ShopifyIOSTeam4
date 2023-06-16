@@ -11,6 +11,7 @@ struct K {
     static var DEFAULT_ADDRESS: String = "Alex"
     static let APPERANCE_MODE_KEY = "AppearanceMode"
     static var EXCHANGE_RATE = 30.94
+    static var GUEST_MOOD = false
     enum COUPONS: String {
         case save15 = "Save15%"
         case save50 = "Save50%"
@@ -45,6 +46,7 @@ struct K {
     static let WARNINNG_IMAGE = "warning"
     static let SUCCESS_IMAGE = "success"
     static let ADDRESS_IMAGE = "address"
+    static let GUEST_IMAGE = "guest"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"

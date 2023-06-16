@@ -87,8 +87,19 @@ class ProductDetailsViewController: UIViewController {
         }
     }
     @IBAction func addToCart(_ sender: UIButton) {
-        let msg = viewModel.AddToCart()
-        self.view.makeToast(msg, duration: 2 ,title: "Adding to cart" ,image: UIImage(named: K.SUCCESS_IMAGE))
+        if (K.GUEST_MOOD){
+            self.confirmAlert(title: "Guest Mood",subTitle: "can't access this feature in guest mood, do you want to login/register?", imageName: K.GUEST_IMAGE, confirmBtn: "Yes,Login/Register") {
+                K.GUEST_MOOD=false
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                  let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
+                viewController.modalPresentationStyle = .fullScreen
+                  viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                  self.present(viewController, animated: false, completion: nil)
+            }
+        }else{
+            let msg = viewModel.AddToCart()
+            self.view.makeToast(msg, duration: 2 ,title: "Adding to cart" ,image: UIImage(named: K.SUCCESS_IMAGE))
+        }
     }
     @IBAction func backButtonAction(_ sender: UIButton) {
         self.dismiss(animated: true)
@@ -100,7 +111,11 @@ class ProductDetailsViewController: UIViewController {
         present(reviewVC, animated: true)
     }
     @IBAction func addToFavoriteButtoAction(_ sender: UIButton) {
-        self.favoriteButtonTapped()
+        if (K.GUEST_MOOD){
+            self.GuestMoodAlert()
+        }else{
+            self.favoriteButtonTapped()
+        }
     }
     
 }
