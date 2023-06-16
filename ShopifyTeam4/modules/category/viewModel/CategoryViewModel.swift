@@ -13,7 +13,7 @@ class CategoryViewModel{
     var categoryProductsArray  = [Product]()
     var filteredProductsArray = [Product] ()
     var isFiltering = false
-    var categoryArray:[Category]=[Category(title: "Men", image: UIImage(named: K.MEN)!, isSelected: false, categoryId: 448684196125),Category(title: "Women", image: UIImage(named: K.WOMEN)!, isSelected: false, categoryId: 448684261661),Category(title: "Kids", image: UIImage(named: K.KIDS)!, isSelected: false, categoryId: 448684294429),Category(title: "Sale", image: UIImage(named: K.SALE)!, isSelected: false, categoryId: 448684327197)]
+    var categoryArray:[Category]=[Category(title: "All", image: UIImage(named: K.MEN)!, isSelected: true, categoryId: 0),Category(title: "Men", image: UIImage(named: K.MEN)!, isSelected: false, categoryId: 448684196125),Category(title: "Women", image: UIImage(named: K.WOMEN)!, isSelected: false, categoryId: 448684261661),Category(title: "Kids", image: UIImage(named: K.KIDS)!, isSelected: false, categoryId: 448684294429),Category(title: "Sale", image: UIImage(named: K.SALE)!, isSelected: false, categoryId: 448684327197)]
     
     func getCategoryProducts(categoryId:Int){
         let url = URLs.shared.categoryProductsURL(id: categoryId)
@@ -95,8 +95,12 @@ class CategoryViewModel{
             item.isSelected = false
         })
         self.categoryArray[index].isSelected = true
-        
-        self.getCategoryProducts(categoryId: self.getCategoryData(index: index).categoryId)
+        let categoryId = self.getCategoryData(index: index).categoryId
+        if categoryId == 0 {
+            self.getAllProducts()
+        }else{
+            self.getCategoryProducts(categoryId: self.getCategoryData(index: index).categoryId)
+        }
     }
     func addToFavorite(product:ProductFavorite) -> String{
         let realmServices = RealmDBServices.instance

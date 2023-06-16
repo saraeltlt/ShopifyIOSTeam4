@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    
+  
+    
     @IBOutlet weak var adsCollection: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var brandsCollection: UICollectionView!
@@ -39,12 +42,23 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    @IBAction func navigateToShoppingCart(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let shoppingCartVC = storyboard.instantiateViewController(withIdentifier: "ShoppingCartViewController") as! ShoppingCartViewController
+        self.navigationController?.pushViewController(shoppingCartVC, animated: true)
+    }
+    
+    
     @IBAction func navigateToFavoriteItems(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
         let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(favoriteVC, animated: true)
+      /*  favoriteVC.modalPresentationStyle = .fullScreen
         favoriteVC.modalTransitionStyle = .crossDissolve
-        present(favoriteVC, animated: true)
+        present(favoriteVC, animated: true)*/
 
     }
     

@@ -64,9 +64,16 @@ class CategoryViewController: UIViewController {
     @IBAction func navigateToFavoriteScreen(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
         let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(favoriteVC, animated: true)
+      /*  favoriteVC.modalPresentationStyle = .fullScreen
         favoriteVC.modalTransitionStyle = .crossDissolve
-        present(favoriteVC, animated: true)
+        present(favoriteVC, animated: true)*/
+    }
+    
+    @IBAction func navigateToShoppingCart(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let shoppingCartVC = storyboard.instantiateViewController(withIdentifier: "ShoppingCartViewController") as! ShoppingCartViewController
+        self.navigationController?.pushViewController(shoppingCartVC, animated: true)
     }
     
 
@@ -192,7 +199,7 @@ extension CategoryViewController:UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
      
         if collectionView == categoryCollection {
-            return CGSize(width: (collectionView.bounds.width*0.2), height: (collectionView.bounds.height*1.0))
+            return CGSize(width: (collectionView.bounds.width*0.15), height: (collectionView.bounds.height*1.0))
         }else {
             return CGSize(width: (collectionView.bounds.width*0.45), height: (collectionView.bounds.height*0.45))
         }
