@@ -10,6 +10,7 @@ import ProgressHUD
 class ProductDetailsViewController: UIViewController {
     var viewModel : ProductDetailsViewModel!
     var networkIndicator: UIActivityIndicatorView!
+    var currentItemFavoriteModel:ProductFavorite!
     @IBOutlet weak var whiteView: UIView!{
         didSet{
             whiteView.layer.cornerRadius = whiteView.bounds.width * 0.15
@@ -30,6 +31,8 @@ class ProductDetailsViewController: UIViewController {
             addToCardBtnBackgroundView.layer.cornerRadius = addToCardBtnBackgroundView.bounds.height * 0.4
         }
     }
+    
+    @IBOutlet weak var addToFavoriteButtonOutlet: UIButton!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productDescriptionTextView: UITextView!
@@ -40,8 +43,10 @@ class ProductDetailsViewController: UIViewController {
     var imagesArray:[String] = []
     var productId = 0
     var price = ""
+    var isFavoriteitem = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel = ProductDetailsViewModel(productId: productId)
         networkIndicator = UIActivityIndicatorView(style: .large)
         networkIndicator.color = UIColor(named: K.GREEN)
@@ -64,6 +69,14 @@ class ProductDetailsViewController: UIViewController {
             self.productDescriptionTextView.text = productDetails.description
             productImagesCollectionView.reloadData()
             self.pageController.numberOfPages = imagesArray.count
+            currentItemFavoriteModel = ProductFavorite(id: productDetails.id, name: productDetails.name, image: productDetails.imagesArray.first ?? "", price: productDetails.price)
+            if K.idsOfFavoriteProducts.contains(productDetails.id){
+                self.addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                isFavoriteitem = true
+            }else{
+                self.addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                isFavoriteitem = false
+            }
             playTimer()
             networkIndicator.stopAnimating()
         }
@@ -86,6 +99,10 @@ class ProductDetailsViewController: UIViewController {
         reviewVC.modalTransitionStyle = .coverVertical
         present(reviewVC, animated: true)
     }
+    @IBAction func addToFavoriteButtoAction(_ sender: UIButton) {
+        self.favoriteButtonTapped()
+    }
+    
 }
 
 extension ProductDetailsViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -120,5 +137,48 @@ extension ProductDetailsViewController{
     }
     func playTimer(){
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.getCurrentIndex), userInfo: nil, repeats: true)
+    }
+    func favoriteButtonTapped() {
+        print("currrent favorite product id \(currentItemFavoriteModel)\n")
+        if self.isFavoriteitem{
+            confirmAlert { [weak self] in
+                guard let self = self else {return}
+                let msg = viewModel.removeFromFavorite()
+                if msg == "Product removed successfully"{
+                    self.view.makeToast(msg, duration: 2 ,title: "removing to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                    addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                    isFavoriteitem = false
+                    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
+                    K.idsOfFavoriteProducts.remove(at: itemIndex)
+                }else{
+                    ProgressHUD.showError(msg)
+                }
+            }
+        }else{
+            let msg = viewModel.addToFavorite()
+            if msg == "Product added successfully"{
+                self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                isFavoriteitem = true
+                K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
+            }else{
+                ProgressHUD.showError(msg)
+            }
+        }
+         let initialSize = CGFloat(17)
+          let expandedSize = CGFloat(25)
+         UIView.animate(withDuration: 0.5, animations: {
+             let originalImage = self.addToFavoriteButtonOutlet.image(for: .normal)
+              let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
+             self.addToFavoriteButtonOutlet.setImage(expandedImage, for: .normal)
+             self.addToFavoriteButtonOutlet.layoutIfNeeded()
+          }) { _ in
+              UIView.animate(withDuration: 0.5, animations: {
+                  let originalImage = self.addToFavoriteButtonOutlet.image(for: .normal)
+                  let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
+                  self.addToFavoriteButtonOutlet.setImage(resizedImage, for: .normal)
+                  self.addToFavoriteButtonOutlet.layoutIfNeeded()
+              })
+          }
     }
 }

@@ -49,11 +49,13 @@ class ProductDetailsModel:Codable{
 }
 // viewObject productDetails
 class ProductDetails{
+    var id:Int
     let name: String
     var price: String
     let description : String
     var imagesArray : [String]
     init(brand:Product){
+        id = brand.id ?? 0
         name = brand.title ?? "no name"
         price = brand.variants?.first?.price ?? "no price"
         description = brand.body_html ?? "no description"
