@@ -18,6 +18,7 @@
 		26BE802E2A3287300054F656 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BE802D2A3287300054F656 /* AuthenticationService.swift */; };
 		26BFAFC72A37236100775806 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BFAFC62A37236100775806 /* ReviewsViewController.swift */; };
 		26C09AC22A31F7D200A9113F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26C09AC12A31F7D100A9113F /* Assets.xcassets */; };
+		26C60D1D2A3BED5000AC6D8E /* AllFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C60D1C2A3BED5000AC6D8E /* AllFavoritesViewModel.swift */; };
 		26E974A82A3AF611008DFDD1 /* ProductFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E974A72A3AF611008DFDD1 /* ProductFavorite.swift */; };
 		26F9ED942A3AB4E000C3D5D3 /* RealmDBServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9ED932A3AB4DF00C3D5D3 /* RealmDBServices.swift */; };
 		26FCB8802A334046004C8383 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26FCB87F2A334046004C8383 /* GoogleService-Info.plist */; };
@@ -138,6 +139,7 @@
 		26BE802D2A3287300054F656 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		26BFAFC62A37236100775806 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		26C09AC12A31F7D100A9113F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26C60D1C2A3BED5000AC6D8E /* AllFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFavoritesViewModel.swift; sourceTree = "<group>"; };
 		26E974A72A3AF611008DFDD1 /* ProductFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavorite.swift; sourceTree = "<group>"; };
 		26F9ED932A3AB4DF00C3D5D3 /* RealmDBServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBServices.swift; sourceTree = "<group>"; };
 		26FCB87F2A334046004C8383 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -301,6 +303,14 @@
 				26BE802D2A3287300054F656 /* AuthenticationService.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		26C60D1B2A3BED2600AC6D8E /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				26C60D1C2A3BED5000AC6D8E /* AllFavoritesViewModel.swift */,
+			);
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 		26F9ED922A3AB4A200C3D5D3 /* DataBaseManager */ = {
@@ -647,6 +657,7 @@
 		A728319F2A2BD71D00A38B6A /* favorite */ = {
 			isa = PBXGroup;
 			children = (
+				26C60D1B2A3BED2600AC6D8E /* viewModel */,
 				A72831A12A2BD75700A38B6A /* Favorites.storyboard */,
 				267BD2B92A35295E0023D6D0 /* FavoriteViewController.swift */,
 			);
@@ -1119,6 +1130,7 @@
 			files = (
 				8F8902292A37768F00744306 /* OrderManager.swift in Sources */,
 				A728318E2A2BD03800A38B6A /* Constants.swift in Sources */,
+				26C60D1D2A3BED5000AC6D8E /* AllFavoritesViewModel.swift in Sources */,
 				A73D4E102A3623FF0081E384 /* OrdersViewController.swift in Sources */,
 				8F973BB32A2BC9D500B52879 /* HomeViewController.swift in Sources */,
 				8FAAF5A62A3066EA00BF399A /* ShoppingCartCell.swift in Sources */,

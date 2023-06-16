@@ -1,48 +1,22 @@
 //
-//  ProfileViewModel.swift
+//  AllFavoritesViewModel.swift
 //  ShopifyTeam4
 //
-//  Created by Sara Eltlt on 12/06/2023.
+//  Created by Youssef Mohamed on 16/06/2023.
 //
 
 import Foundation
-class ProfileViewModel{
-    var favoriteProducts:[ProductFavorite] = []
+class AllFavoritesViewModel{
     var realmDBServiceInstance = RealmDBServices.instance
-    var orders:Observable<Bool>=Observable(false)
-    var ordersArray = [Order]()
-    func configureNavigationToAllOrders()->OrdersViewModel{
-        return OrdersViewModel(orders: ordersArray)
-    }
-    func getAllOrders(){
-        NetworkManager.shared.getApiData(url: URLs.shared.getOrders(customerId: K.USER_ID)) { [weak self] (result : Result<GetOrderModel,Error>) in
-            switch(result){
-            case .success(let data):
-                self?.ordersArray = data.orders
-                self?.orders.value = true
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    
-    
-    func getordersCount()->Int{
-        if ordersArray.isEmpty {
-            return 0
-        }else {
-          return 2
-        }
-    }
-    func getOrderData(index:Int)->Order{
-        return ordersArray[index]
-    }
+    var favoriteProducts:[ProductFavorite] = []
+    var successClosure:([ProductFavorite]) -> () = {_ in }
+    var failClosure:(String) -> () = {_ in }
+    init(){}
     func getAllSotredFavoriteItems(){
         realmDBServiceInstance.getAllProducts(ofType: ProductFavorite.self) { [weak self] errorMessage, products in
             guard let self = self else {return}
             if let errorMessage = errorMessage{
-               // self.failClosure(errorMessage)
+                self.failClosure(errorMessage)
             }else{
                 if let products = products{
                     if products.count > 0{
@@ -50,7 +24,7 @@ class ProfileViewModel{
                             favoriteProducts.append(products[i])
                             print("item \(i) appended and item name is \(favoriteProducts[i].name)")
                         }
-                       // successClosure(favoriteProducts)
+                        successClosure(favoriteProducts)
                     }
                 }
             }
