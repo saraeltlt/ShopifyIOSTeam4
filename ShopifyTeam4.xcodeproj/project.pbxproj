@@ -74,7 +74,6 @@
 		8FBED2762A30BCA1008065E2 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBED2752A30BCA1008065E2 /* PaymentViewController.swift */; };
 		8FC8A48F2A34D7B100A81816 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC8A48E2A34D7B100A81816 /* URLs.swift */; };
 		8FF0E7502A3D10C400FBB628 /* guest.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FF0E74F2A3D10C400FBB628 /* guest.json */; };
-		8FF0E7552A3D116B00FBB628 /* GuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0E7542A3D116B00FBB628 /* GuestViewController.swift */; };
 		8FF3CEA22A36649700797849 /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3CEA12A36649700797849 /* AddAddressViewModel.swift */; };
 		A70C16532A2F337A00DD68F1 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C16522A2F337A00DD68F1 /* ActionButton.swift */; };
 		A70C16552A2F338600DD68F1 /* ActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C16542A2F338600DD68F1 /* ActionButtonItem.swift */; };
@@ -204,7 +203,6 @@
 		8FBED2752A30BCA1008065E2 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		8FC8A48E2A34D7B100A81816 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		8FF0E74F2A3D10C400FBB628 /* guest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = guest.json; sourceTree = "<group>"; };
-		8FF0E7542A3D116B00FBB628 /* GuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestViewController.swift; sourceTree = "<group>"; };
 		8FF3CEA12A36649700797849 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		A70C16522A2F337A00DD68F1 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		A70C16542A2F338600DD68F1 /* ActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonItem.swift; sourceTree = "<group>"; };
@@ -529,7 +527,6 @@
 		8FABEC882A346A000067C138 /* modules */ = {
 			isa = PBXGroup;
 			children = (
-				8FF0E7512A3D113700FBB628 /* guest */,
 				8F6077842A2F3DEA00570DC7 /* settings */,
 				8F22AC2B2A2F80C700016D1F /* address */,
 				8FBED2742A30BC8F008065E2 /* Payment */,
@@ -557,14 +554,6 @@
 				8F1539AD2A35E0C500D77550 /* view */,
 			);
 			path = Payment;
-			sourceTree = "<group>";
-		};
-		8FF0E7512A3D113700FBB628 /* guest */ = {
-			isa = PBXGroup;
-			children = (
-				8FF0E7542A3D116B00FBB628 /* GuestViewController.swift */,
-			);
-			path = guest;
 			sourceTree = "<group>";
 		};
 		8FF3CE9E2A36646800797849 /* addAddress */ = {
@@ -1218,7 +1207,6 @@
 				A72831922A2BD04400A38B6A /* Extensions.swift in Sources */,
 				A7F180B72A3B9E2700CE5798 /* OrderDetailsViewModel.swift in Sources */,
 				8F5C3AAC2A2E771E00B5D939 /* LoginViewController.swift in Sources */,
-				8FF0E7552A3D116B00FBB628 /* GuestViewController.swift in Sources */,
 				8FAAF5A32A3066CD00BF399A /* ShoppingCartViewController.swift in Sources */,
 				8FAAF5AB2A30673400BF399A /* CheckoutViewController.swift in Sources */,
 				8F6B21552A2CEB12001A869D /* LaunchViewController.swift in Sources */,
