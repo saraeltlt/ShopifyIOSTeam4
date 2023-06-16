@@ -27,6 +27,7 @@ class ShoppingCartCell: UITableViewCell {
     }
     override func layoutSublayers(of layer: CALayer) {
         imageBG.layer.cornerRadius = imageBG.layer.frame.width*0.15
+        productImage.layer.cornerRadius = productImage.layer.frame.width*0.15
         productBG.layer.cornerRadius = productBG.layer.frame.width*0.07
         
     }

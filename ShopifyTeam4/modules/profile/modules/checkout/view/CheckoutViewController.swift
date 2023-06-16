@@ -12,7 +12,8 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var discountLabel: UILabel!
     @IBOutlet weak var shippinhFeesLabel: UILabel!
     @IBOutlet weak var subTotalLabel: UILabel!
-    @IBOutlet weak var totalLabel: UIButton!
+  
+    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var couponTextField: UITextField!
     var viewModel : CheckoutViewModel!
     var discount = 0.0
@@ -28,13 +29,13 @@ class CheckoutViewController: UIViewController {
             shippingFees = 65
             shippinhFeesLabel.text = "\(shippingFees) EGP"
             total = viewModel.subTotal+Double(shippingFees)
-            totalLabel.subtitleLabel?.text = "Total: \(total)EGP"
+            totalLabel.text = "Total: \(total)EGP"
            
         }else{
             subTotalLabel.text = "\(viewModel.subTotal) USD"
             shippinhFeesLabel.text = "\(shippingFees) USD"
             total = viewModel.subTotal+Double(shippingFees)
-            totalLabel.subtitleLabel?.text = "Total: \(total)USD"
+            totalLabel.text = "Total: \(total)USD"
         }
     }
     
@@ -62,9 +63,9 @@ class CheckoutViewController: UIViewController {
         total = (viewModel.subTotal+Double(shippingFees)-discount)
         if K.CURRENCY == "EGP"{
        
-            totalLabel.subtitleLabel?.text = "Total:\(total) EGP"
+            totalLabel.text = "Total:\(total) EGP"
         }else{
-            totalLabel.subtitleLabel?.text = "Total: \(total)USD"
+            totalLabel.text = "Total: \(total)USD"
         }
         
         
