@@ -44,7 +44,7 @@ extension OrderDetailsViewController:UICollectionViewDelegate
         as! BrandViewCell
         let productData = viewModel?.getProductData(index: indexPath.row)
         var data = productData?.price
-        cell.configureCell(title: productData?.title ?? "", imageUrl: productData?.imagSrc ?? "", price: (productData?.price)?.stringValue() ?? "",numberOfItems: "x2")
+        cell.configureCell(title: productData?.title ?? "", imageUrl: productData?.imagSrc ?? "", price: (productData?.price)?.stringValue() ?? "",numberOfItems: "X \(productData?.quantity ?? 0)")
         cell.addToFavorite.isHidden = true
         return cell
     

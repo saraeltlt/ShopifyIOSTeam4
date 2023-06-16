@@ -30,10 +30,10 @@ class ProfileViewModel{
     
     
     func getordersCount()->Int{
-        if ordersArray.isEmpty {
-            return 0
+       if ordersArray.count<=2{
+            return ordersArray.count
         }else {
-          return 2
+            return 2
         }
     }
     func getOrderData(index:Int)->Order{
