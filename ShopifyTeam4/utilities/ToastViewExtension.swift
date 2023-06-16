@@ -530,7 +530,7 @@ public struct ToastStyle {
     /**
      The background color. Default is `.black` at 80% opacity.
     */
-    public var backgroundColor: UIColor = UIColor(named: K.ORANGE)!.withAlphaComponent(0.7)
+    public var backgroundColor: UIColor = UIColor(named: K.ORANGE)!.withAlphaComponent(1)
     
     /**
      The title color. Default is `UIColor.whiteColor()`.

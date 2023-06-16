@@ -83,7 +83,9 @@ class PaymentViewModel{
                                             name:results[i].name,
                                             image:results[i].image,
                                             price: results[i].price,
-                                            ItemCount: results[i].ItemCount)
+                                            ItemCount: results[i].ItemCount,
+                                            quantity: results[i].quantity
+                                           )
                             )
                         }
                         

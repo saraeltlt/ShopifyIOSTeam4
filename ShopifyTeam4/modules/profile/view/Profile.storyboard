@@ -852,7 +852,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KNy-D5-lcV">
-                                <rect key="frame" x="0.0" y="116.5" width="414" height="638.5"/>
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="661.5"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9Zt-bY-1mi" id="nXa-B4-BlQ"/>
@@ -873,34 +873,30 @@
                                     <action selector="goToCheckout:" destination="9Zt-bY-1mi" eventType="touchUpInside" id="fHf-vO-leJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-4s-T5w">
-                                <rect key="frame" x="0.0" y="755" width="414" height="46"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.47843137250000001" blue="0.46274509800000002" alpha="0.20003191209999999" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" name="orange"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" subtitle="-" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background"/>
-                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                                </buttonConfiguration>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIQ-KP-KRL">
+                                <rect key="frame" x="10" y="783" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aoJ-TC-I75"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
-                            <constraint firstItem="bSd-4s-T5w" firstAttribute="top" secondItem="KNy-D5-lcV" secondAttribute="bottom" id="Dqd-23-aBt"/>
+                            <constraint firstItem="AIQ-KP-KRL" firstAttribute="top" secondItem="KNy-D5-lcV" secondAttribute="bottom" constant="5" id="9uT-mN-YTZ"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="FPX-x2-ZUh"/>
-                            <constraint firstItem="6jr-cY-7E7" firstAttribute="top" secondItem="bSd-4s-T5w" secondAttribute="bottom" constant="8" symbolic="YES" id="QiD-xE-MvI"/>
-                            <constraint firstItem="bSd-4s-T5w" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" id="SPI-LM-sgc"/>
+                            <constraint firstItem="6jr-cY-7E7" firstAttribute="top" secondItem="AIQ-KP-KRL" secondAttribute="bottom" constant="5" id="MOQ-C8-hlZ"/>
+                            <constraint firstItem="aoJ-TC-I75" firstAttribute="trailing" secondItem="AIQ-KP-KRL" secondAttribute="trailing" constant="10" id="OzI-Fq-Gdn"/>
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="bottom" secondItem="aoJ-TC-I75" secondAttribute="bottom" constant="-16" id="TrC-ln-Dzt"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="height" secondItem="ssq-60-dxd" secondAttribute="height" multiplier="0.13" id="XDv-CF-mdb"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" id="b9q-mo-UT6"/>
                             <constraint firstItem="KNy-D5-lcV" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" id="g1w-i1-kWu"/>
+                            <constraint firstItem="AIQ-KP-KRL" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" constant="10" id="h2O-jC-pTx"/>
                             <constraint firstItem="KNy-D5-lcV" firstAttribute="top" secondItem="t0H-dt-P3o" secondAttribute="bottom" id="h9N-fP-g34"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="top" secondItem="ssq-60-dxd" secondAttribute="top" id="i6p-Cq-ZXO"/>
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" constant="16" id="jkf-gz-5S7"/>
                             <constraint firstItem="aoJ-TC-I75" firstAttribute="trailing" secondItem="6jr-cY-7E7" secondAttribute="trailing" constant="16" id="ou6-PR-v5C"/>
                             <constraint firstItem="KNy-D5-lcV" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="tkG-Y9-U0W"/>
-                            <constraint firstItem="bSd-4s-T5w" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="w5b-1R-9Va"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="dzD-LC-cm6">
@@ -908,7 +904,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cartTableView" destination="KNy-D5-lcV" id="jUx-wS-6g8"/>
-                        <outlet property="subTotalText" destination="bSd-4s-T5w" id="Wtu-KE-Tz1"/>
+                        <outlet property="subTotalLabel" destination="AIQ-KP-KRL" id="oFr-OI-zM4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMn-uh-xeL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

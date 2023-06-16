@@ -20,7 +20,7 @@ class SettingsViewModel{
                     if results.count > 0{
                         for i in 0...results.count - 1{
                             cartProducts.append(
-                                DraftOrderProduct(quantity: results[i].ItemCount, price: .string(results[i].price), title: "\(results[i].name)?\(results[i].id)", imagSrc: results[i].image)
+                                DraftOrderProduct(quantity: results[i].ItemCount, price: .string(results[i].price), title: "\(results[i].name)?\(results[i].id)", imagSrc: "\(results[i].image)$\(results[i].quantity)")
                             
                             )
                         }

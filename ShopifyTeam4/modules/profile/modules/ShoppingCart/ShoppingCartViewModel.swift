@@ -18,7 +18,7 @@ class ShoppingCartViewModel{
     }
     
     func getCartItems(){
-
+        subTotal=0.0
         let realmServices = RealmDBServices.instance
         realmServices.getAllProducts(ofType: ProductCart.self) { [weak self]error, results in
             if let error = error {
@@ -32,24 +32,25 @@ class ShoppingCartViewModel{
                                 ProductCart(id: results[i].id,
                                             name:results[i].name,
                                             image:results[i].image,
-                                            price: results[i].price,
-                                            ItemCount: results[i].ItemCount)
+                                            price: String(Double(results[i].price)! * Double(results[i].ItemCount)),
+                                            ItemCount: results[i].ItemCount, quantity: results[i].quantity)
                             )
                             if (K.CURRENCY == "EGP"){
-                                self?.subTotal = self!.subTotal + ( Double(results[i].price)! * K.EXCHANGE_RATE)
+                               
+                                self?.subTotal = self!.subTotal + ( Double(results[i].price)! * Double(results[i].ItemCount) * K.EXCHANGE_RATE)
                             }else{
-                                self?.subTotal = self!.subTotal+Double(results[i].price)!
+                                self?.subTotal =  self!.subTotal + (Double(results[i].price)! * Double(results[i].ItemCount))
                             }
                         }
-                        self?.getProductsObservable.value=true
-                        
+             
                     }
+                    self?.getProductsObservable.value=true
                     
                 }
             }
         }
-        
     }
+    
     func deleteProduct(id: Int){
         let realmServices = RealmDBServices.instance
         realmServices.deleteProductById(ofType: ProductCart.self, id: id) { errorMessage in
@@ -62,13 +63,11 @@ class ShoppingCartViewModel{
     }
     
     func editItemCount(productId: Int, count:Int){
-       // let realmServices = RealmDBServices.instance
-        //realmServices.updateProductCart(id: productId, count: count) {error in
-      //  self.subTotal = self.subTotal + (count-1)*()
-           // self.getProductsObservable.value=true
-            
-            
-        //}
+        let realmServices = RealmDBServices.instance
+        realmServices.updateProductCart(id: productId, count: count) {error in
+            self.getCartItems()
+
+        }
     }
     
     

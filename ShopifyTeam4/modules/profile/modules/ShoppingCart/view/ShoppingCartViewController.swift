@@ -8,8 +8,8 @@
 import UIKit
 
 class ShoppingCartViewController: UIViewController {
-    @IBOutlet weak var subTotalText: UIButton!
     
+    @IBOutlet weak var subTotalLabel: UILabel!
     @IBOutlet weak var cartTableView: UITableView!
     var viewModel = ShoppingCartViewModel()
     
@@ -27,7 +27,7 @@ class ShoppingCartViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.cartTableView.reloadData()
                 }
-                    self.subTotalText.subtitleLabel?.text = "SubTotal= \(self.viewModel.subTotal) \(K.CURRENCY)"
+                    self.subTotalLabel.text = "SubTotal= \(self.viewModel.subTotal) \(K.CURRENCY)"
          
             }
             else{
@@ -58,9 +58,7 @@ class ShoppingCartViewController: UIViewController {
             let viewController = storyboard.instantiateViewController(identifier: "AddressViewController") as! AddressViewController
           viewController.viewModel = viewModel.configNavigation()
             self.navigationController?.pushViewController(viewController, animated: true)
-        
-        
-        
+  
     }
     
 
@@ -75,7 +73,8 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CART_CELL , for: indexPath) as! ShoppingCartCell
         let product = viewModel.getProduct(index: indexPath.row)
-        cell.configure(id: product.id ,name: product.name, price: product.price, ImageUrl: product.image, itemCount: product.ItemCount, viewModel: viewModel)
+        cell.configure(id: product.id ,name: product.name, price: product.price, ImageUrl: product.image, itemCount: product.ItemCount, viewModel: viewModel, quantity: product.quantity, view: self.view)
+          
         return cell
     }
     
@@ -85,9 +84,9 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
                 self?.confirmAlert {
                     let product = self?.viewModel.getProduct(index: indexPath.row)
                     self?.viewModel.deleteProduct(id: product!.id)
-                    self?.cartTableView.reloadData()
-                    self?.subTotalText.subtitleLabel?.text = "SubTotal= \(self?.viewModel.subTotal) \(K.CURRENCY)"
-                    completionHandler(true)
+                  //  self?.cartTableView.reloadData()
+                   /* self?.subTotalLabel.text = "SubTotal= \(self!.viewModel.subTotal) \(K.CURRENCY)"
+                    completionHandler(true)*/
                 }
                 
             }

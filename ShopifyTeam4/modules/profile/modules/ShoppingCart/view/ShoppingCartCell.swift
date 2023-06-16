@@ -11,12 +11,15 @@ class ShoppingCartCell: UITableViewCell {
 
     @IBOutlet weak var productBG: UIView!
     @IBOutlet weak var imageBG: UIView!
-    @IBOutlet weak var productPrice: UIButton!
+
+    @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     var productId=0
+    var quantity=1
     var viewModel = ShoppingCartViewModel()
     var price = 0.0
+    var view = UIView()
     @IBOutlet weak var itemCountLabel: UILabel!
     
     override func awakeFromNib() {
@@ -28,15 +31,17 @@ class ShoppingCartCell: UITableViewCell {
         
     }
     
-    func configure(id:Int,name:String,price:String,ImageUrl:String, itemCount:Int, viewModel: ShoppingCartViewModel ){
-        productId = id
+    func configure(id:Int,name:String,price:String,ImageUrl:String, itemCount:Int, viewModel: ShoppingCartViewModel ,quantity:Int, view: UIView){
+        self.productId = id
         self.viewModel = viewModel
+        self.quantity = quantity
+        self.view = view
         if (K.CURRENCY == "EGP"){
             let priceConvert = Double(price)! * K.EXCHANGE_RATE
-            productPrice.subtitleLabel?.text = String(priceConvert) + " EGP"
+            productPrice.text = String(priceConvert) + " EGP"
             self.price = priceConvert
         }else{
-            productPrice.subtitleLabel?.text = price + " USD"
+            productPrice.text = price + " USD"
             self.price = Double(price)!
         }
       
@@ -51,14 +56,18 @@ class ShoppingCartCell: UITableViewCell {
     
     @IBAction func addBtn(_ sender: UIButton) {
       var itemCount = Int(itemCountLabel.text!)!
-        itemCount+=1
-        itemCountLabel.text = "\(itemCount)"
-        if (K.CURRENCY == "EGP"){
-            productPrice.subtitleLabel?.text = "\(price * Double(itemCount)) EGP"
+        if (itemCount<quantity){
+            itemCount+=1
+            itemCountLabel.text = "\(itemCount)"
+            if (K.CURRENCY == "EGP"){
+                productPrice.text = "\(price * Double(itemCount)) EGP"
+            }else{
+                productPrice.text = "\(price * Double(itemCount)) USD"
+            }
+            viewModel.editItemCount(productId: productId, count: itemCount)
         }else{
-            productPrice.subtitleLabel?.text = "\(price * Double(itemCount)) USD"
+            self.view.makeToast("Can't add more than \(itemCount) from this product", duration: 2 ,title: "Warning" ,image: UIImage(named: K.WARNINNG_IMAGE))
         }
-        viewModel.editItemCount(productId: productId, count: itemCount)
         
     }
     
@@ -68,9 +77,9 @@ class ShoppingCartCell: UITableViewCell {
             itemCount-=1
             itemCountLabel.text = "\(itemCount)"
             if (K.CURRENCY == "EGP"){
-                productPrice.subtitleLabel?.text = "\(price * Double(itemCount)) EGP"
+                productPrice.text = "\(price * Double(itemCount)) EGP"
             }else{
-                productPrice.subtitleLabel?.text = "\(price * Double(itemCount)) USD"
+                productPrice.text = "\(price * Double(itemCount)) USD"
             }
             viewModel.editItemCount(productId: productId, count: itemCount)
         }else if (itemCount==1){

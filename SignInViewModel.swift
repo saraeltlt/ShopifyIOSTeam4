@@ -9,7 +9,7 @@ import Foundation
 class SignInViewModel{
     private var authintecationService = AuthenticationService()
     var successClosur:() -> () = {}
-    var failClosure:(String) -> () = {_ in }    
+    var failClosure:(String) -> () = {_ in }
     func signInWith(email:String, password:String){
         authintecationService.userSignInActionWith(email: email, password: password) { [weak self] errorMessage in
             guard let self = self else {return}
@@ -54,15 +54,24 @@ class SignInViewModel{
                 for item in (mode.draft_order?.line_items!)!{
                     let (title, id) = self!.extractSubstring(from: item.title!, delimiter: "?")
                     let product = ProductFavorite(id:Int(id!)!, name: title!, image: item.imagSrc!, price: (item.price?.stringValue())!)
-                        realmServices.addProduct(product: product) { error in
-                    if let error = error {
-                        print("Error adding product: \(error)")
-                    } else {
-                        print("Product added successfully with id \(id)")
-                        
+                    realmServices.addProduct(product: product) { error in
+                        if let error = error {
+                            print("Error adding product: \(error)")
+                        } else {
+                            print("Product added successfully with id \(id)")
+                            
+                        }
                     }
                 }
-            }
+                NetworkManager.shared.editApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.FAV_ID)) { (result : Result<(Int,String),Error>) in
+                    switch (result){
+                    case .success(let status):
+                        print(status.0,status.1)
+                        print("iam in sucess")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
             case .failure(let error):
                 print (error.localizedDescription)
             }
@@ -82,16 +91,27 @@ class SignInViewModel{
             case .success(let mode):
                 for item in (mode.draft_order?.line_items!)!{
                     let (title, id) = self!.extractSubstring(from: item.title!, delimiter: "?")
-                    let product = ProductCart(id:Int(id!)!, name: title!, image: item.imagSrc!, price: (item.price?.stringValue())!, ItemCount: item.quantity!)
-                        realmServices.addProduct(product: product) { error in
-                    if let error = error {
-                        print("Error adding product: \(error)")
-                    } else {
-                        print("Product added successfully with id \(id)")
-                        
+                    let (image, allQuantity) = self!.extractSubstring(from: item.imagSrc!, delimiter: "$")
+                    let product = ProductCart(id:Int(id!)!, name: title!, image:image!, price: (item.price?.stringValue())!, ItemCount: item.quantity!, quantity: Int(allQuantity!)!)
+                    realmServices.addProduct(product: product) { error in
+                        if let error = error {
+                            print("Error adding product: \(error)")
+                        } else {
+                            print("Product added successfully with id \(id)")
+                            
+                        }
                     }
                 }
-            }
+                
+                NetworkManager.shared.editApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.CART_ID)) { (result : Result<(Int,String),Error>) in
+                    switch (result){
+                    case .success(let status):
+                        print(status.0,status.1)
+                        print("iam in sucess")
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
             case .failure(let error):
                 print (error.localizedDescription)
             }

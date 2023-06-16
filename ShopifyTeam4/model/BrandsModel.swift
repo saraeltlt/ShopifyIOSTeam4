@@ -54,10 +54,12 @@ class ProductDetails{
     var price: String
     let description : String
     var imagesArray : [String]
+    var quantity : Int
     init(brand:Product){
         id = brand.id ?? 0
         name = brand.title ?? "no name"
         price = brand.variants?.first?.price ?? "no price"
+        quantity = brand.variants?.first?.inventory_quantity ?? 1
         description = brand.body_html ?? "no description"
         imagesArray = []
         for image in brand.images ?? [] {
@@ -74,7 +76,9 @@ class Image: Codable{
 
 class Variant: Codable {
     let price : String?
-    init(price: String?) {
+    let inventory_quantity:Int?
+    init(price: String?, inventory_quantity:Int?) {
             self.price = price
+        self.inventory_quantity=inventory_quantity
         }
 }
