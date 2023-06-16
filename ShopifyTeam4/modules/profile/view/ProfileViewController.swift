@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
         viewModel.favoriteProducts = []
         viewModel.getAllOrders()
         viewModel.getAllSotredFavoriteItems()
+        favCollection.reloadData()
     }
     
     private func setupCells() {
