@@ -139,13 +139,12 @@ extension ProductDetailsViewController{
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.getCurrentIndex), userInfo: nil, repeats: true)
     }
     func favoriteButtonTapped() {
-        print("currrent favorite product id \(currentItemFavoriteModel)\n")
         if self.isFavoriteitem{
             confirmAlert { [weak self] in
                 guard let self = self else {return}
                 let msg = viewModel.removeFromFavorite()
                 if msg == "Product removed successfully"{
-                    self.view.makeToast(msg, duration: 2 ,title: "removing to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                    self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
                     addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
                     isFavoriteitem = false
                     guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
