@@ -16,10 +16,6 @@ class ProfileViewController: UIViewController {
     var viewModel = ProfileViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (K.GUEST_MOOD){
-            guestView()
-        }
-        else{
             let layout = UICollectionViewCompositionalLayout { _, _ in
                 return self.favSection()
             }
@@ -28,13 +24,8 @@ class ProfileViewController: UIViewController {
             viewModel.successClosure = {
                 self.favCollection.reloadData()
             }
-        }
 
-    }
-    override func viewWillLayoutSubviews() {
-        if (K.GUEST_MOOD){
-            guestView()
-        }
+
     }
     override func viewWillAppear(_ animated: Bool) {
         if (K.GUEST_MOOD){
