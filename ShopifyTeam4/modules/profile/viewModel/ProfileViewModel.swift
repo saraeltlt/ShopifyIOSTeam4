@@ -9,6 +9,7 @@ import Foundation
 class ProfileViewModel{
     var favoriteProducts:[ProductFavorite] = []
     var realmDBServiceInstance = RealmDBServices.instance
+    var successClosure:() -> () = {}
     var orders:Observable<Bool>=Observable(false)
     var ordersArray = [Order]()
     func configureNavigationToAllOrders()->OrdersViewModel{
@@ -50,7 +51,7 @@ class ProfileViewModel{
                             favoriteProducts.append(products[i])
                             print("item \(i) appended and item name is \(favoriteProducts[i].name)")
                         }
-                       // successClosure(favoriteProducts)
+                        self.successClosure()
                     }
                 }
             }
@@ -75,6 +76,7 @@ class ProfileViewModel{
             if let error = errorMessage {
                 returnMsg="Error when removing product: \(error)"
             } else {
+                self.favoriteProducts = []
                 returnMsg="Product removed successfully"
             }
         }

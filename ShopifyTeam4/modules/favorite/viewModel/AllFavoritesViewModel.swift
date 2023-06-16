@@ -9,22 +9,18 @@ import Foundation
 class AllFavoritesViewModel{
     var realmDBServiceInstance = RealmDBServices.instance
     var favoriteProducts:[ProductFavorite] = []
-    var successClosure:([ProductFavorite]) -> () = {_ in }
-    var failClosure:(String) -> () = {_ in }
-    init(){}
     func getAllSotredFavoriteItems(){
         realmDBServiceInstance.getAllProducts(ofType: ProductFavorite.self) { [weak self] errorMessage, products in
             guard let self = self else {return}
             if let errorMessage = errorMessage{
-                self.failClosure(errorMessage)
+                print(errorMessage)
             }else{
                 if let products = products{
                     if products.count > 0{
                         for i in 0...(products.count  - 1) {
                             favoriteProducts.append(products[i])
-                            print("item \(i) appended and item name is \(favoriteProducts[i].name)")
+                            print("item \(i) appended and item name is \(favoriteProducts[i].name) all favorites")
                         }
-                        successClosure(favoriteProducts)
                     }
                 }
             }
@@ -49,6 +45,7 @@ class AllFavoritesViewModel{
             if let error = errorMessage {
                 returnMsg="Error when removing product: \(error)"
             } else {
+                self.favoriteProducts = []
                 returnMsg="Product removed successfully"
             }
         }

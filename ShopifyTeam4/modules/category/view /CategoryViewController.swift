@@ -61,6 +61,13 @@ class CategoryViewController: UIViewController {
         actionButton.backgroundColor = UIColor(named: "orange")!
         actionButton.action = { button in button.toggleMenu()}
     }
+    @IBAction func navigateToFavoriteScreen(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
+        let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+        favoriteVC.modalPresentationStyle = .fullScreen
+        favoriteVC.modalTransitionStyle = .crossDissolve
+        present(favoriteVC, animated: true)
+    }
     
 
     
@@ -144,7 +151,7 @@ extension CategoryViewController:UICollectionViewDelegate
                 guard let self = self else {return}
                 let msg = viewModel.removeFromFavorite(productId: currentItemFavoriteModel.id)
                 if msg == "Product removed successfully"{
-                    self.view.makeToast(msg, duration: 2 ,title: "removing to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                    self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
                     sender.setImage(UIImage(systemName: "heart"), for: .normal)
                     sender.isFavoriteItem = false
                     guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }

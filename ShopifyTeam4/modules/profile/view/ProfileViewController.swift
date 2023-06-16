@@ -21,13 +21,16 @@ class ProfileViewController: UIViewController {
         }
         favCollection.setCollectionViewLayout(layout, animated: true)
         setupCells()
-        viewModel.getAllSotredFavoriteItems()
+        viewModel.successClosure = {
+            self.favCollection.reloadData()
+        }
 
     }
     override func viewWillAppear(_ animated: Bool) {
         configureOrdersObservation()
+        viewModel.favoriteProducts = []
         viewModel.getAllOrders()
-        
+        viewModel.getAllSotredFavoriteItems()
     }
     
     private func setupCells() {
@@ -46,7 +49,7 @@ class ProfileViewController: UIViewController {
     @IBAction func moreFavBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
         let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .popover
+        favoriteVC.modalPresentationStyle = .fullScreen
         favoriteVC.modalTransitionStyle = .crossDissolve
         present(favoriteVC, animated: true)
     }
@@ -126,13 +129,8 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             cell.addToFavorite.isHidden = false
         let product = viewModel.favoriteProducts[indexPath.row]
             cell.configureCell(title: product.name, imageUrl: product.image, price: product.price)
-            if K.idsOfFavoriteProducts.contains(product.id){
-                cell.addToFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                cell.addToFavorite.isFavoriteItem = true
-            }else{
-                cell.addToFavorite.setImage(UIImage(systemName: "heart"), for: .normal)
-                cell.addToFavorite.isFavoriteItem = false
-            }
+            cell.addToFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            cell.addToFavorite.isFavoriteItem = true
             cell.addToFavorite.cellIndex = indexPath.row
             cell.addToFavorite.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             return cell
@@ -150,45 +148,18 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
 extension ProfileViewController{
     @objc func buttonTapped(_ sender: FavoriteButton) {
         let currentItemFavoriteModel = viewModel.favoriteProducts[sender.cellIndex]
-        if sender.isFavoriteItem{
-            confirmAlert { [weak self] in
-                guard let self = self else {return}
-                let msg = viewModel.removeFromFavorite(productId: currentItemFavoriteModel.id)
-                if msg == "Product removed successfully"{
-                    self.view.makeToast(msg, duration: 2 ,title: "removing to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                    sender.setImage(UIImage(systemName: "heart"), for: .normal)
-                    sender.isFavoriteItem = false
-                    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
-                    K.idsOfFavoriteProducts.remove(at: itemIndex)
-                }else{
-                    ProgressHUD.showError(msg)
-                }
-            }
-        }else{
-            let msg = viewModel.addToFavorite(product: currentItemFavoriteModel)
-            if msg == "Product added successfully"{
-                self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                sender.isFavoriteItem = true
-                K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
+        confirmAlert { [weak self] in
+            guard let self = self else {return}
+            let msg = viewModel.removeFromFavorite(productId: currentItemFavoriteModel.id)
+            if msg == "Product removed successfully"{
+                self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                viewModel.getAllSotredFavoriteItems()
+                self.favCollection.reloadData()
             }else{
                 ProgressHUD.showError(msg)
             }
         }
-         let initialSize = CGFloat(17)
-          let expandedSize = CGFloat(25)
-         UIView.animate(withDuration: 0.5, animations: {
-              let originalImage = sender.image(for: .normal)
-              let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
-              sender.setImage(expandedImage, for: .normal)
-              sender.layoutIfNeeded()
-          }) { _ in
-              UIView.animate(withDuration: 0.5, animations: {
-                  let originalImage = sender.image(for: .normal)
-                  let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
-                  sender.setImage(resizedImage, for: .normal)
-                  sender.layoutIfNeeded()
-              })
-          }
+    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else {return }
+    K.idsOfFavoriteProducts.remove(at: itemIndex)
     }
 }

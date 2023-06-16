@@ -96,16 +96,17 @@ class RealmDBServices{
                 let results = self.realmFileReference?.objects(type)
                 if let results = results {
                     do {
+                        print("results before deletion \(results)")
                         let item = results.filter("id = \(id)")
                         try self.realmFileReference?.write {
                             self.realmFileReference?.delete(item)
                         }
+                        print("results after deletion \(results)")
                         completionHandler(nil)
                     } catch {
                         completionHandler(error.localizedDescription)
                     }
                 }
-                completionHandler(nil)
             }
         }
     }
