@@ -16,7 +16,8 @@ class Customer:Codable {
     var phone:String?
     var addresses : [Address]?
     var cartId:String?
-    init(id: Int? = nil, first_name: String? = nil, last_name: String? = nil, email: String? = nil, note: String? = nil, phone: String? = nil, addresses: [Address]? = nil, tags: String? = nil) {
+    var default_address:Address?
+    init(id: Int? = nil, first_name: String? = nil, last_name: String? = nil, email: String? = nil, note: String? = nil, phone: String? = nil, addresses: [Address]? = nil, tags: String? = nil,adress:Address? = nil) {
            self.id = id
            self.firstName = first_name
            self.lastName = last_name
@@ -25,6 +26,7 @@ class Customer:Codable {
            self.phone = phone
            self.addresses = addresses
            self.cartId = tags
+           self.default_address = adress
        }
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,6 +37,7 @@ class Customer:Codable {
         case phone
         case addresses
         case cartId = "tags"
+        case default_address
     }
 }
 

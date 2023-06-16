@@ -19,7 +19,10 @@ class OrderDetailsViewModel{
     }
     func configureHeaderData()->(date:String,address:String,price:String){
         let date = order?.created_at?.cutStringIntoComponents()?.date
-        let adrress = ""
+        let street = order?.customer?.default_address?.address1
+        let city = order?.customer?.default_address?.city
+        let country = order?.customer?.default_address?.country
+        let adrress = "\(street ?? "") - \(city ?? "") - \(country ?? "")"
         var price = Double((order?.current_total_price)!)
         var totalPrice = ""
         if K.CURRENCY == "EGP" {
