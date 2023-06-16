@@ -122,7 +122,7 @@ class RealmDBServices{
                         do {
                             try self.realmFileReference?.write {
                                 product.ItemCount = count
-                                completionHandler(nil)
+                                completionHandler(String(product.ItemCount))
                             }
                         } catch {
                             completionHandler(error.localizedDescription)

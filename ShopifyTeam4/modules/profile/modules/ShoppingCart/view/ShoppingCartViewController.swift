@@ -20,17 +20,20 @@ class ShoppingCartViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        viewModel.getCartItems()
         viewModel.getProductsObservable.bind { status in
             guard let status = status else {return}
             if status {
-                self.cartTableView.reloadData()
-                self.subTotalText.subtitleLabel?.text = "SubTotal= \(self.viewModel.subTotal) \(K.CURRENCY)"
+                DispatchQueue.main.async {
+                    self.cartTableView.reloadData()
+                }
+                    self.subTotalText.subtitleLabel?.text = "SubTotal= \(self.viewModel.subTotal) \(K.CURRENCY)"
+         
             }
             else{
                 // loading
             }
         }
-        viewModel.getCartItems()
      
     }
     
@@ -72,8 +75,26 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CART_CELL , for: indexPath) as! ShoppingCartCell
         let product = viewModel.getProduct(index: indexPath.row)
-        cell.configure(name: product.name, price: product.price, ImageUrl: product.image, itemCount: product.ItemCount)
+        cell.configure(id: product.id ,name: product.name, price: product.price, ImageUrl: product.image, itemCount: product.ItemCount, viewModel: viewModel)
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
+                self?.confirmAlert {
+                    let product = self?.viewModel.getProduct(index: indexPath.row)
+                    self?.viewModel.deleteProduct(id: product!.id)
+                    self?.cartTableView.reloadData()
+                    self?.subTotalText.subtitleLabel?.text = "SubTotal= \(self?.viewModel.subTotal) \(K.CURRENCY)"
+                    completionHandler(true)
+                }
+                
+            }
+            
+            deleteAction.backgroundColor = UIColor(named: K.ORANGE)   
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            return configuration
     }
     
     

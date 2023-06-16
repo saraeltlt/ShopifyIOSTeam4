@@ -50,10 +50,27 @@ class ShoppingCartViewModel{
         }
         
     }
+    func deleteProduct(id: Int){
+        let realmServices = RealmDBServices.instance
+        realmServices.deleteProductById(ofType: ProductCart.self, id: id) { errorMessage in
+            self.getCartItems()
+        }
+    }
     
     func getProduct(index: Int) -> ProductCart{
         return cartProducts[index]
     }
+    
+    func editItemCount(productId: Int, count:Int){
+       // let realmServices = RealmDBServices.instance
+        //realmServices.updateProductCart(id: productId, count: count) {error in
+      //  self.subTotal = self.subTotal + (count-1)*()
+           // self.getProductsObservable.value=true
+            
+            
+        //}
+    }
+    
     
     
     
