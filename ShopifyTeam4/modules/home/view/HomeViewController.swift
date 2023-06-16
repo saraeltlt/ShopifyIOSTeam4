@@ -39,7 +39,15 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    @IBAction func navigateToFavoriteItems(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
+        let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+        favoriteVC.modalPresentationStyle = .fullScreen
+        favoriteVC.modalTransitionStyle = .crossDissolve
+        present(favoriteVC, animated: true)
 
+    }
+    
 
 }
 

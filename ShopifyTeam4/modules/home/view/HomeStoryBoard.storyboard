@@ -131,6 +131,9 @@
                         <rightBarButtonItems>
                             <barButtonItem image="heart.fill" catalog="system" id="fuS-Q6-N58">
                                 <color key="tintColor" name="lightOrange"/>
+                                <connections>
+                                    <action selector="navigateToFavoriteItems:" destination="Y6W-OH-hqX" id="Kuk-mq-yNA"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="cart.fill" catalog="system" id="shF-LB-yOy">
                                 <color key="tintColor" name="lightOrange"/>
