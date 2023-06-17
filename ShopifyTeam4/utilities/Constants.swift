@@ -53,6 +53,9 @@ struct K {
     static let HEART = "heart"
     static let HEART_FILL = "heartFill"
     static let NO_SEARCH = "noSearch"
+    static let NO_FAV = "noFav"
+    static let NO_CART = "noCart"
+    static let NO_ORSERS = "noOrder"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
