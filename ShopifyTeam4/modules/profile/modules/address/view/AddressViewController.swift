@@ -153,10 +153,11 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
                 }
                 
             }
-            
+            self.addressTableView.reloadData()
             deleteAction.backgroundColor = UIColor(named: K.ORANGE)
             
             let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            self.addressTableView.reloadData()
             return configuration
         }
         else{
