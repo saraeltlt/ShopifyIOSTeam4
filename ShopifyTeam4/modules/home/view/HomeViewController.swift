@@ -55,6 +55,7 @@ class HomeViewController: UIViewController {
         configureShoppingCartCountObservation()
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
+        searchBar.text = ""
     }
     
     
@@ -233,6 +234,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 }
 extension HomeViewController:UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
         viewModel.brandsArray = viewModel.backupBrandsArray
         brandsCollection.reloadData()
     }
@@ -240,6 +242,9 @@ extension HomeViewController:UISearchBarDelegate{
         if searchText == "" {
             viewModel.brandsArray = viewModel.backupBrandsArray
             brandsCollection.reloadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         }else{
             viewModel.brandsArray = viewModel.backupBrandsArray
             viewModel.brandsArray = viewModel.brandsArray.filter({ (product) -> Bool in
@@ -247,6 +252,9 @@ extension HomeViewController:UISearchBarDelegate{
             })
           brandsCollection.reloadData()
         }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 
 }

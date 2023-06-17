@@ -41,7 +41,7 @@ class CategoryViewController: UIViewController {
         configureShoppingCartCountObservation()
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
-        
+        searchBar.text = ""
     }
     
     
@@ -49,22 +49,40 @@ class CategoryViewController: UIViewController {
         let t_shirts = ActionButtonItem(title: "T-SHIRTS", image: UIImage(named: K.TSHIRT))
         t_shirts.action = { [weak self] item in
             self?.actionButton.toggleMenu()
+            if self?.viewModel.categoryProductsArray.count == 0{
+                self?.viewModel.categoryProductsArray = (self?.viewModel.backupCategoryProductsArray)!
+            }
             self?.viewModel.filterProductsArray(productType: "T-SHIRTS")
             self?.viewModel.isFiltering = true
+            self?.searchBar.text = ""
+            if self?.viewModel.categoryProductsArray.count == 0{
+                self?.viewModel.categoryProductsArray = (self?.viewModel.backupCategoryProductsArray)!
+            }
             self?.productsCollection.reloadData()
         }
         let shoes = ActionButtonItem(title: "SHOES", image:  UIImage(named: K.SHOES))
         shoes.action = { [weak self] item in
             self?.actionButton.toggleMenu()
+            if self?.viewModel.categoryProductsArray.count == 0{
+                self?.viewModel.categoryProductsArray = (self?.viewModel.backupCategoryProductsArray)!
+            }
             self?.viewModel.filterProductsArray(productType: "SHOES")
             self?.viewModel.isFiltering = true
+            self?.searchBar.text = ""
+            if self?.viewModel.categoryProductsArray.count == 0{
+                self?.viewModel.categoryProductsArray = (self?.viewModel.backupCategoryProductsArray)!
+            }
             self?.productsCollection.reloadData()
         }
         let accessories = ActionButtonItem(title: "ACCESSORIES", image:  UIImage(named: K.ACCESSORISE))
         accessories.action = { [weak self] item in
             self?.actionButton.toggleMenu()
+            if self?.viewModel.categoryProductsArray.count == 0{
+                self?.viewModel.categoryProductsArray = (self?.viewModel.backupCategoryProductsArray)!
+            }
             self?.viewModel.filterProductsArray(productType: "ACCESSORIES")
             self?.viewModel.isFiltering = true
+            self?.searchBar.text = ""
             self?.productsCollection.reloadData()
         }
         actionButton = ActionButton(attachedToView: self.view, items: [t_shirts, shoes, accessories])
@@ -285,6 +303,7 @@ extension CategoryViewController:UICollectionViewDelegate
         
         if collectionView == categoryCollection {
             self.changeSelectedCellBackground(index: indexPath.row)
+            searchBar.text = ""
         }else {
             let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
             let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
@@ -302,20 +321,33 @@ extension CategoryViewController:UICollectionViewDelegate
     }
 }
 extension CategoryViewController:UISearchBarDelegate{
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
-        productsCollection.reloadData()
-    }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
+            viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
             productsCollection.reloadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         }else{
             viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
+            viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
             viewModel.categoryProductsArray = viewModel.categoryProductsArray.filter({ (product) -> Bool in
+                product.title!.starts(with: searchText.lowercased()) || product.title!.starts(with: searchText.uppercased())
+            })
+            viewModel.filteredProductsArray = viewModel.filteredProductsArray.filter({ (product) -> Bool in
                 product.title!.starts(with: searchText.lowercased()) || product.title!.starts(with: searchText.uppercased())
             })
             productsCollection.reloadData()
         }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
+        viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
+        productsCollection.reloadData()
     }
 }

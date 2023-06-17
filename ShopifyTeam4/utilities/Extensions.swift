@@ -147,7 +147,21 @@ extension UIViewController {
             }
         
     }
-    
+    func errorTitledAlert(title:String = "Error" , subTitle:String , imageName:String = K.WARNINNG_IMAGE, confirmBtn: String = "Ok" ,handler: (() -> Void)?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+        
+        myAlert.titles = title
+        myAlert.subTitle = subTitle
+        myAlert.imageName = imageName
+        myAlert.okBtn = confirmBtn
+        myAlert.okBtnHandler = handler
+        myAlert.cancelBtn = "Cancel"
+        
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(myAlert, animated: true, completion: nil)
+    }
 
     
 }

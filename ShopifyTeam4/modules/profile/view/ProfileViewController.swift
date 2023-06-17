@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ProgressHUD
 import Lottie
 
 class ProfileViewController: UIViewController {
@@ -196,7 +195,7 @@ extension ProfileViewController{
                 viewModel.getAllSotredFavoriteItems()
                 self.favCollection.reloadData()
             }else{
-                ProgressHUD.showError(msg)
+                self.errorTitledAlert(subTitle: msg, handler: nil)
             }
         }
         guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else {return }

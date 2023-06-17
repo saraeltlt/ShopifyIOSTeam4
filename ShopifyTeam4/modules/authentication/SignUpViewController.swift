@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ProgressHUD
 class SignUpViewController: UIViewController {
     var signUpViewModel:SignUpViewModel!
     var networkIndicator: UIActivityIndicatorView!
@@ -53,8 +52,8 @@ class SignUpViewController: UIViewController {
         toggleDisplayingThePasswordText()
         signUpViewModel = SignUpViewModel()
         signUpViewModel.failClosure = { (erreorMeg) in
-            ProgressHUD.showError(erreorMeg)
             self.networkIndicator.stopAnimating()
+            self.errorTitledAlert(subTitle: erreorMeg, handler: nil)
         }
         signUpViewModel.successClosur = { [weak self] in
             guard let self = self else {return}
@@ -79,15 +78,15 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpAction(_ sender: UIButton) {
         guard !(nameTextField.text!.isEmpty || emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty || confirmPasswordTextField.text!.isEmpty || phoneNumberTextField.text!.isEmpty || countryTextField.text!.isEmpty || cityTextField.text!.isEmpty || streetTextField.text!.isEmpty)
         else {
-            ProgressHUD.showError("Fill all required information")
+            errorTitledAlert(subTitle: "Fill all required information", handler: nil)
             return }
         if !isValidEmail(emailTextField.text!){
-            ProgressHUD.showError("Not valid email ..")
+            errorTitledAlert(subTitle: "Not valid email ..", handler: nil)
             return
         }
         let password = passwordTextField.text!
         if  password != confirmPasswordTextField.text{
-            ProgressHUD.showError("the two passwords you entered is not the same ..!")
+            errorTitledAlert(subTitle: "the two passwords you entered is not the same ..!", handler: nil)
             return
         }
         networkIndicator.startAnimating()
