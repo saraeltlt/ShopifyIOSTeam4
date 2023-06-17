@@ -10,7 +10,13 @@ import ProgressHUD
 
 class CategoryViewController: UIViewController {
     
+
     @IBOutlet weak var searchBar: UISearchBar!
+
+    
+    @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
+    @IBOutlet weak var favoritesCount: UIBarButtonItem!
+
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var productsCollection: UICollectionView!
     @IBOutlet weak var categoryCollection: UICollectionView!
@@ -31,6 +37,10 @@ class CategoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         productsCollection.reloadData()
+        configureFavoritesCountObservation()
+        configureShoppingCartCountObservation()
+        viewModel.getAllSotredFavoriteItems()
+        viewModel.getAllSotredShoppingCardItems()
         
     }
     
@@ -81,6 +91,37 @@ class CategoryViewController: UIViewController {
             self.navigationController?.pushViewController(shoppingCartVC, animated: true)
         }
     }
+    
+    func configureFavoritesCountObservation(){
+        viewModel.favoritesCount.bind { count in
+            guard let count = count else {return}
+                if let view = self.favoritesCount.value(forKey: "view") as? UIView {
+                    if count > 0 {
+                        view.addBadge(text: "\(count)",color: K.ORANGE)
+                    } else {
+                        view.removeBadge()
+                    }
+                   }
+            
+        }
+    }
+
+    func configureShoppingCartCountObservation(){
+        viewModel.CartItemsCount.bind { count in
+            guard let count = count else {return}
+                if let view = self.shoppingCartCount.value(forKey: "view") as? UIView {
+                    if count > 0 {
+                        view.addBadge(text: "\(count)",color: K.ORANGE)
+                    }else {
+                        view.removeBadge()
+                    }
+                   }
+            
+        }
+    }
+    
+    
+    
     
     
     

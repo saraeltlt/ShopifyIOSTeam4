@@ -32,6 +32,7 @@ struct K {
     static let PAIGE = "paige"
     static let GREEN = "green"
     static let LIGHT_GREEN = "lightGreen"
+    static let TITLE_COLOR = "textColor"
     
     //images
     static let CART_IMAGE = "cart"
@@ -47,6 +48,10 @@ struct K {
     static let SUCCESS_IMAGE = "success"
     static let ADDRESS_IMAGE = "address"
     static let GUEST_IMAGE = "guest"
+    static let ALL_IMAGE = "all"
+    static let REMOVE_IMAGE = "remove"
+    static let HEART = "heart"
+    static let HEART_FILL = "heartFill"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
@@ -61,8 +66,18 @@ struct K {
     //stored favorite products array
     static var idsOfFavoriteProducts:[Int] = []
     
+
     //stored user data
     static var USER_NAME = ""
+
+    
+    
+    static func generateCountries()->[String]{
+            Locale.isoRegionCodes.map { (code) -> String in
+                let identifier = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+                return Locale(identifier: "en_US_POSIX").localizedString(forIdentifier: identifier) ?? "Unknown"
+            }
+        }
     
 }
 

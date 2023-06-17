@@ -62,16 +62,17 @@ open class ActionButtonItem: NSObject {
                 
         if let text = optionalTitle , text.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty == false {
             self.label = UILabel()
-            self.label.font = UIFont(name: "HelveticaNeue-Medium", size: 13)
-            self.label.textColor = UIColor.darkGray
+            self.label.font = UIFont(name: "Chalkduster", size: 13)
+            self.label.textColor = UIColor(named: K.ORANGE)
             self.label.textAlignment = .right
             self.label.text = text
             self.label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ActionButtonItem.labelTapped(_:))))
             self.label.sizeToFit()
             
             self.labelBackground = UIView()
+    
             self.labelBackground.frame = self.label.frame
-            self.labelBackground.backgroundColor = UIColor.white
+            self.labelBackground.backgroundColor = UIColor(named: K.TITLE_COLOR)
             self.labelBackground.layer.cornerRadius = 3
             self.labelBackground.layer.shadowOpacity = 0.8
             self.labelBackground.layer.shadowOffset = CGSize(width: 0, height: 1)

@@ -58,12 +58,20 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zg-rl-TsD">
-                                <rect key="frame" x="30" y="393.33333333333331" width="333" height="33.666666666666686"/>
+                                <rect key="frame" x="30" y="393.33333333333331" width="333" height="35.666666666666686"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Brands">
+                                <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" cornerRadius="100">
                                         <color key="backgroundColor" name="green"/>
                                     </backgroundConfiguration>
+                                    <attributedString key="attributedSubtitle">
+                                        <fragment content="Brands">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="Chalkduster"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
@@ -78,7 +86,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0lb-Rs-x7N">
-                                <rect key="frame" x="0.0" y="447" width="393" height="292"/>
+                                <rect key="frame" x="0.0" y="449" width="393" height="290"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aXI-NO-0T1">
                                     <size key="itemSize" width="128" height="128"/>
@@ -144,9 +152,11 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="CartItemsCount" destination="shF-LB-yOy" id="HcO-FN-MAV"/>
                         <outlet property="adsCollection" destination="pul-2H-lIy" id="Ojb-hY-lNU"/>
                         <outlet property="brandsCollection" destination="0lb-Rs-x7N" id="Zem-4O-ucH"/>
                         <outlet property="container" destination="8GI-YK-cLc" id="XIq-bl-SMc"/>
+                        <outlet property="favoriteCount" destination="fuS-Q6-N58" id="LJV-HX-QBf"/>
                         <outlet property="pageController" destination="MA6-82-Yqk" id="Jjj-4G-E5m"/>
                         <outlet property="searchBar" destination="G2B-Ox-vSg" id="ejG-gz-STB"/>
                         <segue destination="p38-G4-17j" kind="show" id="BVa-kN-zzh"/>
@@ -180,9 +190,9 @@
                                 <rect key="frame" x="0.0" y="162" width="393" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-49-rON">
-                                        <rect key="frame" x="8" y="16.333333333333343" width="86.333333333333329" height="14.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="8" y="15.666666666666657" width="86.333333333333329" height="15.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="12"/>
+                                        <color key="textColor" name="orange"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Ehc-be-qEr">
@@ -385,8 +395,11 @@
                     <connections>
                         <outlet property="categoryCollection" destination="uUF-lT-sC3" id="l6w-yo-HW3"/>
                         <outlet property="container" destination="bHc-oo-YpE" id="tC6-UT-23r"/>
+                        <outlet property="favoritesCount" destination="kod-dR-YoO" id="0rb-LE-MC0"/>
                         <outlet property="productsCollection" destination="DbD-Pp-RJH" id="lIm-Ms-wNA"/>
+
                         <outlet property="searchBar" destination="P3v-N9-6CN" id="Rrx-NQ-VPS"/>
+                        <outlet property="shoppingCartCount" destination="Gsb-My-MTa" id="ARc-3P-swD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWo-bz-2FB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -484,13 +497,13 @@
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightGreen">
             <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
-            <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88200002908706665" green="0.70599997043609619" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
             <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

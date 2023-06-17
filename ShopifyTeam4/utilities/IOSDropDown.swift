@@ -20,9 +20,9 @@ open class DropDown : UITextField{
     //MARK: IBInspectable
 
     @IBInspectable public var rowHeight: CGFloat = 30
-    @IBInspectable public var rowBackgroundColor: UIColor = .white
-    @IBInspectable public var rowTextColor: UIColor = .black
-    @IBInspectable public var selectedRowColor: UIColor = .cyan
+    @IBInspectable public var rowBackgroundColor: UIColor = UIColor(named: K.PAIGE)!
+    @IBInspectable public var rowTextColor: UIColor = UIColor(named: K.GREEN)!
+    @IBInspectable public var selectedRowColor: UIColor = UIColor(named: K.LIGHT_GREEN)!
     @IBInspectable public var hideOptionsWhenSelect = true
     @IBInspectable  public var isSearchEnable: Bool = true {
         didSet{
