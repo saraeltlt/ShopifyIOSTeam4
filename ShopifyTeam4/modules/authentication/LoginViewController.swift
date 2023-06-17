@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ProgressHUD
 class LoginViewController: UIViewController {
     var signInViewModel:SignInViewModel!
     var networkIndicator: UIActivityIndicatorView!
@@ -36,8 +35,8 @@ class LoginViewController: UIViewController {
         toggleDisplayingThePasswordText()
         signInViewModel = SignInViewModel()
         signInViewModel.failClosure = { (erreorMeg) in
-            ProgressHUD.showError(erreorMeg)
             self.networkIndicator.stopAnimating()
+            self.errorTitledAlert(subTitle: erreorMeg, handler: nil)
         }
         signInViewModel.successClosur = { [weak self] in
             guard let self = self else {return}
@@ -63,10 +62,10 @@ class LoginViewController: UIViewController {
     @IBAction func signInAction(_ sender: UIButton) {
         guard !( emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty )
         else {
-            ProgressHUD.showError("Fill all required information")
+            self.errorTitledAlert(subTitle: "Fill all required information", handler: nil)
             return }
         if !isValidEmail(emailTextField.text!){
-            ProgressHUD.showError("Not valid email ..")
+            self.errorTitledAlert(subTitle: "Not valid email ..", handler: nil)
             return
         }
         networkIndicator.startAnimating()
