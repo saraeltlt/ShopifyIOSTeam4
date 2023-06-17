@@ -76,9 +76,7 @@ class ProfileViewController: UIViewController {
     @IBAction func moreFavBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
         let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .fullScreen
-        favoriteVC.modalTransitionStyle = .crossDissolve
-        present(favoriteVC, animated: true)
+        self.navigationController?.pushViewController(favoriteVC, animated: true)
     }
     
     
@@ -98,7 +96,7 @@ class ProfileViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.7)
+                heightDimension: .fractionalHeight(0.5)
             ),
             subitems: [item]
         )
@@ -194,7 +192,7 @@ extension ProfileViewController{
             guard let self = self else {return}
             let msg = viewModel.removeFromFavorite(productId: currentItemFavoriteModel.id)
             if msg == "Product removed successfully"{
-                self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.REMOVE_IMAGE))
                 viewModel.getAllSotredFavoriteItems()
                 self.favCollection.reloadData()
             }else{

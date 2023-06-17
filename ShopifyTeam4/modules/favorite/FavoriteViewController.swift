@@ -10,11 +10,7 @@ import ProgressHUD
 
 class FavoriteViewController: UIViewController {
     var allFavoriteViewModel:AllFavoritesViewModel!
-    @IBOutlet weak var backButtonOutlet: UIButton!{
-        didSet{
-            backButtonOutlet.layer.cornerRadius = backButtonOutlet.bounds.width * 0.5
-        }
-    }
+
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +23,6 @@ class FavoriteViewController: UIViewController {
         allFavoriteViewModel.favoriteProducts = []
         allFavoriteViewModel.getAllSotredFavoriteItems()
         favoriteCollectionView.reloadData()
-    }
-    @IBAction func backButtonAction(_ sender: UIButton) {
-        self.dismiss(animated: true)
     }
 }
 extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -95,7 +88,7 @@ extension FavoriteViewController{
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.4)
+                heightDimension: .fractionalHeight(0.35)
             ),
             subitems: [item]
         )

@@ -49,6 +49,9 @@ struct K {
     static let ADDRESS_IMAGE = "address"
     static let GUEST_IMAGE = "guest"
     static let ALL_IMAGE = "all"
+    static let REMOVE_IMAGE = "remove"
+    static let HEART = "heart"
+    static let HEART_FILL = "heartFill"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
