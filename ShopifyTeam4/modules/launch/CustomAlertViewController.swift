@@ -24,14 +24,9 @@ class CustomAlertViewController: UIViewController {
       
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (cancelBtn==nil){
-            cancelBtnView.isHidden=true
-        }else{
-            cancelBtnView.isHidden=false
-            cancelBtnView.setTitle(cancelBtn, for: .normal)
-        }
 
-        okBtnView.setTitle(okBtn, for: .normal)
+        cancelBtnView.subtitleLabel?.text="Cancel"
+        okBtnView.subtitleLabel?.text=okBtn
         alertTitle.text=titles
         alertSubTitle.text=subTitle
         myAlertImage.image=UIImage(named: imageName)
