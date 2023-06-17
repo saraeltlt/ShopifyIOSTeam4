@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var countryTextField: DropDown!{
         didSet{
-            self.countryTextField.optionArray = ["Egypt","France","Egypt","France","Egypt","France","Egypt","France"]
+            self.countryTextField.optionArray = K.generateCountries()
             self.countryTextField.selectedRowColor = UIColor(named: K.LIGHT_ORANGE)!
         }
     }

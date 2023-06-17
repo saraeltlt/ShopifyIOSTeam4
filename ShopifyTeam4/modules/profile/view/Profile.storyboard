@@ -821,7 +821,7 @@
                                                 <color key="textColor" name="orange"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-Ia-lWe">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-Ia-lWe" customClass="DropDown" customModule="ShopifyTeam4" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="55" width="343" height="34"/>
                                                 <color key="backgroundColor" name="paige"/>
                                                 <color key="textColor" name="green"/>
@@ -930,7 +930,7 @@
                     </view>
                     <connections>
                         <outlet property="cityText" destination="I7J-38-Y83" id="8w0-xp-okU"/>
-                        <outlet property="countryText" destination="jgZ-Ia-lWe" id="uRX-ke-ybH"/>
+                        <outlet property="countryTextField" destination="jgZ-Ia-lWe" id="F8m-fq-XJR"/>
                         <outlet property="phoneText" destination="bcM-47-hdW" id="Ul3-Qx-DJF"/>
                         <outlet property="streetText" destination="mMk-dB-iRP" id="lom-wq-XEy"/>
                     </connections>

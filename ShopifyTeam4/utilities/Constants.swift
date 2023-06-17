@@ -66,5 +66,14 @@ struct K {
     //stored favorite products array
     static var idsOfFavoriteProducts:[Int] = []
     
+    
+    
+    static func generateCountries()->[String]{
+            Locale.isoRegionCodes.map { (code) -> String in
+                let identifier = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+                return Locale(identifier: "en_US_POSIX").localizedString(forIdentifier: identifier) ?? "Unknown"
+            }
+        }
+    
 }
 

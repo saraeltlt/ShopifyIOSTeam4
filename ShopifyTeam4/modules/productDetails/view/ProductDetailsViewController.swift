@@ -71,10 +71,10 @@ class ProductDetailsViewController: UIViewController {
             self.pageController.numberOfPages = imagesArray.count
             currentItemFavoriteModel = ProductFavorite(id: productDetails.id, name: productDetails.name, image: productDetails.imagesArray.first ?? "", price: productDetails.price)
             if K.idsOfFavoriteProducts.contains(productDetails.id){
-                self.addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                self.addToFavoriteButtonOutlet.setImage(UIImage(named: K.HEART_FILL), for: .normal)
                 isFavoriteitem = true
             }else{
-                self.addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                self.addToFavoriteButtonOutlet.setImage(UIImage(named: K.HEART), for: .normal)
                 isFavoriteitem = false
             }
             playTimer()

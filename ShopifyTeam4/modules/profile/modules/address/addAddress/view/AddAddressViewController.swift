@@ -12,7 +12,12 @@ class AddAddressViewController: UIViewController {
     
     @IBOutlet weak var phoneText: UITextField!
     @IBOutlet weak var cityText: UITextField!
-    @IBOutlet weak var countryText: UITextField!
+    @IBOutlet weak var countryTextField: DropDown!{
+        didSet{
+            self.countryTextField.optionArray = K.generateCountries()
+            self.countryTextField.selectedRowColor = UIColor(named: K.LIGHT_ORANGE)!
+        }
+    }
     var delegate : AddAddress!
     var viewModel = AddAddressViewModel()
     override func viewDidLoad() {
@@ -28,7 +33,7 @@ class AddAddressViewController: UIViewController {
             let phone = phoneText.text!
             let street = streetText.text!
             let city = cityText.text!
-            let country = countryText.text!
+            let country = countryTextField.text!
             if (!viewModel.isValidPhoneNumber(phone)){
                 self.view.makeToast("Enter a valid phone number", duration: 2 ,title: "ERROR" ,image: UIImage(named: K.WARNINNG_IMAGE))
             }
@@ -43,7 +48,7 @@ class AddAddressViewController: UIViewController {
                         
                     }
                     else if msg == "error"{
-                        self.view.makeToast(self.viewModel.errorMsg, duration: 2 ,title: "ERROR!" ,image: UIImage(named: K.WARNINNG_IMAGE))
+                        self.view.makeToast("Not a valid country", duration: 2 ,title: "ERROR!" ,image: UIImage(named: K.WARNINNG_IMAGE))
                     }
                 }
                 
@@ -60,7 +65,7 @@ class AddAddressViewController: UIViewController {
     }
     
     func isAnyTextFieldEmpty() -> Bool {
-        let textFields: [UITextField] = [streetText, phoneText, cityText, countryText]
+        let textFields: [UITextField] = [streetText, phoneText, cityText, countryTextField]
 
         for textField in textFields {
             if textField.text?.isEmpty ?? true {

@@ -339,20 +339,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAi-dr-Vm5">
                                 <rect key="frame" x="0.0" y="772" width="393" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkT-NX-4or">
-                                        <rect key="frame" x="8" y="8" width="78.666666666666671" height="64"/>
-                                        <color key="tintColor" name="green"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="heart" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="addToFavoriteButtoAction:" destination="VJ9-43-Rip" eventType="touchUpInside" id="af7-Xu-TgF"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycH-RZ-jbd">
-                                        <rect key="frame" x="94.666666666666686" y="15" width="393" height="176"/>
+                                        <rect key="frame" x="103.33333333333331" y="15" width="393" height="176"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="eVf-GL-7nf">
                                                 <rect key="frame" x="0.0" y="5" width="314.33333333333331" height="52.666666666666664"/>
@@ -382,18 +370,29 @@
                                             <constraint firstItem="eVf-GL-7nf" firstAttribute="top" secondItem="ycH-RZ-jbd" secondAttribute="top" constant="5" id="x3M-3q-6Ne"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkT-NX-4or">
+                                        <rect key="frame" x="32" y="23.333333333333371" width="39.333333333333343" height="46"/>
+                                        <color key="tintColor" name="green"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="heart" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToFavoriteButtoAction:" destination="VJ9-43-Rip" eventType="touchUpInside" id="af7-Xu-TgF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93353480099999997" green="0.86000692840000004" blue="0.79690426589999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ycH-RZ-jbd" firstAttribute="height" secondItem="pAi-dr-Vm5" secondAttribute="height" multiplier="2.2" id="32O-Op-bTA"/>
-                                    <constraint firstAttribute="bottom" secondItem="BkT-NX-4or" secondAttribute="bottom" constant="8" id="LdG-TE-c9b"/>
-                                    <constraint firstItem="BkT-NX-4or" firstAttribute="leading" secondItem="pAi-dr-Vm5" secondAttribute="leading" constant="8" id="QMI-Ty-saT"/>
-                                    <constraint firstItem="BkT-NX-4or" firstAttribute="width" secondItem="pAi-dr-Vm5" secondAttribute="width" multiplier="0.2" id="YHW-pY-JPa"/>
                                     <constraint firstAttribute="height" constant="80" id="Ydl-0c-4Pd"/>
-                                    <constraint firstItem="ycH-RZ-jbd" firstAttribute="leading" secondItem="BkT-NX-4or" secondAttribute="trailing" constant="8" id="bDQ-W5-XzZ"/>
+                                    <constraint firstItem="BkT-NX-4or" firstAttribute="centerY" secondItem="eVf-GL-7nf" secondAttribute="centerY" id="eTL-q6-ZoX"/>
                                     <constraint firstItem="ycH-RZ-jbd" firstAttribute="width" secondItem="pAi-dr-Vm5" secondAttribute="width" id="eyZ-Qy-doA"/>
+                                    <constraint firstItem="ycH-RZ-jbd" firstAttribute="leading" secondItem="BkT-NX-4or" secondAttribute="trailing" constant="32" id="ijD-aF-Bah"/>
                                     <constraint firstItem="ycH-RZ-jbd" firstAttribute="top" secondItem="pAi-dr-Vm5" secondAttribute="top" constant="15" id="jMA-u4-0hb"/>
-                                    <constraint firstItem="BkT-NX-4or" firstAttribute="top" secondItem="pAi-dr-Vm5" secondAttribute="top" constant="8" id="xGr-PG-Irp"/>
+                                    <constraint firstItem="BkT-NX-4or" firstAttribute="leading" secondItem="pAi-dr-Vm5" secondAttribute="leading" constant="32" id="pEV-t9-VKY"/>
+                                    <constraint firstItem="BkT-NX-4or" firstAttribute="width" secondItem="pAi-dr-Vm5" secondAttribute="width" multiplier="0.1" id="zgF-T9-UQ2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -876,7 +875,7 @@
     </scenes>
     <resources>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
-        <image name="heart" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="heart" width="32" height="32"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="darkPaige">
             <color red="0.89744136684891807" green="0.83795396697592761" blue="0.78300293058460058" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
