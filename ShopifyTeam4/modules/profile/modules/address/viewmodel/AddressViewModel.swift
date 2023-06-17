@@ -21,6 +21,7 @@ class AddressViewModel {
     func configNavigation() -> CheckoutViewModel{
         return CheckoutViewModel(defaultAddress: defaultAddress, subTotal: subTotal)
     }
+    
     func getAllAddress(){
         let url = URLs.shared.getAllAddress(id: K.USER_ID)
         NetworkManager.shared.getApiData(url: url) { [weak self] (result: Result<CustomerAddress, Error>) in
@@ -45,7 +46,7 @@ class AddressViewModel {
     }
     
     func deleteAddress(at index : Int){
-   
+        self.gellAllAddressesObservable.value=false
             let url = URLs.shared.deleteOrEditAddress(customerID: K.USER_ID, addressID: addressArray[index].id ?? 0)
             NetworkManager.shared.editApiData(method: "DELETE", url: url, completion: {[weak self](result : Result<(Int,String),Error>) in
                 switch (result){

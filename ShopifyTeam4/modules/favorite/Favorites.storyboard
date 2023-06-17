@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LMz-66-c6t">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="124.66666666666669" width="393" height="693.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hgv-tg-hZL">
                                     <size key="itemSize" width="128" height="128"/>
@@ -31,14 +31,23 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="kRL-NE-eAe"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdi-5z-h3y">
+                                <rect key="frame" x="10" y="74" width="373" height="35.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
+                                <color key="textColor" name="orange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="LMz-66-c6t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cde-6d-Mq7"/>
-                            <constraint firstItem="LMz-66-c6t" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="59" id="Cef-l3-iN3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Wdi-5z-h3y" secondAttribute="trailing" constant="10" id="FCx-Bj-tfF"/>
+                            <constraint firstItem="Wdi-5z-h3y" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="Ype-k6-pXA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LMz-66-c6t" secondAttribute="trailing" id="eVZ-ph-n64"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LMz-66-c6t" secondAttribute="bottom" id="qXg-tH-C5M"/>
+                            <constraint firstItem="LMz-66-c6t" firstAttribute="top" secondItem="Wdi-5z-h3y" secondAttribute="bottom" constant="15" id="tg8-bQ-03V"/>
+                            <constraint firstItem="Wdi-5z-h3y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="wHE-7z-8B1"/>
                         </constraints>
                     </view>
                     <connections>
@@ -47,10 +56,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131" y="-27"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="orange">
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="paige">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

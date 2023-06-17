@@ -247,7 +247,7 @@
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
-                                                                <color key="backgroundColor" red="0.93353480099999997" green="0.86000692840000004" blue="0.79690426589999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" name="paige"/>
                                                                 <constraints>
                                                                     <constraint firstItem="NWd-8J-TNr" firstAttribute="top" secondItem="4Nd-QV-ddj" secondAttribute="bottom" constant="24" id="3H8-Pi-CcR"/>
                                                                     <constraint firstAttribute="trailing" secondItem="4Nd-QV-ddj" secondAttribute="trailing" constant="16" id="5b7-s5-sMy"/>
@@ -383,7 +383,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93353480099999997" green="0.86000692840000004" blue="0.79690426589999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="paige"/>
                                 <constraints>
                                     <constraint firstItem="ycH-RZ-jbd" firstAttribute="height" secondItem="pAi-dr-Vm5" secondAttribute="height" multiplier="2.2" id="32O-Op-bTA"/>
                                     <constraint firstAttribute="height" constant="80" id="Ydl-0c-4Pd"/>
@@ -878,7 +878,7 @@
         <image name="heart" width="32" height="32"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="darkPaige">
-            <color red="0.89744136684891807" green="0.83795396697592761" blue="0.78300293058460058" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.8970000147819519" green="0.83799999952316284" blue="0.78299999237060547" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="darkText">
             <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -887,10 +887,10 @@
             <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="textColor">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
