@@ -156,6 +156,7 @@ extension UIViewController {
         myAlert.imageName = imageName
         myAlert.okBtn = confirmBtn
         myAlert.okBtnHandler = handler
+        myAlert.cancelBtn = "Cancel"
         
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve

@@ -326,6 +326,9 @@ extension CategoryViewController:UISearchBarDelegate{
             viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
             viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
             productsCollection.reloadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         }else{
             viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
             viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray

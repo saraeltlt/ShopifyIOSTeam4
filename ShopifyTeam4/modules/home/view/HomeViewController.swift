@@ -242,6 +242,9 @@ extension HomeViewController:UISearchBarDelegate{
         if searchText == "" {
             viewModel.brandsArray = viewModel.backupBrandsArray
             brandsCollection.reloadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         }else{
             viewModel.brandsArray = viewModel.backupBrandsArray
             viewModel.brandsArray = viewModel.brandsArray.filter({ (product) -> Bool in
