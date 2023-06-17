@@ -56,4 +56,9 @@ class HomeViewModel{
             }
         }
     }
+    func setLoggedUserName(){
+        if let user = FUser.currentUser(){
+            K.USER_NAME = user.fullname 
+        }
+    }
 }

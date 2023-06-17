@@ -20,7 +20,7 @@ class FavoriteViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         allFavoriteViewModel = AllFavoritesViewModel()
-        
+        print(K.USER_NAME)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

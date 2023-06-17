@@ -54,6 +54,7 @@ class SignUpViewController: UIViewController {
         signUpViewModel = SignUpViewModel()
         signUpViewModel.failClosure = { (erreorMeg) in
             ProgressHUD.showError(erreorMeg)
+            self.networkIndicator.stopAnimating()
         }
         signUpViewModel.successClosur = { [weak self] in
             guard let self = self else {return}
