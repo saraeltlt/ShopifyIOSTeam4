@@ -9,9 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    
-  
-    
+    @IBOutlet weak var CartItemsCount: UIBarButtonItem!
+    @IBOutlet weak var favoriteCount: UIBarButtonItem!
     @IBOutlet weak var adsCollection: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var brandsCollection: UICollectionView!
@@ -43,6 +42,13 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureFavoritesCountObservation()
+        configureShoppingCartCountObservation()
+        viewModel.getAllSotredFavoriteItems()
+        viewModel.getAllSotredShoppingCardItems()
+    }
+    
     
     
     @IBAction func navigateToShoppingCart(_ sender: UIBarButtonItem) {
@@ -67,7 +73,34 @@ class HomeViewController: UIViewController {
         }
 
     }
+    
+    func configureFavoritesCountObservation(){
+        viewModel.favoritesCount.bind { count in
+            guard let count = count else {return}
+                if let view = self.favoriteCount.value(forKey: "view") as? UIView {
+                    if count > 0 {
+                        view.addBadge(text: "\(count)",color: K.ORANGE)
+                    } else {
+                        view.removeBadge()
+                    }
+                   }
+            
+        }
+    }
 
+    func configureShoppingCartCountObservation(){
+        viewModel.CartItemsCount.bind { count in
+            guard let count = count else {return}
+                if let view = self.CartItemsCount.value(forKey: "view") as? UIView {
+                    if count > 0 {
+                        view.addBadge(text: "\(count)",color: K.ORANGE)
+                    }else {
+                        view.removeBadge()
+                    }
+                   }
+            
+        }
+    }
     
 
 }

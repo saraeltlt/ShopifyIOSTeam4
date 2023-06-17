@@ -10,10 +10,14 @@ import UIKit
 
 class CategoryViewModel{
     var products:Observable<Bool>=Observable(false)
+    var favoritesCount:Observable<Int>=Observable(0)
+    var CartItemsCount:Observable<Int>=Observable(0)
     var categoryProductsArray  = [Product]()
     var filteredProductsArray = [Product] ()
     var isFiltering = false
     var categoryArray:[Category]=[Category(title: "All", image: UIImage(named: K.ALL_IMAGE)!, isSelected: true, categoryId: 0),Category(title: "Men", image: UIImage(named: K.MEN)!, isSelected: false, categoryId: 448684196125),Category(title: "Women", image: UIImage(named: K.WOMEN)!, isSelected: false, categoryId: 448684261661),Category(title: "Kids", image: UIImage(named: K.KIDS)!, isSelected: false, categoryId: 448684294429),Category(title: "Sale", image: UIImage(named: K.SALE)!, isSelected: false, categoryId: 448684327197)]
+    let realmDBServiceInstance = RealmDBServices.instance
+    
     
     func getCategoryProducts(categoryId:Int){
         let url = URLs.shared.categoryProductsURL(id: categoryId)
@@ -40,6 +44,33 @@ class CategoryViewModel{
                     }
                 }
     }
+    
+    func getAllSotredFavoriteItems(){
+        realmDBServiceInstance.getProductsCount(ofType: ProductFavorite.self) { [weak self] errorMessage, productsCount in
+                guard let self = self else {return}
+                if let errorMessage = errorMessage{
+                    print(errorMessage)
+                }else{
+                    if let productsCount = productsCount{
+                        self.favoritesCount.value = productsCount
+                    }
+                }
+            }
+        }
+    
+    
+    func getAllSotredShoppingCardItems(){
+        realmDBServiceInstance.getProductsCount(ofType: ProductCart.self) { [weak self] errorMessage, productsCount in
+                guard let self = self else {return}
+                if let errorMessage = errorMessage{
+                    print(errorMessage)
+                }else{
+                    if let productsCount = productsCount{
+                        self.CartItemsCount.value = productsCount
+                    }
+                }
+            }
+        }
     
     
     

@@ -64,8 +64,19 @@ class RealmDBServices{
     }
     
     
-    
-    
+    func getProductsCount<T: Object>(ofType type: T.Type,completionHandler: @escaping (_ errorMessage: String?, _ productsCount: Int?) -> ()) {
+        initRealmFile { errorMessage in
+            if let errorMessage = errorMessage {
+                completionHandler(errorMessage, nil)
+            } else {
+                let results = self.realmFileReference?.objects(type).count
+                if let results = results {
+                    completionHandler(nil, results)
+                }
+                
+            }
+        }
+    }
     
     
     func deleteAllProducts<T: Object>(ofType type: T.Type, completionHandler: @escaping (_ errorMessage: String?) -> ()) {
