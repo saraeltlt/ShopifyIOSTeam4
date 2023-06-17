@@ -62,7 +62,7 @@
                                         <color key="backgroundColor" name="orange"/>
                                     </backgroundConfiguration>
                                     <attributedString key="attributedSubtitle">
-                                        <fragment content="WishList">
+                                        <fragment content="Favourites">
                                             <attributes>
                                                 <font key="NSFont" size="15" name="Chalkduster"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -103,7 +103,7 @@
                                 <rect key="frame" x="10" y="409" width="394" height="179.5"/>
                                 <color key="tintColor" name="lightOrange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No wishlist to show">
+                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No Favourites to show">
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
@@ -488,6 +488,12 @@
                                     <action selector="continueCheckout:" destination="ADq-9E-6ep" eventType="touchUpInside" id="Utx-6b-q7Q"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCT-Yc-XhC" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="20.5" y="269" width="373" height="358"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tSP-WX-EN7"/>
                         <color key="backgroundColor" name="paige"/>
@@ -497,17 +503,25 @@
                             <constraint firstItem="D0E-Yp-Q8v" firstAttribute="top" secondItem="wzA-Bq-5m1" secondAttribute="bottom" id="ACO-gR-Lmu"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="AIb-V3-cmY"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="top" secondItem="leh-V0-Mtd" secondAttribute="top" id="Qip-F5-4NJ"/>
+                            <constraint firstItem="qCT-Yc-XhC" firstAttribute="width" secondItem="leh-V0-Mtd" secondAttribute="width" multiplier="0.9" id="Qto-JQ-DfR"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="top" secondItem="4TU-Gf-xqm" secondAttribute="bottom" id="R0o-fQ-fuM"/>
+                            <constraint firstItem="qCT-Yc-XhC" firstAttribute="centerX" secondItem="leh-V0-Mtd" secondAttribute="centerX" id="cko-KU-BF2"/>
+                            <constraint firstItem="qCT-Yc-XhC" firstAttribute="height" secondItem="leh-V0-Mtd" secondAttribute="height" multiplier="0.4" id="npr-Tf-Bl9"/>
                             <constraint firstItem="tSP-WX-EN7" firstAttribute="trailing" secondItem="D0E-Yp-Q8v" secondAttribute="trailing" constant="16" id="pDa-NQ-8gA"/>
                             <constraint firstItem="D0E-Yp-Q8v" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" constant="16" id="qXx-O1-kEy"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="height" secondItem="leh-V0-Mtd" secondAttribute="height" multiplier="0.13" id="s01-gx-HeM"/>
                             <constraint firstItem="tSP-WX-EN7" firstAttribute="bottom" secondItem="D0E-Yp-Q8v" secondAttribute="bottom" constant="16" id="xu3-Rc-UR8"/>
+                            <constraint firstItem="qCT-Yc-XhC" firstAttribute="centerY" secondItem="leh-V0-Mtd" secondAttribute="centerY" id="ygl-B0-hSo"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="trailing" secondItem="tSP-WX-EN7" secondAttribute="trailing" id="zbf-CY-jih"/>
                         </constraints>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animationName" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="CheckoutBtn" destination="D0E-Yp-Q8v" id="vYp-Bz-bcG"/>
                         <outlet property="addressTableView" destination="wzA-Bq-5m1" id="fwY-BN-Vu9"/>
+                        <outlet property="loadingView" destination="qCT-Yc-XhC" id="AKR-Lx-ZHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5V6-IJ-dMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1462,9 +1476,6 @@ Your order has been successfully confirmed.</string>
             <point key="canvasLocation" x="6267" y="521"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="hRB-79-qD0"/>
-    </designables>
     <resources>
         <image name="Contact" width="2000" height="2000"/>
         <image name="aboutUS" width="2000" height="2000"/>
@@ -1489,10 +1500,10 @@ Your order has been successfully confirmed.</string>
             <color red="0.88200002908706665" green="0.70599997043609619" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="textColor">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

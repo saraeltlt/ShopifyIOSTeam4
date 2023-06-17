@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 protocol AddAddress{
     func addAdress(address:Address)
 }
@@ -13,6 +14,7 @@ protocol AddAddress{
 class AddressViewController: UIViewController, AddAddress {
     var delegate: UpdateData!
     
+    @IBOutlet weak var loadingView: LottieAnimationView!
     @IBAction func continueCheckout(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
             let viewController = storyboard.instantiateViewController(identifier: "CheckoutViewController") as! CheckoutViewController
@@ -38,11 +40,21 @@ class AddressViewController: UIViewController, AddAddress {
             guard let status = status else {return}
             if status {
                 DispatchQueue.main.async {
+                    self.loadingView.isHidden=true
+                    self.loadingView.stop()
+                    self.addressTableView.isHidden=false
                     self.addressTableView.reloadData()
                 }
             }
+                else{
+                    self.addressTableView.isHidden=true
+                    self.loadingView.isHidden=false
+                    self.loadingView.play()
+                    self.loadingView.loopMode = .loop
+                 
+                }
+            }
         }
-    }
     func custmizeNavigation(){
         let customFont = UIFont(name: "Chalkduster", size: 20)!
         let customColor = UIColor(named: K.PAIGE)!
@@ -137,7 +149,6 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (_, _, completionHandler) in
                 self?.confirmAlert {
                     self?.viewModel.deleteAddress(at:indexPath.row)
-                    self?.addressTableView.reloadData()
                     completionHandler(true)
                 }
                 

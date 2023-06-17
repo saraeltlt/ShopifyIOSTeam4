@@ -183,14 +183,15 @@
                                                     <backgroundConfiguration key="background">
                                                         <color key="backgroundColor" name="orange"/>
                                                     </backgroundConfiguration>
-                                                    <attributedString key="attributedSubtitle">
-                                                        <fragment content="OK">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Ok">
                                                             <attributes>
-                                                                <font key="NSFont" size="22" name="Chalkduster"/>
+                                                                <font key="NSFont" size="18" name="Chalkduster"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
+                                                    <attributedString key="attributedSubtitle"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="saveBtn:" destination="8n1-PR-VVp" eventType="touchUpInside" id="AV1-zI-IWv"/>
@@ -225,14 +226,15 @@
                                                     <backgroundConfiguration key="background">
                                                         <color key="backgroundColor" name="lightOrange"/>
                                                     </backgroundConfiguration>
-                                                    <attributedString key="attributedSubtitle">
+                                                    <attributedString key="attributedTitle">
                                                         <fragment content="Cancel">
                                                             <attributes>
-                                                                <font key="NSFont" size="22" name="Chalkduster"/>
+                                                                <font key="NSFont" size="18" name="Chalkduster"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
+                                                    <attributedString key="attributedSubtitle"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="cancelBtn:" destination="8n1-PR-VVp" eventType="touchUpInside" id="G4g-9y-hFl"/>
@@ -302,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bwk-Ug-8e9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6940" y="-35"/>
+            <point key="canvasLocation" x="3654" y="-35"/>
         </scene>
     </scenes>
     <resources>

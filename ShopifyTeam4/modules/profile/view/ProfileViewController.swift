@@ -47,6 +47,7 @@ class ProfileViewController: UIViewController {
             animationView.loopMode = .loop
             animationView.play()
         }else{
+            welcomeLabel.text="Welcome \(K.USER_NAME)"
             guestView.isHidden=true
             self.navigationController?.navigationBar.isHidden=false
             configureOrdersObservation()

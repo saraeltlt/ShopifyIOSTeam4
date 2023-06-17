@@ -21,7 +21,6 @@ class AddAddressViewModel{
             case .failure(let error):
                 self?.addAddressObservable.value="error"
                 self?.errorMsg = error.localizedDescription
-                print ("HERREEEE YA SARSORRR->",self?.errorMsg)
             }
         }
     }
