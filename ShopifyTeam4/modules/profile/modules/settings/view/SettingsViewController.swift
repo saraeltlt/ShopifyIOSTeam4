@@ -72,6 +72,7 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource{
         case 0:
             let viewController = storyboard.instantiateViewController(identifier: "AddressViewController") as! AddressViewController
             viewController.viewModel = AddressViewModel()
+            viewController.delegate=self
             self.navigationController?.pushViewController(viewController, animated: true)
         case 1:
             let viewController = storyboard.instantiateViewController(identifier: "CurrencyViewController") as! CurrencyViewController

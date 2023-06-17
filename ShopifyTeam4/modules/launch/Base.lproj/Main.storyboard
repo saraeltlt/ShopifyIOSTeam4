@@ -115,12 +115,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv4-6K-4hw">
-                                <rect key="frame" x="10" y="286" width="373" height="35.666666666666686"/>
+                                <rect key="frame" x="10" y="286" width="373" height="33"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" subtitle="Already have an account?" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="plain" subtitle="Already have an account? SignIn" cornerStyle="capsule">
                                     <backgroundConfiguration key="background"/>
-                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                    <fontDescription key="subtitleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="goToLoginBtn:" destination="OXb-3h-CqC" eventType="touchUpInside" id="gwE-K8-wdz"/>
@@ -179,11 +179,18 @@
                                                 </constraints>
                                                 <color key="tintColor" name="paige"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" title="OK" cornerStyle="capsule">
+                                                <buttonConfiguration key="configuration" style="gray" cornerStyle="capsule">
                                                     <backgroundConfiguration key="background">
                                                         <color key="backgroundColor" name="orange"/>
                                                     </backgroundConfiguration>
-                                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="23"/>
+                                                    <attributedString key="attributedSubtitle">
+                                                        <fragment content="OK">
+                                                            <attributes>
+                                                                <font key="NSFont" size="22" name="Chalkduster"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="saveBtn:" destination="8n1-PR-VVp" eventType="touchUpInside" id="AV1-zI-IWv"/>
@@ -218,11 +225,11 @@
                                                     <backgroundConfiguration key="background">
                                                         <color key="backgroundColor" name="lightOrange"/>
                                                     </backgroundConfiguration>
-                                                    <attributedString key="attributedTitle">
+                                                    <attributedString key="attributedSubtitle">
                                                         <fragment content="Cancel">
                                                             <attributes>
-                                                                <font key="NSFont" size="21" name="MarkerFelt-Wide"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                <font key="NSFont" size="22" name="Chalkduster"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -302,10 +309,10 @@
         <image name="cart" width="341.33334350585938" height="341.33334350585938"/>
         <image name="warning" width="42.666667938232422" height="42.666667938232422"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
-            <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88200002908706665" green="0.70599997043609619" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
             <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

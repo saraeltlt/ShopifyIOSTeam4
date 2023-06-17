@@ -43,6 +43,8 @@ class SignUpViewModel{
             case .success(let data):
                 print("Default addres set succefually with: ")
                 print (data)
+                K.DEFAULT_ADDRESS = "\(newAddress.city!) - \(newAddress.country!)"
+                UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS
             case .failure(let error):
                 print (error)
             }

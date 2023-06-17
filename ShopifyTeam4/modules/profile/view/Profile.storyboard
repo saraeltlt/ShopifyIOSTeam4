@@ -25,17 +25,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThJ-K6-8C4">
-                                <rect key="frame" x="15" y="157.5" width="186.5" height="34.5"/>
+                                <rect key="frame" x="15" y="157.5" width="186.5" height="33"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Orders">
+                                <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" cornerRadius="100">
                                         <color key="backgroundColor" name="orange"/>
                                     </backgroundConfiguration>
+                                    <attributedString key="attributedSubtitle">
+                                        <fragment content="Orders">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="Chalkduster"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4L-A9-tSe">
-                                <rect key="frame" x="343.5" y="157" width="70.5" height="36"/>
+                                <rect key="frame" x="343.5" y="156" width="70.5" height="36"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="More" cornerStyle="capsule">
@@ -47,17 +55,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrD-ZX-DYs">
-                                <rect key="frame" x="10" y="389" width="186.5" height="34.5"/>
+                                <rect key="frame" x="10" y="374.5" width="186.5" height="33"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="WishList">
+                                <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" cornerRadius="100">
                                         <color key="backgroundColor" name="orange"/>
                                     </backgroundConfiguration>
+                                    <attributedString key="attributedSubtitle">
+                                        <fragment content="WishList">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="Chalkduster"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghs-bz-Bji">
-                                <rect key="frame" x="336.5" y="388.5" width="70.5" height="36"/>
+                                <rect key="frame" x="336.5" y="373" width="70.5" height="36"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="More" cornerStyle="capsule">
@@ -69,7 +85,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WiW-6g-H9J">
-                                <rect key="frame" x="10" y="432.5" width="394" height="429.5"/>
+                                <rect key="frame" x="10" y="409" width="394" height="453"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Lt-AQ-xV0">
                                     <size key="itemSize" width="128" height="128"/>
@@ -84,7 +100,7 @@
                                 </connections>
                             </collectionView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKB-xf-DiV">
-                                <rect key="frame" x="10" y="424.5" width="394" height="179"/>
+                                <rect key="frame" x="10" y="409" width="394" height="179.5"/>
                                 <color key="tintColor" name="lightOrange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No wishlist to show">
@@ -92,7 +108,7 @@
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="t6u-iK-1kt">
-                                <rect key="frame" x="10" y="200" width="394" height="179"/>
+                                <rect key="frame" x="10" y="190.5" width="394" height="179"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <color key="sectionIndexBackgroundColor" name="paige"/>
                                 <connections>
@@ -101,7 +117,7 @@
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sd-WW-R2f">
-                                <rect key="frame" x="10" y="192" width="394" height="179"/>
+                                <rect key="frame" x="10" y="190.5" width="394" height="179"/>
                                 <color key="tintColor" name="lightOrange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No orders to show">
@@ -182,14 +198,14 @@
                             <constraint firstItem="WiW-6g-H9J" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="JEi-1H-O9u"/>
                             <constraint firstItem="ghs-bz-Bji" firstAttribute="centerY" secondItem="KrD-ZX-DYs" secondAttribute="centerY" id="KBh-5E-YUU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="t6u-iK-1kt" secondAttribute="trailing" constant="10" id="NIP-7n-1Ek"/>
-                            <constraint firstItem="KrD-ZX-DYs" firstAttribute="top" secondItem="t6u-iK-1kt" secondAttribute="bottom" constant="10" id="QRc-TR-21Q"/>
+                            <constraint firstItem="KrD-ZX-DYs" firstAttribute="top" secondItem="t6u-iK-1kt" secondAttribute="bottom" constant="5" id="QRc-TR-21Q"/>
                             <constraint firstItem="jQK-xI-3M3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="TeE-Uf-NuN"/>
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.45" id="Tyg-nu-eto"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jQK-xI-3M3" secondAttribute="trailing" constant="10" id="WfJ-BK-Igm"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="XY2-NP-yPR"/>
                             <constraint firstItem="t6u-iK-1kt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="aH7-BA-zIs"/>
                             <constraint firstItem="R4L-A9-tSe" firstAttribute="centerY" secondItem="ThJ-K6-8C4" secondAttribute="centerY" id="cU2-i2-TBe"/>
-                            <constraint firstItem="t6u-iK-1kt" firstAttribute="top" secondItem="ThJ-K6-8C4" secondAttribute="bottom" constant="8" symbolic="YES" id="cns-zq-QiM"/>
+                            <constraint firstItem="t6u-iK-1kt" firstAttribute="top" secondItem="ThJ-K6-8C4" secondAttribute="bottom" id="cns-zq-QiM"/>
                             <constraint firstItem="9Sd-WW-R2f" firstAttribute="top" secondItem="ThJ-K6-8C4" secondAttribute="bottom" id="cqS-sT-ULT"/>
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="dUI-J9-aAs"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="height" secondItem="9Sd-WW-R2f" secondAttribute="height" id="g51-rd-0XJ"/>
@@ -198,7 +214,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Sd-WW-R2f" secondAttribute="trailing" constant="10" id="scg-pW-Z6f"/>
                             <constraint firstItem="t6u-iK-1kt" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.2" id="tPu-60-EUp"/>
                             <constraint firstItem="KrD-ZX-DYs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="uYc-Ol-oPF"/>
-                            <constraint firstItem="WiW-6g-H9J" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" constant="8" symbolic="YES" id="uej-1M-b0P"/>
+                            <constraint firstItem="WiW-6g-H9J" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" id="uej-1M-b0P"/>
                             <constraint firstItem="fjg-jS-clQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wgF-oI-CX7"/>
                             <constraint firstItem="fjg-jS-clQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yC8-Er-G0q"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" id="ygV-YE-pNI"/>
@@ -312,7 +328,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c78-Uq-pKm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xaJ-4m-FXM" firstAttribute="leading" secondItem="c78-Uq-pKm" secondAttribute="leading" id="2ZU-MA-urS"/>
                             <constraint firstItem="xaJ-4m-FXM" firstAttribute="height" secondItem="hnZ-lD-KUs" secondAttribute="height" multiplier="0.25" id="2gr-yb-JkU"/>
@@ -412,7 +428,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HBG-6H-oZd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pLc-5V-Dqw" firstAttribute="height" secondItem="Dxm-dz-o5O" secondAttribute="height" multiplier="0.25" id="1Tn-Q4-ZH0"/>
                             <constraint firstItem="pLc-5V-Dqw" firstAttribute="top" secondItem="Dxm-dz-o5O" secondAttribute="top" id="7yV-tU-O4u"/>
@@ -611,7 +627,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aq6-c5-nHw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aq6-c5-nHw" firstAttribute="trailing" secondItem="QYk-6q-K5e" secondAttribute="trailing" constant="20" id="7CM-8y-TT5"/>
                             <constraint firstItem="aq6-c5-nHw" firstAttribute="bottom" secondItem="QYk-6q-K5e" secondAttribute="bottom" constant="15" id="GpI-s7-LCt"/>
@@ -805,7 +821,7 @@
                                                 <color key="textColor" name="orange"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-Ia-lWe">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-Ia-lWe" customClass="DropDown" customModule="ShopifyTeam4" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="55" width="343" height="34"/>
                                                 <color key="backgroundColor" name="paige"/>
                                                 <color key="textColor" name="green"/>
@@ -914,7 +930,7 @@
                     </view>
                     <connections>
                         <outlet property="cityText" destination="I7J-38-Y83" id="8w0-xp-okU"/>
-                        <outlet property="countryText" destination="jgZ-Ia-lWe" id="uRX-ke-ybH"/>
+                        <outlet property="countryTextField" destination="jgZ-Ia-lWe" id="F8m-fq-XJR"/>
                         <outlet property="phoneText" destination="bcM-47-hdW" id="Ul3-Qx-DJF"/>
                         <outlet property="streetText" destination="mMk-dB-iRP" id="lom-wq-XEy"/>
                     </connections>
@@ -1073,7 +1089,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="paige"/>
+                                <color key="backgroundColor" name="textColor"/>
                                 <constraints>
                                     <constraint firstItem="IUh-C0-QdG" firstAttribute="top" secondItem="4nG-hL-Ef2" secondAttribute="top" id="7fS-hU-6Jr"/>
                                     <constraint firstItem="LR2-3G-cbU" firstAttribute="leading" secondItem="IUh-C0-QdG" secondAttribute="trailing" constant="10" id="RWC-A8-xnm"/>
@@ -1106,7 +1122,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="paige"/>
+                                <color key="backgroundColor" name="textColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Jxz-xF-3Ye" secondAttribute="trailing" constant="15" id="A4U-an-zNR"/>
                                     <constraint firstItem="c4H-QR-0WF" firstAttribute="top" secondItem="eSe-aM-Que" secondAttribute="top" id="GVk-WX-2zK"/>
@@ -1318,7 +1334,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A6v-SR-vTz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="A6v-SR-vTz" firstAttribute="trailing" secondItem="lbt-g8-Ri5" secondAttribute="trailing" constant="20" id="4fM-IA-poX"/>
                             <constraint firstAttribute="trailing" secondItem="SfC-Jz-6wB" secondAttribute="trailing" id="5HZ-09-eSg"/>
@@ -1425,7 +1441,7 @@ Your order has been successfully confirmed.</string>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l4f-SN-XqW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rkI-Ij-Oeb" firstAttribute="leading" secondItem="l4f-SN-XqW" secondAttribute="leading" constant="20" id="0hu-Ob-Jhb"/>
                             <constraint firstItem="uRv-cb-zKK" firstAttribute="top" secondItem="jBE-Sb-gLr" secondAttribute="top" id="85h-5K-IyL"/>
@@ -1464,19 +1480,22 @@ Your order has been successfully confirmed.</string>
         <image name="plus" width="128" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightGreen">
             <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
-            <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88200002908706665" green="0.70599997043609619" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

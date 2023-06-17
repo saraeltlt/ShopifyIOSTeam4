@@ -71,10 +71,10 @@ class ProductDetailsViewController: UIViewController {
             self.pageController.numberOfPages = imagesArray.count
             currentItemFavoriteModel = ProductFavorite(id: productDetails.id, name: productDetails.name, image: productDetails.imagesArray.first ?? "", price: productDetails.price)
             if K.idsOfFavoriteProducts.contains(productDetails.id){
-                self.addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                self.addToFavoriteButtonOutlet.setImage(UIImage(named: K.HEART_FILL), for: .normal)
                 isFavoriteitem = true
             }else{
-                self.addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                self.addToFavoriteButtonOutlet.setImage(UIImage(named: K.HEART), for: .normal)
                 isFavoriteitem = false
             }
             playTimer()
@@ -160,7 +160,7 @@ extension ProductDetailsViewController{
                 let msg = viewModel.removeFromFavorite()
                 if msg == "Product removed successfully"{
                     self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                    addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                    addToFavoriteButtonOutlet.setImage(UIImage(named: K.HEART), for: .normal)
                     isFavoriteitem = false
                     guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
                     K.idsOfFavoriteProducts.remove(at: itemIndex)
@@ -172,7 +172,7 @@ extension ProductDetailsViewController{
             let msg = viewModel.addToFavorite()
             if msg == "Product added successfully"{
                 self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                addToFavoriteButtonOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                addToFavoriteButtonOutlet.setImage(UIImage(named: K.HEART_FILL), for: .normal)
                 isFavoriteitem = true
                 K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
             }else{

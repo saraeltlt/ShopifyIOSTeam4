@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 class HomeViewModel{
     var brands:Observable<Bool>=Observable(false)
+    var favoritesCount:Observable<Int>=Observable(0)
+    var CartItemsCount:Observable<Int>=Observable(0)
     var brandsArray  = [Product]()
     var advertesmentsArray:[UIImage]=[UIImage(named: "ads3")!,UIImage(named: "ads2")!,UIImage(named: "ads1")!]
     let realmDBServiceInstance = RealmDBServices.instance
@@ -26,6 +28,37 @@ class HomeViewModel{
                     }
                 }
     }
+    
+    
+    func getAllSotredFavoriteItems(){
+        realmDBServiceInstance.getProductsCount(ofType: ProductFavorite.self) { [weak self] errorMessage, productsCount in
+                guard let self = self else {return}
+                if let errorMessage = errorMessage{
+                    print(errorMessage)
+                }else{
+                    if let productsCount = productsCount{
+                        self.favoritesCount.value = productsCount
+                    }
+                }
+            }
+        }
+    
+    
+    func getAllSotredShoppingCardItems(){
+        realmDBServiceInstance.getProductsCount(ofType: ProductCart.self) { [weak self] errorMessage, productsCount in
+                guard let self = self else {return}
+                if let errorMessage = errorMessage{
+                    print(errorMessage)
+                }else{
+                    if let productsCount = productsCount{
+                        self.CartItemsCount.value = productsCount
+                    }
+                }
+            }
+        }
+      
+
+    
     
     func getBrandsCount()->Int{
         return brandsArray.count

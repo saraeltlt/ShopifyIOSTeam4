@@ -31,33 +31,17 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="kRL-NE-eAe"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="WNu-w6-1H3">
-                                <rect key="frame" x="30" y="50" width="45" height="45"/>
-                                <color key="backgroundColor" name="green"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="1TU-un-SLF"/>
-                                    <constraint firstAttribute="height" constant="45" id="Hku-hc-x0U"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="backButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="t5L-uf-HyN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
-                            <constraint firstItem="WNu-w6-1H3" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="50" id="2GN-ZJ-rul"/>
                             <constraint firstItem="LMz-66-c6t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cde-6d-Mq7"/>
                             <constraint firstItem="LMz-66-c6t" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="59" id="Cef-l3-iN3"/>
-                            <constraint firstItem="WNu-w6-1H3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="RBa-w9-xAA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LMz-66-c6t" secondAttribute="trailing" id="eVZ-ph-n64"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LMz-66-c6t" secondAttribute="bottom" id="qXg-tH-C5M"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButtonOutlet" destination="WNu-w6-1H3" id="CEJ-pJ-vpR"/>
                         <outlet property="favoriteCollectionView" destination="LMz-66-c6t" id="lhD-eZ-YGr"/>
                     </connections>
                 </viewController>
@@ -67,10 +51,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
-        <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="paige">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

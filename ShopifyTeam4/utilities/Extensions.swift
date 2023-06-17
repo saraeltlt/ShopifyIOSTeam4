@@ -175,3 +175,35 @@ extension String {
 
 }
 
+//MARK: - Custom String date
+extension UIView {
+    private static let badgeTag = 999
+
+    func addBadge(text: String,color:String) {
+        let badgeLabel = UILabel()
+        badgeLabel.tag = UIButton.badgeTag
+        badgeLabel.textAlignment = .center
+        badgeLabel.textColor = .white
+        badgeLabel.backgroundColor = UIColor(named: color)
+        badgeLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        badgeLabel.layer.cornerRadius = 8
+        badgeLabel.clipsToBounds = true
+
+        badgeLabel.text = text
+        badgeLabel.sizeToFit()
+        let badgeSize = CGSize(width: badgeLabel.frame.size.width + 8, height: 16)
+        badgeLabel.frame = CGRect(origin: .zero, size: badgeSize)
+
+        let badgeX = self.frame.size.width - badgeLabel.frame.size.width - 4
+        let badgeY = (self.frame.size.height - badgeLabel.frame.size.height) / 6
+        badgeLabel.frame.origin = CGPoint(x: badgeX, y: badgeY)
+
+        badgeLabel.layer.zPosition = 1
+        self.addSubview(badgeLabel)
+    }
+
+    func removeBadge() {
+        self.subviews.filter { $0.tag == UIButton.badgeTag }.forEach { $0.removeFromSuperview() }
+    }
+}
+
