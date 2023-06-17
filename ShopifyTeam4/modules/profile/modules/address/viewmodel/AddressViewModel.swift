@@ -30,6 +30,7 @@ class AddressViewModel {
                 for address in data.addresses!{
                     if address.isDefault{
                         self?.defaultAddress = address
+                        K.DEFAULT_ADDRESS = "\(address.city) - \(address.country)"
                     }else{
                         self?.addressArray.append(address)
                     }

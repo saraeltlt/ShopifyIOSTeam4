@@ -13,6 +13,7 @@ class addressCell: UITableViewCell {
     @IBOutlet weak var phoneNumber: UIButton!
     @IBOutlet weak var defaultBtn: UIButton!
     @IBOutlet weak var addressDetails: UIButton!
+    var delegate: UpdateData!
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -24,6 +25,10 @@ class addressCell: UITableViewCell {
     func configure(address:Address){
         phoneNumber.subtitleLabel?.text = address.phone
         addressDetails.subtitleLabel?.text = "\(address.address1 ?? "") - \(address.city ?? "") - \(address.country ?? "") "
+        if (address.isDefault){
+            K.DEFAULT_ADDRESS = "\(address.city) - \(address.country)"
+            delegate.reloadTable()
+        }
         
     }
     
