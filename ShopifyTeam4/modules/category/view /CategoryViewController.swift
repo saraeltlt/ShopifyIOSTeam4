@@ -10,9 +10,13 @@ import ProgressHUD
 
 class CategoryViewController: UIViewController {
     
+
+    @IBOutlet weak var searchBar: UISearchBar!
+
     
     @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
     @IBOutlet weak var favoritesCount: UIBarButtonItem!
+
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var productsCollection: UICollectionView!
     @IBOutlet weak var categoryCollection: UICollectionView!
@@ -290,22 +294,28 @@ extension CategoryViewController:UICollectionViewDelegate
             detailsVC.modalTransitionStyle = .crossDissolve
             present(detailsVC, animated: true)
         }
-        
-        
     }
-    
-    
     func changeSelectedCellBackground(index:Int){
         viewModel.changeCategoriesIsSelectedStatus(index: index)
         viewModel.isFiltering = false
         self.categoryCollection.reloadData()
-        
     }
-    
-    
-    
-    
-    
-    
-    
+}
+extension CategoryViewController:UISearchBarDelegate{
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
+        productsCollection.reloadData()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
+            productsCollection.reloadData()
+        }else{
+            viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
+            viewModel.categoryProductsArray = viewModel.categoryProductsArray.filter({ (product) -> Bool in
+                product.title!.starts(with: searchText.lowercased()) || product.title!.starts(with: searchText.uppercased())
+            })
+            productsCollection.reloadData()
+        }
+    }
 }

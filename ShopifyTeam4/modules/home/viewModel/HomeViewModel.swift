@@ -12,6 +12,7 @@ class HomeViewModel{
     var favoritesCount:Observable<Int>=Observable(0)
     var CartItemsCount:Observable<Int>=Observable(0)
     var brandsArray  = [Product]()
+    var backupBrandsArray  = [Product]()
     var advertesmentsArray:[UIImage]=[UIImage(named: "ads3")!,UIImage(named: "ads2")!,UIImage(named: "ads1")!]
     let realmDBServiceInstance = RealmDBServices.instance
     
@@ -22,6 +23,7 @@ class HomeViewModel{
                     switch result {
                     case .success(let brands):
                         self?.brandsArray = brands.smartCollections!
+                        self?.backupBrandsArray = brands.smartCollections!
                         self?.brands.value = true
                     case .failure(let error):
                         print(error)

@@ -13,6 +13,7 @@ class CategoryViewModel{
     var favoritesCount:Observable<Int>=Observable(0)
     var CartItemsCount:Observable<Int>=Observable(0)
     var categoryProductsArray  = [Product]()
+    var backupCategoryProductsArray  = [Product]()
     var filteredProductsArray = [Product] ()
     var isFiltering = false
     var categoryArray:[Category]=[Category(title: "All", image: UIImage(named: K.ALL_IMAGE)!, isSelected: true, categoryId: 0),Category(title: "Men", image: UIImage(named: K.MEN)!, isSelected: false, categoryId: 448684196125),Category(title: "Women", image: UIImage(named: K.WOMEN)!, isSelected: false, categoryId: 448684261661),Category(title: "Kids", image: UIImage(named: K.KIDS)!, isSelected: false, categoryId: 448684294429),Category(title: "Sale", image: UIImage(named: K.SALE)!, isSelected: false, categoryId: 448684327197)]
@@ -25,6 +26,7 @@ class CategoryViewModel{
                     switch result {
                     case .success(let products):
                         self?.categoryProductsArray = products.brandProducts!
+                        self?.backupCategoryProductsArray = products.brandProducts!
                         self?.products.value = true
                     case .failure(let error):
                         print(error)
@@ -38,6 +40,7 @@ class CategoryViewModel{
                     switch result {
                     case .success(let products):
                         self?.categoryProductsArray = products.brandProducts!
+                        self?.backupCategoryProductsArray = products.brandProducts!
                         self?.products.value = true
                     case .failure(let error):
                         print(error)

@@ -17,6 +17,7 @@ class BrandProductsViewController: UIViewController {
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var filterContainer: UIView!
     @IBOutlet weak var filterContainerHeightConstrain: NSLayoutConstraint!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productsCollection: UICollectionView!
     var isFilterHidden = true
     var viewModel:BrandProductsViewModel?
@@ -76,9 +77,6 @@ class BrandProductsViewController: UIViewController {
         }
     }
 }
-
-
-
 
 extension BrandProductsViewController:UICollectionViewDelegate
 ,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -195,11 +193,22 @@ extension BrandProductsViewController:UICollectionViewDelegate
         detailsVC.modalTransitionStyle = .crossDissolve
         present(detailsVC, animated: true)
     }
-    
-    
-    
-    
-    
-    
-    
+}
+extension BrandProductsViewController:UISearchBarDelegate{
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel?.brandProductsArray = viewModel!.backupBrandProductsArray
+        productsCollection.reloadData()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            viewModel?.brandProductsArray = viewModel!.backupBrandProductsArray
+            productsCollection.reloadData()
+        }else{
+            viewModel?.brandProductsArray = viewModel!.backupBrandProductsArray
+            viewModel!.brandProductsArray = viewModel!.brandProductsArray.filter({ (product) -> Bool in
+                product.title!.starts(with: searchText.lowercased()) || product.title!.starts(with: searchText.uppercased())
+            })
+            productsCollection.reloadData()
+        }
+    }
 }

@@ -82,7 +82,7 @@
                                 <color key="barTintColor" name="green"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="uV1-d8-mrQ"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="v3g-CC-bzx"/>
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0lb-Rs-x7N">
@@ -158,6 +158,7 @@
                         <outlet property="container" destination="8GI-YK-cLc" id="XIq-bl-SMc"/>
                         <outlet property="favoriteCount" destination="fuS-Q6-N58" id="LJV-HX-QBf"/>
                         <outlet property="pageController" destination="MA6-82-Yqk" id="Jjj-4G-E5m"/>
+                        <outlet property="searchBar" destination="G2B-Ox-vSg" id="ejG-gz-STB"/>
                         <segue destination="p38-G4-17j" kind="show" id="BVa-kN-zzh"/>
                     </connections>
                 </viewController>
@@ -273,6 +274,7 @@
                         <outlet property="priceFilter" destination="wTc-49-rON" id="kbh-yA-7Hw"/>
                         <outlet property="priceSliderFilter" destination="Ehc-be-qEr" id="Ngj-xE-aY9"/>
                         <outlet property="productsCollection" destination="wJ6-ot-Qag" id="vq0-Fb-d23"/>
+                        <outlet property="searchBar" destination="HNx-37-xvs" id="8YL-i4-dFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rn1-MB-UZP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -395,6 +397,8 @@
                         <outlet property="container" destination="bHc-oo-YpE" id="tC6-UT-23r"/>
                         <outlet property="favoritesCount" destination="kod-dR-YoO" id="0rb-LE-MC0"/>
                         <outlet property="productsCollection" destination="DbD-Pp-RJH" id="lIm-Ms-wNA"/>
+
+                        <outlet property="searchBar" destination="P3v-N9-6CN" id="Rrx-NQ-VPS"/>
                         <outlet property="shoppingCartCount" destination="Gsb-My-MTa" id="ARc-3P-swD"/>
                     </connections>
                 </viewController>
