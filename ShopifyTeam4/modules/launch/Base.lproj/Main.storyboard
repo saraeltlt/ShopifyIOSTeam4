@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Px5-89-uv1">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -309,10 +310,10 @@
         <image name="cart" width="341.33334350585938" height="341.33334350585938"/>
         <image name="warning" width="42.666667938232422" height="42.666667938232422"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29411764705882354" green="0.44705882352941173" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
-            <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88235294117647056" green="0.70588235294117641" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
             <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

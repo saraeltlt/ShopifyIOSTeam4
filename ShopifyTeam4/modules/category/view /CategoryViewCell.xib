@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -39,7 +40,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eM7-rI-uVp">
                                 <rect key="frame" x="85" y="135.66666666666666" width="121" height="14"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="11"/>
-                                <color key="textColor" name="paige"/>
+                                <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -73,9 +74,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="test" width="500" height="500"/>
-        <namedColor name="paige">
-            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <image name="test" width="1024" height="1024"/>
+        <namedColor name="textColor">
+            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

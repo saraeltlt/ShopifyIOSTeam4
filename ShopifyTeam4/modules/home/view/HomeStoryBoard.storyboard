@@ -490,7 +490,7 @@
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightGreen">
             <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

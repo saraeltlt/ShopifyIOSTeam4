@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fB5-Rf-ol5" firstAttribute="centerY" secondItem="Nqg-Oj-HB4" secondAttribute="centerY" id="87i-eE-lcZ"/>
                             <constraint firstItem="fuU-u8-xg3" firstAttribute="centerY" secondItem="Nqg-Oj-HB4" secondAttribute="centerY" id="Cf8-Tu-AQM"/>
@@ -106,7 +106,7 @@
     <resources>
         <image name="arrowshape.bounce.right.fill" catalog="system" width="128" height="86"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29411764705882354" green="0.44705882352941173" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
             <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rla-Jy-KRZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -328,7 +329,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c78-Uq-pKm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xaJ-4m-FXM" firstAttribute="leading" secondItem="c78-Uq-pKm" secondAttribute="leading" id="2ZU-MA-urS"/>
                             <constraint firstItem="xaJ-4m-FXM" firstAttribute="height" secondItem="hnZ-lD-KUs" secondAttribute="height" multiplier="0.25" id="2gr-yb-JkU"/>
@@ -428,7 +429,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HBG-6H-oZd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pLc-5V-Dqw" firstAttribute="height" secondItem="Dxm-dz-o5O" secondAttribute="height" multiplier="0.25" id="1Tn-Q4-ZH0"/>
                             <constraint firstItem="pLc-5V-Dqw" firstAttribute="top" secondItem="Dxm-dz-o5O" secondAttribute="top" id="7yV-tU-O4u"/>
@@ -627,7 +628,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aq6-c5-nHw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aq6-c5-nHw" firstAttribute="trailing" secondItem="QYk-6q-K5e" secondAttribute="trailing" constant="20" id="7CM-8y-TT5"/>
                             <constraint firstItem="aq6-c5-nHw" firstAttribute="bottom" secondItem="QYk-6q-K5e" secondAttribute="bottom" constant="15" id="GpI-s7-LCt"/>
@@ -1089,7 +1090,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="paige"/>
+                                <color key="backgroundColor" name="textColor"/>
                                 <constraints>
                                     <constraint firstItem="IUh-C0-QdG" firstAttribute="top" secondItem="4nG-hL-Ef2" secondAttribute="top" id="7fS-hU-6Jr"/>
                                     <constraint firstItem="LR2-3G-cbU" firstAttribute="leading" secondItem="IUh-C0-QdG" secondAttribute="trailing" constant="10" id="RWC-A8-xnm"/>
@@ -1122,7 +1123,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="paige"/>
+                                <color key="backgroundColor" name="textColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Jxz-xF-3Ye" secondAttribute="trailing" constant="15" id="A4U-an-zNR"/>
                                     <constraint firstItem="c4H-QR-0WF" firstAttribute="top" secondItem="eSe-aM-Que" secondAttribute="top" id="GVk-WX-2zK"/>
@@ -1334,7 +1335,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A6v-SR-vTz"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="A6v-SR-vTz" firstAttribute="trailing" secondItem="lbt-g8-Ri5" secondAttribute="trailing" constant="20" id="4fM-IA-poX"/>
                             <constraint firstAttribute="trailing" secondItem="SfC-Jz-6wB" secondAttribute="trailing" id="5HZ-09-eSg"/>
@@ -1441,7 +1442,7 @@ Your order has been successfully confirmed.</string>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l4f-SN-XqW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rkI-Ij-Oeb" firstAttribute="leading" secondItem="l4f-SN-XqW" secondAttribute="leading" constant="20" id="0hu-Ob-Jhb"/>
                             <constraint firstItem="uRv-cb-zKK" firstAttribute="top" secondItem="jBE-Sb-gLr" secondAttribute="top" id="85h-5K-IyL"/>
@@ -1480,19 +1481,22 @@ Your order has been successfully confirmed.</string>
         <image name="plus" width="128" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightGreen">
             <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
-            <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88235294117647056" green="0.70588235294117641" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
             <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
             <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

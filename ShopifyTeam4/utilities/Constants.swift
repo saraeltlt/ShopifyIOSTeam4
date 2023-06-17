@@ -32,6 +32,7 @@ struct K {
     static let PAIGE = "paige"
     static let GREEN = "green"
     static let LIGHT_GREEN = "lightGreen"
+    static let TITLE_COLOR = "textColor"
     
     //images
     static let CART_IMAGE = "cart"
