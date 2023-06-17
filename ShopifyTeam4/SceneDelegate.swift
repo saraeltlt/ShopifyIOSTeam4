@@ -65,6 +65,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             K.CART_ID = 0
         }
+        if let defaultAddress = UserDefaults.DefaultAddress {
+            K.DEFAULT_ADDRESS = defaultAddress
+        } else {
+            K.DEFAULT_ADDRESS  = ""
+        }
 
     }
 

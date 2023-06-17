@@ -26,7 +26,8 @@ class addressCell: UITableViewCell {
         phoneNumber.subtitleLabel?.text = address.phone
         addressDetails.subtitleLabel?.text = "\(address.address1 ?? "") - \(address.city ?? "") - \(address.country ?? "") "
         if (address.isDefault){
-            K.DEFAULT_ADDRESS = "\(address.city) - \(address.country)"
+            K.DEFAULT_ADDRESS = "\(address.city!) - \(address.country!)"
+            UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS
             delegate.reloadTable()
         }
         

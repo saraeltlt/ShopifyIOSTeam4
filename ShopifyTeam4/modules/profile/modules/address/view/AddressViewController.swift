@@ -11,7 +11,7 @@ protocol AddAddress{
 }
 
 class AddressViewController: UIViewController, AddAddress {
-
+    var delegate: UpdateData!
     
     @IBAction func continueCheckout(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
@@ -104,6 +104,7 @@ extension AddressViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: K.ADDRESS_CELL, for: indexPath) as! addressCell
+        cell.delegate=delegate
         if (indexPath.section==0){
             cell.defaultBtn.isHidden=false
             cell.defaultView.isHidden=false
