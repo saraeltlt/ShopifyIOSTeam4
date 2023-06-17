@@ -10,6 +10,7 @@ import UIKit
 class OptionsViewController: UIViewController {
 
     @IBAction func goToHomeBtn(_ sender: UIButton) {
+        K.GUEST_MOOD=true
        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
        let home = storyboard.instantiateViewController(identifier: "tab") as! UITabBarController
        home.modalPresentationStyle = .fullScreen

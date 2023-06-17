@@ -43,8 +43,8 @@ class BrandProductsViewController: UIViewController {
         }
         setUpPriceFilterObservation()
         productsCollection.reloadData()
-    
-
+        
+        
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
@@ -61,7 +61,7 @@ class BrandProductsViewController: UIViewController {
         }onCompleted: { print("completed")
         }.disposed(by: disposBag)
     }
-   
+    
     @IBAction func filter(_ sender: UIBarButtonItem) {
         if isFilterHidden{
             self.filterContainerHeightConstrain.constant += self.view.bounds.height*0.0551643
@@ -97,7 +97,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
-       
+        
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.getProductsCount() ?? 0
@@ -122,60 +122,64 @@ extension BrandProductsViewController:UICollectionViewDelegate
         return cell
     }
     @objc func buttonTapped(_ sender: FavoriteButton) {
-        var currentProduct = viewModel!.getProductData(index: sender.cellIndex)
-        currentItemFavoriteModel = ProductFavorite(id: currentProduct.id!, name: currentProduct.title!, image: (currentProduct.images?.first?.src)!, price: (currentProduct.variants?.first?.price)!)
-        if sender.isFavoriteItem{
-            confirmAlert { [weak self] in
-                guard let self = self else {return}
-                let msg = viewModel!.removeFromFavorite(productId: currentItemFavoriteModel.id)
-                if msg == "Product removed successfully"{
-                    self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                    sender.setImage(UIImage(systemName: "heart"), for: .normal)
-                    sender.isFavoriteItem = false
-                    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
-                    K.idsOfFavoriteProducts.remove(at: itemIndex)
+        if (K.GUEST_MOOD){
+            self.GuestMoodAlert()
+        }else{
+            var currentProduct = viewModel!.getProductData(index: sender.cellIndex)
+            currentItemFavoriteModel = ProductFavorite(id: currentProduct.id!, name: currentProduct.title!, image: (currentProduct.images?.first?.src)!, price: (currentProduct.variants?.first?.price)!)
+            if sender.isFavoriteItem{
+                confirmAlert { [weak self] in
+                    guard let self = self else {return}
+                    let msg = viewModel!.removeFromFavorite(productId: currentItemFavoriteModel.id)
+                    if msg == "Product removed successfully"{
+                        self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                        sender.setImage(UIImage(systemName: "heart"), for: .normal)
+                        sender.isFavoriteItem = false
+                        guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
+                        K.idsOfFavoriteProducts.remove(at: itemIndex)
+                    }else{
+                        ProgressHUD.showError(msg)
+                    }
+                }
+            }else{
+                let msg = viewModel!.addToFavorite(product: currentItemFavoriteModel)
+                if msg == "Product added successfully"{
+                    self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                    sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    sender.isFavoriteItem = true
+                    K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
                 }else{
                     ProgressHUD.showError(msg)
                 }
             }
-        }else{
-            let msg = viewModel!.addToFavorite(product: currentItemFavoriteModel)
-            if msg == "Product added successfully"{
-                self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                sender.isFavoriteItem = true
-                K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
-            }else{
-                ProgressHUD.showError(msg)
+            let initialSize = CGFloat(17)
+            let expandedSize = CGFloat(25)
+            UIView.animate(withDuration: 0.5, animations: {
+                let originalImage = sender.image(for: .normal)
+                let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
+                sender.setImage(expandedImage, for: .normal)
+                sender.layoutIfNeeded()
+            }) { _ in
+                UIView.animate(withDuration: 0.5, animations: {
+                    let originalImage = sender.image(for: .normal)
+                    let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
+                    sender.setImage(resizedImage, for: .normal)
+                    sender.layoutIfNeeded()
+                })
             }
         }
-         let initialSize = CGFloat(17)
-          let expandedSize = CGFloat(25)
-         UIView.animate(withDuration: 0.5, animations: {
-              let originalImage = sender.image(for: .normal)
-              let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
-              sender.setImage(expandedImage, for: .normal)
-              sender.layoutIfNeeded()
-          }) { _ in
-              UIView.animate(withDuration: 0.5, animations: {
-                  let originalImage = sender.image(for: .normal)
-                  let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
-                  sender.setImage(resizedImage, for: .normal)
-                  sender.layoutIfNeeded()
-              })
-          }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-     
+        
         return CGSize(width: (collectionView.bounds.width*0.45), height: (collectionView.bounds.height*0.45))
-  
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return  20
-    
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-
+        
         return  0.1
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -185,7 +189,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
         let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-       // detailsVC.viewModel = viewModel?.configNavigation(index: indexPath.row)
+        // detailsVC.viewModel = viewModel?.configNavigation(index: indexPath.row)
         detailsVC.productId = viewModel?.brandProductsArray[indexPath.row].id ?? 0
         detailsVC.modalPresentationStyle = .fullScreen
         detailsVC.modalTransitionStyle = .crossDissolve
@@ -193,7 +197,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
     }
     
     
-
+    
     
     
     

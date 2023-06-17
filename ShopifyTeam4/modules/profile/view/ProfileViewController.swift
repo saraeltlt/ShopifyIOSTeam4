@@ -7,9 +7,14 @@
 
 import UIKit
 import ProgressHUD
+import Lottie
 
 class ProfileViewController: UIViewController {
-
+    
+    @IBOutlet weak var animationView: LottieAnimationView!
+    @IBOutlet weak var noOrders: UIButton!
+    @IBOutlet weak var noWishlist: UIButton!
+    @IBOutlet weak var guestView: UIView!
     @IBOutlet weak var favCollection: UICollectionView!
     @IBOutlet weak var ordersTableView: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -24,16 +29,37 @@ class ProfileViewController: UIViewController {
         viewModel.successClosure = {
             self.favCollection.reloadData()
         }
-
+        
+        
+    }
+    @IBAction func goToLogin(_ sender: UIButton) {
+        K.GUEST_MOOD=false
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
+        viewController.modalPresentationStyle = .fullScreen
+          viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+          self.present(viewController, animated: false, completion: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
-        configureOrdersObservation()
-        viewModel.favoriteProducts = []
-        viewModel.getAllOrders()
-        viewModel.getAllSotredFavoriteItems()
-        favCollection.reloadData()
+        if (K.GUEST_MOOD){
+            guestView.isHidden=false
+            self.navigationController?.navigationBar.isHidden=true
+            animationView.animationSpeed=1.5
+            animationView.loopMode = .loop
+            animationView.play()
+        }else{
+            guestView.isHidden=true
+            self.navigationController?.navigationBar.isHidden=false
+            configureOrdersObservation()
+            viewModel.favoriteProducts = []
+            viewModel.getAllOrders()
+            viewModel.getAllSotredFavoriteItems()
+            favCollection.reloadData()
+        }
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        animationView.stop()
+    }
     private func setupCells() {
         ordersTableView.register(UINib(nibName: K.ORDERS_CELL, bundle: nil), forCellReuseIdentifier: K.ORDERS_CELL)
         favCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
@@ -58,7 +84,7 @@ class ProfileViewController: UIViewController {
     
     
     // MARK: - Favourite product Section
-
+    
     func favSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
@@ -68,7 +94,7 @@ class ProfileViewController: UIViewController {
         )
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
         
-
+        
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
@@ -83,7 +109,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
- // MARK: - Orders section 
+// MARK: - Orders section
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     func configureOrdersObservation(){
         viewModel.orders.bind { status in
@@ -98,7 +124,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getordersCount()
+        let rowCount = viewModel.getordersCount()
+        if rowCount==0{
+            noOrders.isHidden=false
+        }else{
+            noOrders.isHidden=true
+        }
+        return rowCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,24 +149,33 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if viewModel.favoriteProducts.count > 3{
+        let itemsCount = viewModel.favoriteProducts.count
+        
+        
+        if itemsCount > 3{
             return 4
         }else{
-            return viewModel.favoriteProducts.count
+            if itemsCount==0{
+                noWishlist.isHidden=false
+            }else{
+                noWishlist.isHidden=true
+            }
+            return itemsCount
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
-            as! BrandViewCell
-            cell.addToFavorite.isHidden = false
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)
+        as! BrandViewCell
+        cell.addToFavorite.isHidden = false
         let product = viewModel.favoriteProducts[indexPath.row]
-            cell.configureCell(title: product.name, imageUrl: product.image, price: product.price)
-            cell.addToFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            cell.addToFavorite.isFavoriteItem = true
-            cell.addToFavorite.cellIndex = indexPath.row
-            cell.addToFavorite.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-            return cell
+        cell.configureCell(title: product.name, imageUrl: product.image, price: product.price)
+        cell.addToFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        cell.addToFavorite.isFavoriteItem = true
+        cell.addToFavorite.cellIndex = indexPath.row
+        cell.addToFavorite.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
@@ -160,7 +201,7 @@ extension ProfileViewController{
                 ProgressHUD.showError(msg)
             }
         }
-    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else {return }
-    K.idsOfFavoriteProducts.remove(at: itemIndex)
+        guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else {return }
+        K.idsOfFavoriteProducts.remove(at: itemIndex)
     }
 }

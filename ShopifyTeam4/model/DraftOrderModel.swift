@@ -11,6 +11,7 @@ class DraftOrderProduct : Codable{
     var price:Number?
     var title:String?
     var imagSrc:String?
+    
     enum CodingKeys: String, CodingKey {
         case quantity
         case price

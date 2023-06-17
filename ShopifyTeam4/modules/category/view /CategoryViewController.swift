@@ -9,7 +9,7 @@ import UIKit
 import ProgressHUD
 
 class CategoryViewController: UIViewController {
-
+    
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var productsCollection: UICollectionView!
     @IBOutlet weak var categoryCollection: UICollectionView!
@@ -24,7 +24,7 @@ class CategoryViewController: UIViewController {
         self.container.layer.masksToBounds = true
         self.categoryCollection.register(UINib(nibName: K.CATEGORY_CELL, bundle: nil), forCellWithReuseIdentifier: K.CATEGORY_CELL)
         self.productsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
-       setupButtons()
+        setupButtons()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +32,7 @@ class CategoryViewController: UIViewController {
         productsCollection.reloadData()
         
     }
-
+    
     
     func setupButtons(){
         let t_shirts = ActionButtonItem(title: "T-SHIRTS", image: UIImage(named: K.TSHIRT))
@@ -62,16 +62,28 @@ class CategoryViewController: UIViewController {
         actionButton.action = { button in button.toggleMenu()}
     }
     @IBAction func navigateToFavoriteScreen(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
-        let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .fullScreen
-        favoriteVC.modalTransitionStyle = .crossDissolve
-        present(favoriteVC, animated: true)
+        if (K.GUEST_MOOD){
+            self.GuestMoodAlert()
+        }else{
+            let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
+            let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+            self.navigationController?.pushViewController(favoriteVC, animated: true)
+        }
     }
     
-
+    @IBAction func navigateToShoppingCart(_ sender: UIBarButtonItem) {
+        if (K.GUEST_MOOD){
+            self.GuestMoodAlert()
+        }else{
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let shoppingCartVC = storyboard.instantiateViewController(withIdentifier: "ShoppingCartViewController") as! ShoppingCartViewController
+            self.navigationController?.pushViewController(shoppingCartVC, animated: true)
+        }
+    }
     
-
+    
+    
+    
 }
 
 
@@ -98,7 +110,7 @@ extension CategoryViewController:UICollectionViewDelegate
         }else {
             return 1
         }
-       
+        
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == categoryCollection {
@@ -144,59 +156,64 @@ extension CategoryViewController:UICollectionViewDelegate
     }
     
     @objc func buttonTapped(_ sender: FavoriteButton) {
-        var currentProduct = viewModel.getProductData(index: sender.cellIndex)
-        currentItemFavoriteModel = ProductFavorite(id: currentProduct.id!, name: currentProduct.title!, image: (currentProduct.images?.first?.src)!, price: (currentProduct.variants?.first?.price)!)
-        if sender.isFavoriteItem{
-            confirmAlert { [weak self] in
-                guard let self = self else {return}
-                let msg = viewModel.removeFromFavorite(productId: currentItemFavoriteModel.id)
-                if msg == "Product removed successfully"{
-                    self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                    sender.setImage(UIImage(systemName: "heart"), for: .normal)
-                    sender.isFavoriteItem = false
-                    guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
-                    K.idsOfFavoriteProducts.remove(at: itemIndex)
+        if (K.GUEST_MOOD){
+            self.GuestMoodAlert()
+        }
+        else{
+            var currentProduct = viewModel.getProductData(index: sender.cellIndex)
+            currentItemFavoriteModel = ProductFavorite(id: currentProduct.id!, name: currentProduct.title!, image: (currentProduct.images?.first?.src)!, price: (currentProduct.variants?.first?.price)!)
+            if sender.isFavoriteItem{
+                confirmAlert { [weak self] in
+                    guard let self = self else {return}
+                    let msg = viewModel.removeFromFavorite(productId: currentItemFavoriteModel.id)
+                    if msg == "Product removed successfully"{
+                        self.view.makeToast(msg, duration: 2 ,title: "removing from favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                        sender.setImage(UIImage(systemName: "heart"), for: .normal)
+                        sender.isFavoriteItem = false
+                        guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
+                        K.idsOfFavoriteProducts.remove(at: itemIndex)
+                    }else{
+                        ProgressHUD.showError(msg)
+                    }
+                }
+            }else{
+                let msg = viewModel.addToFavorite(product: currentItemFavoriteModel)
+                if msg == "Product added successfully"{
+                    self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
+                    sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    sender.isFavoriteItem = true
+                    K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
                 }else{
                     ProgressHUD.showError(msg)
                 }
             }
-        }else{
-            let msg = viewModel.addToFavorite(product: currentItemFavoriteModel)
-            if msg == "Product added successfully"{
-                self.view.makeToast(msg, duration: 2 ,title: "Adding to favorites" ,image: UIImage(named: K.SUCCESS_IMAGE))
-                sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                sender.isFavoriteItem = true
-                K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
-            }else{
-                ProgressHUD.showError(msg)
+            let initialSize = CGFloat(17)
+            let expandedSize = CGFloat(25)
+            UIView.animate(withDuration: 0.5, animations: {
+                let originalImage = sender.image(for: .normal)
+                let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
+                sender.setImage(expandedImage, for: .normal)
+                sender.layoutIfNeeded()
+            }) { _ in
+                UIView.animate(withDuration: 0.5, animations: {
+                    let originalImage = sender.image(for: .normal)
+                    let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
+                    sender.setImage(resizedImage, for: .normal)
+                    sender.layoutIfNeeded()
+                })
             }
         }
-         let initialSize = CGFloat(17)
-          let expandedSize = CGFloat(25)
-         UIView.animate(withDuration: 0.5, animations: {
-              let originalImage = sender.image(for: .normal)
-              let expandedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: expandedSize))
-              sender.setImage(expandedImage, for: .normal)
-              sender.layoutIfNeeded()
-          }) { _ in
-              UIView.animate(withDuration: 0.5, animations: {
-                  let originalImage = sender.image(for: .normal)
-                  let resizedImage = originalImage?.withConfiguration(UIImage.SymbolConfiguration(pointSize: initialSize))
-                  sender.setImage(resizedImage, for: .normal)
-                  sender.layoutIfNeeded()
-              })
-          }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-     
+        
         if collectionView == categoryCollection {
-            return CGSize(width: (collectionView.bounds.width*0.2), height: (collectionView.bounds.height*1.0))
+            return CGSize(width: (collectionView.bounds.width*0.15), height: (collectionView.bounds.height*1.0))
         }else {
             return CGSize(width: (collectionView.bounds.width*0.45), height: (collectionView.bounds.height*0.45))
         }
-  
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == categoryCollection {
@@ -204,10 +221,10 @@ extension CategoryViewController:UICollectionViewDelegate
         }else {
             return  20
         }
-    
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-
+        
         if collectionView == categoryCollection {
             return  0.1
         }else {
@@ -230,13 +247,13 @@ extension CategoryViewController:UICollectionViewDelegate
             let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
             let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
             //detailsVC.viewModel = viewModel.configNavigation(index: indexPath.row)
-            detailsVC.productId = viewModel.getProductData(index: indexPath.row).id ?? 0 
+            detailsVC.productId = viewModel.getProductData(index: indexPath.row).id ?? 0
             detailsVC.modalPresentationStyle = .fullScreen
             detailsVC.modalTransitionStyle = .crossDissolve
             present(detailsVC, animated: true)
         }
-
-     
+        
+        
     }
     
     

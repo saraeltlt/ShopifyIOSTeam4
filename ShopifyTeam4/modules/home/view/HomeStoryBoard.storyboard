@@ -137,6 +137,9 @@
                             </barButtonItem>
                             <barButtonItem image="cart.fill" catalog="system" id="shF-LB-yOy">
                                 <color key="tintColor" name="lightOrange"/>
+                                <connections>
+                                    <action selector="navigateToShoppingCart:" destination="Y6W-OH-hqX" id="9O1-m8-3Ha"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -371,6 +374,9 @@
                             </barButtonItem>
                             <barButtonItem image="cart.fill" catalog="system" id="Gsb-My-MTa">
                                 <color key="tintColor" name="lightOrange"/>
+                                <connections>
+                                    <action selector="navigateToShoppingCart:" destination="u9c-gX-ozb" id="2pr-eD-UI7"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -424,6 +430,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3t5-0O-eXE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="lightOrange"/>
+                        <color key="barTintColor" name="green"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

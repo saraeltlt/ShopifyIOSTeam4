@@ -39,7 +39,7 @@ class ProductDetailsViewModel{
     func AddToCart() -> String{
         let realmServices = RealmDBServices.instance
         var returnMsg:String = ""
-        let product = ProductCart(id: productId, name: productDetails?.name ?? "", image: productDetails?.imagesArray[0] ?? "", price: productDetails?.price ?? "0", ItemCount: 1)
+        let product = ProductCart(id: productId, name: productDetails?.name ?? "", image: productDetails?.imagesArray[0] ?? "", price: productDetails?.price ?? "0", ItemCount: 1, quantity: productDetails?.quantity ?? 1 )
         realmServices.addProduct(product: product) { error in
             if let error = error {
                 returnMsg="Error adding product: \(error)"

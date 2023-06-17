@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    
+  
+    
     @IBOutlet weak var adsCollection: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var brandsCollection: UICollectionView!
@@ -40,14 +43,32 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    @IBAction func navigateToShoppingCart(_ sender: UIBarButtonItem) {
+        if (K.GUEST_MOOD){
+            self.GuestMoodAlert()
+
+        }else{
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let shoppingCartVC = storyboard.instantiateViewController(withIdentifier: "ShoppingCartViewController") as! ShoppingCartViewController
+            self.navigationController?.pushViewController(shoppingCartVC, animated: true)
+        }
+    }
+    
+    
     @IBAction func navigateToFavoriteItems(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
-        let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        favoriteVC.modalPresentationStyle = .fullScreen
-        favoriteVC.modalTransitionStyle = .crossDissolve
-        present(favoriteVC, animated: true)
+        if (K.GUEST_MOOD){
+            self.GuestMoodAlert()
+        }else{
+            let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
+            let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+            self.navigationController?.pushViewController(favoriteVC, animated: true)
+        }
 
     }
+
     
 
 }
@@ -158,7 +179,9 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 default:
                     promoCode=K.COUPONS.saveLimited80.rawValue
                 }
-                self.view.makeToast("you've redeemed this coupon", duration: 2 ,title: promoCode ,image: UIImage(named: K.COUPON_IMAGE))
+                let pasteboard = UIPasteboard.general
+                pasteboard.string = promoCode
+                self.view.makeToast("Coupon copied to the clipboard", duration: 2 ,title: promoCode ,image: UIImage(named: K.COUPON_IMAGE))
             }else {
                 let brandProducts = self.storyboard?.instantiateViewController(identifier: "brandProducts")
                 as! BrandProductsViewController

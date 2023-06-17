@@ -136,6 +136,17 @@ extension UIViewController {
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         self.present(myAlert, animated: true, completion: nil)
     }
+    func GuestMoodAlert(){
+            self.confirmAlert(title: "Guest Mood",subTitle: "can't access this feature in guest mood, do you want to login/register?", imageName: K.GUEST_IMAGE, confirmBtn: "Yes,Login/Register") {
+                K.GUEST_MOOD=false
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                  let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
+                viewController.modalPresentationStyle = .fullScreen
+                  viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                  self.present(viewController, animated: false, completion: nil)
+            }
+        
+    }
     
 
     
