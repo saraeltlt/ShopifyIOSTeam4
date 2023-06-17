@@ -11,6 +11,7 @@ class BrandProductsViewModel{
     var brandId:Int
     var products:Observable<Bool>=Observable(false)
     var brandProductsArray  = [Product]()
+    var backupBrandProductsArray  = [Product]()
     var filteredProductArray = [Product]()
     var isFiltering = false
     
@@ -23,6 +24,7 @@ class BrandProductsViewModel{
                     switch result {
                     case .success(let products):
                         self?.brandProductsArray = products.brandProducts!
+                        self?.backupBrandProductsArray = products.brandProducts!
                         self?.products.value = true
                     case .failure(let error):
                         print(error)

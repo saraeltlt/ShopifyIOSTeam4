@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
   
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var adsCollection: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var brandsCollection: UICollectionView!
@@ -191,4 +192,22 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     }
     
 }
+extension HomeViewController:UISearchBarDelegate{
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.brandsArray = viewModel.backupBrandsArray
+        brandsCollection.reloadData()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            viewModel.brandsArray = viewModel.backupBrandsArray
+            brandsCollection.reloadData()
+        }else{
+            viewModel.brandsArray = viewModel.backupBrandsArray
+            viewModel.brandsArray = viewModel.brandsArray.filter({ (product) -> Bool in
+                product.title!.starts(with: searchText.lowercased()) || product.title!.starts(with: searchText.uppercased())
+            })
+          brandsCollection.reloadData()
+        }
+    }
 
+}
