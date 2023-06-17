@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -153,9 +152,11 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="CartItemsCount" destination="shF-LB-yOy" id="HcO-FN-MAV"/>
                         <outlet property="adsCollection" destination="pul-2H-lIy" id="Ojb-hY-lNU"/>
                         <outlet property="brandsCollection" destination="0lb-Rs-x7N" id="Zem-4O-ucH"/>
                         <outlet property="container" destination="8GI-YK-cLc" id="XIq-bl-SMc"/>
+                        <outlet property="favoriteCount" destination="fuS-Q6-N58" id="LJV-HX-QBf"/>
                         <outlet property="pageController" destination="MA6-82-Yqk" id="Jjj-4G-E5m"/>
                         <segue destination="p38-G4-17j" kind="show" id="BVa-kN-zzh"/>
                     </connections>
@@ -392,7 +393,9 @@
                     <connections>
                         <outlet property="categoryCollection" destination="uUF-lT-sC3" id="l6w-yo-HW3"/>
                         <outlet property="container" destination="bHc-oo-YpE" id="tC6-UT-23r"/>
+                        <outlet property="favoritesCount" destination="kod-dR-YoO" id="0rb-LE-MC0"/>
                         <outlet property="productsCollection" destination="DbD-Pp-RJH" id="lIm-Ms-wNA"/>
+                        <outlet property="shoppingCartCount" destination="Gsb-My-MTa" id="ARc-3P-swD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWo-bz-2FB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -490,19 +493,19 @@
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <namedColor name="green">
-            <color red="0.31372549019607843" green="0.47843137254901957" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightGreen">
             <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
-            <color red="0.88099998235702515" green="0.7070000171661377" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88200002908706665" green="0.70599997043609619" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
-            <color red="0.92156862745098034" green="0.86274509803921573" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
