@@ -32,7 +32,9 @@
                                             <constraint firstAttribute="height" constant="45" id="v3o-ZT-qtU"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system">
+                                            <color key="baseForegroundColor" name="textColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="backBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="igt-HC-uGM"/>
                                         </connections>
@@ -40,7 +42,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3h-zG-inR">
                                         <rect key="frame" x="158.66666666666666" y="103" width="76" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart" translatesAutoresizingMaskIntoConstraints="NO" id="mqf-Vk-ElL">
@@ -134,7 +136,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="paige"/>
                                 <constraints>
                                     <constraint firstItem="N9P-GG-4h8" firstAttribute="top" secondItem="xJG-7z-ytU" secondAttribute="top" constant="34" id="4D0-Jf-ieB"/>
                                     <constraint firstItem="Tov-Jh-u0w" firstAttribute="centerY" secondItem="SPd-79-EXa" secondAttribute="centerY" id="9Bm-Dl-6dL"/>
@@ -159,7 +161,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9oo-yO-5CG" secondAttribute="trailing" id="4EH-gj-REG"/>
                             <constraint firstItem="cyt-ms-XuB" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="9ga-Mt-271"/>
@@ -209,7 +211,7 @@
                                             <constraint firstAttribute="height" constant="45" id="KKf-mL-jj9"/>
                                             <constraint firstAttribute="width" constant="45" id="vh2-QZ-dx8"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="textColor"/>
                                         <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system"/>
                                         <connections>
                                             <action selector="backBtn:" destination="6aA-zo-y1f" eventType="touchUpInside" id="ggQ-4u-d4B"/>
@@ -218,7 +220,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTh-KC-Byy">
                                         <rect key="frame" x="153" y="101" width="87.333333333333314" height="28.666666666666657"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -301,7 +303,7 @@
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address informations " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLP-c5-Va6">
                                                         <rect key="frame" x="12" y="359" width="218.33333333333334" height="26.333333333333314"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="paige"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                         <color key="textColor" name="green"/>
@@ -383,7 +385,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="paige"/>
                                                 <constraints>
                                                     <constraint firstItem="FBv-Qz-qSQ" firstAttribute="leading" secondItem="asf-ck-g8M" secondAttribute="leading" constant="24" id="1wN-fq-MKe"/>
                                                     <constraint firstItem="Oso-oP-3HA" firstAttribute="top" secondItem="CnN-Cz-6Wc" secondAttribute="bottom" constant="2" id="33o-Vy-kgd"/>
@@ -465,7 +467,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pNa-hW-eUS"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="pNa-hW-eUS" firstAttribute="trailing" secondItem="xQq-Ae-HTN" secondAttribute="trailing" id="8gJ-dX-l6I"/>
                             <constraint firstItem="pNa-hW-eUS" firstAttribute="trailing" secondItem="dHP-zc-0yz" secondAttribute="trailing" id="AQp-cL-9pa"/>
@@ -508,14 +510,17 @@
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="cart" width="341.33334350585938" height="341.33334350585938"/>
         <namedColor name="green">
-            <color red="0.31400001049041748" green="0.4779999852180481" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
             <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="paige">
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

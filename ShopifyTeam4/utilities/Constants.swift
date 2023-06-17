@@ -52,6 +52,7 @@ struct K {
     static let REMOVE_IMAGE = "remove"
     static let HEART = "heart"
     static let HEART_FILL = "heartFill"
+    static let NO_SEARCH = "noSearch"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
