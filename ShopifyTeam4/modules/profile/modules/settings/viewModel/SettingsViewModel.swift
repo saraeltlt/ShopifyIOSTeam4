@@ -56,7 +56,11 @@ class SettingsViewModel{
         }
         return favProducts
     }
-    
+    func userLogout(){
+        AuthenticationService.userLogout()
+        UserDefaults.standard.set(nil, forKey: kCURRENTUSER)
+        K.USER_NAME = ""
+    }
     func saveUserData(){
         let order = DraftOrder(id: nil, customer: nil, line_items:getAllfavItems())
         

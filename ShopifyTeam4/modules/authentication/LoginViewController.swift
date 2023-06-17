@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
         signInViewModel = SignInViewModel()
         signInViewModel.failClosure = { (erreorMeg) in
             ProgressHUD.showError(erreorMeg)
+            self.networkIndicator.stopAnimating()
         }
         signInViewModel.successClosur = { [weak self] in
             guard let self = self else {return}

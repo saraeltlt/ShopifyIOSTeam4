@@ -18,13 +18,12 @@ class SettingsViewController: UIViewController, UpdateData {
 
     @IBAction func logOut(_ sender: UIButton) {
       viewModel.saveUserData()
-        
-        UserDefaults.standard.set(nil, forKey: kCURRENTUSER)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-          let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
-        viewController.modalPresentationStyle = .fullScreen
-          viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-          self.present(viewController, animated: false, completion: nil)
+      viewModel.userLogout()
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
+      viewController.modalPresentationStyle = .fullScreen
+      viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+      self.present(viewController, animated: false, completion: nil)
     }
     
     

@@ -92,4 +92,11 @@ func saveCurrentUser(uId: String,complitionHandler : @escaping(_ sucess:Bool) ->
             }
         }
     }
+    class func userLogout(){
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print("Error: ", error.localizedDescription)
+        }
+    }
 }
