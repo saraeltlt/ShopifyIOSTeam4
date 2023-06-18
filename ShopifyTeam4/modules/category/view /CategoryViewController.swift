@@ -14,6 +14,7 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
 
     
+    @IBOutlet weak var noResultText: UIButton!
     @IBOutlet weak var noResultImage: UIImageView!
     @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
     @IBOutlet weak var favoritesCount: UIBarButtonItem!
@@ -43,6 +44,7 @@ class CategoryViewController: UIViewController {
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         noResultImage.isHidden = true
+        noResultText.isHidden = true
         viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
         viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
         productsCollection.reloadData()
@@ -185,8 +187,10 @@ extension CategoryViewController:UICollectionViewDelegate
         }
         if numberOfItems == 0{
             noResultImage.isHidden = false
+            noResultText.isHidden = false
         }else{
             noResultImage.isHidden = true
+            noResultText.isHidden = true
         }
         return numberOfItems
     }

@@ -21,7 +21,9 @@ class BrandProductsViewController: UIViewController {
     var isFilterHidden = true
     var viewModel:BrandProductsViewModel?
     var currentItemFavoriteModel:ProductFavorite!
+    @IBOutlet weak var noResultText: UIButton!
     @IBOutlet weak var noResultImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProductsCollectionObservation()
@@ -46,6 +48,7 @@ class BrandProductsViewController: UIViewController {
         setUpPriceFilterObservation()
         productsCollection.reloadData()
         noResultImage.isHidden = true
+        noResultText.isHidden = true
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
@@ -101,8 +104,10 @@ extension BrandProductsViewController:UICollectionViewDelegate
         let numberOfItems = viewModel?.getProductsCount() ?? 0
         if numberOfItems == 0{
             noResultImage.isHidden = false
+            noResultText.isHidden = false
         }else{
             noResultImage.isHidden = true
+            noResultText.isHidden = true
         }
         return numberOfItems
         

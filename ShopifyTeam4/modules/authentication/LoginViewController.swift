@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
         networkIndicator.center = view.center
         view.addSubview(networkIndicator)
         toggleDisplayingThePasswordText()
+        setScreenDefaultForm()
         signInViewModel = SignInViewModel()
         signInViewModel.failClosure = { (erreorMeg) in
             self.networkIndicator.stopAnimating()
@@ -49,6 +50,7 @@ class LoginViewController: UIViewController {
         self.dismiss(animated: true)
     }
     @IBAction func goToSignUpAction(_ sender: UIButton) {
+        setScreenDefaultForm()
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
         let signup = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         signup.modalPresentationStyle = .fullScreen
@@ -78,6 +80,7 @@ class LoginViewController: UIViewController {
     }
     
     func navigateToHomeScreen(){
+        setScreenDefaultForm()
         let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
         let home = storyboard.instantiateViewController(identifier: "tab") as! UITabBarController
         home.modalPresentationStyle = .fullScreen
