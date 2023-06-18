@@ -37,13 +37,20 @@
                                 <color key="textColor" name="orange"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="noFav" translatesAutoresizingMaskIntoConstraints="NO" id="r9K-U7-gou">
+                                <rect key="frame" x="50" y="159.66666666666669" width="293" height="608.33333333333326"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="LMz-66-c6t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cde-6d-Mq7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="r9K-U7-gou" secondAttribute="trailing" constant="50" id="FAM-Lc-KxH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Wdi-5z-h3y" secondAttribute="trailing" constant="10" id="FCx-Bj-tfF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="r9K-U7-gou" secondAttribute="bottom" constant="50" id="TUK-oY-tI4"/>
+                            <constraint firstItem="r9K-U7-gou" firstAttribute="top" secondItem="Wdi-5z-h3y" secondAttribute="bottom" constant="50" id="XYI-Oa-oUa"/>
                             <constraint firstItem="Wdi-5z-h3y" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="Ype-k6-pXA"/>
+                            <constraint firstItem="r9K-U7-gou" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="bSC-Cd-1hL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LMz-66-c6t" secondAttribute="trailing" id="eVZ-ph-n64"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LMz-66-c6t" secondAttribute="bottom" id="qXg-tH-C5M"/>
                             <constraint firstItem="LMz-66-c6t" firstAttribute="top" secondItem="Wdi-5z-h3y" secondAttribute="bottom" constant="15" id="tg8-bQ-03V"/>
@@ -52,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="favoriteCollectionView" destination="LMz-66-c6t" id="lhD-eZ-YGr"/>
+                        <outlet property="noFavoriteImage" destination="r9K-U7-gou" id="6da-AO-UuA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -60,6 +68,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="noFav" width="85.333335876464844" height="85.333335876464844"/>
         <namedColor name="orange">
             <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

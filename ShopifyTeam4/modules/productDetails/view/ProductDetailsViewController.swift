@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ProgressHUD
 class ProductDetailsViewController: UIViewController {
     var viewModel : ProductDetailsViewModel!
     var networkIndicator: UIActivityIndicatorView!
@@ -83,7 +82,7 @@ class ProductDetailsViewController: UIViewController {
         viewModel.failClosure = { [weak self] (errorMsg) in
             guard let self = self else {return}
             networkIndicator.stopAnimating()
-            ProgressHUD.showError(errorMsg)
+            errorTitledAlert(subTitle: errorMsg, handler: nil)
         }
     }
     @IBAction func addToCart(_ sender: UIButton) {
@@ -165,7 +164,7 @@ extension ProductDetailsViewController{
                     guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
                     K.idsOfFavoriteProducts.remove(at: itemIndex)
                 }else{
-                    ProgressHUD.showError(msg)
+                    errorTitledAlert(subTitle: msg, handler: nil)
                 }
             }
         }else{
@@ -176,7 +175,7 @@ extension ProductDetailsViewController{
                 isFavoriteitem = true
                 K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
             }else{
-                ProgressHUD.showError(msg)
+                errorTitledAlert(subTitle: msg, handler: nil)
             }
         }
          let initialSize = CGFloat(17)

@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import ProgressHUD
 
 class BrandProductsViewController: UIViewController {
     var disposBag = DisposeBag()
@@ -22,6 +21,7 @@ class BrandProductsViewController: UIViewController {
     var isFilterHidden = true
     var viewModel:BrandProductsViewModel?
     var currentItemFavoriteModel:ProductFavorite!
+    @IBOutlet weak var noResultImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProductsCollectionObservation()
@@ -44,7 +44,7 @@ class BrandProductsViewController: UIViewController {
         }
         setUpPriceFilterObservation()
         productsCollection.reloadData()
-        
+        noResultImage.isHidden = true
         
     }
     
@@ -98,7 +98,13 @@ extension BrandProductsViewController:UICollectionViewDelegate
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.getProductsCount() ?? 0
+        let numberOfItems = viewModel?.getProductsCount() ?? 0
+        if numberOfItems == 0{
+            noResultImage.isHidden = false
+        }else{
+            noResultImage.isHidden = true
+        }
+        return numberOfItems
         
     }
     
@@ -136,7 +142,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
                         guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
                         K.idsOfFavoriteProducts.remove(at: itemIndex)
                     }else{
-                        ProgressHUD.showError(msg)
+                        errorTitledAlert(subTitle: msg, handler: nil)
                     }
                 }
             }else{
@@ -147,8 +153,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
                     sender.isFavoriteItem = true
                     K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
                 }else{
-                    ProgressHUD.showError(msg)
-                }
+                    errorTitledAlert(subTitle: msg, handler: nil)                }
             }
             let initialSize = CGFloat(17)
             let expandedSize = CGFloat(25)
@@ -203,6 +208,9 @@ extension BrandProductsViewController:UISearchBarDelegate{
         if searchText == "" {
             viewModel?.brandProductsArray = viewModel!.backupBrandProductsArray
             productsCollection.reloadData()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
         }else{
             viewModel?.brandProductsArray = viewModel!.backupBrandProductsArray
             viewModel!.brandProductsArray = viewModel!.brandProductsArray.filter({ (product) -> Bool in
@@ -210,5 +218,8 @@ extension BrandProductsViewController:UISearchBarDelegate{
             })
             productsCollection.reloadData()
         }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
