@@ -8,18 +8,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-
-    
-  
-    
     @IBOutlet weak var noResultText: UIButton!
     @IBOutlet weak var noResultImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
-
     @IBOutlet weak var CartItemsCount: UIBarButtonItem!
     @IBOutlet weak var favoriteCount: UIBarButtonItem!
-
     @IBOutlet weak var adsCollection: UICollectionView!
     @IBOutlet weak var pageController: UIPageControl!
     @IBOutlet weak var brandsCollection: UICollectionView!
@@ -27,7 +20,6 @@ class HomeViewController: UIViewController {
     var timer:Timer?
     var currentCellIndex=0
     var viewModel = HomeViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(K.USER_ID)
@@ -53,8 +45,10 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configureInternetConnectionObservation()
         configureFavoritesCountObservation()
         configureShoppingCartCountObservation()
+        viewModel.InternetConnectionStatus()
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
@@ -62,6 +56,11 @@ class HomeViewController: UIViewController {
         noResultText.isHidden = true
         viewModel.brandsArray = viewModel.backupBrandsArray
         brandsCollection.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let pathMonitor = viewModel.endInterntObservation()
+        pathMonitor.cancel()
     }
     
     
@@ -114,6 +113,17 @@ class HomeViewController: UIViewController {
                     }
                    }
             
+        }
+    }
+    
+    func configureInternetConnectionObservation(){
+        viewModel.internetConnection.bind { status in
+            guard let status = status else {return}
+            if status {
+                print("there is internet connection in home")
+            }else {
+                print("there is no internet connection in home")
+            }
         }
     }
     
