@@ -60,7 +60,7 @@ class SignUpViewController: UIViewController {
         }
         signUpViewModel.successClosur = { [weak self] in
             guard let self = self else {return}
-            self.setScreenDefaultForm()
+            storedPhoneNumbers.append(passwordTextField.text!)
             self.navigateToSignInScreen()
         }
         signUpViewModel.phoneNumberClosure = { [weak self] (phoneNumbers)  in
