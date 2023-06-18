@@ -240,6 +240,7 @@ extension CategoryViewController:UICollectionViewDelegate
                         sender.isFavoriteItem = false
                         guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
                         K.idsOfFavoriteProducts.remove(at: itemIndex)
+                        viewModel.getAllSotredFavoriteItems()
                     }else{
                         errorTitledAlert(subTitle: msg, handler: nil)
                     }
@@ -251,6 +252,7 @@ extension CategoryViewController:UICollectionViewDelegate
                     sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                     sender.isFavoriteItem = true
                     K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
+                    viewModel.getAllSotredFavoriteItems()
                 }else{
                     errorTitledAlert(subTitle: msg, handler: nil)
                 }
