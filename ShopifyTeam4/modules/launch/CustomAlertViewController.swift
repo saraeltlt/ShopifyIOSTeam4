@@ -25,9 +25,14 @@ class CustomAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let font = UIFont(name: "Chalkduster", size: 17.0)!
-        var attributedText = NSAttributedString(string: "Cancel", attributes: [NSAttributedString.Key.font: font])
-        cancelBtnView.setAttributedTitle(attributedText, for: .normal)
-        attributedText = NSAttributedString(string: okBtn ?? "Ok", attributes: [NSAttributedString.Key.font: font])
+        if (cancelBtn==nil){
+            cancelBtnView.isHidden=true
+        }else{
+            cancelBtnView.isHidden=false
+            var attributedText = NSAttributedString(string: "Cancel", attributes: [NSAttributedString.Key.font: font])
+            cancelBtnView.setAttributedTitle(attributedText, for: .normal)
+        }
+        var attributedText = NSAttributedString(string: okBtn ?? "Ok", attributes: [NSAttributedString.Key.font: font])
         okBtnView.setAttributedTitle(attributedText, for: .normal)
         alertTitle.text=titles
         alertSubTitle.text=subTitle

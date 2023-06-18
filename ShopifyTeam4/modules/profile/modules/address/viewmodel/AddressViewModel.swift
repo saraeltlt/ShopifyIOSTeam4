@@ -67,6 +67,7 @@ class AddressViewModel {
     
     
     func  setDefaultAddress(index: Int ){
+        self.gellAllAddressesObservable.value=false
         let url = URLs.shared.setDefaultAddress(customerID: K.USER_ID, addressID: addressArray[index].id!)
         NetworkManager.shared.editApiData(method: "PUT", url: url) {[weak self](result : Result<(Int,String),Error>) in
             switch (result){
