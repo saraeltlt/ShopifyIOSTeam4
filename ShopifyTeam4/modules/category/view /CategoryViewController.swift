@@ -14,6 +14,7 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
 
     
+    @IBOutlet weak var noResultImage: UIImageView!
     @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
     @IBOutlet weak var favoritesCount: UIBarButtonItem!
 
@@ -42,6 +43,7 @@ class CategoryViewController: UIViewController {
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
+        noResultImage.isHidden = true
     }
     
     
@@ -173,12 +175,18 @@ extension CategoryViewController:UICollectionViewDelegate
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var numberOfItems = 0
         if collectionView == categoryCollection {
-            return viewModel.getCategoriesCount()
+            numberOfItems =  viewModel.getCategoriesCount()
         }else {
-            return viewModel.getProductsCount()
+            numberOfItems =  viewModel.getProductsCount()
         }
-        
+        if numberOfItems == 0{
+            noResultImage.isHidden = false
+        }else{
+            noResultImage.isHidden = true
+        }
+        return numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

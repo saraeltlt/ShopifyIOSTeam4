@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
   
     
+    @IBOutlet weak var noResultImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
 
     @IBOutlet weak var CartItemsCount: UIBarButtonItem!
@@ -56,6 +57,7 @@ class HomeViewController: UIViewController {
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
+        noResultImage.isHidden = true
     }
     
     
@@ -152,7 +154,13 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         if collectionView == adsCollection {
             return viewModel.getadvertesmentsCount()
         }else {
-            return viewModel.getBrandsCount()
+            let numberOfItems = viewModel.getBrandsCount()
+            if numberOfItems == 0{
+                noResultImage.isHidden = false
+            }else{
+                noResultImage.isHidden = true
+            }
+            return numberOfItems
         }
     }
     
