@@ -103,12 +103,16 @@ func saveCurrentUser(uId: String,complitionHandler : @escaping(_ sucess:Bool) ->
         let userNode = DBref.child("USERS")
         var phoneNumbers:[String] = []
         userNode.observe(.value) { snapShot,arg  in
-            let userDict = snapShot.value as! [String:Any]
-            for (_,value) in userDict{
-                let user = FUser(_dictionary: value as! NSDictionary)
-                phoneNumbers.append(user.fullNumber)
+            if let userDict = snapShot.value as? [String:Any]{
+                for (_,value) in userDict{
+                    let user = FUser(_dictionary: value as! NSDictionary)
+                    phoneNumbers.append(user.fullNumber)
+                    print("appended \(phoneNumbers.count) item")
+                }
+                complitionHandler(phoneNumbers)
+            }else{
+                complitionHandler(phoneNumbers)
             }
-            complitionHandler(phoneNumbers)
         }
     }
 }
