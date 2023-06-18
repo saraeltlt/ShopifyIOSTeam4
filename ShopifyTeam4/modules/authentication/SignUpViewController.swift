@@ -9,6 +9,7 @@ import UIKit
 class SignUpViewController: UIViewController {
     var signUpViewModel:SignUpViewModel!
     var networkIndicator: UIActivityIndicatorView!
+    var storedPhoneNumbers:[String] = []
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -51,6 +52,7 @@ class SignUpViewController: UIViewController {
         view.addSubview(networkIndicator)
         toggleDisplayingThePasswordText()
         signUpViewModel = SignUpViewModel()
+        signUpViewModel.getStoredPhoneNumber()
         setScreenDefaultForm()
         signUpViewModel.failClosure = { (erreorMeg) in
             self.networkIndicator.stopAnimating()
@@ -60,6 +62,11 @@ class SignUpViewController: UIViewController {
             guard let self = self else {return}
             self.setScreenDefaultForm()
             self.navigateToSignInScreen()
+        }
+        signUpViewModel.phoneNumberClosure = { [weak self] (phoneNumbers)  in
+            guard let self = self else {return}
+            self.storedPhoneNumbers = phoneNumbers
+            print("number of stored number is \(storedPhoneNumbers.count)")
         }
     }
     @IBAction func togglePasswordVisibility(_ sender: UIButton) {
@@ -97,6 +104,10 @@ class SignUpViewController: UIViewController {
         }
         if !isValidPhoneNumber(phoneNumberTextField.text!){
             errorTitledAlert(subTitle: "Not valid phone number ..!", handler: nil)
+            return
+        }
+        if storedPhoneNumbers.contains(phoneNumberTextField.text!){
+            notTitledCustomAlert(title: "duplicated phone number", subTitle: "This number is already assigned to a stored user", handler: nil)
             return
         }
         networkIndicator.startAnimating()
