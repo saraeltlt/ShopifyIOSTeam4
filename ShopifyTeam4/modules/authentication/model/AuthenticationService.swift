@@ -99,4 +99,16 @@ func saveCurrentUser(uId: String,complitionHandler : @escaping(_ sucess:Bool) ->
             print("Error: ", error.localizedDescription)
         }
     }
+    func getUsersPhoneNumbers(complitionHandler : @escaping(_ phoneNumbers:[String]) -> ()) {
+        let userNode = DBref.child("USERS")
+        var phoneNumbers:[String] = []
+        userNode.observe(.value) { snapShot,arg  in
+            let userDict = snapShot.value as! [String:Any]
+            for (_,value) in userDict{
+                let user = FUser(_dictionary: value as! NSDictionary)
+                phoneNumbers.append(user.fullNumber)
+            }
+            complitionHandler(phoneNumbers)
+        }
+    }
 }

@@ -10,6 +10,7 @@ class SignUpViewModel{
     private var authintecationService = AuthenticationService()
     var successClosur:() -> () = {}
     var failClosure:(String) -> () = {_ in }
+    var phoneNumberClosure:([String]) -> () = {_ in }
     var verfiedUser:FUser?
     func createNewUserWith(user:FUser,password:String){
         authintecationService.createNewUser(user: user, password: password) { [weak self] errorMessage in
@@ -50,7 +51,11 @@ class SignUpViewModel{
             }
         }
     }
-    
+    func getStoredPhoneNumber(){
+        authintecationService.getUsersPhoneNumbers { phoneNumbers in
+            self.phoneNumberClosure(phoneNumbers)
+        }
+    }
     
     
     
