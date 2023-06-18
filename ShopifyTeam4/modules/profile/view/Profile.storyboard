@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQK-xI-3M3">
-                                <rect key="frame" x="10" y="102" width="394" height="35.5"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome User" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQK-xI-3M3">
+                                <rect key="frame" x="5" y="102" width="404" height="32"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                 <color key="textColor" name="orange"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThJ-K6-8C4">
-                                <rect key="frame" x="15" y="157.5" width="186.5" height="33"/>
+                                <rect key="frame" x="15" y="154" width="186.5" height="33"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" cornerRadius="100">
@@ -43,7 +43,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4L-A9-tSe">
-                                <rect key="frame" x="343.5" y="156" width="70.5" height="36"/>
+                                <rect key="frame" x="343.5" y="152.5" width="70.5" height="36"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="More" cornerStyle="capsule">
@@ -55,7 +55,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrD-ZX-DYs">
-                                <rect key="frame" x="10" y="374.5" width="186.5" height="33"/>
+                                <rect key="frame" x="10" y="371" width="186.5" height="33"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" cornerRadius="100">
@@ -73,7 +73,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghs-bz-Bji">
-                                <rect key="frame" x="336.5" y="373" width="70.5" height="36"/>
+                                <rect key="frame" x="336.5" y="369.5" width="70.5" height="36"/>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="More" cornerStyle="capsule">
@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WiW-6g-H9J">
-                                <rect key="frame" x="10" y="409" width="394" height="453"/>
+                                <rect key="frame" x="10" y="405.5" width="394" height="456.5"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Lt-AQ-xV0">
                                     <size key="itemSize" width="128" height="128"/>
@@ -100,7 +100,7 @@
                                 </connections>
                             </collectionView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKB-xf-DiV">
-                                <rect key="frame" x="10" y="409" width="394" height="179.5"/>
+                                <rect key="frame" x="10" y="405.5" width="394" height="179.5"/>
                                 <color key="tintColor" name="lightOrange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No Favourites to show">
@@ -108,7 +108,7 @@
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="t6u-iK-1kt">
-                                <rect key="frame" x="10" y="190.5" width="394" height="179"/>
+                                <rect key="frame" x="10" y="187" width="394" height="179"/>
                                 <color key="backgroundColor" name="paige"/>
                                 <color key="sectionIndexBackgroundColor" name="paige"/>
                                 <connections>
@@ -117,7 +117,7 @@
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sd-WW-R2f">
-                                <rect key="frame" x="10" y="190.5" width="394" height="179"/>
+                                <rect key="frame" x="10" y="187" width="394" height="179"/>
                                 <color key="tintColor" name="lightOrange"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No orders to show">
@@ -199,9 +199,9 @@
                             <constraint firstItem="ghs-bz-Bji" firstAttribute="centerY" secondItem="KrD-ZX-DYs" secondAttribute="centerY" id="KBh-5E-YUU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="t6u-iK-1kt" secondAttribute="trailing" constant="10" id="NIP-7n-1Ek"/>
                             <constraint firstItem="KrD-ZX-DYs" firstAttribute="top" secondItem="t6u-iK-1kt" secondAttribute="bottom" constant="5" id="QRc-TR-21Q"/>
-                            <constraint firstItem="jQK-xI-3M3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="TeE-Uf-NuN"/>
+                            <constraint firstItem="jQK-xI-3M3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="TeE-Uf-NuN"/>
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.45" id="Tyg-nu-eto"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jQK-xI-3M3" secondAttribute="trailing" constant="10" id="WfJ-BK-Igm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jQK-xI-3M3" secondAttribute="trailing" constant="5" id="WfJ-BK-Igm"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="XY2-NP-yPR"/>
                             <constraint firstItem="t6u-iK-1kt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="aH7-BA-zIs"/>
                             <constraint firstItem="R4L-A9-tSe" firstAttribute="centerY" secondItem="ThJ-K6-8C4" secondAttribute="centerY" id="cU2-i2-TBe"/>
@@ -1000,15 +1000,33 @@
                                 <color key="textColor" name="orange"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noCart" translatesAutoresizingMaskIntoConstraints="NO" id="fJr-h0-Kaq">
+                                <rect key="frame" x="10" y="307.5" width="394" height="251"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping cart is empty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osJ-eL-IL6">
+                                <rect key="frame" x="10" y="558.5" width="394" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="d8u-Os-ZxJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="23"/>
+                                <color key="textColor" name="orange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aoJ-TC-I75"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
+                            <constraint firstItem="fJr-h0-Kaq" firstAttribute="centerY" secondItem="ssq-60-dxd" secondAttribute="centerY" constant="-15" id="9gn-oL-9BS"/>
                             <constraint firstItem="AIQ-KP-KRL" firstAttribute="top" secondItem="KNy-D5-lcV" secondAttribute="bottom" constant="10" id="9uT-mN-YTZ"/>
+                            <constraint firstItem="aoJ-TC-I75" firstAttribute="trailing" secondItem="osJ-eL-IL6" secondAttribute="trailing" constant="10" id="Clm-fk-OtZ"/>
+                            <constraint firstItem="fJr-h0-Kaq" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" constant="10" id="EAp-rm-Vzt"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="FPX-x2-ZUh"/>
+                            <constraint firstItem="osJ-eL-IL6" firstAttribute="top" secondItem="fJr-h0-Kaq" secondAttribute="bottom" id="IMK-fu-n3s"/>
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="top" secondItem="AIQ-KP-KRL" secondAttribute="bottom" constant="10" id="MOQ-C8-hlZ"/>
+                            <constraint firstItem="aoJ-TC-I75" firstAttribute="trailing" secondItem="fJr-h0-Kaq" secondAttribute="trailing" constant="10" id="Op7-53-QL9"/>
                             <constraint firstItem="aoJ-TC-I75" firstAttribute="trailing" secondItem="AIQ-KP-KRL" secondAttribute="trailing" id="OzI-Fq-Gdn"/>
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="bottom" secondItem="aoJ-TC-I75" secondAttribute="bottom" constant="-16" id="TrC-ln-Dzt"/>
+                            <constraint firstItem="fJr-h0-Kaq" firstAttribute="height" secondItem="KNy-D5-lcV" secondAttribute="height" multiplier="0.4" id="V6j-vx-a0D"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="height" secondItem="ssq-60-dxd" secondAttribute="height" multiplier="0.13" id="XDv-CF-mdb"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" id="b9q-mo-UT6"/>
                             <constraint firstItem="KNy-D5-lcV" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" id="g1w-i1-kWu"/>
@@ -1016,6 +1034,7 @@
                             <constraint firstItem="KNy-D5-lcV" firstAttribute="top" secondItem="t0H-dt-P3o" secondAttribute="bottom" id="h9N-fP-g34"/>
                             <constraint firstItem="t0H-dt-P3o" firstAttribute="top" secondItem="ssq-60-dxd" secondAttribute="top" id="i6p-Cq-ZXO"/>
                             <constraint firstItem="6jr-cY-7E7" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" constant="16" id="jkf-gz-5S7"/>
+                            <constraint firstItem="osJ-eL-IL6" firstAttribute="leading" secondItem="aoJ-TC-I75" secondAttribute="leading" constant="10" id="l2b-d7-83p"/>
                             <constraint firstItem="AIQ-KP-KRL" firstAttribute="height" secondItem="6jr-cY-7E7" secondAttribute="height" multiplier="1.25" id="mBP-yL-86l"/>
                             <constraint firstItem="aoJ-TC-I75" firstAttribute="trailing" secondItem="6jr-cY-7E7" secondAttribute="trailing" constant="16" id="ou6-PR-v5C"/>
                             <constraint firstItem="KNy-D5-lcV" firstAttribute="trailing" secondItem="aoJ-TC-I75" secondAttribute="trailing" id="tkG-Y9-U0W"/>
@@ -1026,7 +1045,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cartTableView" destination="KNy-D5-lcV" id="jUx-wS-6g8"/>
+                        <outlet property="checkOutBtnView" destination="6jr-cY-7E7" id="LJQ-e8-TaR"/>
+                        <outlet property="imagePlaceHolder" destination="fJr-h0-Kaq" id="CoG-FF-WpP"/>
                         <outlet property="subTotalLabel" destination="AIQ-KP-KRL" id="oFr-OI-zM4"/>
+                        <outlet property="titlePlaceHolder" destination="osJ-eL-IL6" id="2Ek-tu-H0R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMn-uh-xeL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1492,6 +1514,7 @@ Your order has been successfully confirmed.</string>
         <image name="currency" width="128" height="128"/>
         <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="noCart" width="64" height="64"/>
         <image name="payment" width="2000" height="2000"/>
         <image name="plus" width="128" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

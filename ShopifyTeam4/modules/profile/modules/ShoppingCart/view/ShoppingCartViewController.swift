@@ -9,8 +9,11 @@ import UIKit
 
 class ShoppingCartViewController: UIViewController {
     
+    @IBOutlet weak var titlePlaceHolder: UILabel!
+    @IBOutlet weak var imagePlaceHolder: UIImageView!
     @IBOutlet weak var subTotalLabel: UILabel!
     @IBOutlet weak var cartTableView: UITableView!
+    @IBOutlet weak var checkOutBtnView: UIButton!
     var viewModel = ShoppingCartViewModel()
     
     override func viewDidLoad() {
@@ -27,14 +30,21 @@ class ShoppingCartViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.cartTableView.reloadData()
                 }
+                if(self.viewModel.cartProducts.isEmpty){
+                    self.titlePlaceHolder.isHidden=false
+                    self.imagePlaceHolder.isHidden=false
+                    self.subTotalLabel.isHidden=true
+                    self.checkOutBtnView.isHidden=true
+                }else{
+                    self.titlePlaceHolder.isHidden=true
+                    self.imagePlaceHolder.isHidden=true
+                    self.subTotalLabel.isHidden=false
+                    self.checkOutBtnView.isHidden=false
                     self.subTotalLabel.text = "SubTotal= \(self.viewModel.subTotal) \(K.CURRENCY)"
-         
+                }
             }
-            else{
-                // loading
-            }
+            
         }
-     
     }
     
     
