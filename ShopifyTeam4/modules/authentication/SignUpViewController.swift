@@ -95,7 +95,7 @@ class SignUpViewController: UIViewController {
         
         let password = passwordTextField.text!
         if !validatePassword(password){
-            notTitledCustomAlert(title: "The password is very weak", subTitle: "it should contains at least 8 characters, numbers & upper cased characters ", handler: nil)
+            notTitledCustomAlert(title: "The password is very weak", subTitle: "it should contains at least 8 characters, numbers, upper cased & special characters ", handler: nil)
             return
         }
         if  password != confirmPasswordTextField.text{
