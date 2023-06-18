@@ -35,6 +35,9 @@ class SettingsViewController: UIViewController, UpdateData {
        setupTable()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        settingsTable.isScrollEnabled = false
+    }
     func setupTable(){
         settingsTable.register(UINib(nibName: K.SETTINGS_CELL, bundle: nil), forCellReuseIdentifier: K.SETTINGS_CELL)
         settingsTable.rowHeight = view.bounds.height*0.1

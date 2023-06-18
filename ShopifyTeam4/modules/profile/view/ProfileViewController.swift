@@ -41,6 +41,9 @@ class ProfileViewController: UIViewController {
           self.present(viewController, animated: false, completion: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
+        favCollection.isScrollEnabled = false
+        ordersTableView.isScrollEnabled = false
+        
         if (K.GUEST_MOOD){
             guestView.isHidden=false
             self.navigationController?.navigationBar.isHidden=true
@@ -58,6 +61,10 @@ class ProfileViewController: UIViewController {
             viewModel.getAllOrders()
             viewModel.getAllSotredFavoriteItems()
             favCollection.reloadData()
+            if (viewModel.getFavoritesCount()==0){
+            }else{
+                noWishlist.isHidden=true
+            }
         }
     }
     override func viewDidDisappear(_ animated: Bool) {

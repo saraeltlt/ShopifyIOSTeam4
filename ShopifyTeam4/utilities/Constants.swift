@@ -56,6 +56,7 @@ struct K {
     static let NO_FAV = "noFav"
     static let NO_CART = "noCart"
     static let NO_ORSERS = "noOrder"
+    static let NO_WIFI = "noWifi"
     
     //API KEY
     static let CUREENCY_API_KEY = "f4c224feba0e40fc88ccfb7f26fbd189"
