@@ -83,16 +83,29 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func moreOrdersBtn(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Orders", bundle: nil)
-        let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as! OrdersViewController
-        ordersVC.viewModel = viewModel.configureNavigationToAllOrders()
-        self.navigationController?.pushViewController(ordersVC, animated: true)
+        if (viewModel.getordersCount() == 0){
+            self.view.makeToast("No more orders to show", duration: 2 ,title: "Warning" ,image: UIImage(named: K.WARNINNG_IMAGE))
+        } else {
+            
+            
+            let storyboard = UIStoryboard(name: "Orders", bundle: nil)
+            let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as! OrdersViewController
+            ordersVC.viewModel = viewModel.configureNavigationToAllOrders()
+            self.navigationController?.pushViewController(ordersVC, animated: true)
+        }
+        
     }
     
     @IBAction func moreFavBtn(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
-        let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-        self.navigationController?.pushViewController(favoriteVC, animated: true)
+        if (viewModel.getFavoritesCount() == 0){
+            self.view.makeToast("No more favorites to show", duration: 2 ,title: "Warning" ,image: UIImage(named: K.WARNINNG_IMAGE))
+        }else {
+            let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
+            let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+            self.navigationController?.pushViewController(favoriteVC, animated: true)
+        }
+        
+        
     }
     
     

@@ -51,6 +51,12 @@ class ProfileViewModel{
             return 2
         }
     }
+    
+    func getFavoritesCount() -> Int{
+        return favoriteProducts.count
+    }
+    
+    
     func getOrderData(index:Int)->Order{
         return ordersArray[index]
     }
