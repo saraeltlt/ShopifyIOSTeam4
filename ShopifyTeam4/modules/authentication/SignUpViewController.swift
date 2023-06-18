@@ -51,6 +51,7 @@ class SignUpViewController: UIViewController {
         view.addSubview(networkIndicator)
         toggleDisplayingThePasswordText()
         signUpViewModel = SignUpViewModel()
+        setScreenDefaultForm()
         signUpViewModel.failClosure = { (erreorMeg) in
             self.networkIndicator.stopAnimating()
             self.errorTitledAlert(subTitle: erreorMeg, handler: nil)
@@ -84,9 +85,18 @@ class SignUpViewController: UIViewController {
             errorTitledAlert(subTitle: "Not valid email ..", handler: nil)
             return
         }
+        
         let password = passwordTextField.text!
+        if !validatePassword(password){
+            notTitledCustomAlert(title: "The password is very weak", subTitle: "it should contains at least 8 characters & numbers", handler: nil)
+            return
+        }
         if  password != confirmPasswordTextField.text{
             errorTitledAlert(subTitle: "the two passwords you entered is not the same ..!", handler: nil)
+            return
+        }
+        if !isValidPhoneNumber(phoneNumberTextField.text!){
+            errorTitledAlert(subTitle: "Not valid phone number ..!", handler: nil)
             return
         }
         networkIndicator.startAnimating()
@@ -99,6 +109,7 @@ class SignUpViewController: UIViewController {
         return emailPredicate.evaluate(with: email)
     }
     func navigateToSignInScreen(){
+        setScreenDefaultForm()
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
         let login = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         login.modalPresentationStyle = .fullScreen
@@ -137,5 +148,69 @@ class SignUpViewController: UIViewController {
         toggleButton2.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         toggleButton2.tintColor = UIColor(named: K.ORANGE)
         confirmPasswordTextField.rightView = toggleButton2
+    }
+    func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
+            let digitPattern = #"^\d+$"#
+            let digitRegex = try! NSRegularExpression(pattern: digitPattern)
+            let phonePattern = #"^\+?\d{1,3}?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$"#
+            let phoneRegex = try! NSRegularExpression(pattern: phonePattern)
+            let isDigitOnly = digitRegex.matches(in: phoneNumber, range: NSRange(location: 0, length: phoneNumber.count)).count > 0
+            let isPhoneNumberValid = phoneRegex.matches(in: phoneNumber, range: NSRange(location: 0, length: phoneNumber.count)).count > 0
+            return isDigitOnly && isPhoneNumberValid
+        }
+    func validatePassword(_ password: String) -> Bool {
+        // Minimum password length
+        let minLength = 8
+        
+        // Check if password is empty
+        if password.isEmpty {
+            print("Error: Password cannot be empty.")
+            return false
+        }
+        
+        // Check if password meets minimum length requirement
+        if password.count < minLength {
+            print("Error: Password should be at least \(minLength) characters long.")
+            return false
+        }
+        
+        // Check for uppercase letter
+        let uppercaseLetterRegex = ".[A-Z]+."
+        let uppercaseTest = NSPredicate(format: "SELF MATCHES %@", uppercaseLetterRegex)
+        
+        if !uppercaseTest.evaluate(with: password) {
+            print("Error: Password should contain at least one uppercase letter.")
+            return false
+        }
+        
+        // Check for lowercase letter
+        let lowercaseLetterRegex = ".[a-z]+."
+        let lowercaseTest = NSPredicate(format: "SELF MATCHES %@", lowercaseLetterRegex)
+        
+        if !lowercaseTest.evaluate(with: password) {
+            print("Error: Password should contain at least one lowercase letter.")
+            return false
+        }
+        
+        // Check for digit
+        let digitRegex = ".[0-9]+."
+        let digitTest = NSPredicate(format: "SELF MATCHES %@", digitRegex)
+        
+        if !digitTest.evaluate(with: password) {
+            print("Error: Password should contain at least one digit.")
+            return false
+        }
+        
+        // Check for special character
+        let specialCharacterRegex = ".[!@#$%^&()+=\\-_\\[\\]{}|\\\\;:'\",.<>/?]+.*"
+        let specialCharacterTest = NSPredicate(format: "SELF MATCHES %@", specialCharacterRegex)
+        
+        if !specialCharacterTest.evaluate(with: password) {
+            print("Error: Password should contain at least one special character.")
+            return false
+        }
+        
+        // Password is valid
+        return true
     }
 }

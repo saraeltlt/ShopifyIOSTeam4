@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
   
     
+    @IBOutlet weak var noResultText: UIButton!
     @IBOutlet weak var noResultImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
 
@@ -58,6 +59,7 @@ class HomeViewController: UIViewController {
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         noResultImage.isHidden = true
+        noResultText.isHidden = true
         viewModel.brandsArray = viewModel.backupBrandsArray
         brandsCollection.reloadData()
     }
@@ -159,8 +161,10 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             let numberOfItems = viewModel.getBrandsCount()
             if numberOfItems == 0{
                 noResultImage.isHidden = false
+                noResultText.isHidden = false
             }else{
                 noResultImage.isHidden = true
+                noResultText.isHidden = true
             }
             return numberOfItems
         }
