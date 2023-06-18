@@ -11,6 +11,7 @@ import ProgressHUD
 class FavoriteViewController: UIViewController {
     var allFavoriteViewModel:AllFavoritesViewModel!
 
+    @IBOutlet weak var noFavoriteImage: UIImageView!
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,18 @@ class FavoriteViewController: UIViewController {
         allFavoriteViewModel.favoriteProducts = []
         allFavoriteViewModel.getAllSotredFavoriteItems()
         favoriteCollectionView.reloadData()
+        noFavoriteImage.isHidden = true
     }
 }
 extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allFavoriteViewModel.favoriteProducts.count
+        let numberOfItems =  allFavoriteViewModel.favoriteProducts.count
+        if numberOfItems == 0{
+            noFavoriteImage.isHidden = false
+        } else{
+            noFavoriteImage.isHidden = true
+        }
+        return numberOfItems
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.BRANDS_CELL, for: indexPath)

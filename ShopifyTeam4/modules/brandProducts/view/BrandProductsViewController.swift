@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import ProgressHUD
 
 class BrandProductsViewController: UIViewController {
     var disposBag = DisposeBag()
@@ -143,7 +142,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
                         guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
                         K.idsOfFavoriteProducts.remove(at: itemIndex)
                     }else{
-                        ProgressHUD.showError(msg)
+                        errorTitledAlert(subTitle: msg, handler: nil)
                     }
                 }
             }else{
@@ -154,8 +153,7 @@ extension BrandProductsViewController:UICollectionViewDelegate
                     sender.isFavoriteItem = true
                     K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
                 }else{
-                    ProgressHUD.showError(msg)
-                }
+                    errorTitledAlert(subTitle: msg, handler: nil)                }
             }
             let initialSize = CGFloat(17)
             let expandedSize = CGFloat(25)

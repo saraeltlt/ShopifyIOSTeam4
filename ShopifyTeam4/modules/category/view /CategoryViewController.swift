@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ProgressHUD
+
 
 class CategoryViewController: UIViewController {
     
@@ -241,7 +241,7 @@ extension CategoryViewController:UICollectionViewDelegate
                         guard let itemIndex = K.idsOfFavoriteProducts.firstIndex(of: currentItemFavoriteModel.id) else { return  }
                         K.idsOfFavoriteProducts.remove(at: itemIndex)
                     }else{
-                        ProgressHUD.showError(msg)
+                        errorTitledAlert(subTitle: msg, handler: nil)
                     }
                 }
             }else{
@@ -252,7 +252,7 @@ extension CategoryViewController:UICollectionViewDelegate
                     sender.isFavoriteItem = true
                     K.idsOfFavoriteProducts.append(currentItemFavoriteModel.id)
                 }else{
-                    ProgressHUD.showError(msg)
+                    errorTitledAlert(subTitle: msg, handler: nil)
                 }
             }
             let initialSize = CGFloat(17)
