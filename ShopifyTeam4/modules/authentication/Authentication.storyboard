@@ -457,7 +457,7 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="paige"/>
                                 <constraints>
                                     <constraint firstItem="0ET-qa-PkN" firstAttribute="top" secondItem="dHP-zc-0yz" secondAttribute="top" id="Rrb-cP-7ex"/>
                                     <constraint firstAttribute="trailing" secondItem="0ET-qa-PkN" secondAttribute="trailing" id="ntU-oW-IQW"/>

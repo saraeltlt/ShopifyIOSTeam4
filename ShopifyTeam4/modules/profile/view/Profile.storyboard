@@ -862,7 +862,7 @@
                                                 <color key="backgroundColor" name="paige"/>
                                                 <color key="textColor" name="green"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="tel"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJH-US-g53">
                                                 <rect key="frame" x="328" y="5" width="30" height="30"/>

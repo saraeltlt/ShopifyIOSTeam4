@@ -467,7 +467,9 @@
         <scene sceneID="kib-WH-qKu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wd4-fs-a63" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Category" image="cart.fill" catalog="system" id="T9k-bc-yTC"/>
+                    <tabBarItem key="tabBarItem" title="Category" image="category" id="T9k-bc-yTC">
+                        <color key="badgeColor" name="orange"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3t5-0O-eXE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -519,6 +521,7 @@
     </scenes>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="category" width="42.666667938232422" height="42.666667938232422"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>

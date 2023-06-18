@@ -73,7 +73,7 @@ class ProfileViewController: UIViewController {
             guard let count = count else {return}
                 if let view = self.shoppingCartCount.value(forKey: "view") as? UIView {
                     if count > 0 {
-                        view.addBadge(text: "\(count)",color: K.ORANGE)
+                        view.addBadge(text: "\(count)",color: K.GREEN)
                     }else {
                         view.removeBadge()
                     }

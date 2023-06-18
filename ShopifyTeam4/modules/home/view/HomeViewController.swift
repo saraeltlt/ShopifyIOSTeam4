@@ -220,19 +220,23 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
       
         
             if collectionView == adsCollection {
-                var promoCode="%"
-                switch indexPath.row{
-                case 0:
-                    promoCode=K.COUPONS.save15.rawValue
-                case 1:
-                  
-                    promoCode=K.COUPONS.save50.rawValue
-                default:
-                    promoCode=K.COUPONS.saveLimited80.rawValue
+                if K.GUEST_MOOD {
+                    self.view.makeToast("Not available in guest mood", duration: 2 ,title: "Guest Mood" ,image: UIImage(named: K.WARNINNG_IMAGE))
+                }else{
+                    var promoCode="%"
+                    switch indexPath.row{
+                    case 0:
+                        promoCode=K.COUPONS.save15.rawValue
+                    case 1:
+                        
+                        promoCode=K.COUPONS.save50.rawValue
+                    default:
+                        promoCode=K.COUPONS.saveLimited80.rawValue
+                    }
+                    let pasteboard = UIPasteboard.general
+                    pasteboard.string = promoCode
+                    self.view.makeToast("Coupon copied to the clipboard", duration: 2 ,title: promoCode ,image: UIImage(named: K.COUPON_IMAGE))
                 }
-                let pasteboard = UIPasteboard.general
-                pasteboard.string = promoCode
-                self.view.makeToast("Coupon copied to the clipboard", duration: 2 ,title: promoCode ,image: UIImage(named: K.COUPON_IMAGE))
             }else {
                 let brandProducts = self.storyboard?.instantiateViewController(identifier: "brandProducts")
                 as! BrandProductsViewController
