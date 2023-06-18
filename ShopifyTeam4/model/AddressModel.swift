@@ -36,4 +36,11 @@ class CustomerAddress: Codable {
            self.addresses = addresses
        }
 }
+struct PostAddress: Codable {
+    let address: Address?
+}
+
+struct responseAddress: Codable {
+    let customer_address: Address?
+}
 
