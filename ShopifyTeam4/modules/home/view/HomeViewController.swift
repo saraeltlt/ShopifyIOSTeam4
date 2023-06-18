@@ -58,6 +58,8 @@ class HomeViewController: UIViewController {
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         noResultImage.isHidden = true
+        viewModel.brandsArray = viewModel.backupBrandsArray
+        brandsCollection.reloadData()
     }
     
     

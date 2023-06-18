@@ -37,13 +37,15 @@ class CategoryViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        productsCollection.reloadData()
         configureFavoritesCountObservation()
         configureShoppingCartCountObservation()
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         noResultImage.isHidden = true
+        viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
+        viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
+        productsCollection.reloadData()
     }
     
     

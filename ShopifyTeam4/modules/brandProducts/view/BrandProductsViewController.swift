@@ -42,10 +42,10 @@ class BrandProductsViewController: UIViewController {
         } else {
             self.priceSliderFilter.maximumValue = 300
         }
+        viewModel?.brandProductsArray = viewModel!.backupBrandProductsArray
         setUpPriceFilterObservation()
         productsCollection.reloadData()
         noResultImage.isHidden = true
-        
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
