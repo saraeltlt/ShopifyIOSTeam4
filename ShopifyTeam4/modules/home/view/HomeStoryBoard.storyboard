@@ -190,8 +190,8 @@
                                 <rect key="frame" x="0.0" y="162" width="393" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTc-49-rON">
-                                        <rect key="frame" x="8" y="15.666666666666657" width="86.333333333333329" height="15.333333333333336"/>
-                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="12"/>
+                                        <rect key="frame" x="8" y="17" width="86.333333333333329" height="12.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="10"/>
                                         <color key="textColor" name="orange"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -397,7 +397,6 @@
                         <outlet property="container" destination="bHc-oo-YpE" id="tC6-UT-23r"/>
                         <outlet property="favoritesCount" destination="kod-dR-YoO" id="0rb-LE-MC0"/>
                         <outlet property="productsCollection" destination="DbD-Pp-RJH" id="lIm-Ms-wNA"/>
-
                         <outlet property="searchBar" destination="P3v-N9-6CN" id="Rrx-NQ-VPS"/>
                         <outlet property="shoppingCartCount" destination="Gsb-My-MTa" id="ARc-3P-swD"/>
                     </connections>

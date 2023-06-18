@@ -15,7 +15,7 @@ class addressCell: UITableViewCell {
     @IBOutlet weak var defaultBtn: UIButton!
     
     @IBOutlet weak var addressDetails: UILabel!
-    var delegate: UpdateData!
+    var delegate: UpdateData?
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,7 +30,7 @@ class addressCell: UITableViewCell {
         if (address.isDefault){
             K.DEFAULT_ADDRESS = "\(address.city!) - \(address.country!)"
             UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS
-            delegate.reloadTable()
+            delegate?.reloadTable()
         }
         
     }

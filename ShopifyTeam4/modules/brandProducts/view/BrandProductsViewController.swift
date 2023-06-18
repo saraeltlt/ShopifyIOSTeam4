@@ -54,7 +54,7 @@ class BrandProductsViewController: UIViewController {
     }
     
     func setUpPriceFilterObservation(){
-        priceSliderFilter.rx.controlEvent(.valueChanged).debounce(.seconds(2), scheduler: MainScheduler.instance).subscribe{
+        priceSliderFilter.rx.controlEvent(.valueChanged).debounce(.seconds(1), scheduler: MainScheduler.instance).subscribe{
             print(self.priceSliderFilter.value)
             var filterPrice = self.priceSliderFilter.value
             self.viewModel?.filterProducts(price: filterPrice)
