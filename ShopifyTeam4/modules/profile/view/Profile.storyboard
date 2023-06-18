@@ -1499,6 +1499,10 @@ Your order has been successfully confirmed.</string>
             <point key="canvasLocation" x="6267" y="521"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="hRB-79-qD0"/>
+        <designable name="qCT-Yc-XhC"/>
+    </designables>
     <resources>
         <image name="Contact" width="2000" height="2000"/>
         <image name="aboutUS" width="2000" height="2000"/>
@@ -1521,10 +1525,10 @@ Your order has been successfully confirmed.</string>
             <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightOrange">
-            <color red="0.88235294117647056" green="0.70588235294117641" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88200002908706665" green="0.70599997043609619" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

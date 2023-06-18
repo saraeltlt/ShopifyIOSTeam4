@@ -86,10 +86,10 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpAction(_ sender: UIButton) {
         guard !(nameTextField.text!.isEmpty || emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty || confirmPasswordTextField.text!.isEmpty || phoneNumberTextField.text!.isEmpty || countryTextField.text!.isEmpty || cityTextField.text!.isEmpty || streetTextField.text!.isEmpty)
         else {
-            errorTitledAlert(subTitle: "Fill all required information", handler: nil)
+            errorTitledAlert(subTitle: "Fill all required information \n can't continue with empty fields", handler: nil)
             return }
         if !isValidEmail(emailTextField.text!){
-            errorTitledAlert(subTitle: "Not valid email ..", handler: nil)
+            errorTitledAlert(subTitle: "Not valid email ..\n try aagain", handler: nil)
             return
         }
         
@@ -103,11 +103,11 @@ class SignUpViewController: UIViewController {
             return
         }
         if !isValidPhoneNumber(phoneNumberTextField.text!){
-            errorTitledAlert(subTitle: "Not valid phone number ..!", handler: nil)
+            errorTitledAlert(subTitle: "Not valid phone number ..!, \n try aagain", handler: nil)
             return
         }
         if storedPhoneNumbers.contains(phoneNumberTextField.text!){
-            notTitledCustomAlert(title: "duplicated phone number", subTitle: "This number is already assigned to a stored user", handler: nil)
+            notTitledCustomAlert(title: "duplicated phone number", subTitle: "This number is already assigned to a another user", handler: nil)
             return
         }
         networkIndicator.startAnimating()

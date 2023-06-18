@@ -11,6 +11,7 @@ import ProgressHUD
 class FavoriteViewController: UIViewController {
     var allFavoriteViewModel:AllFavoritesViewModel!
 
+    @IBOutlet weak var noFavLabel: UILabel!
     @IBOutlet weak var noFavoriteImage: UIImageView!
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -25,6 +26,18 @@ class FavoriteViewController: UIViewController {
         allFavoriteViewModel.getAllSotredFavoriteItems()
         favoriteCollectionView.reloadData()
         noFavoriteImage.isHidden = true
+        noFavLabel.isHidden=true
+        custmizeNavigation()
+    }
+    
+    func custmizeNavigation(){
+        let customFont = UIFont(name: "Chalkduster", size: 20)!
+        let customColor = UIColor(named: K.PAIGE)!
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: customFont,
+            NSAttributedString.Key.foregroundColor: customColor
+        ]
+        navigationItem.title = "Favourite"
     }
 }
 extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -32,8 +45,10 @@ extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataS
         let numberOfItems =  allFavoriteViewModel.favoriteProducts.count
         if numberOfItems == 0{
             noFavoriteImage.isHidden = false
+            noFavLabel.isHidden=false
         } else{
             noFavoriteImage.isHidden = true
+            noFavLabel.isHidden=true
         }
         return numberOfItems
     }

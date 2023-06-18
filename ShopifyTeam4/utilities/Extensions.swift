@@ -149,14 +149,13 @@ extension UIViewController {
     }
     func errorTitledAlert(title:String = "Error" , subTitle:String , imageName:String = K.WARNINNG_IMAGE, confirmBtn: String = "Ok" ,handler: (() -> Void)?) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewControllerOneButton") as! CustomAlertViewControllerOneButton
         
         myAlert.titles = title
         myAlert.subTitle = subTitle
         myAlert.imageName = imageName
         myAlert.okBtn = confirmBtn
         myAlert.okBtnHandler = handler
-        myAlert.cancelBtn = "Cancel"
         
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
@@ -164,14 +163,13 @@ extension UIViewController {
     }
     func notTitledCustomAlert(title:String , subTitle:String , imageName:String = K.WARNINNG_IMAGE, confirmBtn: String = "Ok" ,handler: (() -> Void)?) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewControllerOneButton") as! CustomAlertViewControllerOneButton
         
         myAlert.titles = title
         myAlert.subTitle = subTitle
         myAlert.imageName = imageName
         myAlert.okBtn = confirmBtn
         myAlert.okBtnHandler = handler
-        myAlert.cancelBtn = "Cancel"
         
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve

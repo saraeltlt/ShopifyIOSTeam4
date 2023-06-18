@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LMz-66-c6t">
-                                <rect key="frame" x="0.0" y="124.66666666666669" width="393" height="693.33333333333326"/>
+                                <rect key="frame" x="0.0" y="106.66666666666669" width="393" height="711.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hgv-tg-hZL">
                                     <size key="itemSize" width="128" height="128"/>
@@ -31,34 +31,51 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="kRL-NE-eAe"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdi-5z-h3y">
-                                <rect key="frame" x="10" y="74" width="373" height="35.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="noFav" translatesAutoresizingMaskIntoConstraints="NO" id="r9K-U7-gou">
+                                <rect key="frame" x="50" y="283.66666666666663" width="293" height="284.66666666666663"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites list is empty" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZh-9w-chu">
+                                <rect key="frame" x="10" y="568.33333333333337" width="373" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="TeM-jq-4pQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="23"/>
                                 <color key="textColor" name="orange"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="noFav" translatesAutoresizingMaskIntoConstraints="NO" id="r9K-U7-gou">
-                                <rect key="frame" x="50" y="159.66666666666669" width="293" height="608.33333333333326"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mm5-OY-3c2">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="106.66666666666667"/>
+                                <color key="backgroundColor" name="green"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
+                            <constraint firstItem="ZZh-9w-chu" firstAttribute="top" secondItem="r9K-U7-gou" secondAttribute="bottom" id="0wj-6u-Tt9"/>
                             <constraint firstItem="LMz-66-c6t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cde-6d-Mq7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="r9K-U7-gou" secondAttribute="trailing" constant="50" id="FAM-Lc-KxH"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Wdi-5z-h3y" secondAttribute="trailing" constant="10" id="FCx-Bj-tfF"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="r9K-U7-gou" secondAttribute="bottom" constant="50" id="TUK-oY-tI4"/>
-                            <constraint firstItem="r9K-U7-gou" firstAttribute="top" secondItem="Wdi-5z-h3y" secondAttribute="bottom" constant="50" id="XYI-Oa-oUa"/>
-                            <constraint firstItem="Wdi-5z-h3y" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="Ype-k6-pXA"/>
+                            <constraint firstItem="Mm5-OY-3c2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Hd0-vq-G6q"/>
+                            <constraint firstItem="r9K-U7-gou" firstAttribute="height" secondItem="LMz-66-c6t" secondAttribute="height" multiplier="0.4" id="Luc-Wb-QoD"/>
+                            <constraint firstItem="LMz-66-c6t" firstAttribute="top" secondItem="Mm5-OY-3c2" secondAttribute="bottom" id="MK1-EP-V87"/>
+                            <constraint firstItem="Mm5-OY-3c2" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Rak-o2-Ume"/>
+                            <constraint firstItem="Mm5-OY-3c2" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="UlW-8G-Bpn"/>
+                            <constraint firstItem="ZZh-9w-chu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="YYn-sP-PlN"/>
                             <constraint firstItem="r9K-U7-gou" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="bSC-Cd-1hL"/>
+                            <constraint firstAttribute="trailing" secondItem="ZZh-9w-chu" secondAttribute="trailing" constant="10" id="dv7-QN-83a"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LMz-66-c6t" secondAttribute="trailing" id="eVZ-ph-n64"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LMz-66-c6t" secondAttribute="bottom" id="qXg-tH-C5M"/>
-                            <constraint firstItem="LMz-66-c6t" firstAttribute="top" secondItem="Wdi-5z-h3y" secondAttribute="bottom" constant="15" id="tg8-bQ-03V"/>
-                            <constraint firstItem="Wdi-5z-h3y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="wHE-7z-8B1"/>
+                            <constraint firstItem="Mm5-OY-3c2" firstAttribute="height" secondItem="LMz-66-c6t" secondAttribute="height" multiplier="0.15" id="s17-Pm-80K"/>
+                            <constraint firstItem="r9K-U7-gou" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="wEk-XR-H1i"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="favoriteCollectionView" destination="LMz-66-c6t" id="lhD-eZ-YGr"/>
+                        <outlet property="noFavLabel" destination="ZZh-9w-chu" id="XZd-hr-u24"/>
                         <outlet property="noFavoriteImage" destination="r9K-U7-gou" id="6da-AO-UuA"/>
                     </connections>
                 </viewController>
@@ -69,6 +86,9 @@
     </scenes>
     <resources>
         <image name="noFav" width="85.333335876464844" height="85.333335876464844"/>
+        <namedColor name="green">
+            <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="orange">
             <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
