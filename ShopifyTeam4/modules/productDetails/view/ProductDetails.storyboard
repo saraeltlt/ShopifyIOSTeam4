@@ -6,7 +6,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,7 +33,7 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQ4-65-Rmb">
                                                         <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="1200"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Phs-wG-4v3">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
@@ -99,6 +98,7 @@
                                                                     </collectionView>
                                                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="GNK-GV-yZS">
                                                                         <rect key="frame" x="138.66666666666666" y="321" width="115.66666666666666" height="45"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="45" id="6Ca-er-piQ"/>
                                                                         </constraints>
@@ -127,6 +127,7 @@
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 $ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-YA-2xd">
                                                                         <rect key="frame" x="24" y="83" width="345" height="31.666666666666671"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
                                                                         <color key="textColor" name="orange"/>
                                                                         <nil key="highlightedColor"/>
@@ -213,6 +214,7 @@
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                 </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="sMH-64-GeR" firstAttribute="width" secondItem="sMH-64-GeR" secondAttribute="height" multiplier="1:1" id="4rJ-p7-6cl"/>
                                                                                     <constraint firstItem="BY8-Xf-m32" firstAttribute="width" secondItem="BY8-Xf-m32" secondAttribute="height" multiplier="1:1" id="GOa-vd-mJv"/>
@@ -221,6 +223,7 @@
                                                                                 </constraints>
                                                                             </stackView>
                                                                         </subviews>
+                                                                        <color key="backgroundColor" name="paige"/>
                                                                         <constraints>
                                                                             <constraint firstItem="RtB-CQ-lQB" firstAttribute="centerY" secondItem="dSM-6M-XeE" secondAttribute="centerY" id="0tn-WJ-r9D"/>
                                                                             <constraint firstAttribute="trailing" secondItem="RtB-CQ-lQB" secondAttribute="trailing" constant="4" id="4eV-uR-yb8"/>
@@ -234,6 +237,7 @@
                                                                     </view>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHO-Tf-bEa">
                                                                         <rect key="frame" x="261.33333333333331" y="384.66666666666663" width="97.666666666666686" height="50"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="62n-YL-oyI"/>
                                                                         </constraints>
@@ -302,6 +306,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="gy8-KF-1kq" firstAttribute="bottom" secondItem="gfv-fj-9wc" secondAttribute="bottom" id="8yO-HK-5On"/>
                                             <constraint firstItem="gfv-fj-9wc" firstAttribute="trailing" secondItem="gy8-KF-1kq" secondAttribute="trailing" constant="393" id="FW9-XX-yyf"/>
@@ -319,7 +324,9 @@
                                             <constraint firstAttribute="width" constant="45" id="S93-sJ-vnT"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="backButtonAction:" destination="VJ9-43-Rip" eventType="touchUpInside" id="eLz-yI-IAd"/>
                                         </connections>
@@ -895,8 +902,5 @@
         <namedColor name="textColor">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
