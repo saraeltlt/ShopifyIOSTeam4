@@ -11,6 +11,7 @@ class ProfileViewModel{
     var realmDBServiceInstance = RealmDBServices.instance
     var successClosure:() -> () = {}
     var orders:Observable<Bool>=Observable(false)
+    var CartItemsCount:Observable<Int>=Observable(0)
     var ordersArray = [Order]()
     func configureNavigationToAllOrders()->OrdersViewModel{
         return OrdersViewModel(orders: ordersArray)
@@ -26,6 +27,20 @@ class ProfileViewModel{
             }
         }
     }
+    
+    
+    func getAllSotredShoppingCardItems(){
+        realmDBServiceInstance.getProductsCount(ofType: ProductCart.self) { [weak self] errorMessage, productsCount in
+                guard let self = self else {return}
+                if let errorMessage = errorMessage{
+                    print(errorMessage)
+                }else{
+                    if let productsCount = productsCount{
+                        self.CartItemsCount.value = productsCount
+                    }
+                }
+            }
+        }
     
     
     

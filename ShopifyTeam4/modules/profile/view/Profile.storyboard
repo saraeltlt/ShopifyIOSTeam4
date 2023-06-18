@@ -244,6 +244,7 @@
                         <outlet property="noOrders" destination="9Sd-WW-R2f" id="cFr-zQ-6SF"/>
                         <outlet property="noWishlist" destination="TKB-xf-DiV" id="6zA-aU-de4"/>
                         <outlet property="ordersTableView" destination="t6u-iK-1kt" id="aol-hQ-I10"/>
+                        <outlet property="shoppingCartCount" destination="b9P-k4-FMk" id="u5m-fp-Bs1"/>
                         <outlet property="welcomeLabel" destination="jQK-xI-3M3" id="Yd0-hQ-egp"/>
                     </connections>
                 </viewController>
@@ -1476,6 +1477,10 @@ Your order has been successfully confirmed.</string>
             <point key="canvasLocation" x="6267" y="521"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="hRB-79-qD0"/>
+        <designable name="qCT-Yc-XhC"/>
+    </designables>
     <resources>
         <image name="Contact" width="2000" height="2000"/>
         <image name="aboutUS" width="2000" height="2000"/>

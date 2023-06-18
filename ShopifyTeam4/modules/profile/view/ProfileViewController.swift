@@ -10,6 +10,7 @@ import Lottie
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
     @IBOutlet weak var animationView: LottieAnimationView!
     @IBOutlet weak var noOrders: UIButton!
     @IBOutlet weak var noWishlist: UIButton!
@@ -51,6 +52,8 @@ class ProfileViewController: UIViewController {
             guestView.isHidden=true
             self.navigationController?.navigationBar.isHidden=false
             configureOrdersObservation()
+            configureShoppingCartCountObservation()
+            viewModel.getAllSotredShoppingCardItems()
             viewModel.favoriteProducts = []
             viewModel.getAllOrders()
             viewModel.getAllSotredFavoriteItems()
@@ -65,6 +68,19 @@ class ProfileViewController: UIViewController {
         favCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
     }
     
+    func configureShoppingCartCountObservation(){
+        viewModel.CartItemsCount.bind { count in
+            guard let count = count else {return}
+                if let view = self.shoppingCartCount.value(forKey: "view") as? UIView {
+                    if count > 0 {
+                        view.addBadge(text: "\(count)",color: K.ORANGE)
+                    }else {
+                        view.removeBadge()
+                    }
+                   }
+            
+        }
+    }
     
     @IBAction func moreOrdersBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Orders", bundle: nil)
