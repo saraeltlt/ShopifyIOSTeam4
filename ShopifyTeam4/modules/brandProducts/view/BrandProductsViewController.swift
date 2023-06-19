@@ -8,9 +8,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Lottie
 
 class BrandProductsViewController: UIViewController {
     var disposBag = DisposeBag()
+    @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var priceSliderFilter: UISlider!
     @IBOutlet weak var priceFilter: UILabel!
     @IBOutlet weak var container: UIView!
@@ -47,8 +49,6 @@ class BrandProductsViewController: UIViewController {
         viewModel?.brandProductsArray = viewModel!.backupBrandProductsArray
         setUpPriceFilterObservation()
         productsCollection.reloadData()
-        noResultImage.isHidden = true
-        noResultText.isHidden = true
     }
     
     @IBAction func priceFilterSlider(_ sender: UISlider) {
@@ -79,6 +79,37 @@ class BrandProductsViewController: UIViewController {
             isFilterHidden = true
         }
     }
+    
+    func checkLoadingDataStatus(){
+        if viewModel?.products.value == false {
+            startAnimation()
+        } else {
+            stopAnimation()
+            if viewModel?.getProductsCount() == 0 {
+                showEmptyStatus()
+            }else {
+                HideEmptyStatus()
+            }
+            
+        }
+    }
+    
+    func startAnimation(){
+        loadingAnimation.animationSpeed=1.5
+        loadingAnimation.loopMode = .loop
+        loadingAnimation.play()
+    }
+    func stopAnimation(){
+        loadingAnimation.isHidden = true
+    }
+    func showEmptyStatus(){
+        noResultImage.isHidden = false
+        noResultText.isHidden = false
+    }
+    func HideEmptyStatus(){
+        noResultImage.isHidden = true
+        noResultText.isHidden = true
+    }
 }
 
 extension BrandProductsViewController:UICollectionViewDelegate
@@ -101,16 +132,8 @@ extension BrandProductsViewController:UICollectionViewDelegate
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItems = viewModel?.getProductsCount() ?? 0
-        if numberOfItems == 0{
-            noResultImage.isHidden = false
-            noResultText.isHidden = false
-        }else{
-            noResultImage.isHidden = true
-            noResultText.isHidden = true
-        }
-        return numberOfItems
-        
+        checkLoadingDataStatus()
+        return viewModel?.getProductsCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

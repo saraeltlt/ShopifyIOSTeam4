@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Lottie
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var noResultText: UIButton!
     @IBOutlet weak var noResultImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -52,8 +55,6 @@ class HomeViewController: UIViewController {
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
-        noResultImage.isHidden = true
-        noResultText.isHidden = true
         viewModel.brandsArray = viewModel.backupBrandsArray
         brandsCollection.reloadData()
     }
@@ -127,6 +128,38 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
+    func checkLoadingDataStatus(){
+        if viewModel.brands.value == false {
+            startAnimation()
+        } else {
+            stopAnimation()
+            if viewModel.getBrandsCount() == 0 {
+                showEmptyStatus()
+            }else {
+                HideEmptyStatus()
+            }
+            
+        }
+    }
+    
+    func startAnimation(){
+        loadingAnimation.animationSpeed=1.5
+        loadingAnimation.loopMode = .loop
+        loadingAnimation.play()
+    }
+    func stopAnimation(){
+        loadingAnimation.isHidden = true
+    }
+    func showEmptyStatus(){
+        noResultImage.isHidden = false
+        noResultText.isHidden = false
+    }
+    func HideEmptyStatus(){
+        noResultImage.isHidden = true
+        noResultText.isHidden = true
+    }
+    
 
 }
 
@@ -168,15 +201,8 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         if collectionView == adsCollection {
             return viewModel.getadvertesmentsCount()
         }else {
-            let numberOfItems = viewModel.getBrandsCount()
-            if numberOfItems == 0{
-                noResultImage.isHidden = false
-                noResultText.isHidden = false
-            }else{
-                noResultImage.isHidden = true
-                noResultText.isHidden = true
-            }
-            return numberOfItems
+            checkLoadingDataStatus()
+            return viewModel.getBrandsCount()
         }
     }
     
