@@ -63,6 +63,14 @@ class SignInViewModel{
                         }
                     }
                 }
+                K.idsOfFavoriteProducts=[]
+                realmServices.getIDsOfAllFavoriteItems { errorMessage, idsOfFavoriteItems in
+                    if let errorMessage = errorMessage{
+                        print(errorMessage)
+                    }else{
+                        K.idsOfFavoriteProducts = idsOfFavoriteItems ?? []
+                    }
+                }
                 NetworkManager.shared.editApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.FAV_ID)) { (result : Result<(Int,String),Error>) in
                     switch (result){
                     case .success(let status):

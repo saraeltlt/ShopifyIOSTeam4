@@ -84,6 +84,7 @@ class HomeViewModel{
         return BrandProductsViewModel(brandId: brandsArray[rowIndex].id ?? 0)
     }
     func initIdsOfFavoriteItemsArray(){
+        K.idsOfFavoriteProducts=[]
         realmDBServiceInstance.getIDsOfAllFavoriteItems { errorMessage, idsOfFavoriteItems in
             if let errorMessage = errorMessage{
                 print(errorMessage)
