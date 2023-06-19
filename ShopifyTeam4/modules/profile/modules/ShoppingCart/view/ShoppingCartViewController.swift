@@ -23,7 +23,6 @@ class ShoppingCartViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.InternetConnectionStatus()
         viewModel.getCartItems()
         viewModel.getProductsObservable.bind { status in
             guard let status = status else {return}
@@ -65,7 +64,7 @@ class ShoppingCartViewController: UIViewController {
     }
     
     @IBAction func goToCheckout(_ sender: UIButton) {
-        if  (self.viewModel.internetConnection.value == true) {
+        if  (InternetConnectionObservation.getInstance.internetConnection.value == true) {
             let storyboard = UIStoryboard(name: "Profile", bundle: nil)
             let viewController = storyboard.instantiateViewController(identifier: "AddressViewController") as! AddressViewController
             viewController.viewModel = viewModel.configNavigation()

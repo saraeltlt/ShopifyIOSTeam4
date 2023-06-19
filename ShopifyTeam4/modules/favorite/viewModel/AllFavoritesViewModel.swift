@@ -10,8 +10,6 @@ import Network
 class AllFavoritesViewModel{
     var realmDBServiceInstance = RealmDBServices.instance
     var favoriteProducts:[ProductFavorite] = []
-    var internetConnection:Observable<Bool>=Observable(true)
-    let pathMonitor = NWPathMonitor()
     func getAllSotredFavoriteItems(){
         realmDBServiceInstance.getAllProducts(ofType: ProductFavorite.self) { [weak self] errorMessage, products in
             guard let self = self else {return}
@@ -54,23 +52,5 @@ class AllFavoritesViewModel{
         }
         return returnMsg
     }
-    
-    func InternetConnectionStatus(){
-        NetworkConnection.checkInternetConnection(pathMonitor: pathMonitor) { isConnected in
-            if isConnected {
-                print("Connected ya eslam")
-                self.internetConnection.value = true
-            } else {
-                print("Not Connected ya eslam")
-                self.internetConnection.value = false
-            }
-        }
-    }
-    
-    func endInterntObservation()->NWPathMonitor{
-        return pathMonitor
-    }
-    
-    
     
 }

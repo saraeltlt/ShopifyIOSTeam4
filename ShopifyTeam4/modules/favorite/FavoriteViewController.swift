@@ -22,7 +22,6 @@ class FavoriteViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        allFavoriteViewModel.InternetConnectionStatus()
         allFavoriteViewModel.favoriteProducts = []
         allFavoriteViewModel.getAllSotredFavoriteItems()
         favoriteCollectionView.reloadData()
@@ -60,7 +59,7 @@ extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataS
             return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       if  (self.allFavoriteViewModel.internetConnection.value == true) {
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
             let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
             let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
             detailsVC.productId = allFavoriteViewModel.favoriteProducts[indexPath.row].id
@@ -70,7 +69,6 @@ extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataS
         } else {
             self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
         }
-   
         
         
     }

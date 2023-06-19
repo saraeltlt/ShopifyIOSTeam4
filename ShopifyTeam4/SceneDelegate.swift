@@ -37,6 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        InternetConnectionObservation.getInstance.checkInternetConnection()
         if let selectedCurrency = UserDefaults.selectedCurrency {
             K.CURRENCY = selectedCurrency
         } else {

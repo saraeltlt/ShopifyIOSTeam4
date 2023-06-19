@@ -53,12 +53,11 @@ class HomeViewController: UIViewController {
         configureInternetConnectionObservation()
         configureFavoritesCountObservation()
         configureShoppingCartCountObservation()
-        viewModel.InternetConnectionStatus()
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         viewModel.brandsArray = viewModel.backupBrandsArray
-        brandsCollection.reloadData()
+       // brandsCollection.reloadData()
     }
     
     
@@ -114,7 +113,7 @@ class HomeViewController: UIViewController {
     }
     
     func configureInternetConnectionObservation(){
-        viewModel.internetConnection.bind { status in
+        InternetConnectionObservation.getInstance.internetConnection.bind { status in
             guard let status = status else {return}
             if status {
                 print("there is internet connection in home")

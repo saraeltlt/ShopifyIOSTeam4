@@ -12,8 +12,6 @@ class HomeViewModel{
     var brands:Observable<Bool>=Observable(false)
     var favoritesCount:Observable<Int>=Observable(0)
     var CartItemsCount:Observable<Int>=Observable(0)
-    var internetConnection:Observable<Bool>=Observable(true)
-    let pathMonitor = NWPathMonitor()
     var brandsArray  = [Product]()
     var backupBrandsArray  = [Product]()
     var advertesmentsArray:[UIImage]=[UIImage(named: "ads3")!,UIImage(named: "ads2")!,UIImage(named: "ads1")!]
@@ -98,21 +96,5 @@ class HomeViewModel{
         if let user = FUser.currentUser(){
             K.USER_NAME = user.fullname 
         }
-    }
-    
-    func InternetConnectionStatus(){
-        NetworkConnection.checkInternetConnection(pathMonitor: pathMonitor) { isConnected in
-            if isConnected {
-                print("Connected ya eslam")
-                self.internetConnection.value = true
-            } else {
-                print("Not Connected ya eslam")
-                self.internetConnection.value = false
-            }
-        }
-    }
-    
-    func endInterntObservation()->NWPathMonitor{
-        return pathMonitor
     }
 }

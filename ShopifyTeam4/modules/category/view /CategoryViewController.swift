@@ -40,13 +40,12 @@ class CategoryViewController: UIViewController {
         configureInternetConnectionObservation()
         configureFavoritesCountObservation()
         configureShoppingCartCountObservation()
-        viewModel.InternetConnectionStatus()
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
         viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
-        productsCollection.reloadData()
+       // productsCollection.reloadData()
     }
     
     
@@ -175,7 +174,7 @@ class CategoryViewController: UIViewController {
     }
     
     func configureInternetConnectionObservation(){
-        viewModel.internetConnection.bind { status in
+        InternetConnectionObservation.getInstance.internetConnection.bind { status in
             guard let status = status else {return}
             if status {
                 print("there is internet connection in category")
