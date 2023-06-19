@@ -10,30 +10,60 @@ import Alamofire
 @testable import ShopifyTeam4
 
 final class putOrDeleteApiDataTests: XCTestCase {
-
+    var networkManager : NetworkManegerProtocol!
+    
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        networkManager = NetworkManager.shared
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+        networkManager = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testPutOrDeleteApiData_Success(){
+        let url = URLs.shared.setDefaultAddress(customerID: 7021960823069, addressID: 9278565679389)
+        let expectation = self.expectation(description: "Create address request")
+        networkManager.putOrDeleteApiData(method: "PUT", url: url) {[weak self](result : Result<(Int,String),Error>) in
+            switch (result){
+            case .success(let status):
+                if (status.0 == 200){
+                    XCTAssertNotNil(status)
+                    expectation.fulfill()
+                }else{
+                    XCTFail("Request failed with error: \(status)")
+                }
+            case .failure(let error):
+                XCTFail("Request failed with error: \(error)")
+            }
         }
+        waitForExpectations(timeout: 5.0, handler: nil)
+        
     }
     
-    
+    func testPutOrDeleteApiData_FAILED_IvalidURL(){
+        let url = URLs.shared.setDefaultAddress(customerID: 0, addressID: 0)
+        let expectation = self.expectation(description: "Create address request")
+        networkManager.putOrDeleteApiData(method: "PUT", url: url) {[weak self](result : Result<(Int,String),Error>) in
+            switch (result){
+            case .success(let status):
+                if (status.0 == 200){
+                    XCTFail("Request failed with error: \(status)")
+                
+                }else{
+                    XCTAssertNotNil(status)
+                    expectation.fulfill()
+                }
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 5.0, handler: nil)
+        
+    }
+   
 
 }
