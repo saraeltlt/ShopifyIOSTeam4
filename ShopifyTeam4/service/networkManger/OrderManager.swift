@@ -8,8 +8,8 @@
 import Foundation
 
 extension NetworkManager {
-      func createOrder(url:String,order:PostOrderModel,completion: @escaping (Data?,URLResponse?,Error?)->Void){
-        var request = URLRequest(url:  URL(string:url)!)
+    func createOrder(url: String, order: PostOrderModel, completion: @escaping (Result<Data?, Error>) -> Void) {
+        var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "POST"
         let session = URLSession.shared
         request.httpShouldHandleCookies = false
@@ -18,13 +18,32 @@ extension NetworkManager {
             let data = try JSONEncoder().encode(order)
             let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
             request.httpBody = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
-        }catch let error {
-            print(error.localizedDescription)
+        } catch let error {
+            completion(.failure(error))
+            return
         }
+        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        session.dataTask(with: request) { (data,response,error) in
-            completion(data, response, error)
+        
+        session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                let unknownError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unknown response"])
+                completion(.failure(unknownError))
+                return
+            }
+            
+            if 200..<300 ~= httpResponse.statusCode {
+                completion(.success(data))
+            } else {
+                let statusCodeError = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "HTTP status code: \(httpResponse.statusCode)"])
+                completion(.failure(statusCodeError))
+            }
         }.resume()
     }
     

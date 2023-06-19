@@ -13,8 +13,9 @@ import Alamofire
 
 class NetworkManager : NetworkManegerProtocol{
     
+    
     static let shared = NetworkManager()
-        
+    
     private init() {}
     
     func getApiData<T: Decodable>(url: String, completionHandler: @escaping (Result<T, Error>) -> Void) {
@@ -32,12 +33,10 @@ class NetworkManager : NetworkManegerProtocol{
             }
         }
     }
+
     
-    func editApiData<T>(method: String, url: String, completion: @escaping (Result<T, Error>) -> Void) {
-        guard let url = URL(string: url) else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
-            return
-        }
+    func putOrDeleteApiData<T>(method: String, url: String, completion: @escaping (Result<T, Error>) -> Void) {
+        let url = URL(string: url)!
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method
@@ -62,8 +61,7 @@ class NetworkManager : NetworkManegerProtocol{
         }.resume()
     }
     
-    func getCurrency(completionHandler: @escaping (Double) -> Void) {
-        let apiURL = "https://openexchangerates.org/api/latest.json"
+    func getCurrency(apiURL:String,completionHandler: @escaping (Double) -> Void) {
         let apiKey = K.CUREENCY_API_KEY
         let baseCurrency = "USD"
         let targetCurrency = "EGP"
