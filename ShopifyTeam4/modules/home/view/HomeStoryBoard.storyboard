@@ -227,7 +227,7 @@
                         <outlet property="brandsCollection" destination="0lb-Rs-x7N" id="Zem-4O-ucH"/>
                         <outlet property="container" destination="8GI-YK-cLc" id="XIq-bl-SMc"/>
                         <outlet property="favoriteCount" destination="fuS-Q6-N58" id="LJV-HX-QBf"/>
-                        <outlet property="internetStatusView" destination="J4u-Tv-NwH" id="o0e-XH-hn1"/>
+                        <outlet property="internetStatusView" destination="J4u-Tv-NwH" id="AtM-pw-KVe"/>
                         <outlet property="loadingAnimation" destination="3yE-q6-oo2" id="u0V-sa-cMF"/>
                         <outlet property="noResultImage" destination="Qbm-kS-LF3" id="kxs-FK-rQV"/>
                         <outlet property="noResultText" destination="b6v-qA-a6e" id="19K-2x-4Sn"/>
@@ -332,6 +332,35 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k60-20-yVC">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noWifi" translatesAutoresizingMaskIntoConstraints="NO" id="fDZ-ZT-9kP">
+                                        <rect key="frame" x="78.666666666666671" y="308" width="235.66666666666663" height="236"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fDZ-ZT-9kP" secondAttribute="height" multiplier="1:1" id="IDN-kl-57H"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy5-K4-kML">
+                                        <rect key="frame" x="49" y="552" width="295" height="50"/>
+                                        <color key="tintColor" name="orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="No internet connection">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="paige"/>
+                                <constraints>
+                                    <constraint firstItem="fDZ-ZT-9kP" firstAttribute="width" secondItem="k60-20-yVC" secondAttribute="width" multiplier="0.6" id="3nT-gb-9eK"/>
+                                    <constraint firstItem="cy5-K4-kML" firstAttribute="height" secondItem="k60-20-yVC" secondAttribute="height" multiplier="0.0586854" id="EaR-fT-OSW"/>
+                                    <constraint firstItem="cy5-K4-kML" firstAttribute="centerX" secondItem="k60-20-yVC" secondAttribute="centerX" id="HI1-N6-er6"/>
+                                    <constraint firstItem="cy5-K4-kML" firstAttribute="top" secondItem="fDZ-ZT-9kP" secondAttribute="bottom" constant="8" symbolic="YES" id="Isq-Rd-pMt"/>
+                                    <constraint firstItem="fDZ-ZT-9kP" firstAttribute="centerX" secondItem="k60-20-yVC" secondAttribute="centerX" id="ToR-v0-fQJ"/>
+                                    <constraint firstItem="fDZ-ZT-9kP" firstAttribute="centerY" secondItem="k60-20-yVC" secondAttribute="centerY" id="VYv-xl-XsD"/>
+                                    <constraint firstItem="cy5-K4-kML" firstAttribute="width" secondItem="k60-20-yVC" secondAttribute="width" multiplier="0.75" id="fOw-fx-Z07"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nl3-6F-Vmp"/>
                         <color key="backgroundColor" name="paige"/>
@@ -344,6 +373,7 @@
                             <constraint firstItem="HNx-37-xvs" firstAttribute="height" secondItem="qlQ-bv-8uK" secondAttribute="height" multiplier="0.05" id="Fy3-cC-quO"/>
                             <constraint firstItem="nl3-6F-Vmp" firstAttribute="top" secondItem="s9k-o6-mmd" secondAttribute="top" constant="103" id="LDJ-9k-QsU"/>
                             <constraint firstItem="wJ6-ot-Qag" firstAttribute="bottom" secondItem="nl3-6F-Vmp" secondAttribute="bottom" id="PBZ-oI-KIM"/>
+                            <constraint firstItem="k60-20-yVC" firstAttribute="trailing" secondItem="nl3-6F-Vmp" secondAttribute="trailing" id="QXV-rh-Coz"/>
                             <constraint firstItem="XPa-xb-ucL" firstAttribute="bottom" secondItem="wJ6-ot-Qag" secondAttribute="bottom" id="QzP-yM-wUT"/>
                             <constraint firstItem="wJ6-ot-Qag" firstAttribute="trailing" secondItem="nl3-6F-Vmp" secondAttribute="trailing" id="RFw-w0-f0t"/>
                             <constraint firstItem="wJ6-ot-Qag" firstAttribute="top" secondItem="Nma-6A-amF" secondAttribute="bottom" id="SDO-cS-c8J"/>
@@ -354,8 +384,11 @@
                             <constraint firstItem="HNx-37-xvs" firstAttribute="top" secondItem="nl3-6F-Vmp" secondAttribute="top" id="bPh-RN-3iS"/>
                             <constraint firstItem="wJ6-ot-Qag" firstAttribute="leading" secondItem="nl3-6F-Vmp" secondAttribute="leading" id="emy-cH-XDR"/>
                             <constraint firstItem="s9k-o6-mmd" firstAttribute="leading" secondItem="nl3-6F-Vmp" secondAttribute="leading" id="g5u-lV-Qmd"/>
+                            <constraint firstItem="k60-20-yVC" firstAttribute="top" secondItem="qlQ-bv-8uK" secondAttribute="top" id="hL5-XA-fpL"/>
                             <constraint firstItem="Nma-6A-amF" firstAttribute="trailing" secondItem="nl3-6F-Vmp" secondAttribute="trailing" id="igg-lm-a2x"/>
                             <constraint firstItem="nl3-6F-Vmp" firstAttribute="trailing" secondItem="s9k-o6-mmd" secondAttribute="trailing" id="iji-Tl-TL5"/>
+                            <constraint firstAttribute="bottom" secondItem="k60-20-yVC" secondAttribute="bottom" id="jaB-l5-xJf"/>
+                            <constraint firstItem="k60-20-yVC" firstAttribute="leading" secondItem="nl3-6F-Vmp" secondAttribute="leading" id="jju-SA-FRU"/>
                             <constraint firstItem="EVC-fn-ncs" firstAttribute="centerX" secondItem="MdD-08-adI" secondAttribute="centerX" id="nAT-re-2tA"/>
                             <constraint firstItem="XPa-xb-ucL" firstAttribute="trailing" secondItem="wJ6-ot-Qag" secondAttribute="trailing" id="o1k-3x-iOJ"/>
                             <constraint firstItem="XPa-xb-ucL" firstAttribute="top" secondItem="wJ6-ot-Qag" secondAttribute="top" id="o5n-mO-NPi"/>
@@ -376,6 +409,7 @@
                         <outlet property="container" destination="s9k-o6-mmd" id="azT-8I-rOX"/>
                         <outlet property="filterContainer" destination="Nma-6A-amF" id="g3X-sq-ui7"/>
                         <outlet property="filterContainerHeightConstrain" destination="UdC-ZJ-GH5" id="Clg-gy-zBG"/>
+                        <outlet property="internetConnectionStatus" destination="k60-20-yVC" id="Rec-53-9xc"/>
                         <outlet property="loadingAnimation" destination="XPa-xb-ucL" id="ao4-fn-sa4"/>
                         <outlet property="noResultImage" destination="MdD-08-adI" id="CK5-tF-N9r"/>
                         <outlet property="noResultText" destination="EVC-fn-ncs" id="vLh-bS-LME"/>
