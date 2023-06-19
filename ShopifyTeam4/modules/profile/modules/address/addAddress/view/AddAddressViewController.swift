@@ -6,8 +6,12 @@
 //
 
 import UIKit
-
-class AddAddressViewController: UIViewController {
+protocol AddAddressProtocol{
+    func setAddress(country:String,city:String,street:String)
+}
+class AddAddressViewController: UIViewController, AddAddressProtocol {
+   
+    
     @IBOutlet weak var streetText: UITextField!
     
     @IBOutlet weak var phoneText: UITextField!
@@ -24,6 +28,12 @@ class AddAddressViewController: UIViewController {
         super.viewDidLoad()
  
 
+    }
+    func setAddress(country: String, city: String, street: String) {
+        countryTextField.text=country
+        cityText.text=city
+        streetText.text=street
+        
     }
     
     @IBAction func addAddressBtn(_ sender: Any) {
@@ -76,4 +86,12 @@ class AddAddressViewController: UIViewController {
         return false
     }
     
+    @IBAction func goToMap(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AddressInfoViewController") as! AddressInfoViewController
+        vc.delegate=self
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
+    }
 }

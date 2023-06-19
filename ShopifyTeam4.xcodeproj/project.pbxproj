@@ -36,6 +36,7 @@
 		8F22AC322A2F89AB00016D1F /* addressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC302A2F89AB00016D1F /* addressCell.swift */; };
 		8F22AC332A2F89AB00016D1F /* addressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F22AC312A2F89AB00016D1F /* addressCell.xib */; };
 		8F5433712A3FA4620015D683 /* CustomAlertViewControllerOneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5433702A3FA4620015D683 /* CustomAlertViewControllerOneButton.swift */; };
+		8F5433732A3FD1570015D683 /* AddressInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5433722A3FD1570015D683 /* AddressInfoViewController.swift */; };
 		8F574FB62A3153C800BA979D /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F574FB52A3153C800BA979D /* DoneViewController.swift */; };
 		8F5C3AAA2A2E76D000B5D939 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C3AA92A2E76D000B5D939 /* SignUpViewController.swift */; };
 		8F5C3AAC2A2E771E00B5D939 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5C3AAB2A2E771E00B5D939 /* LoginViewController.swift */; };
@@ -163,6 +164,7 @@
 		8F22AC302A2F89AB00016D1F /* addressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressCell.swift; sourceTree = "<group>"; };
 		8F22AC312A2F89AB00016D1F /* addressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addressCell.xib; sourceTree = "<group>"; };
 		8F5433702A3FA4620015D683 /* CustomAlertViewControllerOneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewControllerOneButton.swift; sourceTree = "<group>"; };
+		8F5433722A3FD1570015D683 /* AddressInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfoViewController.swift; sourceTree = "<group>"; };
 		8F574FB52A3153C800BA979D /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		8F5C3AA92A2E76D000B5D939 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8F5C3AAB2A2E771E00B5D939 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 		8FF3CE9F2A36647200797849 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				8F5433722A3FD1570015D683 /* AddressInfoViewController.swift */,
 				8F22AC2E2A2F817900016D1F /* AddAddressViewController.swift */,
 			);
 			path = view;
@@ -1159,6 +1162,7 @@
 				268F04DD2A34CF8A002122B7 /* ProductImageCollectionViewCell.swift in Sources */,
 				A7B961A92A32048700940F98 /* CategoryViewModel.swift in Sources */,
 				A7AA7F112A30F15B007DFB2E /* NetworkManager.swift in Sources */,
+				8F5433732A3FD1570015D683 /* AddressInfoViewController.swift in Sources */,
 				A73D4E052A35EEE70081E384 /* CustomerModel.swift in Sources */,
 				A73D4E032A35EDFE0081E384 /* CustomerManager.swift in Sources */,
 				8F973BAF2A2BC9D500B52879 /* AppDelegate.swift in Sources */,
