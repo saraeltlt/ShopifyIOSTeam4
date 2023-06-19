@@ -7,11 +7,13 @@
 
 import Foundation
 import UIKit
-
+import Network
 class CategoryViewModel{
     var products:Observable<Bool>=Observable(false)
     var favoritesCount:Observable<Int>=Observable(0)
     var CartItemsCount:Observable<Int>=Observable(0)
+    var internetConnection:Observable<Bool>=Observable(true)
+    let pathMonitor = NWPathMonitor()
     var categoryProductsArray  = [Product]()
     var backupCategoryProductsArray  = [Product]()
     var filteredProductsArray = [Product] ()
@@ -164,4 +166,23 @@ class CategoryViewModel{
         }
         return returnMsg
     }
+    
+    func InternetConnectionStatus(){
+        NetworkConnection.checkInternetConnection(pathMonitor: pathMonitor) { isConnected in
+            if isConnected {
+                print("Connected ya eslam")
+                self.internetConnection.value = true
+            } else {
+                print("Not Connected ya eslam")
+                self.internetConnection.value = false
+            }
+        }
+    }
+    
+    func endInterntObservation()->NWPathMonitor{
+        return pathMonitor
+    }
+    
+    
+    
 }

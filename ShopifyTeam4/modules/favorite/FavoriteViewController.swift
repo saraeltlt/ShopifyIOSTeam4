@@ -22,6 +22,7 @@ class FavoriteViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        allFavoriteViewModel.InternetConnectionStatus()
         allFavoriteViewModel.favoriteProducts = []
         allFavoriteViewModel.getAllSotredFavoriteItems()
         favoriteCollectionView.reloadData()
@@ -59,12 +60,19 @@ extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataS
             return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
-        let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-        detailsVC.productId = allFavoriteViewModel.favoriteProducts[indexPath.row].id 
-        detailsVC.modalPresentationStyle = .fullScreen
-        detailsVC.modalTransitionStyle = .crossDissolve
-        present(detailsVC, animated: true)
+       if  (self.allFavoriteViewModel.internetConnection.value == true) {
+            let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
+            let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+            detailsVC.productId = allFavoriteViewModel.favoriteProducts[indexPath.row].id
+            detailsVC.modalPresentationStyle = .fullScreen
+            detailsVC.modalTransitionStyle = .crossDissolve
+            present(detailsVC, animated: true)
+        } else {
+            self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+        }
+   
+        
+        
     }
     @objc func buttonTapped(_ sender: FavoriteButton) {
         let currentItemFavoriteModel = allFavoriteViewModel.favoriteProducts[sender.cellIndex]

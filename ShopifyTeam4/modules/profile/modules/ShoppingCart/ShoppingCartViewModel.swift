@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Network
 class ShoppingCartViewModel{
     var getProductsObservable:Observable<Bool>=Observable(false)
     var subTotal: Double = 0.0
     var cartProducts:[ProductCart] = []
-    
+    var internetConnection:Observable<Bool>=Observable(true)
+    let pathMonitor = NWPathMonitor()
     
     
     func configNavigation() -> AddressViewModel{
@@ -70,6 +72,21 @@ class ShoppingCartViewModel{
         }
     }
     
+    func InternetConnectionStatus(){
+        NetworkConnection.checkInternetConnection(pathMonitor: pathMonitor) { isConnected in
+            if isConnected {
+                print("Connected ya eslam")
+                self.internetConnection.value = true
+            } else {
+                print("Not Connected ya eslam")
+                self.internetConnection.value = false
+            }
+        }
+    }
+    
+    func endInterntObservation()->NWPathMonitor{
+        return pathMonitor
+    }
     
     
     

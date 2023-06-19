@@ -10,6 +10,7 @@ import Lottie
 
 class CategoryViewController: UIViewController {
     
+    @IBOutlet weak var internetStatusView: UIView!
     @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var noResultText: UIButton!
@@ -36,8 +37,10 @@ class CategoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden=false
+        configureInternetConnectionObservation()
         configureFavoritesCountObservation()
         configureShoppingCartCountObservation()
+        viewModel.InternetConnectionStatus()
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
@@ -171,7 +174,23 @@ class CategoryViewController: UIViewController {
         noResultText.isHidden = true
     }
     
-    
+    func configureInternetConnectionObservation(){
+        viewModel.internetConnection.bind { status in
+            guard let status = status else {return}
+            if status {
+                print("there is internet connection in category")
+                DispatchQueue.main.async {
+                    self.internetStatusView.isHidden = true
+                }
+                self.viewModel.getAllProducts()
+            }else {
+                print("there is no internet connection in category")
+                DispatchQueue.main.async {
+                    self.internetStatusView.isHidden = false
+                }
+            }
+        }
+    }
     
     
     

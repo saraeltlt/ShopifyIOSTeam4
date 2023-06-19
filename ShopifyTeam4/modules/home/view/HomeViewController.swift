@@ -10,6 +10,7 @@ import Lottie
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var internetStatusView: UIView!
     @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var noResultText: UIButton!
     @IBOutlet weak var noResultImage: UIImageView!
@@ -60,11 +61,6 @@ class HomeViewController: UIViewController {
         brandsCollection.reloadData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        let pathMonitor = viewModel.endInterntObservation()
-        pathMonitor.cancel()
-    }
-    
     
     
     @IBAction func navigateToShoppingCart(_ sender: UIBarButtonItem) {
@@ -80,14 +76,13 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func navigateToFavoriteItems(_ sender: UIBarButtonItem) {
-        if (K.GUEST_MOOD){
-            self.GuestMoodAlert()
-        }else{
-            let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
-            let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
-            self.navigationController?.pushViewController(favoriteVC, animated: true)
+            if (K.GUEST_MOOD){
+                self.GuestMoodAlert()
+            }else{
+                let storyboard = UIStoryboard(name: "Favorites", bundle: nil)
+                let favoriteVC = storyboard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
+                self.navigationController?.pushViewController(favoriteVC, animated: true)
         }
-
     }
     
     func configureFavoritesCountObservation(){
@@ -123,8 +118,15 @@ class HomeViewController: UIViewController {
             guard let status = status else {return}
             if status {
                 print("there is internet connection in home")
+                DispatchQueue.main.async {
+                    self.internetStatusView.isHidden = true
+                }
+                self.viewModel.getBrandsData()
             }else {
                 print("there is no internet connection in home")
+                DispatchQueue.main.async {
+                    self.internetStatusView.isHidden = false
+                }
             }
         }
     }

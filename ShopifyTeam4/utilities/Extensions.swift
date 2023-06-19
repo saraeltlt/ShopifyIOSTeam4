@@ -107,20 +107,6 @@ extension UIView {
 
 //MARK: - Custom alerts
 extension UIViewController {
-    
-   /* func showNoInternetAlert() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
-        myAlert.titles="No internet connection"
-        myAlert.subTitle="Please check your wifi or celluar data and try again"
-        myAlert.imageName=K.WIFI_Alert_IMAGE
-        myAlert.okBtn="OK"
-        
-        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(myAlert, animated: true, completion: nil)
-    }*/
-    
     func confirmAlert(title:String = "Delete" , subTitle:String = "Are you sure you want to delete this Item?" , imageName:String = K.WARNINNG_IMAGE, confirmBtn: String = "Yes, Delete" ,handler: (() -> Void)?) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewController") as! CustomAlertViewController
@@ -147,7 +133,7 @@ extension UIViewController {
             }
         
     }
-    func errorTitledAlert(title:String = "Error" , subTitle:String , imageName:String = K.WARNINNG_IMAGE, confirmBtn: String = "Ok" ,handler: (() -> Void)?) {
+    func errorTitledAlert(title:String = "Error" , subTitle:String , imageName:String = K.WARNINNG_IMAGE, confirmBtn: String = "Ok" ,handler: (() -> Void)? = {}) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let myAlert = storyboard.instantiateViewController(withIdentifier: "CustomAlertViewControllerOneButton") as! CustomAlertViewControllerOneButton
         
