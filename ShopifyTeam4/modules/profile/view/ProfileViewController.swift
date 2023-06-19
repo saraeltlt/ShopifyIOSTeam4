@@ -42,6 +42,7 @@ class ProfileViewController: UIViewController {
           self.present(viewController, animated: false, completion: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden=false
         favCollection.isScrollEnabled = false
         ordersTableView.isScrollEnabled = false
         

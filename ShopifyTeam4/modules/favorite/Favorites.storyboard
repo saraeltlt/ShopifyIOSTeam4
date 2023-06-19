@@ -45,19 +45,51 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mm5-OY-3c2">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="119"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkl-G8-q9V">
+                                        <rect key="frame" x="107.66666666666667" y="50.333333333333343" width="177.66666666666663" height="38"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" name="green"/>
+                                <constraints>
+                                    <constraint firstItem="Zkl-G8-q9V" firstAttribute="centerX" secondItem="Mm5-OY-3c2" secondAttribute="centerX" id="dIp-eo-ZSp"/>
+                                    <constraint firstItem="Zkl-G8-q9V" firstAttribute="centerY" secondItem="Mm5-OY-3c2" secondAttribute="centerY" constant="10" id="wy7-8F-dYA"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Baq-el-Wn8">
+                                <rect key="frame" x="0.0" y="44.333333333333343" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jfb-PJ-hKu"/>
+                                    <constraint firstAttribute="width" constant="50" id="eDi-hL-0f2"/>
+                                </constraints>
+                                <color key="tintColor" name="paige"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="chevron.backward" catalog="system" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseBackgroundColor" name="textColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="peS-aJ-l9G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="ZZh-9w-chu" firstAttribute="top" secondItem="r9K-U7-gou" secondAttribute="bottom" id="0wj-6u-Tt9"/>
+                            <constraint firstItem="Baq-el-Wn8" firstAttribute="centerY" secondItem="Zkl-G8-q9V" secondAttribute="centerY" id="15N-2o-rPU"/>
                             <constraint firstItem="r9K-U7-gou" firstAttribute="width" secondItem="LMz-66-c6t" secondAttribute="width" multiplier="0.6" id="9LN-Pl-zcv"/>
+                            <constraint firstItem="Baq-el-Wn8" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="BDg-rA-plA"/>
                             <constraint firstItem="LMz-66-c6t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cde-6d-Mq7"/>
                             <constraint firstItem="Mm5-OY-3c2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Hd0-vq-G6q"/>
                             <constraint firstItem="r9K-U7-gou" firstAttribute="height" secondItem="LMz-66-c6t" secondAttribute="height" multiplier="0.4" id="Luc-Wb-QoD"/>
@@ -73,6 +105,7 @@
                             <constraint firstItem="r9K-U7-gou" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="wEk-XR-H1i"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Qul-Z5-UbX"/>
                     <connections>
                         <outlet property="favoriteCollectionView" destination="LMz-66-c6t" id="lhD-eZ-YGr"/>
                         <outlet property="noFavLabel" destination="ZZh-9w-chu" id="XZd-hr-u24"/>
@@ -81,10 +114,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n17-mw-LwS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o64-kD-NWi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdg-g0-zmu">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="green"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="green"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="green"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" name="green"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="compactAppearance">
+                            <color key="backgroundColor" name="green"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" name="green"/>
+                            <color key="shadowColor" name="green"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Oic-te-1Gf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rpt-08-mrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="noFav" width="85.333335876464844" height="85.333335876464844"/>
         <namedColor name="green">
             <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -94,6 +164,9 @@
         </namedColor>
         <namedColor name="paige">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

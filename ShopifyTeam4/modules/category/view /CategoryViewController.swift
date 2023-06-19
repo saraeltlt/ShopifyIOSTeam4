@@ -38,6 +38,7 @@ class CategoryViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden=false
         configureFavoritesCountObservation()
         configureShoppingCartCountObservation()
         viewModel.getAllSotredFavoriteItems()
@@ -365,5 +366,17 @@ extension CategoryViewController:UISearchBarDelegate{
         viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
         viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
         productsCollection.reloadData()
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (collectionView == productsCollection){
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+            cell.layer.transform = rotationTransform
+            cell.alpha = 0.5
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+            }
+        }
     }
 }

@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden=false
         configureInternetConnectionObservation()
         configureFavoritesCountObservation()
         configureShoppingCartCountObservation()
@@ -257,6 +258,19 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 brandProducts.viewModel = viewModel.navigationConfigure(for: indexPath.row)
                 self.navigationController?.pushViewController(brandProducts, animated: true)
             }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (collectionView == brandsCollection){
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+            cell.layer.transform = rotationTransform
+            cell.alpha = 0
+            
+            UIView.animate(withDuration: 0.5) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+            }
+        }
     }
     
 }

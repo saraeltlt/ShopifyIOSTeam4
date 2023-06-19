@@ -323,9 +323,9 @@
                                             <constraint firstAttribute="height" constant="45" id="RfX-8R-yza"/>
                                             <constraint firstAttribute="width" constant="45" id="S93-sJ-vnT"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="textColor"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward.fill" catalog="system">
+                                            <color key="baseForegroundColor" name="textColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="backButtonAction:" destination="VJ9-43-Rip" eventType="touchUpInside" id="eLz-yI-IAd"/>
@@ -881,7 +881,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="104"/>
         <image name="heart" width="32" height="32"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="darkPaige">

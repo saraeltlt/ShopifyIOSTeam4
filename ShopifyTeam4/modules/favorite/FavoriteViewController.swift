@@ -27,17 +27,11 @@ class FavoriteViewController: UIViewController {
         favoriteCollectionView.reloadData()
         noFavoriteImage.isHidden = true
         noFavLabel.isHidden=true
-        custmizeNavigation()
+        self.navigationController?.navigationBar.isHidden=true
     }
-    
-    func custmizeNavigation(){
-        let customFont = UIFont(name: "Chalkduster", size: 20)!
-        let customColor = UIColor(named: K.PAIGE)!
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.font: customFont,
-            NSAttributedString.Key.foregroundColor: customColor
-        ]
-        navigationItem.title = "Favourite"
+
+    @IBAction func goBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 extension FavoriteViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -119,5 +113,15 @@ extension FavoriteViewController{
         
         let section = NSCollectionLayoutSection(group: group)
         return section
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+            cell.layer.transform = rotationTransform
+            cell.alpha = 0.5
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+            }
     }
 }

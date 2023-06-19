@@ -38,6 +38,7 @@ class BrandProductsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden=false
         productsCollection.reloadData()
         if K.CURRENCY == "EGP" {
             self.priceSliderFilter.maximumValue = 10000
@@ -226,5 +227,15 @@ extension BrandProductsViewController:UISearchBarDelegate{
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+            cell.layer.transform = rotationTransform
+            cell.alpha = 0.5
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1.0
+            }
     }
 }
