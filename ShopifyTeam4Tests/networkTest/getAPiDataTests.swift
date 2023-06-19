@@ -67,7 +67,46 @@ final class getAPiDataTests: XCTestCase {
        }
     
     //MARK: - test get currency
+    
     func testGetCurrency_Success() {
+        // Given
+        let expectation = expectation(description: "API Currency retrieval")
+        let url = URLs.shared.getCurrencyURL()
+        networkManager.getCurrency(apiURL: url) { result in
+            // Then
+            switch result {
+            case .success(let data):
+                XCTAssertNotNil(data)
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail("Error: \(error.localizedDescription)")
+               
+                
+            }
+            
+            
+        }
+        waitForExpectations(timeout: 5.0)
+    }
+    
+    func testGetCurrency_Faliure_InvalidURL() {
+        // Given
+        let expectation = expectation(description: "API Currency retrieval")
+        let url = "https://invalid-url.com"
+        //when
+        networkManager.getCurrency(apiURL: url) { result in
+            // Then
+            switch result {
+            case .success:
+                XCTFail("Expected failure, but received success.")
+            case .failure(let error):
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
+            
+            
+        }
+        waitForExpectations(timeout: 5.0)
     }
     
     

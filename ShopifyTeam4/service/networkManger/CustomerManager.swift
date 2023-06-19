@@ -8,38 +8,51 @@
 import Foundation
 
 extension NetworkManager {
-     func addNewCustomer(method: String,url:String,Newcustomer: CustomerModel,complication:@escaping (CustomerModel?) -> Void) {
-        let url = URL(string: url)
-        var urlRequest = URLRequest(url: url!)
+    func addNewCustomer(method: String, url: String, newCustomer: CustomerModel, completion: @escaping (Result<CustomerModel, Error>) -> Void) {
+        guard let url = URL(string: url) else {
+            let error = NSError(domain: "InvalidURL", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
+            completion(.failure(error))
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method
         urlRequest.httpShouldHandleCookies = false
+        
         do {
-            
             let encoder = JSONEncoder()
-            let customerData = try? encoder.encode(Newcustomer)
-            var customerDictionary = try? JSONSerialization.jsonObject(with: customerData!, options: []) as? [String: Any]
+            let customerData = try encoder.encode(newCustomer)
+            let customerDictionary = try JSONSerialization.jsonObject(with: customerData, options: []) as? [String: Any] ?? [:]
             let bodyData = try JSONSerialization.data(withJSONObject: customerDictionary, options: .prettyPrinted)
             urlRequest.httpBody = bodyData
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            if (data != nil && data?.count != 0){
-                if let httpResponse = response as? HTTPURLResponse {
-                    let response = String(data:data!,encoding: .utf8)
-                    print(response!)
-                    guard let data = data else {return}
-                    let jsonResponse = try? JSONDecoder().decode(CustomerModel.self, from: data)
-                    print(jsonResponse!)
-                    complication(jsonResponse)
-                    
+            URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
                 }
-            }
-            
-        }.resume()
-        
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    let unknownError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unknown response"])
+                    completion(.failure(unknownError))
+                    return
+                }
+                
+                if let data = data, let jsonResponse = try? JSONDecoder().decode(CustomerModel.self, from: data) {
+                    if 200..<300 ~= httpResponse.statusCode {
+                        completion(.success(jsonResponse))
+                    } else {
+                        let statusCodeError = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "HTTP status code: \(httpResponse.statusCode)"])
+                        completion(.failure(statusCodeError))
+                    }
+                } else {
+                    let parsingError = NSError(domain: "ParsingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to parse customer data"])
+                    completion(.failure(parsingError))
+                }
+            }.resume()
+        } catch let error {
+            completion(.failure(error))
+        }
     }
-
 }

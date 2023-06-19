@@ -61,7 +61,7 @@ class NetworkManager : NetworkManegerProtocol{
         }.resume()
     }
     
-    func getCurrency(apiURL:String,completionHandler: @escaping (Double) -> Void) {
+    func getCurrency(apiURL: String, completionHandler: @escaping (Result<Double, Error>) -> Void) {
         let apiKey = K.CUREENCY_API_KEY
         let baseCurrency = "USD"
         let targetCurrency = "EGP"
@@ -73,19 +73,20 @@ class NetworkManager : NetworkManegerProtocol{
         ]
         
         AF.request(apiURL, parameters: parameters).responseJSON { response in
-            var result = 0.0 // Default result
             switch response.result {
             case .success(let value):
                 if let json = value as? [String: Any],
                    let rates = json["rates"] as? [String: Double],
                    let exchangeRate = rates[targetCurrency] {
-                    result = exchangeRate
+                    completionHandler(.success(exchangeRate))
+                } else {
+                    let error = NSError(domain: "CurrencyErrorDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "Failed to parse currency data"])
+                    completionHandler(.failure(error))
                 }
+                
             case .failure(let error):
-                print("Failed to retrieve currency data: \(error)")
+                completionHandler(.failure(error))
             }
-            
-            completionHandler(result)
         }
     }
     
