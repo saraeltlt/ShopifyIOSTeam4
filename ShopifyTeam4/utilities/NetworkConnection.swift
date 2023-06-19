@@ -7,25 +7,6 @@
 
 import Foundation
 import Network
-
-class NetworkConnection {
-   static func checkInternetConnection(pathMonitor:NWPathMonitor,completion: @escaping (Bool) -> Void) {
-        pathMonitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                print("There is  Internet Connection")
-                completion(true)
-            } else {
-                print("No Internet Connection")
-                completion(false)
-            }
-        }
-
-        let queue = DispatchQueue(label: "NetworkMonitor")
-        pathMonitor.start(queue: queue)
-    }
-}
-
-
 class InternetConnectionObservation {
     var internetConnection:Observable<Bool>=Observable(nil)
     var pathMonitor = NWPathMonitor()

@@ -1441,6 +1441,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cashBtn" destination="c4H-QR-0WF" id="CfS-vs-jVU"/>
+                        <outlet property="noInternetConnectionView" destination="fER-B9-7Fl" id="6nJ-Ih-cnw"/>
                         <outlet property="onlineBtn" destination="IUh-C0-QdG" id="V4k-K2-9QN"/>
                     </connections>
                 </viewController>
@@ -1663,6 +1664,7 @@
                     <connections>
                         <outlet property="couponTextField" destination="8Mu-x3-pqC" id="ZnB-cl-bbw"/>
                         <outlet property="discountLabel" destination="xki-di-YOa" id="wPK-G9-0Ta"/>
+                        <outlet property="noInternetConnectionView" destination="GyP-Ns-PGo" id="f61-5U-f8w"/>
                         <outlet property="shippinhFeesLabel" destination="vjn-O6-N3d" id="eBB-Yf-eDh"/>
                         <outlet property="subTotalLabel" destination="uKf-yp-w7S" id="KwB-Bx-aIW"/>
                         <outlet property="totalLabel" destination="7OA-Ya-MYj" id="XwQ-uy-Cba"/>

@@ -84,6 +84,7 @@ class SignUpViewController: UIViewController {
         navigateToSignInScreen()
     }
     @IBAction func signUpAction(_ sender: UIButton) {
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
         guard !(nameTextField.text!.isEmpty || emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty || confirmPasswordTextField.text!.isEmpty || phoneNumberTextField.text!.isEmpty || countryTextField.text!.isEmpty || cityTextField.text!.isEmpty || streetTextField.text!.isEmpty)
         else {
             errorTitledAlert(subTitle: "Fill all required information \n can't continue with empty fields", handler: nil)
@@ -113,6 +114,10 @@ class SignUpViewController: UIViewController {
         networkIndicator.startAnimating()
         let user = FUser(_objectId: "", _email: emailTextField.text!, _fullname: nameTextField.text!, _fullNumber: phoneNumberTextField.text!, _country: countryTextField.text!, _city: cityTextField.text!, _street: streetTextField.text!)
         signUpViewModel.createNewUserWith(user: user, password: password)
+        }else {
+            self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+        }
+        
     }
     func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

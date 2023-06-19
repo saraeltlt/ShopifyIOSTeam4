@@ -10,6 +10,7 @@ import PassKit
 
 class PaymentViewController: UIViewController {
 
+    @IBOutlet weak var noInternetConnectionView: UIView!
     @IBOutlet weak var onlineBtn: UIButton!
     @IBOutlet weak var cashBtn: UIButton!
     var viewModel : PaymentViewModel!
@@ -17,7 +18,26 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureInternetConnectionObservation()
+    }
+    func configureInternetConnectionObservation(){
+        InternetConnectionObservation.getInstance.internetConnection.bind { status in
+            guard let status = status else {return}
+            if status {
+                print("there is internet connection in category")
+                DispatchQueue.main.async {
+                    self.noInternetConnectionView.isHidden = true
+                }
+            }else {
+                print("there is no internet connection in category")
+                DispatchQueue.main.async {
+                    self.noInternetConnectionView.isHidden = false
+                }
+            }
+        }
+    }
     
     
     @IBAction func sumbitOrderPayment(_ sender: UIButton) {

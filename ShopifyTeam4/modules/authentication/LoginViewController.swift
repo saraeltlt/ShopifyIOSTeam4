@@ -62,16 +62,21 @@ class LoginViewController: UIViewController {
         sender.isSelected = !passwordTextField.isSecureTextEntry
     }
     @IBAction func signInAction(_ sender: UIButton) {
-        guard !( emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty )
-        else {
-            self.errorTitledAlert(subTitle: "Fill all required information", handler: nil)
-            return }
-        if !isValidEmail(emailTextField.text!){
-            self.errorTitledAlert(subTitle: "Not valid email ..", handler: nil)
-            return
-        }
-        networkIndicator.startAnimating()
-        signInViewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
+            
+            guard !( emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty )
+            else {
+                self.errorTitledAlert(subTitle: "Fill all required information", handler: nil)
+                return }
+            if !isValidEmail(emailTextField.text!){
+                self.errorTitledAlert(subTitle: "Not valid email ..", handler: nil)
+                return
+            }
+            networkIndicator.startAnimating()
+            signInViewModel.signInWith(email: emailTextField.text!, password: passwordTextField.text!)
+    }else {
+        self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+    }
     }
     func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
