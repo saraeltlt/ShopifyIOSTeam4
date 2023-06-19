@@ -116,27 +116,37 @@
                                 <rect key="frame" x="96.666666666666686" y="461" width="200" height="200"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6v-qA-a6e">
-                                <rect key="frame" x="77.000000000000014" y="669" width="239.33333333333337" height="50"/>
+                                <rect key="frame" x="93.666666666666671" y="669" width="205.66666666666663" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="M8f-yu-t2O"/>
                                 </constraints>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No Items to show">
+                                <buttonConfiguration key="configuration" style="plain" title="  No Items to show">
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yE-q6-oo2" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="449" width="393" height="290"/>
+                                <color key="backgroundColor" name="paige"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="AnimationName" value="loading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="0lb-Rs-x7N" firstAttribute="top" secondItem="9Zg-rl-TsD" secondAttribute="bottom" constant="20" id="1cu-82-MME"/>
+                            <constraint firstItem="3yE-q6-oo2" firstAttribute="top" secondItem="0lb-Rs-x7N" secondAttribute="top" id="2su-rO-ecN"/>
+                            <constraint firstItem="3yE-q6-oo2" firstAttribute="leading" secondItem="0lb-Rs-x7N" secondAttribute="leading" id="4qT-ju-gC3"/>
                             <constraint firstItem="G2B-Ox-vSg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5hz-3Z-oVX"/>
                             <constraint firstItem="9Zg-rl-TsD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="BWD-o3-eMf"/>
                             <constraint firstItem="8GI-YK-cLc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="-60" id="BZc-2c-7wS"/>
                             <constraint firstItem="pul-2H-lIy" firstAttribute="top" secondItem="G2B-Ox-vSg" secondAttribute="bottom" constant="35" id="F6i-mF-wcF"/>
                             <constraint firstItem="0lb-Rs-x7N" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="HSf-C3-fRx"/>
                             <constraint firstItem="8GI-YK-cLc" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="IsI-RT-yl3"/>
+                            <constraint firstItem="3yE-q6-oo2" firstAttribute="bottom" secondItem="0lb-Rs-x7N" secondAttribute="bottom" id="Nvo-Lp-psb"/>
                             <constraint firstItem="Qbm-kS-LF3" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.234742" id="OmG-8o-ItZ"/>
                             <constraint firstItem="8GI-YK-cLc" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-20" id="QEo-6Y-Dix"/>
                             <constraint firstItem="Qbm-kS-LF3" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.508906" id="TcR-Di-Bs9"/>
@@ -153,6 +163,7 @@
                             <constraint firstItem="9Zg-rl-TsD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="kPj-4q-Gqd"/>
                             <constraint firstItem="Qbm-kS-LF3" firstAttribute="centerY" secondItem="0lb-Rs-x7N" secondAttribute="centerY" constant="-33" id="nUN-2k-vpm"/>
                             <constraint firstItem="pul-2H-lIy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="neZ-Zu-8pt"/>
+                            <constraint firstItem="3yE-q6-oo2" firstAttribute="trailing" secondItem="0lb-Rs-x7N" secondAttribute="trailing" id="qwO-8b-AfY"/>
                             <constraint firstItem="9Zg-rl-TsD" firstAttribute="top" secondItem="8GI-YK-cLc" secondAttribute="bottom" constant="30" id="roW-rD-Idv"/>
                             <constraint firstItem="b6v-qA-a6e" firstAttribute="top" secondItem="Qbm-kS-LF3" secondAttribute="bottom" constant="8" id="ut1-9X-pO0"/>
                             <constraint firstItem="8GI-YK-cLc" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.45" id="zhQ-QR-h6J"/>
@@ -180,6 +191,7 @@
                         <outlet property="brandsCollection" destination="0lb-Rs-x7N" id="Zem-4O-ucH"/>
                         <outlet property="container" destination="8GI-YK-cLc" id="XIq-bl-SMc"/>
                         <outlet property="favoriteCount" destination="fuS-Q6-N58" id="LJV-HX-QBf"/>
+                        <outlet property="loadingAnimation" destination="3yE-q6-oo2" id="u0V-sa-cMF"/>
                         <outlet property="noResultImage" destination="Qbm-kS-LF3" id="kxs-FK-rQV"/>
                         <outlet property="noResultText" destination="b6v-qA-a6e" id="19K-2x-4Sn"/>
                         <outlet property="pageController" destination="MA6-82-Yqk" id="Jjj-4G-E5m"/>
@@ -266,16 +278,23 @@
                                 <rect key="frame" x="96.666666666666686" y="356" width="200" height="200"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVC-fn-ncs">
-                                <rect key="frame" x="77.000000000000014" y="564" width="239.33333333333337" height="50"/>
+                                <rect key="frame" x="93.666666666666671" y="564" width="205.66666666666663" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gkd-1S-s3e"/>
                                 </constraints>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No Items to show">
+                                <buttonConfiguration key="configuration" style="plain" title="  No Items to show">
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPa-xb-ucL" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="209" width="393" height="560"/>
+                                <color key="backgroundColor" name="paige"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nl3-6F-Vmp"/>
                         <color key="backgroundColor" name="paige"/>
@@ -288,8 +307,10 @@
                             <constraint firstItem="HNx-37-xvs" firstAttribute="height" secondItem="qlQ-bv-8uK" secondAttribute="height" multiplier="0.05" id="Fy3-cC-quO"/>
                             <constraint firstItem="nl3-6F-Vmp" firstAttribute="top" secondItem="s9k-o6-mmd" secondAttribute="top" constant="103" id="LDJ-9k-QsU"/>
                             <constraint firstItem="wJ6-ot-Qag" firstAttribute="bottom" secondItem="nl3-6F-Vmp" secondAttribute="bottom" id="PBZ-oI-KIM"/>
+                            <constraint firstItem="XPa-xb-ucL" firstAttribute="bottom" secondItem="wJ6-ot-Qag" secondAttribute="bottom" id="QzP-yM-wUT"/>
                             <constraint firstItem="wJ6-ot-Qag" firstAttribute="trailing" secondItem="nl3-6F-Vmp" secondAttribute="trailing" id="RFw-w0-f0t"/>
                             <constraint firstItem="wJ6-ot-Qag" firstAttribute="top" secondItem="Nma-6A-amF" secondAttribute="bottom" id="SDO-cS-c8J"/>
+                            <constraint firstItem="XPa-xb-ucL" firstAttribute="leading" secondItem="wJ6-ot-Qag" secondAttribute="leading" id="U9J-Ke-t1N"/>
                             <constraint firstItem="Nma-6A-amF" firstAttribute="height" secondItem="qlQ-bv-8uK" secondAttribute="height" multiplier="0.0551643" id="UdC-ZJ-GH5"/>
                             <constraint firstItem="MdD-08-adI" firstAttribute="width" secondItem="qlQ-bv-8uK" secondAttribute="width" multiplier="0.508906" id="XTb-ba-O2Q"/>
                             <constraint firstItem="EVC-fn-ncs" firstAttribute="top" secondItem="MdD-08-adI" secondAttribute="bottom" constant="8" id="b4b-SM-MFN"/>
@@ -299,6 +320,8 @@
                             <constraint firstItem="Nma-6A-amF" firstAttribute="trailing" secondItem="nl3-6F-Vmp" secondAttribute="trailing" id="igg-lm-a2x"/>
                             <constraint firstItem="nl3-6F-Vmp" firstAttribute="trailing" secondItem="s9k-o6-mmd" secondAttribute="trailing" id="iji-Tl-TL5"/>
                             <constraint firstItem="EVC-fn-ncs" firstAttribute="centerX" secondItem="MdD-08-adI" secondAttribute="centerX" id="nAT-re-2tA"/>
+                            <constraint firstItem="XPa-xb-ucL" firstAttribute="trailing" secondItem="wJ6-ot-Qag" secondAttribute="trailing" id="o1k-3x-iOJ"/>
+                            <constraint firstItem="XPa-xb-ucL" firstAttribute="top" secondItem="wJ6-ot-Qag" secondAttribute="top" id="o5n-mO-NPi"/>
                             <constraint firstItem="HNx-37-xvs" firstAttribute="leading" secondItem="nl3-6F-Vmp" secondAttribute="leading" id="vOp-30-47n"/>
                             <constraint firstItem="Nma-6A-amF" firstAttribute="top" secondItem="s9k-o6-mmd" secondAttribute="bottom" id="w4q-hC-GhO"/>
                             <constraint firstItem="MdD-08-adI" firstAttribute="centerY" secondItem="wJ6-ot-Qag" secondAttribute="centerY" constant="-33" id="yVK-A7-sOf"/>
@@ -316,6 +339,7 @@
                         <outlet property="container" destination="s9k-o6-mmd" id="azT-8I-rOX"/>
                         <outlet property="filterContainer" destination="Nma-6A-amF" id="g3X-sq-ui7"/>
                         <outlet property="filterContainerHeightConstrain" destination="UdC-ZJ-GH5" id="Clg-gy-zBG"/>
+                        <outlet property="loadingAnimation" destination="XPa-xb-ucL" id="ao4-fn-sa4"/>
                         <outlet property="noResultImage" destination="MdD-08-adI" id="CK5-tF-N9r"/>
                         <outlet property="noResultText" destination="EVC-fn-ncs" id="vLh-bS-LME"/>
                         <outlet property="priceFilter" destination="wTc-49-rON" id="kbh-yA-7Hw"/>
@@ -407,21 +431,29 @@
                                 <rect key="frame" x="96.666666666666686" y="374.33333333333331" width="200" height="199.99999999999994"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa7-4e-bsK">
-                                <rect key="frame" x="77.000000000000014" y="582.33333333333337" width="239.33333333333337" height="50"/>
+                                <rect key="frame" x="93.666666666666671" y="582.33333333333337" width="205.66666666666663" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="d00-jB-dJZ"/>
                                 </constraints>
                                 <color key="tintColor" name="orange"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system" title="  No Items to show">
+                                <buttonConfiguration key="configuration" style="plain" title="  No Items to show">
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYJ-4b-AVw" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="235.66666666666669" width="393" height="543.33333333333326"/>
+                                <color key="backgroundColor" name="paige"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V6H-AV-4Kb"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
                             <constraint firstItem="bHc-oo-YpE" firstAttribute="top" secondItem="Dij-tE-rAS" secondAttribute="top" constant="-20" id="0Ru-7e-JAh"/>
+                            <constraint firstItem="sYJ-4b-AVw" firstAttribute="trailing" secondItem="DbD-Pp-RJH" secondAttribute="trailing" id="5RT-rq-sU6"/>
                             <constraint firstItem="bHc-oo-YpE" firstAttribute="centerX" secondItem="Dij-tE-rAS" secondAttribute="centerX" id="7FS-sB-7WX"/>
                             <constraint firstItem="P3v-N9-6CN" firstAttribute="leading" secondItem="V6H-AV-4Kb" secondAttribute="leading" id="94o-3a-Ad1"/>
                             <constraint firstItem="DbD-Pp-RJH" firstAttribute="trailing" secondItem="V6H-AV-4Kb" secondAttribute="trailing" id="9X7-kC-NjY"/>
@@ -429,6 +461,7 @@
                             <constraint firstItem="Wa7-4e-bsK" firstAttribute="top" secondItem="2gG-k0-JWY" secondAttribute="bottom" constant="8" id="Ayf-XE-Q1m"/>
                             <constraint firstItem="DbD-Pp-RJH" firstAttribute="bottom" secondItem="V6H-AV-4Kb" secondAttribute="bottom" constant="10" id="CcD-vd-Oo3"/>
                             <constraint firstItem="DbD-Pp-RJH" firstAttribute="top" secondItem="bHc-oo-YpE" secondAttribute="bottom" id="Eip-Y7-6Pe"/>
+                            <constraint firstItem="sYJ-4b-AVw" firstAttribute="bottom" secondItem="DbD-Pp-RJH" secondAttribute="bottom" id="Pna-NI-cNi"/>
                             <constraint firstItem="bHc-oo-YpE" firstAttribute="leading" secondItem="V6H-AV-4Kb" secondAttribute="leading" id="R2o-WT-BP5"/>
                             <constraint firstItem="2gG-k0-JWY" firstAttribute="height" secondItem="Dij-tE-rAS" secondAttribute="height" multiplier="0.234742" id="TcH-5Z-gEm"/>
                             <constraint firstItem="uUF-lT-sC3" firstAttribute="top" secondItem="P3v-N9-6CN" secondAttribute="bottom" constant="5" id="UNF-By-KlL"/>
@@ -438,6 +471,8 @@
                             <constraint firstItem="Wa7-4e-bsK" firstAttribute="centerX" secondItem="2gG-k0-JWY" secondAttribute="centerX" id="X3G-Nh-8Q5"/>
                             <constraint firstItem="P3v-N9-6CN" firstAttribute="top" secondItem="V6H-AV-4Kb" secondAttribute="top" id="ZUh-W9-Vhf"/>
                             <constraint firstItem="2gG-k0-JWY" firstAttribute="centerX" secondItem="Dij-tE-rAS" secondAttribute="centerX" id="ZmE-7w-T8R"/>
+                            <constraint firstItem="sYJ-4b-AVw" firstAttribute="leading" secondItem="DbD-Pp-RJH" secondAttribute="leading" id="cqv-kX-uGJ"/>
+                            <constraint firstItem="sYJ-4b-AVw" firstAttribute="top" secondItem="DbD-Pp-RJH" secondAttribute="top" id="fMw-WF-tRd"/>
                             <constraint firstItem="DbD-Pp-RJH" firstAttribute="leading" secondItem="V6H-AV-4Kb" secondAttribute="leading" id="iYr-Pv-Bin"/>
                             <constraint firstItem="P3v-N9-6CN" firstAttribute="height" secondItem="Dij-tE-rAS" secondAttribute="height" multiplier="0.05" id="m23-Jb-WMt"/>
                             <constraint firstItem="2gG-k0-JWY" firstAttribute="centerY" secondItem="DbD-Pp-RJH" secondAttribute="centerY" constant="-33" id="zY9-tc-ZbF"/>
@@ -463,6 +498,7 @@
                         <outlet property="categoryCollection" destination="uUF-lT-sC3" id="l6w-yo-HW3"/>
                         <outlet property="container" destination="bHc-oo-YpE" id="tC6-UT-23r"/>
                         <outlet property="favoritesCount" destination="kod-dR-YoO" id="0rb-LE-MC0"/>
+                        <outlet property="loadingAnimation" destination="sYJ-4b-AVw" id="25n-OH-s6h"/>
                         <outlet property="noResultImage" destination="2gG-k0-JWY" id="ADg-w8-DDs"/>
                         <outlet property="noResultText" destination="Wa7-4e-bsK" id="VJp-Qf-M0f"/>
                         <outlet property="productsCollection" destination="DbD-Pp-RJH" id="lIm-Ms-wNA"/>
@@ -564,7 +600,6 @@
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="category" width="32" height="32"/>
-        <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>

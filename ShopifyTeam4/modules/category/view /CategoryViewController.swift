@@ -6,19 +6,16 @@
 //
 
 import UIKit
-
+import Lottie
 
 class CategoryViewController: UIViewController {
     
-
+    @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var searchBar: UISearchBar!
-
-    
     @IBOutlet weak var noResultText: UIButton!
     @IBOutlet weak var noResultImage: UIImageView!
     @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
     @IBOutlet weak var favoritesCount: UIBarButtonItem!
-
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var productsCollection: UICollectionView!
     @IBOutlet weak var categoryCollection: UICollectionView!
@@ -44,8 +41,6 @@ class CategoryViewController: UIViewController {
         viewModel.getAllSotredFavoriteItems()
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
-        noResultImage.isHidden = true
-        noResultText.isHidden = true
         viewModel.categoryProductsArray = viewModel.backupCategoryProductsArray
         viewModel.filteredProductsArray = viewModel.backupFilteredCategoryProductsArray
         productsCollection.reloadData()
@@ -145,7 +140,36 @@ class CategoryViewController: UIViewController {
         }
     }
     
+    func checkLoadingDataStatus(){
+        if viewModel.products.value == false {
+            startAnimation()
+        } else {
+            stopAnimation()
+            if viewModel.getProductsCount() == 0 {
+                showEmptyStatus()
+            }else {
+                HideEmptyStatus()
+            }
+            
+        }
+    }
     
+    func startAnimation(){
+        loadingAnimation.animationSpeed=1.5
+        loadingAnimation.loopMode = .loop
+        loadingAnimation.play()
+    }
+    func stopAnimation(){
+        loadingAnimation.isHidden = true
+    }
+    func showEmptyStatus(){
+        noResultImage.isHidden = false
+        noResultText.isHidden = false
+    }
+    func HideEmptyStatus(){
+        noResultImage.isHidden = true
+        noResultText.isHidden = true
+    }
     
     
     
@@ -180,20 +204,12 @@ extension CategoryViewController:UICollectionViewDelegate
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var numberOfItems = 0
         if collectionView == categoryCollection {
-            numberOfItems =  viewModel.getCategoriesCount()
+            return viewModel.getCategoriesCount()
         }else {
-            numberOfItems =  viewModel.getProductsCount()
+            checkLoadingDataStatus()
+            return viewModel.getProductsCount()
         }
-        if numberOfItems == 0{
-            noResultImage.isHidden = false
-            noResultText.isHidden = false
-        }else{
-            noResultImage.isHidden = true
-            noResultText.isHidden = true
-        }
-        return numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
