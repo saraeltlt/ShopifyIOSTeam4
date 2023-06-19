@@ -30,7 +30,6 @@ class BrandProductsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureInternetConnectionObservation()
         configureProductsCollectionObservation()
         viewModel?.getBrandProducts()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.050
@@ -43,6 +42,7 @@ class BrandProductsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        configureInternetConnectionObservation()
         self.navigationController?.navigationBar.isHidden=false
         productsCollection.reloadData()
         if K.CURRENCY == "EGP" {
