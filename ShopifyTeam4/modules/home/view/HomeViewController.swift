@@ -9,7 +9,6 @@ import UIKit
 import Lottie
 
 class HomeViewController: UIViewController {
-    
     @IBOutlet weak var internetStatusView: UIView!
     @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var noResultText: UIButton!
@@ -57,7 +56,6 @@ class HomeViewController: UIViewController {
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         viewModel.brandsArray = viewModel.backupBrandsArray
-       // brandsCollection.reloadData()
     }
     
     
@@ -228,19 +226,11 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
   
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == adsCollection {
-           return 20
-        }else {
-          return  20
-        }
+        return  20
     
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == adsCollection {
-           return 0
-        }else {
-          return  0
-        }
+        return  0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     

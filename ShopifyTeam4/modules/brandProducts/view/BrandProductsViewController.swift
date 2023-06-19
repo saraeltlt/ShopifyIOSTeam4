@@ -242,7 +242,6 @@ extension BrandProductsViewController:UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
         let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-        // detailsVC.viewModel = viewModel?.configNavigation(index: indexPath.row)
         detailsVC.productId = viewModel?.brandProductsArray[indexPath.row].id ?? 0
         detailsVC.modalPresentationStyle = .fullScreen
         detailsVC.modalTransitionStyle = .crossDissolve

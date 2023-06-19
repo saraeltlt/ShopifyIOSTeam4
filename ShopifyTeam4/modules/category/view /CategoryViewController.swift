@@ -320,20 +320,11 @@ extension CategoryViewController:UICollectionViewDelegate
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == categoryCollection {
-            return  20
-        }else {
-            return  20
-        }
+        return  20
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        if collectionView == categoryCollection {
-            return  0.1
-        }else {
-            return  0.1
-        }
+        return  0.1
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == categoryCollection {
@@ -351,7 +342,6 @@ extension CategoryViewController:UICollectionViewDelegate
         }else {
             let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
             let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-            //detailsVC.viewModel = viewModel.configNavigation(index: indexPath.row)
             detailsVC.productId = viewModel.getProductData(index: indexPath.row).id ?? 0
             detailsVC.modalPresentationStyle = .fullScreen
             detailsVC.modalTransitionStyle = .crossDissolve
