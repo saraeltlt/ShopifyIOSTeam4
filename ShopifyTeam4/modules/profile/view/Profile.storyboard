@@ -132,6 +132,35 @@
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                 </buttonConfiguration>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEi-R1-9JU">
+                                <rect key="frame" x="10" y="187" width="394" height="179"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noWifi" translatesAutoresizingMaskIntoConstraints="NO" id="XST-oR-x6T">
+                                        <rect key="frame" x="148" y="20.5" width="98.5" height="98.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="XST-oR-x6T" secondAttribute="height" multiplier="1:1" id="5fs-5R-Fjo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7a-Sw-23I">
+                                        <rect key="frame" x="49.5" y="119" width="295.5" height="35.5"/>
+                                        <color key="tintColor" name="orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="No internet connection">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="paige"/>
+                                <constraints>
+                                    <constraint firstItem="XST-oR-x6T" firstAttribute="centerY" secondItem="TEi-R1-9JU" secondAttribute="centerY" constant="-20" id="FgG-my-JZH"/>
+                                    <constraint firstItem="X7a-Sw-23I" firstAttribute="top" secondItem="XST-oR-x6T" secondAttribute="bottom" id="HvW-gK-8Uy"/>
+                                    <constraint firstItem="X7a-Sw-23I" firstAttribute="width" secondItem="TEi-R1-9JU" secondAttribute="width" multiplier="0.75" id="avb-yF-k2M"/>
+                                    <constraint firstItem="X7a-Sw-23I" firstAttribute="height" secondItem="TEi-R1-9JU" secondAttribute="height" multiplier="0.2" id="df5-jg-2aT"/>
+                                    <constraint firstItem="X7a-Sw-23I" firstAttribute="centerX" secondItem="TEi-R1-9JU" secondAttribute="centerX" id="ilC-pI-90H"/>
+                                    <constraint firstItem="XST-oR-x6T" firstAttribute="width" secondItem="TEi-R1-9JU" secondAttribute="width" multiplier="0.25" id="v7y-S6-Gd9"/>
+                                    <constraint firstItem="XST-oR-x6T" firstAttribute="centerX" secondItem="TEi-R1-9JU" secondAttribute="centerX" id="x36-NM-WfK"/>
+                                </constraints>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-jS-clQ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
@@ -201,6 +230,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TKB-xf-DiV" secondAttribute="trailing" constant="10" id="6wv-xW-XJb"/>
                             <constraint firstItem="fjg-jS-clQ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="8JB-Ve-xQG"/>
                             <constraint firstItem="9Sd-WW-R2f" firstAttribute="height" secondItem="t6u-iK-1kt" secondAttribute="height" id="8e2-b8-Sfc"/>
+                            <constraint firstItem="TEi-R1-9JU" firstAttribute="trailing" secondItem="t6u-iK-1kt" secondAttribute="trailing" id="9rm-RG-pad"/>
                             <constraint firstAttribute="bottom" secondItem="fjg-jS-clQ" secondAttribute="bottom" id="ANe-rw-cy4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WiW-6g-H9J" secondAttribute="bottom" id="E09-KV-GpE"/>
                             <constraint firstItem="KrD-ZX-DYs" firstAttribute="width" secondItem="ThJ-K6-8C4" secondAttribute="width" id="Eif-GW-B17"/>
@@ -212,6 +242,7 @@
                             <constraint firstItem="jQK-xI-3M3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="TeE-Uf-NuN"/>
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.45" id="Tyg-nu-eto"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jQK-xI-3M3" secondAttribute="trailing" constant="5" id="WfJ-BK-Igm"/>
+                            <constraint firstItem="TEi-R1-9JU" firstAttribute="leading" secondItem="t6u-iK-1kt" secondAttribute="leading" id="XCj-IF-26N"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="XY2-NP-yPR"/>
                             <constraint firstItem="t6u-iK-1kt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="aH7-BA-zIs"/>
                             <constraint firstItem="R4L-A9-tSe" firstAttribute="centerY" secondItem="ThJ-K6-8C4" secondAttribute="centerY" id="cU2-i2-TBe"/>
@@ -220,6 +251,7 @@
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="dUI-J9-aAs"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="height" secondItem="9Sd-WW-R2f" secondAttribute="height" id="g51-rd-0XJ"/>
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="top" secondItem="jQK-xI-3M3" secondAttribute="bottom" constant="20" id="gqd-63-Wtb"/>
+                            <constraint firstItem="TEi-R1-9JU" firstAttribute="top" secondItem="t6u-iK-1kt" secondAttribute="top" id="iok-kH-gRo"/>
                             <constraint firstItem="jQK-xI-3M3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="pbu-xu-PET"/>
                             <constraint firstItem="pZe-hw-b0B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="sVh-lP-pqR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Sd-WW-R2f" secondAttribute="trailing" constant="10" id="scg-pW-Z6f"/>
@@ -227,6 +259,7 @@
                             <constraint firstItem="KrD-ZX-DYs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="uYc-Ol-oPF"/>
                             <constraint firstItem="WiW-6g-H9J" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" id="uej-1M-b0P"/>
                             <constraint firstItem="fjg-jS-clQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wgF-oI-CX7"/>
+                            <constraint firstItem="TEi-R1-9JU" firstAttribute="bottom" secondItem="t6u-iK-1kt" secondAttribute="bottom" id="xlq-Vj-ipq"/>
                             <constraint firstItem="fjg-jS-clQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yC8-Er-G0q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pZe-hw-b0B" secondAttribute="trailing" constant="15" id="yQR-31-nhC"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" id="ygV-YE-pNI"/>
@@ -254,6 +287,7 @@
                         <outlet property="favCollection" destination="WiW-6g-H9J" id="OVj-4e-pf9"/>
                         <outlet property="guestView" destination="fjg-jS-clQ" id="cQ1-vi-3UP"/>
                         <outlet property="loadingAnimation" destination="hRB-79-qD0" id="dKi-2h-klm"/>
+                        <outlet property="noInternetConnectionView" destination="TEi-R1-9JU" id="F0N-ga-qHo"/>
                         <outlet property="noOrders" destination="9Sd-WW-R2f" id="cFr-zQ-6SF"/>
                         <outlet property="noWishlist" destination="TKB-xf-DiV" id="6zA-aU-de4"/>
                         <outlet property="ordersTableView" destination="t6u-iK-1kt" id="aol-hQ-I10"/>
@@ -508,6 +542,35 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCO-tW-L56">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noWifi" translatesAutoresizingMaskIntoConstraints="NO" id="jZJ-8W-8LC">
+                                        <rect key="frame" x="83" y="324" width="248" height="248"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jZJ-8W-8LC" secondAttribute="height" multiplier="1:1" id="MXX-oG-PTM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjb-GQ-GAb">
+                                        <rect key="frame" x="52" y="580" width="310.5" height="50"/>
+                                        <color key="tintColor" name="orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="No internet connection">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="paige"/>
+                                <constraints>
+                                    <constraint firstItem="jZJ-8W-8LC" firstAttribute="centerY" secondItem="cCO-tW-L56" secondAttribute="centerY" id="ILV-hf-o35"/>
+                                    <constraint firstItem="tjb-GQ-GAb" firstAttribute="height" secondItem="cCO-tW-L56" secondAttribute="height" multiplier="0.0558036" id="hnw-h8-VIZ"/>
+                                    <constraint firstItem="jZJ-8W-8LC" firstAttribute="centerX" secondItem="cCO-tW-L56" secondAttribute="centerX" id="vrV-lj-GPu"/>
+                                    <constraint firstItem="tjb-GQ-GAb" firstAttribute="top" secondItem="jZJ-8W-8LC" secondAttribute="bottom" constant="8" symbolic="YES" id="wAy-J5-hZg"/>
+                                    <constraint firstItem="tjb-GQ-GAb" firstAttribute="width" secondItem="cCO-tW-L56" secondAttribute="width" multiplier="0.75" id="wRL-Qi-tQ7"/>
+                                    <constraint firstItem="tjb-GQ-GAb" firstAttribute="centerX" secondItem="cCO-tW-L56" secondAttribute="centerX" id="yF8-io-Vdo"/>
+                                    <constraint firstItem="jZJ-8W-8LC" firstAttribute="width" secondItem="cCO-tW-L56" secondAttribute="width" multiplier="0.6" id="yuJ-Q2-XY9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tSP-WX-EN7"/>
                         <color key="backgroundColor" name="paige"/>
@@ -516,14 +579,18 @@
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="5QG-km-beo"/>
                             <constraint firstItem="D0E-Yp-Q8v" firstAttribute="top" secondItem="wzA-Bq-5m1" secondAttribute="bottom" id="ACO-gR-Lmu"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="AIb-V3-cmY"/>
+                            <constraint firstAttribute="bottom" secondItem="cCO-tW-L56" secondAttribute="bottom" id="CF7-5K-R1C"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="top" secondItem="leh-V0-Mtd" secondAttribute="top" id="Qip-F5-4NJ"/>
                             <constraint firstItem="qCT-Yc-XhC" firstAttribute="width" secondItem="leh-V0-Mtd" secondAttribute="width" multiplier="0.9" id="Qto-JQ-DfR"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="top" secondItem="4TU-Gf-xqm" secondAttribute="bottom" id="R0o-fQ-fuM"/>
+                            <constraint firstItem="cCO-tW-L56" firstAttribute="top" secondItem="leh-V0-Mtd" secondAttribute="top" id="VwX-dd-39T"/>
+                            <constraint firstItem="cCO-tW-L56" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" id="ahz-07-QBA"/>
                             <constraint firstItem="qCT-Yc-XhC" firstAttribute="centerX" secondItem="leh-V0-Mtd" secondAttribute="centerX" id="cko-KU-BF2"/>
                             <constraint firstItem="qCT-Yc-XhC" firstAttribute="height" secondItem="leh-V0-Mtd" secondAttribute="height" multiplier="0.4" id="npr-Tf-Bl9"/>
                             <constraint firstItem="tSP-WX-EN7" firstAttribute="trailing" secondItem="D0E-Yp-Q8v" secondAttribute="trailing" constant="16" id="pDa-NQ-8gA"/>
                             <constraint firstItem="D0E-Yp-Q8v" firstAttribute="leading" secondItem="tSP-WX-EN7" secondAttribute="leading" constant="16" id="qXx-O1-kEy"/>
                             <constraint firstItem="4TU-Gf-xqm" firstAttribute="height" secondItem="leh-V0-Mtd" secondAttribute="height" multiplier="0.13" id="s01-gx-HeM"/>
+                            <constraint firstItem="cCO-tW-L56" firstAttribute="trailing" secondItem="tSP-WX-EN7" secondAttribute="trailing" id="xAy-Gm-lOE"/>
                             <constraint firstItem="tSP-WX-EN7" firstAttribute="bottom" secondItem="D0E-Yp-Q8v" secondAttribute="bottom" constant="16" id="xu3-Rc-UR8"/>
                             <constraint firstItem="qCT-Yc-XhC" firstAttribute="centerY" secondItem="leh-V0-Mtd" secondAttribute="centerY" id="ygl-B0-hSo"/>
                             <constraint firstItem="wzA-Bq-5m1" firstAttribute="trailing" secondItem="tSP-WX-EN7" secondAttribute="trailing" id="zbf-CY-jih"/>
@@ -536,6 +603,7 @@
                         <outlet property="CheckoutBtn" destination="D0E-Yp-Q8v" id="vYp-Bz-bcG"/>
                         <outlet property="addressTableView" destination="wzA-Bq-5m1" id="fwY-BN-Vu9"/>
                         <outlet property="loadingView" destination="qCT-Yc-XhC" id="AKR-Lx-ZHU"/>
+                        <outlet property="noInternetConnectionView" destination="cCO-tW-L56" id="2jN-GR-6eY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5V6-IJ-dMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1306,6 +1374,35 @@
                                     <constraint firstItem="c4H-QR-0WF" firstAttribute="width" secondItem="eSe-aM-Que" secondAttribute="width" multiplier="0.1" id="siz-6t-hjL"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fER-B9-7Fl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noWifi" translatesAutoresizingMaskIntoConstraints="NO" id="a0b-yH-fKP">
+                                        <rect key="frame" x="83" y="324" width="248" height="248"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="a0b-yH-fKP" secondAttribute="height" multiplier="1:1" id="HmB-Fc-bCl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1i1-Xc-6bl">
+                                        <rect key="frame" x="52" y="580" width="310.5" height="50"/>
+                                        <color key="tintColor" name="orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="No internet connection">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="paige"/>
+                                <constraints>
+                                    <constraint firstItem="1i1-Xc-6bl" firstAttribute="height" secondItem="fER-B9-7Fl" secondAttribute="height" multiplier="0.0558036" id="33G-3X-RmD"/>
+                                    <constraint firstItem="a0b-yH-fKP" firstAttribute="centerY" secondItem="fER-B9-7Fl" secondAttribute="centerY" id="60M-Ez-5BX"/>
+                                    <constraint firstItem="1i1-Xc-6bl" firstAttribute="centerX" secondItem="fER-B9-7Fl" secondAttribute="centerX" id="CX9-Wg-6nr"/>
+                                    <constraint firstItem="1i1-Xc-6bl" firstAttribute="top" secondItem="a0b-yH-fKP" secondAttribute="bottom" constant="8" symbolic="YES" id="CrF-32-Rqv"/>
+                                    <constraint firstItem="1i1-Xc-6bl" firstAttribute="width" secondItem="fER-B9-7Fl" secondAttribute="width" multiplier="0.75" id="HuP-k3-bde"/>
+                                    <constraint firstItem="a0b-yH-fKP" firstAttribute="centerX" secondItem="fER-B9-7Fl" secondAttribute="centerX" id="YjB-o7-q6S"/>
+                                    <constraint firstItem="a0b-yH-fKP" firstAttribute="width" secondItem="fER-B9-7Fl" secondAttribute="width" multiplier="0.6" id="b4T-ui-4Rf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dk7-fQ-fJo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1319,6 +1416,8 @@
                             <constraint firstItem="Dk7-fQ-fJo" firstAttribute="trailing" secondItem="c1Y-bL-qhl" secondAttribute="trailing" constant="20" id="Eu0-Nm-Lok"/>
                             <constraint firstItem="eSe-aM-Que" firstAttribute="height" secondItem="dzP-j9-aDs" secondAttribute="height" multiplier="0.704348" id="Iec-CH-IEg"/>
                             <constraint firstItem="dzP-j9-aDs" firstAttribute="height" secondItem="hJP-AK-Vsi" secondAttribute="height" multiplier="0.13" id="KCy-c3-CTM"/>
+                            <constraint firstItem="fER-B9-7Fl" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" id="LrE-PT-6h9"/>
+                            <constraint firstItem="fER-B9-7Fl" firstAttribute="top" secondItem="hJP-AK-Vsi" secondAttribute="top" id="ONC-So-CVh"/>
                             <constraint firstItem="dzP-j9-aDs" firstAttribute="top" secondItem="hJP-AK-Vsi" secondAttribute="top" id="PO9-fs-eSG"/>
                             <constraint firstItem="IUh-C0-QdG" firstAttribute="width" secondItem="c4H-QR-0WF" secondAttribute="width" id="TYo-Us-BdE"/>
                             <constraint firstItem="dzP-j9-aDs" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" id="WtV-KZ-ZHT"/>
@@ -1327,10 +1426,12 @@
                             <constraint firstItem="5ui-wJ-viY" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" constant="16" id="dqP-7I-wlZ"/>
                             <constraint firstItem="5ui-wJ-viY" firstAttribute="bottom" secondItem="Dk7-fQ-fJo" secondAttribute="bottom" constant="-16" id="ipC-eo-xJX"/>
                             <constraint firstItem="4nG-hL-Ef2" firstAttribute="height" secondItem="eSe-aM-Que" secondAttribute="height" multiplier="1.03067" id="izO-Ct-D7u"/>
+                            <constraint firstItem="fER-B9-7Fl" firstAttribute="trailing" secondItem="Dk7-fQ-fJo" secondAttribute="trailing" id="kff-Jr-C68"/>
                             <constraint firstItem="cb6-8u-Kzm" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" id="nwC-cv-hFr"/>
                             <constraint firstItem="cb6-8u-Kzm" firstAttribute="height" secondItem="hJP-AK-Vsi" secondAttribute="height" multiplier="0.3" id="p5g-d1-z5q"/>
                             <constraint firstItem="4nG-hL-Ef2" firstAttribute="leading" secondItem="Dk7-fQ-fJo" secondAttribute="leading" id="ueH-gh-UFR"/>
                             <constraint firstItem="4nG-hL-Ef2" firstAttribute="top" secondItem="eSe-aM-Que" secondAttribute="bottom" constant="25" id="vN1-Q1-Rrb"/>
+                            <constraint firstAttribute="bottom" secondItem="fER-B9-7Fl" secondAttribute="bottom" id="vZv-qq-ycH"/>
                             <constraint firstItem="c1Y-bL-qhl" firstAttribute="top" secondItem="dzP-j9-aDs" secondAttribute="bottom" constant="25" id="x3j-qW-wH1"/>
                             <constraint firstItem="4nG-hL-Ef2" firstAttribute="trailing" secondItem="Dk7-fQ-fJo" secondAttribute="trailing" id="znq-XV-etE"/>
                         </constraints>
@@ -1340,12 +1441,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cashBtn" destination="c4H-QR-0WF" id="CfS-vs-jVU"/>
+                        <outlet property="noInternetConnectionView" destination="fER-B9-7Fl" id="6nJ-Ih-cnw"/>
                         <outlet property="onlineBtn" destination="IUh-C0-QdG" id="V4k-K2-9QN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33T-aK-MXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="jMw-y2-9gL">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="336"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="yLW-KT-9JD"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="5154" y="532"/>
+            <point key="canvasLocation" x="5153.6231884057979" y="531.69642857142856"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="jSa-Dx-YDY">
@@ -1505,15 +1613,46 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyP-Ns-PGo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noWifi" translatesAutoresizingMaskIntoConstraints="NO" id="0FS-Xn-tvJ">
+                                        <rect key="frame" x="83" y="324" width="248" height="248"/>
+                                    </imageView>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uc0-98-kmY">
+                                        <rect key="frame" x="52" y="580" width="310.5" height="50"/>
+                                        <color key="tintColor" name="orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="No internet connection">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="paige"/>
+                                <constraints>
+                                    <constraint firstItem="0FS-Xn-tvJ" firstAttribute="width" secondItem="0FS-Xn-tvJ" secondAttribute="height" multiplier="1:1" id="BlE-b1-kTJ"/>
+                                    <constraint firstItem="0FS-Xn-tvJ" firstAttribute="centerX" secondItem="GyP-Ns-PGo" secondAttribute="centerX" id="IaX-1k-Kk1"/>
+                                    <constraint firstItem="uc0-98-kmY" firstAttribute="height" secondItem="GyP-Ns-PGo" secondAttribute="height" multiplier="0.0558036" id="RDh-7F-O9T"/>
+                                    <constraint firstItem="uc0-98-kmY" firstAttribute="centerX" secondItem="GyP-Ns-PGo" secondAttribute="centerX" id="bNh-A9-bjk"/>
+                                    <constraint firstItem="0FS-Xn-tvJ" firstAttribute="centerY" secondItem="GyP-Ns-PGo" secondAttribute="centerY" id="e2v-gg-CNX"/>
+                                    <constraint firstItem="0FS-Xn-tvJ" firstAttribute="width" secondItem="GyP-Ns-PGo" secondAttribute="width" multiplier="0.6" id="frT-UG-tFf"/>
+                                    <constraint firstItem="uc0-98-kmY" firstAttribute="top" secondItem="0FS-Xn-tvJ" secondAttribute="bottom" constant="8" symbolic="YES" id="koK-sN-QZK"/>
+                                    <constraint firstItem="uc0-98-kmY" firstAttribute="width" secondItem="GyP-Ns-PGo" secondAttribute="width" multiplier="0.75" id="lly-xr-sXl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A6v-SR-vTz"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="GyP-Ns-PGo" firstAttribute="trailing" secondItem="A6v-SR-vTz" secondAttribute="trailing" id="04F-Lg-iB6"/>
                             <constraint firstItem="A6v-SR-vTz" firstAttribute="trailing" secondItem="lbt-g8-Ri5" secondAttribute="trailing" constant="20" id="4fM-IA-poX"/>
                             <constraint firstAttribute="trailing" secondItem="SfC-Jz-6wB" secondAttribute="trailing" id="5HZ-09-eSg"/>
                             <constraint firstItem="lbt-g8-Ri5" firstAttribute="leading" secondItem="A6v-SR-vTz" secondAttribute="leading" constant="20" id="E47-5N-LHK"/>
                             <constraint firstItem="SfC-Jz-6wB" firstAttribute="height" secondItem="fpR-IM-rbK" secondAttribute="height" multiplier="0.25" id="Nlo-p9-nVr"/>
                             <constraint firstItem="A6v-SR-vTz" firstAttribute="bottom" secondItem="lbt-g8-Ri5" secondAttribute="bottom" constant="15" id="a1f-G8-KTB"/>
+                            <constraint firstItem="GyP-Ns-PGo" firstAttribute="top" secondItem="fpR-IM-rbK" secondAttribute="top" id="bVh-Aq-7Kc"/>
+                            <constraint firstItem="GyP-Ns-PGo" firstAttribute="leading" secondItem="A6v-SR-vTz" secondAttribute="leading" id="hit-QJ-UJP"/>
+                            <constraint firstAttribute="bottom" secondItem="GyP-Ns-PGo" secondAttribute="bottom" id="juL-oQ-jaA"/>
                             <constraint firstItem="SfC-Jz-6wB" firstAttribute="top" secondItem="fpR-IM-rbK" secondAttribute="top" id="odh-Vr-Fgi"/>
                             <constraint firstItem="lbt-g8-Ri5" firstAttribute="top" secondItem="A6v-SR-vTz" secondAttribute="top" id="owU-hM-q2r"/>
                             <constraint firstItem="SfC-Jz-6wB" firstAttribute="leading" secondItem="A6v-SR-vTz" secondAttribute="leading" id="vzB-AB-nxI"/>
@@ -1525,6 +1664,7 @@
                     <connections>
                         <outlet property="couponTextField" destination="8Mu-x3-pqC" id="ZnB-cl-bbw"/>
                         <outlet property="discountLabel" destination="xki-di-YOa" id="wPK-G9-0Ta"/>
+                        <outlet property="noInternetConnectionView" destination="GyP-Ns-PGo" id="f61-5U-f8w"/>
                         <outlet property="shippinhFeesLabel" destination="vjn-O6-N3d" id="eBB-Yf-eDh"/>
                         <outlet property="subTotalLabel" destination="uKf-yp-w7S" id="KwB-Bx-aIW"/>
                         <outlet property="totalLabel" destination="7OA-Ya-MYj" id="XwQ-uy-Cba"/>
@@ -1655,6 +1795,7 @@ Your order has been successfully confirmed.</string>
         <image name="map" width="2560" height="1744"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="noCart" width="64" height="64"/>
+        <image name="noWifi" width="64" height="64"/>
         <image name="payment" width="2000" height="2000"/>
         <image name="pin" width="64" height="64"/>
         <image name="plus" width="128" height="128"/>

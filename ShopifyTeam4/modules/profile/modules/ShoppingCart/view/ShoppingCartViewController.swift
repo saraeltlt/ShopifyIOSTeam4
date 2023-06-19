@@ -64,10 +64,15 @@ class ShoppingCartViewController: UIViewController {
     }
     
     @IBAction func goToCheckout(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        if  (InternetConnectionObservation.getInstance.internetConnection.value == true) {
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
             let viewController = storyboard.instantiateViewController(identifier: "AddressViewController") as! AddressViewController
-          viewController.viewModel = viewModel.configNavigation()
+            viewController.viewModel = viewModel.configNavigation()
             self.navigationController?.pushViewController(viewController, animated: true)
+        }else {
+            self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+        }
+        
   
     }
     

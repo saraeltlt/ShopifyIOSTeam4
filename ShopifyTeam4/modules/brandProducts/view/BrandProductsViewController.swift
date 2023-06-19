@@ -11,6 +11,8 @@ import RxCocoa
 import Lottie
 
 class BrandProductsViewController: UIViewController {
+    
+    @IBOutlet weak var internetConnectionStatus: UIView!
     var disposBag = DisposeBag()
     @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var priceSliderFilter: UISlider!
@@ -40,6 +42,7 @@ class BrandProductsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        configureInternetConnectionObservation()
         self.navigationController?.navigationBar.isHidden=false
         productsCollection.reloadData()
         if K.CURRENCY == "EGP" {
@@ -111,6 +114,27 @@ class BrandProductsViewController: UIViewController {
         noResultImage.isHidden = true
         noResultText.isHidden = true
     }
+    
+    func configureInternetConnectionObservation(){
+        InternetConnectionObservation.getInstance.internetConnection.bind { status in
+            guard let status = status else {return}
+            if status {
+                print("there is internet connection in category")
+                DispatchQueue.main.async {
+                    self.internetConnectionStatus.isHidden = true
+                }
+                self.viewModel?.getBrandProducts()
+            }else {
+                print("there is no internet connection in category")
+                DispatchQueue.main.async {
+                    self.internetConnectionStatus.isHidden = false
+                }
+            }
+        }
+    }
+    
+    
+    
 }
 
 extension BrandProductsViewController:UICollectionViewDelegate

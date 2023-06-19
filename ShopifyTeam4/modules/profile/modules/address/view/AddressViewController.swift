@@ -14,6 +14,8 @@ protocol AddAddress{
 class AddressViewController: UIViewController, AddAddress {
     var delegate: UpdateData!
     
+    
+    @IBOutlet weak var noInternetConnectionView: UIView!
     @IBOutlet weak var loadingView: LottieAnimationView!
     @IBAction func continueCheckout(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
@@ -34,27 +36,52 @@ class AddressViewController: UIViewController, AddAddress {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        CheckoutBtn.isHidden = viewModel.navigationFlag
-        viewModel.getAllAddress()
-        viewModel.gellAllAddressesObservable.bind { status in
+        configureInternetConnectionObservation()
+        }
+    
+    func configureInternetConnectionObservation(){
+        InternetConnectionObservation.getInstance.internetConnection.bind { status in
             guard let status = status else {return}
             if status {
+                print("there is internet connection in category")
                 DispatchQueue.main.async {
-                    self.loadingView.isHidden=true
-                    self.loadingView.stop()
-                    self.addressTableView.isHidden=false
-                    self.addressTableView.reloadData()
+                    self.noInternetConnectionView.isHidden = true
+                    self.CheckoutBtn.isHidden = self.viewModel.navigationFlag
                 }
-            }
-                else{
-                    self.addressTableView.isHidden=true
-                    self.loadingView.isHidden=false
-                    self.loadingView.play()
-                    self.loadingView.loopMode = .loop
-                 
+                self.viewModel.getAllAddress()
+                self.viewModel.gellAllAddressesObservable.bind { status in
+                    guard let status = status else {return}
+                    if status {
+                        DispatchQueue.main.async {
+                            self.loadingView.isHidden=true
+                            self.loadingView.stop()
+                            self.addressTableView.isHidden=false
+                            self.addressTableView.reloadData()
+                        }
+                    }
+                        else{
+                            self.addressTableView.isHidden=true
+                            self.loadingView.isHidden=false
+                            self.loadingView.play()
+                            self.loadingView.loopMode = .loop
+                         
+                        }
+                    }
+                
+                
+                
+            }else {
+                print("there is no internet connection in category")
+                DispatchQueue.main.async {
+                    self.noInternetConnectionView.isHidden = false
                 }
             }
         }
+    }
+    
+    
+    
+    
     func custmizeNavigation(){
         let customFont = UIFont(name: "Chalkduster", size: 20)!
         let customColor = UIColor(named: K.PAIGE)!
@@ -76,12 +103,18 @@ class AddressViewController: UIViewController, AddAddress {
         navigationItem.rightBarButtonItem = rightBtn
     }
     @objc func addButtonTapped() {
-        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "AddAddressViewController") as AddAddressViewController
-        viewController.delegate = self
-        viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        self.present(viewController, animated: false, completion: nil)
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let viewController = storyboard.instantiateViewController(identifier: "AddAddressViewController") as AddAddressViewController
+            viewController.delegate = self
+            viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            self.present(viewController, animated: false, completion: nil)
+        } else {
+            self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+        }
+        
+        
     }
     func addAdress(address: Address) {
         self.view.makeToast("Address Was added succefully", duration: 2 ,title: "Success" ,image: UIImage(named: K.SUCCESS_IMAGE))

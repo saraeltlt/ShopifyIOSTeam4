@@ -17,13 +17,18 @@ class SettingsViewController: UIViewController, UpdateData {
     var viewModel = SettingsViewModel()
 
     @IBAction func logOut(_ sender: UIButton) {
-      viewModel.saveUserData()
-      viewModel.userLogout()
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
-      viewController.modalPresentationStyle = .fullScreen
-      viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-      self.present(viewController, animated: false, completion: nil)
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
+            viewModel.saveUserData()
+            viewModel.userLogout()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(identifier: "OptionsViewController") as OptionsViewController
+            viewController.modalPresentationStyle = .fullScreen
+            viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            self.present(viewController, animated: false, completion: nil)
+        }else {
+            self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+        }
+        
     }
     
     

@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import Network
 class ShoppingCartViewModel{
     var getProductsObservable:Observable<Bool>=Observable(false)
     var subTotal: Double = 0.0
     var cartProducts:[ProductCart] = []
-    
+
     
     
     func configNavigation() -> AddressViewModel{

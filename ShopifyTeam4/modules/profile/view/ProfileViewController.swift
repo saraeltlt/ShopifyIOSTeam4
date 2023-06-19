@@ -10,6 +10,7 @@ import Lottie
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var noInternetConnectionView: UIView!
     @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
     @IBOutlet weak var animationView: LottieAnimationView!
@@ -43,6 +44,7 @@ class ProfileViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden=false
+        configureInternetConnectionObservation()
         favCollection.isScrollEnabled = false
         ordersTableView.isScrollEnabled = false
         
@@ -91,17 +93,41 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func moreOrdersBtn(_ sender: Any) {
-        if (viewModel.getordersCount() == 0){
-            self.view.makeToast("No more orders to show", duration: 2 ,title: "Warning" ,image: UIImage(named: K.WARNINNG_IMAGE))
-        } else {
-            
-            
-            let storyboard = UIStoryboard(name: "Orders", bundle: nil)
-            let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as! OrdersViewController
-            ordersVC.viewModel = viewModel.configureNavigationToAllOrders()
-            self.navigationController?.pushViewController(ordersVC, animated: true)
+    func configureInternetConnectionObservation(){
+        InternetConnectionObservation.getInstance.internetConnection.bind { status in
+            guard let status = status else {return}
+            if status {
+                print("there is internet connection in category")
+                DispatchQueue.main.async {
+                    self.noInternetConnectionView.isHidden = true
+                }
+                self.viewModel.getAllOrders()
+            }else {
+                print("there is no internet connection in category")
+                DispatchQueue.main.async {
+                    self.noInternetConnectionView.isHidden = false
+                }
+            }
         }
+    }
+    
+    @IBAction func moreOrdersBtn(_ sender: Any) {
+        
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
+            if (viewModel.getordersCount() == 0){
+                self.view.makeToast("No more orders to show", duration: 2 ,title: "Warning" ,image: UIImage(named: K.WARNINNG_IMAGE))
+            } else {
+                
+                
+                let storyboard = UIStoryboard(name: "Orders", bundle: nil)
+                let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as! OrdersViewController
+                ordersVC.viewModel = viewModel.configureNavigationToAllOrders()
+                self.navigationController?.pushViewController(ordersVC, animated: true)
+            }
+        }else {
+            self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+        }
+        
         
     }
     

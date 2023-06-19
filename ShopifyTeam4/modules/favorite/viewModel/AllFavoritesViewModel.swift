@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 class AllFavoritesViewModel{
     var realmDBServiceInstance = RealmDBServices.instance
     var favoriteProducts:[ProductFavorite] = []
@@ -51,4 +52,5 @@ class AllFavoritesViewModel{
         }
         return returnMsg
     }
+    
 }

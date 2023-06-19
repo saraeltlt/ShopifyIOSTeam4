@@ -7,16 +7,19 @@
 
 import Foundation
 import Network
-
-class NetworkConnection {
-   static func checkInternetConnection(pathMonitor:NWPathMonitor,completion: @escaping (Bool) -> Void) {
+class InternetConnectionObservation {
+    var internetConnection:Observable<Bool>=Observable(nil)
+    var pathMonitor = NWPathMonitor()
+    static let getInstance = InternetConnectionObservation()
+    private init() {}
+    func checkInternetConnection() {
         pathMonitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
-                print("There is  Internet Connection")
-                completion(true)
+                print("Internet Connection ((FROM SCENE DELGATE))")
+                self.internetConnection.value = true
             } else {
-                print("No Internet Connection")
-                completion(false)
+                print("No Internet Connection ((FROM SCENE DELGATE))")
+                self.internetConnection.value = false
             }
         }
 
@@ -24,3 +27,4 @@ class NetworkConnection {
         pathMonitor.start(queue: queue)
     }
 }
+

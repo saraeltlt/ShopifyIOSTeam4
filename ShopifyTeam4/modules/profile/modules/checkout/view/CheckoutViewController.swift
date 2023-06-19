@@ -9,6 +9,7 @@ import UIKit
 
 class CheckoutViewController: UIViewController {
     
+    @IBOutlet weak var noInternetConnectionView: UIView!
     @IBOutlet weak var discountLabel: UILabel!
     @IBOutlet weak var shippinhFeesLabel: UILabel!
     @IBOutlet weak var subTotalLabel: UILabel!
@@ -24,6 +25,7 @@ class CheckoutViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        configureInternetConnectionObservation()
         if K.CURRENCY == "EGP"{
             subTotalLabel.text = "\(viewModel.subTotal) EGP"
             shippingFees = 65
@@ -38,6 +40,27 @@ class CheckoutViewController: UIViewController {
             totalLabel.text = "Total: \(total)USD"
         }
     }
+    
+    func configureInternetConnectionObservation(){
+        InternetConnectionObservation.getInstance.internetConnection.bind { status in
+            guard let status = status else {return}
+            if status {
+                print("there is internet connection in category")
+                DispatchQueue.main.async {
+                    self.noInternetConnectionView.isHidden = true
+                }
+            }else {
+                print("there is no internet connection in category")
+                DispatchQueue.main.async {
+                    self.noInternetConnectionView.isHidden = false
+                }
+            }
+        }
+    }
+    
+    
+    
+    
     
     @IBAction func validateCoupon(_ sender: UIButton) {
         switch couponTextField.text {

@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import Network
 class CategoryViewModel{
     var products:Observable<Bool>=Observable(false)
     var favoritesCount:Observable<Int>=Observable(0)
@@ -164,4 +164,7 @@ class CategoryViewModel{
         }
         return returnMsg
     }
+    
+    
+    
 }
