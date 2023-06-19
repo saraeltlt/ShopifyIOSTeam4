@@ -8,9 +8,8 @@
 import Foundation
 
 extension NetworkManager {
-    static  func createOrder(order:PostOrderModel,completion: @escaping (Data?,URLResponse?,Error?)->Void){
-        let url = URL(string: "https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/orders.json")!
-        var request = URLRequest(url: url)
+      func createOrder(url:String,order:PostOrderModel,completion: @escaping (Data?,URLResponse?,Error?)->Void){
+        var request = URLRequest(url:  URL(string:url)!)
         request.httpMethod = "POST"
         let session = URLSession.shared
         request.httpShouldHandleCookies = false

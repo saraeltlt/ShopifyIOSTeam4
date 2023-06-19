@@ -43,9 +43,8 @@ struct URLs{
     //Address
   
     func addAddress(id: Int) -> String {
-        return  baseURL + "customers/\(id)/addresses.json"
+        return "https://mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/customers/\(id)/addresses.json"
     }
-    
     func getAllAddress(id: Int) -> String {
         return baseURL + "customers/\(id)/addresses.json"
     }

@@ -27,7 +27,7 @@ class SignUpViewModel{
     
     func registerNewCustomer(){
         let customer = CustomerModel.getCustomer(user: verfiedUser!)
-        NetworkManager.addNewCustomer(method:"POST", url: URLs.shared.customersURl(), Newcustomer: customer) { customer in
+        NetworkManager.shared.addNewCustomer(method:"POST", url: URLs.shared.customersURl(), Newcustomer: customer) { customer in
             guard let customer = customer else {return}
             UserDefaults.selectedUserID = customer.customer?.id ?? 0
             K.USER_ID = customer.customer?.id ?? 0
@@ -38,18 +38,17 @@ class SignUpViewModel{
     func addAddress(){
         var newAddress = Address(address1: verfiedUser?.street ,city: verfiedUser?.city ,country: verfiedUser?.country, phone: verfiedUser?.fullNumber, isDefault: true)
         print (newAddress)
-        NetworkManager.shared.addNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), newAddress: newAddress) {(result: Result<Int,Error>) in
-            print ("here")
-            switch result{
-            case .success(let data):
-                print("Default addres set succefually with: ")
-                print (data)
-                K.DEFAULT_ADDRESS = "\(newAddress.city!) - \(newAddress.country!)"
-                UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS
-            case .failure(let error):
-                print (error)
-            }
+        NetworkManager.shared.createNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), address: newAddress) {(result: Result<responseAddress,Error>) in
+        switch result{
+        case .success(let data):
+            print("Default addres set succefually with: ")
+            K.DEFAULT_ADDRESS = "\(newAddress.city!) - \(newAddress.country!)"
+            UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS
+        case .failure(let error):
+            print (error)
         }
+    }
+       
     }
     func getStoredPhoneNumber(){
         authintecationService.getUsersPhoneNumbers { phoneNumbers in

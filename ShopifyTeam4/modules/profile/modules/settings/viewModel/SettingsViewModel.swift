@@ -119,7 +119,7 @@ class SettingsViewModel{
     
     func updateCustomer(){
         let customer = CustomerModel(customer: Customer(id: K.USER_ID, note: String(K.FAV_ID), tags: String(K.CART_ID)))
-        NetworkManager.addNewCustomer(method:"PUT", url: URLs.shared.updateCustomers(id: K.USER_ID), Newcustomer: customer) { customer in
+        NetworkManager.shared.addNewCustomer(method:"PUT", url: URLs.shared.updateCustomers(id: K.USER_ID), Newcustomer: customer) { customer in
             guard let customer = customer else {return}
             
             print ("customer ------------------------")

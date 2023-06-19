@@ -8,7 +8,7 @@
 import Foundation
 
 extension NetworkManager {
-    static func addNewCustomer(method: String,url:String,Newcustomer: CustomerModel,complication:@escaping (CustomerModel?) -> Void) {
+     func addNewCustomer(method: String,url:String,Newcustomer: CustomerModel,complication:@escaping (CustomerModel?) -> Void) {
         let url = URL(string: url)
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = method
