@@ -29,7 +29,7 @@ class PaymentViewModel{
          request.countryCode = "US"
          request.currencyCode = "USD"
        }
-          request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Shopify", amount: NSDecimalNumber(value: total ))]
+          request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Fly Buy", amount: NSDecimalNumber(value: total ))]
         return request
     }
     

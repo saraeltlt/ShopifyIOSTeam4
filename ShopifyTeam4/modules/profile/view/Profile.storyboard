@@ -25,6 +25,13 @@
                                 <color key="textColor" name="orange"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZe-hw-b0B" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="15" y="197" width="384" height="164"/>
+                                <color key="backgroundColor" name="green"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThJ-K6-8C4">
                                 <rect key="frame" x="15" y="154" width="186.5" height="33"/>
                                 <state key="normal" title="Button"/>
@@ -186,6 +193,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="paige"/>
                         <constraints>
+                            <constraint firstItem="KrD-ZX-DYs" firstAttribute="top" secondItem="pZe-hw-b0B" secondAttribute="bottom" constant="10" id="35u-eZ-ew3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WiW-6g-H9J" secondAttribute="trailing" constant="10" id="4Mk-PO-Hhy"/>
                             <constraint firstItem="R4L-A9-tSe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="4fI-gT-4ad"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ghs-bz-Bji" secondAttribute="trailing" constant="7" id="62U-xD-6ce"/>
@@ -199,6 +207,7 @@
                             <constraint firstItem="WiW-6g-H9J" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="JEi-1H-O9u"/>
                             <constraint firstItem="ghs-bz-Bji" firstAttribute="centerY" secondItem="KrD-ZX-DYs" secondAttribute="centerY" id="KBh-5E-YUU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="t6u-iK-1kt" secondAttribute="trailing" constant="10" id="NIP-7n-1Ek"/>
+                            <constraint firstItem="pZe-hw-b0B" firstAttribute="top" secondItem="ThJ-K6-8C4" secondAttribute="bottom" constant="10" id="Pcz-J8-0nb"/>
                             <constraint firstItem="KrD-ZX-DYs" firstAttribute="top" secondItem="t6u-iK-1kt" secondAttribute="bottom" constant="5" id="QRc-TR-21Q"/>
                             <constraint firstItem="jQK-xI-3M3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="TeE-Uf-NuN"/>
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.45" id="Tyg-nu-eto"/>
@@ -212,12 +221,14 @@
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="height" secondItem="9Sd-WW-R2f" secondAttribute="height" id="g51-rd-0XJ"/>
                             <constraint firstItem="ThJ-K6-8C4" firstAttribute="top" secondItem="jQK-xI-3M3" secondAttribute="bottom" constant="20" id="gqd-63-Wtb"/>
                             <constraint firstItem="jQK-xI-3M3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="pbu-xu-PET"/>
+                            <constraint firstItem="pZe-hw-b0B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="sVh-lP-pqR"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Sd-WW-R2f" secondAttribute="trailing" constant="10" id="scg-pW-Z6f"/>
                             <constraint firstItem="t6u-iK-1kt" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.2" id="tPu-60-EUp"/>
                             <constraint firstItem="KrD-ZX-DYs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="uYc-Ol-oPF"/>
                             <constraint firstItem="WiW-6g-H9J" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" id="uej-1M-b0P"/>
                             <constraint firstItem="fjg-jS-clQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wgF-oI-CX7"/>
                             <constraint firstItem="fjg-jS-clQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yC8-Er-G0q"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pZe-hw-b0B" secondAttribute="trailing" constant="15" id="yQR-31-nhC"/>
                             <constraint firstItem="TKB-xf-DiV" firstAttribute="top" secondItem="ghs-bz-Bji" secondAttribute="bottom" id="ygV-YE-pNI"/>
                         </constraints>
                     </view>
@@ -242,6 +253,7 @@
                         <outlet property="animationView" destination="hRB-79-qD0" id="zai-T8-oRN"/>
                         <outlet property="favCollection" destination="WiW-6g-H9J" id="OVj-4e-pf9"/>
                         <outlet property="guestView" destination="fjg-jS-clQ" id="cQ1-vi-3UP"/>
+                        <outlet property="loadingAnimation" destination="hRB-79-qD0" id="dKi-2h-klm"/>
                         <outlet property="noOrders" destination="9Sd-WW-R2f" id="cFr-zQ-6SF"/>
                         <outlet property="noWishlist" destination="TKB-xf-DiV" id="6zA-aU-de4"/>
                         <outlet property="ordersTableView" destination="t6u-iK-1kt" id="aol-hQ-I10"/>
@@ -251,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052.6717557251909" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1052.1739130434783" y="-28.125"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="8N4-Sa-093">
@@ -1022,15 +1034,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uc-b7-Mx3">
-                                <rect key="frame" x="5" y="48" width="404" height="50"/>
+                                <rect key="frame" x="60" y="48" width="349" height="50"/>
                                 <color key="backgroundColor" name="orange"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="p2A-yL-LRs"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="p2A-yL-LRs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="19"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xs-Dq-FFY">
+                                <rect key="frame" x="5" y="48" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="cWJ-ND-cuT"/>
+                                    <constraint firstAttribute="height" constant="50" id="jrp-m0-Squ"/>
+                                </constraints>
+                                <color key="tintColor" name="paige"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="arrowshape.turn.up.backward.fill" catalog="system" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="green"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goBack:" destination="ugJ-6O-Oek" eventType="touchUpInside" id="xod-ci-65v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hTo-TF-tY8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1039,13 +1068,13 @@
                             <constraint firstItem="kIw-Ok-U21" firstAttribute="leading" secondItem="hTo-TF-tY8" secondAttribute="leading" constant="30" id="0KW-cR-DmL"/>
                             <constraint firstItem="Ko6-mn-hAQ" firstAttribute="trailing" secondItem="hTo-TF-tY8" secondAttribute="trailing" id="1yv-yh-zsh"/>
                             <constraint firstItem="EwO-Lj-Jxt" firstAttribute="centerX" secondItem="Rtd-bL-heI" secondAttribute="centerX" id="4Nu-1w-BRi"/>
+                            <constraint firstItem="1uc-b7-Mx3" firstAttribute="leading" secondItem="6xs-Dq-FFY" secondAttribute="trailing" constant="5" id="4Rf-GE-Jvh"/>
                             <constraint firstItem="hTo-TF-tY8" firstAttribute="trailing" secondItem="kIw-Ok-U21" secondAttribute="trailing" constant="30" id="8Bn-un-qLl"/>
                             <constraint firstItem="hTo-TF-tY8" firstAttribute="bottom" secondItem="kIw-Ok-U21" secondAttribute="bottom" id="9GI-cJ-qXJ"/>
+                            <constraint firstItem="6xs-Dq-FFY" firstAttribute="centerY" secondItem="1uc-b7-Mx3" secondAttribute="centerY" id="DZN-YN-KLl"/>
                             <constraint firstAttribute="bottom" secondItem="Ko6-mn-hAQ" secondAttribute="bottom" id="Fhm-Wy-1Wr"/>
-                            <constraint firstItem="1uc-b7-Mx3" firstAttribute="leading" secondItem="hTo-TF-tY8" secondAttribute="leading" constant="5" id="X2h-EY-Fe4"/>
                             <constraint firstItem="Ko6-mn-hAQ" firstAttribute="top" secondItem="Rtd-bL-heI" secondAttribute="top" id="X44-hV-eOA"/>
-                            <constraint firstItem="1uc-b7-Mx3" firstAttribute="leading" secondItem="hTo-TF-tY8" secondAttribute="leading" constant="5" id="YmE-Jw-tsr"/>
-                            <constraint firstItem="hTo-TF-tY8" firstAttribute="trailing" secondItem="1uc-b7-Mx3" secondAttribute="trailing" constant="5" id="btB-J5-ZDV"/>
+                            <constraint firstItem="6xs-Dq-FFY" firstAttribute="leading" secondItem="hTo-TF-tY8" secondAttribute="leading" constant="5" id="joJ-ac-FgB"/>
                             <constraint firstItem="hTo-TF-tY8" firstAttribute="trailing" secondItem="1uc-b7-Mx3" secondAttribute="trailing" constant="5" id="klF-0m-vF4"/>
                             <constraint firstItem="1uc-b7-Mx3" firstAttribute="top" secondItem="hTo-TF-tY8" secondAttribute="top" id="pvK-qU-TCw"/>
                             <constraint firstItem="Ko6-mn-hAQ" firstAttribute="leading" secondItem="hTo-TF-tY8" secondAttribute="leading" id="qNX-V5-Xc9"/>
@@ -1606,10 +1635,16 @@ Your order has been successfully confirmed.</string>
             <point key="canvasLocation" x="6267" y="521"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="hRB-79-qD0"/>
+        <designable name="pZe-hw-b0B"/>
+        <designable name="qCT-Yc-XhC"/>
+    </designables>
     <resources>
         <image name="Contact" width="2000" height="2000"/>
         <image name="aboutUS" width="2000" height="2000"/>
         <image name="address" width="128" height="128"/>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="104"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
@@ -1628,7 +1663,7 @@ Your order has been successfully confirmed.</string>
             <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="green">
-            <color red="0.29411764705882354" green="0.44705882352941173" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29399999976158142" green="0.44699999690055847" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="lightGreen">
             <color red="0.51800000667572021" green="0.74500000476837158" blue="0.72500002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1637,7 +1672,7 @@ Your order has been successfully confirmed.</string>
             <color red="0.88200002908706665" green="0.70599997043609619" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="orange">
-            <color red="0.81568627450980391" green="0.45882352941176469" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81599998474121094" green="0.45899999141693115" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="paige">
             <color red="0.92199999094009399" green="0.86299997568130493" blue="0.80400002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

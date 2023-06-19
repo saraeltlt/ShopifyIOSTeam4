@@ -10,6 +10,7 @@ import Lottie
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var loadingAnimation: LottieAnimationView!
     @IBOutlet weak var shoppingCartCount: UIBarButtonItem!
     @IBOutlet weak var animationView: LottieAnimationView!
     @IBOutlet weak var noOrders: UIButton!
@@ -149,9 +150,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         viewModel.orders.bind { status in
             guard let status = status else {return}
             if status {
+                self.loadingAnimation.isHidden=true
                 DispatchQueue.main.async {
                     self.ordersTableView.reloadData()
+                    self.loadingAnimation.stop()
                 }
+            }else{
+                self.loadingAnimation.isHidden=false
+                self.loadingAnimation.loopMode = .loop
+                self.loadingAnimation.play()
             }
         }
     }

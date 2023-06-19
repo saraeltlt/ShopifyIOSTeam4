@@ -70,6 +70,9 @@ class AddressInfoViewController: UIViewController, MKMapViewDelegate, CLLocation
             self.locationLabel.text = "\(self.country) - \(self.city) - \(self.street)"
         }
     }
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     @IBAction func addAddress(_ sender: UIButton) {
         delegate.setAddress(country: country, city: city, street: street)
         self.dismiss(animated: true)
