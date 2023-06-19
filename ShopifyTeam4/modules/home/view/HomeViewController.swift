@@ -191,14 +191,6 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     }
     
     
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == adsCollection {
-            return 1
-        }else {
-            return 1
-        }
-    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == adsCollection {
             return viewModel.getadvertesmentsCount()

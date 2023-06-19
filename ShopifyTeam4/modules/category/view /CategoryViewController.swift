@@ -213,14 +213,7 @@ extension CategoryViewController:UICollectionViewDelegate
     
     
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == categoryCollection {
-            return 1
-        }else {
-            return 1
-        }
-        
-    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == categoryCollection {
             return viewModel.getCategoriesCount()
