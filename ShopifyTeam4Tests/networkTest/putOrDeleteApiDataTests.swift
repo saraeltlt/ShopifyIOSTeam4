@@ -25,7 +25,7 @@ final class putOrDeleteApiDataTests: XCTestCase {
 
     func testPutOrDeleteApiData_Success(){
         // Given
-        let url = URLs.shared.setDefaultAddress(customerID: 7021960823069, addressID: 9278565679389)
+        let url = URLs.shared.setDefaultAddress(customerID: 7023980937501, addressID: 9279432491293)
         let expectation = self.expectation(description: "Create address request")
         
         //when

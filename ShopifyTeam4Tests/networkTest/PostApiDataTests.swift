@@ -79,7 +79,7 @@ final class PostApiDataTests: XCTestCase {
     //MARK: - test post Address
     func testCreateNewAddress_Success() {
         // Arrange
-        let url = URLs.shared.addAddress(id: 7021960823069)
+        let url = URLs.shared.addAddress(id: 7023980937501)
         let address = Address(id: 1, address1: "2ded4d3df", city: "C4it3y1", country: "Egypt", phone: "014447243291", isDefault: false)
         
         let expectation = self.expectation(description: "Create address request")
@@ -130,7 +130,7 @@ final class PostApiDataTests: XCTestCase {
     
     func testCreateNewAddress_Failure_InvalidModel() {
         
-        let url = URLs.shared.addAddress(id: 7021960823069)
+        let url = URLs.shared.addAddress(id: 7023980937501)
         let address = Address(id: 1, address1: "", city: "", country: "", phone: "", isDefault: false)
         
         let expectation = self.expectation(description: "Create address request")
@@ -154,7 +154,7 @@ final class PostApiDataTests: XCTestCase {
     //MARK: - test post Order
     
     func testPostOrder_success(){
-        let customer = Customer(id: 7021960823069,addresses: [Address()])
+        let customer = Customer(id: 7023980937501,addresses: [Address()])
         let orderProduct = OrderProduct(variant_id: 123, quantity: 2, name: "Product Name", price: .double(9.9), title: "Product Title", imagSrc: "https://example.com/image.jpg")
         let lineItems = [orderProduct]
         let order = Order(id: 53, customer: customer, line_items: lineItems, created_at: "2023-04-10", financial_status: "paid", current_total_price: "\(300)")
@@ -198,7 +198,7 @@ final class PostApiDataTests: XCTestCase {
     }
     
     func testPostOrder_Failure_InvalidURL(){
-        let customer = Customer(id: 7021960823069,addresses: [Address()])
+        let customer = Customer(id: 7023980937501,addresses: [Address()])
         let orderProduct = OrderProduct(variant_id: 123, quantity: 2, name: "Product Name", price: .double(9.9), title: "Product Title", imagSrc: "https://example.com/image.jpg")
         let lineItems = [orderProduct]
         let order = Order(id: 53, customer: customer, line_items: lineItems, created_at: "2023-04-10", financial_status: "paid", current_total_price: "\(300)")
@@ -224,7 +224,7 @@ final class PostApiDataTests: XCTestCase {
     
     //MARK: - test post draftOrder
     func testPostDraftOrder_success(){
-        let customer = Customer(id: 7021960823069,addresses: [Address()])
+        let customer = Customer(id: 7023980937501,addresses: [Address()])
         let draftOrderProduct = DraftOrderProduct(quantity: 2, price: .double(9.99), title: "Product Title", imagSrc: "https://example.com/image.jpg")
         let draftOrder = DraftOrder(id: 123, customer: customer, line_items: [draftOrderProduct])
         let draftOrderModel = DraftOrderModel(draft_order: draftOrder)
@@ -246,7 +246,7 @@ final class PostApiDataTests: XCTestCase {
     }
     
     func testPostDraftOrder_InvalidURL(){
-        let customer = Customer(id: 7021960823069,addresses: [Address()])
+        let customer = Customer(id: 7023980937501,addresses: [Address()])
         let draftOrderProduct = DraftOrderProduct(quantity: 2, price: .double(9.99), title: "Product Title", imagSrc: "https://example.com/image.jpg")
         let draftOrder = DraftOrder(id: 123, customer: customer, line_items: [draftOrderProduct])
         let draftOrderModel = DraftOrderModel(draft_order: draftOrder)
