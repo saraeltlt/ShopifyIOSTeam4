@@ -55,13 +55,20 @@ class SignUpViewController: UIViewController {
         signUpViewModel.getStoredPhoneNumber()
         setScreenDefaultForm()
         signUpViewModel.failClosure = { (erreorMeg) in
-            self.networkIndicator.stopAnimating()
-            self.errorTitledAlert(subTitle: erreorMeg, handler: nil)
+            DispatchQueue.main.async {
+                self.networkIndicator.stopAnimating()
+                self.errorTitledAlert(subTitle: erreorMeg, handler: nil)
+            }
+
         }
         signUpViewModel.successClosur = { [weak self] in
             guard let self = self else {return}
-            storedPhoneNumbers.append(passwordTextField.text!)
-            self.navigateToSignInScreen()
+            DispatchQueue.main.async {
+                self.storedPhoneNumbers.append(self.passwordTextField.text!)
+
+                    self.navigateToSignInScreen()
+                
+            }
         }
         signUpViewModel.phoneNumberClosure = { [weak self] (phoneNumbers)  in
             guard let self = self else {return}
