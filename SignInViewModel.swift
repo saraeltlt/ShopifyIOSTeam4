@@ -63,6 +63,7 @@ class SignInViewModel{
                         }
                     }
                 }
+
                 K.idsOfFavoriteProducts=[]
                 realmServices.getIDsOfAllFavoriteItems { errorMessage, idsOfFavoriteItems in
                     if let errorMessage = errorMessage{
@@ -71,7 +72,8 @@ class SignInViewModel{
                         K.idsOfFavoriteProducts = idsOfFavoriteItems ?? []
                     }
                 }
-                NetworkManager.shared.editApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.FAV_ID)) { (result : Result<(Int,String),Error>) in
+
+                NetworkManager.shared.putOrDeleteApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.FAV_ID)) { (result : Result<(Int,String),Error>) in
                     switch (result){
                     case .success(let status):
                         print(status.0,status.1)
@@ -111,7 +113,7 @@ class SignInViewModel{
                     }
                 }
                 
-                NetworkManager.shared.editApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.CART_ID)) { (result : Result<(Int,String),Error>) in
+                NetworkManager.shared.putOrDeleteApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.CART_ID)) { (result : Result<(Int,String),Error>) in
                     switch (result){
                     case .success(let status):
                         print(status.0,status.1)

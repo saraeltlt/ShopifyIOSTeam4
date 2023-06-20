@@ -47,7 +47,7 @@ class AddressViewModel {
     func deleteAddress(at index : Int){
    
             let url = URLs.shared.deleteOrEditAddress(customerID: K.USER_ID, addressID: addressArray[index].id ?? 0)
-            NetworkManager.shared.editApiData(method: "DELETE", url: url, completion: {[weak self](result : Result<(Int,String),Error>) in
+            NetworkManager.shared.putOrDeleteApiData(method: "DELETE", url: url, completion: {[weak self](result : Result<(Int,String),Error>) in
                 switch (result){
                 case .success(let status):
                     print ("here ->", status)
@@ -69,7 +69,7 @@ class AddressViewModel {
     func  setDefaultAddress(index: Int ){
         self.gellAllAddressesObservable.value=false
         let url = URLs.shared.setDefaultAddress(customerID: K.USER_ID, addressID: addressArray[index].id!)
-        NetworkManager.shared.editApiData(method: "PUT", url: url) {[weak self](result : Result<(Int,String),Error>) in
+        NetworkManager.shared.putOrDeleteApiData(method: "PUT", url: url) {[weak self](result : Result<(Int,String),Error>) in
             switch (result){
             case .success(let status):
                 print(status.0,status.1)

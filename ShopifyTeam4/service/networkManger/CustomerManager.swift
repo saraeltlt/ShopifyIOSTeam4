@@ -55,5 +55,4 @@ extension NetworkManager {
             completion(.failure(error))
         }
     }
-
 }

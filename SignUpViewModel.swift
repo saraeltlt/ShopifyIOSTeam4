@@ -26,6 +26,7 @@ class SignUpViewModel{
     
     func registerNewCustomer(){
         let customer = CustomerModel.getCustomer(user: verfiedUser!)
+
         NetworkManager.shared.addNewCustomer(method:"POST", url: URLs.shared.customersURl(), newCustomer: customer) { [weak self]  result in
             switch result {
             case .success(let customer):
@@ -36,16 +37,19 @@ class SignUpViewModel{
                 self?.failClosure(error.localizedDescription)
             }
             
+
             
         }
     }
     func addAddress(){
         var newAddress = Address(address1: verfiedUser?.street ,city: verfiedUser?.city ,country: verfiedUser?.country, phone: verfiedUser?.fullNumber, isDefault: true)
         print (newAddress)
-        NetworkManager.shared.addNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), newAddress: newAddress) {[weak self] (result: Result<Int,Error>) in
-            print ("here")
+
+        NetworkManager.shared.createNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), address: newAddress) {(result: Result<responseAddress,Error>) in
             switch result{
             case .success(let data):
+                print("Default addres set succefually with: ")
+
                 K.DEFAULT_ADDRESS = "\(newAddress.city!) - \(newAddress.country!)"
                 UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS
                 self?.successClosur()
@@ -53,6 +57,7 @@ class SignUpViewModel{
                 self?.failClosure(error.localizedDescription)
             }
         }
+        
     }
     func getStoredPhoneNumber(){
         authintecationService.getUsersPhoneNumbers { phoneNumbers in
@@ -65,6 +70,6 @@ class SignUpViewModel{
 }
 /*
  if UserDefaults.standard.object(forKey: kCURRENTUSER) != nil{
-     // navigate to home directly ..
+ // navigate to home directly ..
  }
  */

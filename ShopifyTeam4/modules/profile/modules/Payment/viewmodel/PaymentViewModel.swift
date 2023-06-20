@@ -43,11 +43,15 @@ class PaymentViewModel{
         }
         let order = Order(id: 53, customer: customer, line_items: lineItems, created_at: "2023-04-10", financial_status: "paid", current_total_price: "\(total)")
         let orderModel = PostOrderModel(order: order)
-        NetworkManager.createOrder(order: orderModel) { data, response, error in
-            print("addeds successfully to sarver order")
-            print(data)
-            print(response)
-            self.removeShoppingCartItems()
+        NetworkManager.shared.createOrder(url:URLs.shared.postOrder(), order: orderModel) { (result: Result<Data?, Error>) in
+            switch result{
+            case .success(_):
+                self.removeShoppingCartItems()
+            case .failure(let error):
+                print ("EERRRRORRR", error.localizedDescription)
+            }
+            
+           
         }
     }
     
