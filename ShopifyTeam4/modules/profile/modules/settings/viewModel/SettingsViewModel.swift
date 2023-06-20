@@ -122,18 +122,17 @@ class SettingsViewModel{
         NetworkManager.shared.addNewCustomer(method:"PUT", url: URLs.shared.updateCustomers(id: K.USER_ID), newCustomer: customer) {result in
             switch result {
             case .success(let customer):
-                   print ("customer ------------------------")
-                   let realmServices = RealmDBServices.instance
-                   realmServices.deleteAllProducts(ofType: ProductCart.self) { errorMessage in
-                       print("cart-> ", errorMessage)
-                   }
-                   realmServices.deleteAllProducts(ofType: ProductFavorite.self) { errorMessage in
-                       print("fav-> ", errorMessage)
-                   }
+                print ("customer ------------------------")
+                let realmServices = RealmDBServices.instance
+                realmServices.deleteAllProducts(ofType: ProductCart.self) { errorMessage in
+                    print("cart-> ", errorMessage)
+                }
+                realmServices.deleteAllProducts(ofType: ProductFavorite.self) { errorMessage in
+                    print("fav-> ", errorMessage)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
+            }
         }
     }
-    
-
 }

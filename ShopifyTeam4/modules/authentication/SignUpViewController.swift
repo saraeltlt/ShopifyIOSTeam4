@@ -65,8 +65,7 @@ class SignUpViewController: UIViewController {
             guard let self = self else {return}
             DispatchQueue.main.async {
                 self.storedPhoneNumbers.append(self.passwordTextField.text!)
-
-                    self.navigateToSignInScreen()
+                self.navigateToSignInScreen()
                 
             }
         }
@@ -115,7 +114,7 @@ class SignUpViewController: UIViewController {
             return
         }
         if storedPhoneNumbers.contains(phoneNumberTextField.text!){
-            notTitledCustomAlert(title: "duplicated phone number", subTitle: "This number is already assigned to a another user", handler: nil)
+            notTitledCustomAlert(title: "duplicated phone number", subTitle: "This number is already assigned to another user", handler: nil)
             return
         }
         networkIndicator.startAnimating()

@@ -45,21 +45,24 @@ class SignUpViewModel{
         var newAddress = Address(address1: verfiedUser?.street ,city: verfiedUser?.city ,country: verfiedUser?.country, phone: verfiedUser?.fullNumber, isDefault: true)
         print (newAddress)
 
-        NetworkManager.shared.createNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), address: newAddress) {(result: Result<responseAddress,Error>) in
+        NetworkManager.shared.createNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), address: newAddress) {[weak self]
+            (result: Result<responseAddress,Error>) in
+            guard let self = self else {return}
             switch result{
             case .success(let data):
                 print("Default addres set succefually with: ")
                 K.DEFAULT_ADDRESS = "\(newAddress.city!) - \(newAddress.country!)"
                 UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS
-                self?.successClosur()
+                self.successClosur()
             case .failure(let error):
-                self?.failClosure(error.localizedDescription)
+                self.failClosure(error.localizedDescription)
             }
         }
         
     }
     func getStoredPhoneNumber(){
-        authintecationService.getUsersPhoneNumbers { phoneNumbers in
+        authintecationService.getUsersPhoneNumbers {[weak self] phoneNumbers in
+            guard let self = self else {return}
             self.phoneNumberClosure(phoneNumbers)
         }
     }
