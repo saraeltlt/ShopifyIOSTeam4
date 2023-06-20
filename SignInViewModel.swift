@@ -72,8 +72,9 @@ class SignInViewModel{
                         K.idsOfFavoriteProducts = idsOfFavoriteItems ?? []
                     }
                 }
-                NetworkManager.shared.putOrDeleteApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.FAV_ID)) { (result : Result<(Int,String),Error>) in
 
+
+                NetworkManager.shared.putOrDeleteApiData(method: "DELETE", url: URLs.shared.getDaftOrder(draftOrderId: K.FAV_ID)) { (result : Result<(Int,String),Error>) in
                     switch (result){
                     case .success(let status):
                         print(status.0,status.1)
