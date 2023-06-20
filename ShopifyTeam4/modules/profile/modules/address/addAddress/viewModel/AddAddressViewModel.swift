@@ -13,16 +13,18 @@ class AddAddressViewModel{
     
     func addAddress(phone: String, street: String, city: String, country: String){
         newAddress = Address(address1: street, city: city, country: country, phone: phone )
-        NetworkManager.shared.addNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), newAddress: newAddress!) {[weak self](result: Result<Int,Error>) in
+        
+        NetworkManager.shared.createNewAddress(url: URLs.shared.addAddress(id: K.USER_ID), address: newAddress!) {[weak self](result: Result<responseAddress,Error>) in
             switch result{
             case .success(let data):
-                self?.newAddress?.id=data
+                self?.newAddress?.id=data.customer_address?.id
                 self?.addAddressObservable.value="success"
             case .failure(let error):
                 self?.addAddressObservable.value="error"
                 self?.errorMsg = error.localizedDescription
             }
         }
+    
     }
     
 

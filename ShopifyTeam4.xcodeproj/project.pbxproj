@@ -35,6 +35,9 @@
 		8F22AC2F2A2F817900016D1F /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC2E2A2F817900016D1F /* AddAddressViewController.swift */; };
 		8F22AC322A2F89AB00016D1F /* addressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC302A2F89AB00016D1F /* addressCell.swift */; };
 		8F22AC332A2F89AB00016D1F /* addressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F22AC312A2F89AB00016D1F /* addressCell.xib */; };
+		8F5323352A4084A600AC9AAD /* getAPiDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5323342A4084A600AC9AAD /* getAPiDataTests.swift */; };
+		8F5323372A4084FC00AC9AAD /* putOrDeleteApiDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5323362A4084FC00AC9AAD /* putOrDeleteApiDataTests.swift */; };
+		8F5323392A40851000AC9AAD /* PostApiDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5323382A40851000AC9AAD /* PostApiDataTests.swift */; };
 		8F5433712A3FA4620015D683 /* CustomAlertViewControllerOneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5433702A3FA4620015D683 /* CustomAlertViewControllerOneButton.swift */; };
 		8F5433732A3FD1570015D683 /* AddressInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5433722A3FD1570015D683 /* AddressInfoViewController.swift */; };
 		8F574FB62A3153C800BA979D /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F574FB52A3153C800BA979D /* DoneViewController.swift */; };
@@ -163,6 +166,9 @@
 		8F22AC2E2A2F817900016D1F /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		8F22AC302A2F89AB00016D1F /* addressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addressCell.swift; sourceTree = "<group>"; };
 		8F22AC312A2F89AB00016D1F /* addressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addressCell.xib; sourceTree = "<group>"; };
+		8F5323342A4084A600AC9AAD /* getAPiDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getAPiDataTests.swift; sourceTree = "<group>"; };
+		8F5323362A4084FC00AC9AAD /* putOrDeleteApiDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = putOrDeleteApiDataTests.swift; sourceTree = "<group>"; };
+		8F5323382A40851000AC9AAD /* PostApiDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApiDataTests.swift; sourceTree = "<group>"; };
 		8F5433702A3FA4620015D683 /* CustomAlertViewControllerOneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewControllerOneButton.swift; sourceTree = "<group>"; };
 		8F5433722A3FD1570015D683 /* AddressInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInfoViewController.swift; sourceTree = "<group>"; };
 		8F574FB52A3153C800BA979D /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +373,16 @@
 			path = address;
 			sourceTree = "<group>";
 		};
+		8F5323332A40847F00AC9AAD /* networkTest */ = {
+			isa = PBXGroup;
+			children = (
+				8F5323342A4084A600AC9AAD /* getAPiDataTests.swift */,
+				8F5323362A4084FC00AC9AAD /* putOrDeleteApiDataTests.swift */,
+				8F5323382A40851000AC9AAD /* PostApiDataTests.swift */,
+			);
+			path = networkTest;
+			sourceTree = "<group>";
+		};
 		8F6077842A2F3DEA00570DC7 /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +450,7 @@
 		8F973BC72A2BC9D800B52879 /* ShopifyTeam4Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8F5323332A40847F00AC9AAD /* networkTest */,
 				8F973BC82A2BC9D800B52879 /* ShopifyTeam4Tests.swift */,
 			);
 			path = ShopifyTeam4Tests;
@@ -1231,6 +1248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F973BC92A2BC9D800B52879 /* ShopifyTeam4Tests.swift in Sources */,
+				8F5323352A4084A600AC9AAD /* getAPiDataTests.swift in Sources */,
+				8F5323392A40851000AC9AAD /* PostApiDataTests.swift in Sources */,
+				8F5323372A4084FC00AC9AAD /* putOrDeleteApiDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
