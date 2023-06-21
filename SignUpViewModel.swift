@@ -49,7 +49,7 @@ class SignUpViewModel{
             (result: Result<responseAddress,Error>) in
             guard let self = self else {return}
             switch result{
-            case .success(let data):
+            case .success(_):
                 print("Default addres set succefually with: ")
                 K.DEFAULT_ADDRESS = "\(newAddress.city!) - \(newAddress.country!)"
                 UserDefaults.DefaultAddress=K.DEFAULT_ADDRESS

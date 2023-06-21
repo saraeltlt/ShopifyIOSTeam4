@@ -8,8 +8,8 @@ import Foundation
 import RealmSwift
 
 
-class RealmDBServices{
-    static let instance = RealmDBServices()
+class RealmDBServices:RealmDBServicesInterface{
+    static var instance = RealmDBServices()
     private var realmFileReference:Realm?
     private init() {}
     func initRealmFile(complitionHandler : @escaping(_ errorMessage:String?) -> ()){
