@@ -33,6 +33,15 @@
 		8F1539AC2A35CD9700D77550 /* ToastViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1539AB2A35CD9600D77550 /* ToastViewExtension.swift */; };
 		8F1539B02A35E0E300D77550 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1539AF2A35E0E300D77550 /* PaymentViewModel.swift */; };
 		8F1539B22A3617D300D77550 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1539B12A3617D300D77550 /* AddressModel.swift */; };
+		8F1D61182A41E68600B67136 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D61172A41E68600B67136 /* Mockable.swift */; };
+		8F1D611A2A41E6A800B67136 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D61192A41E6A800B67136 /* MockNetworkManager.swift */; };
+		8F1D611D2A41F08300B67136 /* BrandProductsModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D611C2A41F08300B67136 /* BrandProductsModel.json */; };
+		8F1D61232A41F48800B67136 /* MockNetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1D61222A41F48800B67136 /* MockNetworkManagerTest.swift */; };
+		8F1D61252A41F7EF00B67136 /* GetOrderModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D61242A41F7EF00B67136 /* GetOrderModel.json */; };
+		8F1D61272A41FBE000B67136 /* DraftOrderModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D61262A41FBE000B67136 /* DraftOrderModel.json */; };
+		8F1D612B2A41FC8200B67136 /* ProductDetailsModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D612A2A41FC8200B67136 /* ProductDetailsModel.json */; };
+		8F1D612D2A41FE8B00B67136 /* BrandsModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D612C2A41FE8B00B67136 /* BrandsModel.json */; };
+		8F1D61312A41FF5D00B67136 /* CustomerAddress.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F1D61302A41FF5D00B67136 /* CustomerAddress.json */; };
 		8F22AC2A2A2F7B6E00016D1F /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC292A2F7B6D00016D1F /* CurrencyViewController.swift */; };
 		8F22AC2D2A2F816700016D1F /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC2C2A2F816700016D1F /* AddressViewController.swift */; };
 		8F22AC2F2A2F817900016D1F /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22AC2E2A2F817900016D1F /* AddAddressViewController.swift */; };
@@ -167,6 +176,15 @@
 		8F1539AB2A35CD9600D77550 /* ToastViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastViewExtension.swift; sourceTree = "<group>"; };
 		8F1539AF2A35E0E300D77550 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		8F1539B12A3617D300D77550 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		8F1D61172A41E68600B67136 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		8F1D61192A41E6A800B67136 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		8F1D611C2A41F08300B67136 /* BrandProductsModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BrandProductsModel.json; sourceTree = "<group>"; };
+		8F1D61222A41F48800B67136 /* MockNetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManagerTest.swift; sourceTree = "<group>"; };
+		8F1D61242A41F7EF00B67136 /* GetOrderModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = GetOrderModel.json; path = ../../../../../../../Documents/GetOrderModel.json; sourceTree = "<group>"; };
+		8F1D61262A41FBE000B67136 /* DraftOrderModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DraftOrderModel.json; sourceTree = "<group>"; };
+		8F1D612A2A41FC8200B67136 /* ProductDetailsModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProductDetailsModel.json; sourceTree = "<group>"; };
+		8F1D612C2A41FE8B00B67136 /* BrandsModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BrandsModel.json; sourceTree = "<group>"; };
+		8F1D61302A41FF5D00B67136 /* CustomerAddress.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CustomerAddress.json; sourceTree = "<group>"; };
 		8F22AC292A2F7B6D00016D1F /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		8F22AC2C2A2F816700016D1F /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		8F22AC2E2A2F817900016D1F /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +397,30 @@
 			path = viewmodel;
 			sourceTree = "<group>";
 		};
+		8F1D61162A41E67300B67136 /* mockNetworkTest */ = {
+			isa = PBXGroup;
+			children = (
+				8F1D611B2A41EB7900B67136 /* JsonResponse */,
+				8F1D61172A41E68600B67136 /* Mockable.swift */,
+				8F1D61192A41E6A800B67136 /* MockNetworkManager.swift */,
+				8F1D61222A41F48800B67136 /* MockNetworkManagerTest.swift */,
+			);
+			path = mockNetworkTest;
+			sourceTree = "<group>";
+		};
+		8F1D611B2A41EB7900B67136 /* JsonResponse */ = {
+			isa = PBXGroup;
+			children = (
+				8F1D611C2A41F08300B67136 /* BrandProductsModel.json */,
+				8F1D61242A41F7EF00B67136 /* GetOrderModel.json */,
+				8F1D61262A41FBE000B67136 /* DraftOrderModel.json */,
+				8F1D612A2A41FC8200B67136 /* ProductDetailsModel.json */,
+				8F1D612C2A41FE8B00B67136 /* BrandsModel.json */,
+				8F1D61302A41FF5D00B67136 /* CustomerAddress.json */,
+			);
+			path = JsonResponse;
+			sourceTree = "<group>";
+		};
 		8F22AC2B2A2F80C700016D1F /* address */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				262286332A41C92D00CDE42B /* DataBaseTest */,
+				8F1D61162A41E67300B67136 /* mockNetworkTest */,
 				8F5323332A40847F00AC9AAD /* networkTest */,
 				8F973BC82A2BC9D800B52879 /* ShopifyTeam4Tests.swift */,
 			);
@@ -1055,6 +1098,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F1D612B2A41FC8200B67136 /* ProductDetailsModel.json in Resources */,
+				8F1D611D2A41F08300B67136 /* BrandProductsModel.json in Resources */,
+				8F1D61312A41FF5D00B67136 /* CustomerAddress.json in Resources */,
+				8F1D61272A41FBE000B67136 /* DraftOrderModel.json in Resources */,
+				8F1D612D2A41FE8B00B67136 /* BrandsModel.json in Resources */,
+				8F1D61252A41F7EF00B67136 /* GetOrderModel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1266,9 +1315,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				262286352A41C95C00CDE42B /* TestRealm.swift in Sources */,
+
+				8F1D611A2A41E6A800B67136 /* MockNetworkManager.swift in Sources */,
 				8F973BC92A2BC9D800B52879 /* ShopifyTeam4Tests.swift in Sources */,
 				262286372A41CFB500CDE42B /* MockDataBase.swift in Sources */,
 				8F5323352A4084A600AC9AAD /* getAPiDataTests.swift in Sources */,
+				8F1D61232A41F48800B67136 /* MockNetworkManagerTest.swift in Sources */,
+				8F1D61182A41E68600B67136 /* Mockable.swift in Sources */,
 				8F5323392A40851000AC9AAD /* PostApiDataTests.swift in Sources */,
 				8F5323372A4084FC00AC9AAD /* putOrDeleteApiDataTests.swift in Sources */,
 			);

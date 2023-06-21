@@ -40,7 +40,9 @@ class ShoppingCartViewModel{
                                
                                 self?.subTotal = self!.subTotal + ( Double(results[i].price)! * Double(results[i].ItemCount) * K.EXCHANGE_RATE)
                             }else{
-                                self?.subTotal =  self!.subTotal + (Double(results[i].price)! * Double(results[i].ItemCount))
+                                let price =  self!.subTotal + (Double(results[i].price)! * Double(results[i].ItemCount))
+                                let formattedPrice = String(format: "%.2f", price) 
+                                self?.subTotal = Double(formattedPrice) ?? 0.0
                             }
                         }
              

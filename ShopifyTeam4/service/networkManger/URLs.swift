@@ -17,6 +17,9 @@ struct URLs{
     func getCurrencyURL()->String{
         return "https://openexchangerates.org/api/latest.json"
     }
+    func getBrandsURL() -> String{
+       return baseURL +  "smart_collections.json"
+    }
     
     //products
     func allProductsURL() -> String{

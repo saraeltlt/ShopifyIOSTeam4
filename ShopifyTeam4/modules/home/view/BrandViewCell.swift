@@ -48,7 +48,8 @@ class BrandViewCell: UICollectionViewCell {
             self.price.text = ""
         }
         else if (K.CURRENCY == "USD"){
-            self.price.text = "\(price) USD"
+            let formattedPrice = String(format: "%.2f", Double(price)!)
+                        self.price.text = "\(formattedPrice) USD"
             
         } else {
             let result = Int(Double(price)! * K.EXCHANGE_RATE)

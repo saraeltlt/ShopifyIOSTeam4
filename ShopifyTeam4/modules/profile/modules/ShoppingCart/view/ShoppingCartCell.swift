@@ -38,12 +38,14 @@ class ShoppingCartCell: UITableViewCell {
         self.quantity = quantity
         self.view = view
         if (K.CURRENCY == "EGP"){
-            let priceConvert = Double(price)! * K.EXCHANGE_RATE
+            let formattedPrice = String(format: "%.2f", Double(price)!)
+            let priceConvert = Double(formattedPrice)! * K.EXCHANGE_RATE
             productPrice.text = String(priceConvert) + " EGP"
             self.price = priceConvert
         }else{
-            productPrice.text = price + " USD"
-            self.price = Double(price)!
+            let formattedPrice = String(format: "%.2f", Double(price)!)
+            productPrice.text = formattedPrice + " USD"
+            self.price = Double(formattedPrice)!
         }
       
         productNameLabel.text = name
