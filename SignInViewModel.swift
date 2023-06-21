@@ -9,6 +9,7 @@ import Foundation
 class SignInViewModel{
     private var authintecationService = AuthenticationService()
     var successClosur:() -> () = {}
+    var successClosurForgetPassword:() -> () = {}
     var failClosure:(String) -> () = {_ in }
     func signInWith(email:String, password:String){
         authintecationService.userSignInActionWith(email: email, password: password) { [weak self] errorMessage in
@@ -147,6 +148,15 @@ class SignInViewModel{
             return (substringBefore, nil)
         }
     }
-    
+    func forgetPasswordAction(email:String){
+        authintecationService.forgetPasword(email: email) { [weak self] errorMsg in
+            guard let self = self else {return}
+            if let errorMsg = errorMsg{
+                self.failClosure(errorMsg)
+            }else{
+                self.successClosurForgetPassword()
+            }
+        }
+    }
     
 }

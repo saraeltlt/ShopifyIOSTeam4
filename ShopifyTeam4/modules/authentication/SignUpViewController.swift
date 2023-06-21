@@ -74,7 +74,10 @@ class SignUpViewController: UIViewController {
             self.storedPhoneNumbers = phoneNumbers
             print("number of stored number is \(storedPhoneNumbers.count)")
         }
+        
     }
+    
+
     @IBAction func togglePasswordVisibility(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry.toggle()
         sender.isSelected = !passwordTextField.isSecureTextEntry

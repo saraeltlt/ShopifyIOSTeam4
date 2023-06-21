@@ -115,4 +115,17 @@ func saveCurrentUser(uId: String,complitionHandler : @escaping(_ sucess:Bool) ->
             }
         }
     }
+    func forgetPasword(email:String,complitionHandler : @escaping(_ errorMessage:String?) -> ()){
+          // Send a password reset email to the user.
+          Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error != nil {
+                complitionHandler(error?.localizedDescription)
+              return
+            }else{
+                complitionHandler(nil)
+            }
+            // Show a success message.
+            print("Password reset email sent.")
+          }
+        }
 }
