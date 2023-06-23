@@ -246,12 +246,16 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
-        let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-        detailsVC.productId = viewModel.favoriteProducts[indexPath.row].id
-        detailsVC.modalPresentationStyle = .fullScreen
-        detailsVC.modalTransitionStyle = .crossDissolve
-        present(detailsVC, animated: true)
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
+            let storyboard = UIStoryboard(name: "ProductDetails", bundle: nil)
+            let detailsVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+            detailsVC.productId = viewModel.favoriteProducts[indexPath.row].id
+            detailsVC.modalPresentationStyle = .fullScreen
+            detailsVC.modalTransitionStyle = .crossDissolve
+            present(detailsVC, animated: true)
+        } else {
+                self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+        }
     }
     
 }

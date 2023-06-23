@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
         configureBrandCollectionObservation()
         viewModel.initIdsOfFavoriteItemsArray()
         viewModel.setLoggedUserName()
-        viewModel.getBrandsData()
+        //viewModel.getBrandsData()
         self.adsCollection.register(UINib(nibName: K.ADS_CELL, bundle: nil), forCellWithReuseIdentifier: K.ADS_CELL)
         self.brandsCollection.register(UINib(nibName: K.BRANDS_CELL, bundle: nil), forCellWithReuseIdentifier: K.BRANDS_CELL)
         timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
@@ -56,6 +56,14 @@ class HomeViewController: UIViewController {
         viewModel.getAllSotredShoppingCardItems()
         searchBar.text = ""
         viewModel.brandsArray = viewModel.backupBrandsArray
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [weak self] _ in
+            print("here after delay")
+            self?.viewModel.getAllSotredFavoriteItems()
+            self?.viewModel.getAllSotredShoppingCardItems()
+         })
     }
     
     

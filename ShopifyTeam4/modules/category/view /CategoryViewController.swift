@@ -26,7 +26,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProductsCollectionObservation()
-        viewModel.getAllProducts()
+       // viewModel.getAllProducts()
         self.container.layer.cornerRadius = self.view.bounds.width * 0.09
         self.container.layer.masksToBounds = true
         self.categoryCollection.register(UINib(nibName: K.CATEGORY_CELL, bundle: nil), forCellWithReuseIdentifier: K.CATEGORY_CELL)
