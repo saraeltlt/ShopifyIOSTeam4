@@ -67,8 +67,6 @@ class SignUpViewModel{
         }
     }
     
-    
-    
 }
 /*
  if UserDefaults.standard.object(forKey: kCURRENTUSER) != nil{

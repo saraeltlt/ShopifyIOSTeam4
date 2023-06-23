@@ -44,8 +44,27 @@ class LoginViewController: UIViewController {
             self.setScreenDefaultForm()
             self.navigateToHomeScreen()
         }
+        signInViewModel.successClosurForgetPassword = { [weak self] in
+            guard let self = self else {return}
+            self.errorTitledAlert(title: "Check your email", subTitle: "you can reset your passwod from an email has sent to your registered account")
+        }
     }
-    
+    @IBAction func forgitePasswordAction(_ sender: UIButton) {
+        if  ( InternetConnectionObservation.getInstance.internetConnection.value == true) {
+            
+            guard !( emailTextField.text!.isEmpty)
+            else {
+                self.errorTitledAlert(subTitle: "Please set the eamil", handler: nil)
+                return }
+            if !isValidEmail(emailTextField.text!){
+                self.errorTitledAlert(subTitle: "Not valid email ..", handler: nil)
+                return
+            }
+            signInViewModel.forgetPasswordAction(email: emailTextField.text!)
+    }else {
+        self.errorTitledAlert(title: "No internet Connection", subTitle: "No internet Connection please make sure to connect to 3G")
+    }
+    }
     @IBAction func backBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
     }

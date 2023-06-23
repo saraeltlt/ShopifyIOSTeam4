@@ -135,11 +135,21 @@
                                             <action selector="goToSignUpAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NaJ-7u-pfu"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQK-t0-EQy">
+                                        <rect key="frame" x="114.66666666666669" y="301" width="164" height="35"/>
+                                        <color key="tintColor" name="orange"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forget password ?"/>
+                                        <connections>
+                                            <action selector="forgitePasswordAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="K8q-JU-wwQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="paige"/>
                                 <constraints>
                                     <constraint firstItem="N9P-GG-4h8" firstAttribute="top" secondItem="xJG-7z-ytU" secondAttribute="top" constant="34" id="4D0-Jf-ieB"/>
                                     <constraint firstItem="Tov-Jh-u0w" firstAttribute="centerY" secondItem="SPd-79-EXa" secondAttribute="centerY" id="9Bm-Dl-6dL"/>
+                                    <constraint firstItem="aQK-t0-EQy" firstAttribute="top" secondItem="Tov-Jh-u0w" secondAttribute="bottom" constant="24" id="GQA-Gd-zb3"/>
                                     <constraint firstItem="LgG-Uk-fdH" firstAttribute="top" secondItem="Ia1-uD-sg8" secondAttribute="bottom" constant="34" id="ICc-yt-bl2"/>
                                     <constraint firstItem="Tov-Jh-u0w" firstAttribute="leading" secondItem="SPd-79-EXa" secondAttribute="trailing" constant="8" id="Iej-rx-6xz"/>
                                     <constraint firstAttribute="trailing" secondItem="LgG-Uk-fdH" secondAttribute="trailing" constant="32" id="OiM-7U-Zoi"/>
@@ -149,6 +159,7 @@
                                     <constraint firstItem="SPd-79-EXa" firstAttribute="top" secondItem="nvT-UW-c1E" secondAttribute="bottom" constant="24" id="S9D-2f-ZAx"/>
                                     <constraint firstItem="nvT-UW-c1E" firstAttribute="leading" secondItem="xJG-7z-ytU" secondAttribute="leading" constant="24" id="Xuh-1d-VoT"/>
                                     <constraint firstAttribute="trailing" secondItem="N9P-GG-4h8" secondAttribute="trailing" constant="24" id="ZY1-Xa-uPr"/>
+                                    <constraint firstItem="aQK-t0-EQy" firstAttribute="centerX" secondItem="xJG-7z-ytU" secondAttribute="centerX" id="aGa-Cq-B0F"/>
                                     <constraint firstItem="Ia1-uD-sg8" firstAttribute="top" secondItem="N9P-GG-4h8" secondAttribute="bottom" constant="2" id="fKw-dd-8XI"/>
                                     <constraint firstAttribute="trailing" secondItem="nvT-UW-c1E" secondAttribute="trailing" constant="24" id="gu0-r2-NtM"/>
                                     <constraint firstItem="Ia1-uD-sg8" firstAttribute="trailing" secondItem="N9P-GG-4h8" secondAttribute="trailing" id="gyC-Gc-7e3"/>
