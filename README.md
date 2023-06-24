@@ -73,7 +73,7 @@ specific category or specific brand.
 1. Clone the repository
 2. Open a new terminal in the project folder
 3. Run ``` pod install ``` in terminal
-4. Open the ``Biap.xcworkspace``
+4. Open the ``ShopifyTeam4.xcworkspace``
 5. Run the project on your iOS device or simulator
 6. Minimum deployment target IOS 16.4
 
